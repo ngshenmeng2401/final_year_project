@@ -7,7 +7,6 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    String position = 'Parent';
 
     return Scaffold(
       appBar: AppBar(
@@ -162,7 +161,7 @@ class LoginView extends GetView<LoginController> {
                   height: screenHeight / 18,
                   color: Colors.black,
                   onPressed: () {
-                    // controller.loginUser();
+                    controller.loginUser();
                   },
                   child: Text("Login",
                       // "Login".tr,

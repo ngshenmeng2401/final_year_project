@@ -1,4 +1,5 @@
 import 'package:final_year_project/route/app_pages.dart';
+import 'package:final_year_project/service/user_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -53,7 +54,13 @@ class LoginController extends GetxController{
      selectPosition = value;
      print(selectPosition);
      update();
-   }
+     storePosition(selectPosition);
+  }
+
+  void storePosition(position){
+
+    appData.write("position", position);
+  }
 
   void rememberEmailPassword (value, email, password, position){
 
@@ -83,11 +90,10 @@ class LoginController extends GetxController{
 
       appData.write("email", email);
       appData.write("password", password);
-      appData.write("position", position);
       appData.write("rememberme", value);
 
       Get.snackbar(
-        "Message","Email_Password_Position_stored",
+        "Message","Email_Password_stored",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -98,11 +104,10 @@ class LoginController extends GetxController{
       
       appData.write("email", '');
       appData.write("password", '');
-      appData.write("position", 'Parent');
       appData.write("rememberme", value);
 
       Get.snackbar(
-        "Message","Removed_Email_Password_Position",
+        "Message","Removed_Email_Password",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -110,7 +115,6 @@ class LoginController extends GetxController{
       );
       emailController.text = "";
       passwordController.text = "";
-      selectPosition = "Parent";
       rememberMe = false ;
       update();
       return;
@@ -156,5 +160,27 @@ class LoginController extends GetxController{
       confirmTextColor: Colors.white,
       buttonColor: Colors.red[200],
     );
+  }
+
+  void loginUser(){
+
+    String email = emailController.text.toString();
+    String password = passwordController.text.toString();
+
+    if(email.isEmpty){
+
+      Get.snackbar(
+        "Error","Email_Password_is_empty",
+        backgroundColor: Colors.white60,
+        colorText: Colors.black,
+        icon: Icon(Icons.error, color: Colors.black),
+        snackPosition: SnackPosition.TOP,  
+      );
+
+    }else{
+
+      UserRemoteServices.loginUser(emailController.text.toString(), passwordController.text.toString(), selectPosition);
+    
+    }
   }
 }

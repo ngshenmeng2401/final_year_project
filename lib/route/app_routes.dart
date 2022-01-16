@@ -6,8 +6,9 @@ abstract class AppRoutes{
   static const Login = '/login';
   static const Signup = '/signup';
   static const NotFound = '/notfound';
-  static const BottomNavigation = '/bottomnavigation';
-  static const HomePage = '/homepage';
+  static const ParentBottomNavigation = '/parentbottomnavigation';
+  static const StaffBottomNavigation = '/staffbottomnavigation';
+  static const TeacherBottomNavigation = '/teacherbottomnavigation';
   static const AccountPage = '/accountpage';
   static const SettingsPage = '/settingspage';
 }
