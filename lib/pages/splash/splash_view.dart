@@ -5,15 +5,22 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/logo.jfif",
-            scale: 0.6,),
+            Image.asset("assets/images/logo.JPG",
+            height: screenHeight/2,
+            width: screenWidth/1.3,
+            fit: BoxFit.fitWidth,),
+            SizedBox(height:15),
             CircularProgressIndicator(color: Colors.black,),
-            SizedBox(height:10),
+            SizedBox(height:15),
             // Text("Loading".tr),
             Text("Loading"),
           ],

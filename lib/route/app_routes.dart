@@ -11,4 +11,5 @@ abstract class AppRoutes{
   static const TeacherBottomNavigation = '/teacherbottomnavigation';
   static const AccountPage = '/accountpage';
   static const SettingsPage = '/settingspage';
+  static const Test = '/test';
 }

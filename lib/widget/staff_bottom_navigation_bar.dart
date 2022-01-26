@@ -29,6 +29,7 @@ class StaffBottomNavigationBarWidget extends StatelessWidget {
             showSelectedLabels: false,
             showUnselectedLabels: false,
             type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.black,
             elevation: 0,
             items: [
               _bottomNavigationBarItem(

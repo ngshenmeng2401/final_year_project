@@ -7,7 +7,8 @@ class StaffHomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Staff")
+        title: Text("Staff"),
+        backgroundColor: Colors.black,
       )
     );
   }

@@ -21,14 +21,16 @@ class SignUpView extends GetView<SignUpController> {
       body:SingleChildScrollView(
         child: Center(
           child:Padding(
-            padding: const EdgeInsets.fromLTRB(25,50,25,10),
+            padding: const EdgeInsets.fromLTRB(25,40,25,0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset('assets/images/logo.jfif',
+                Image.asset(
+                  'assets/images/logo.JPG',
                   height: screenHeight / 4,
                   width: screenWidth / 1.1,),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                     borderRadius: BorderRadius.all(Radius.circular(5)),

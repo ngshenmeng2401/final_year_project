@@ -28,6 +28,7 @@ class ParentBottomNavigationBarWidget extends StatelessWidget {
             currentIndex: controller.tabIndex,
             showSelectedLabels: false,
             showUnselectedLabels: false,
+            selectedItemColor: Colors.black,
             type: BottomNavigationBarType.fixed,
             elevation: 0,
             items: [

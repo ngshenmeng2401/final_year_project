@@ -7,7 +7,8 @@ class ParentHomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:Text("Parent")
+        title:Text("Parent"),
+        backgroundColor: Colors.black,
       ),
     );
   }
