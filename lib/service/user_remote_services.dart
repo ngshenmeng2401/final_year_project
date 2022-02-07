@@ -82,7 +82,7 @@ class UserRemoteServices {
 
         checkLogin(email, password, position);
         Get.snackbar(
-          "Login Success","Welcome To Tassneem E Score",
+          "Login Success","Welcome To E-TAS",
           backgroundColor: Colors.white60,
           colorText: Colors.black,
           icon: Icon(Icons.error, color: Colors.black),

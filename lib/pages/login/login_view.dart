@@ -43,7 +43,6 @@ class LoginView extends GetView<LoginController> {
                         return ListTile(
                           leading: Icon(
                             Icons.email,
-                            color: Colors.black,
                           ),
                           title: TextField(
                             keyboardType: TextInputType.emailAddress,
@@ -62,7 +61,6 @@ class LoginView extends GetView<LoginController> {
                         return ListTile(
                           leading: Icon(
                             Icons.lock,
-                            color: Colors.black,
                           ),
                           title: TextField(
                             keyboardType: TextInputType.emailAddress,
@@ -81,7 +79,6 @@ class LoginView extends GetView<LoginController> {
                         return ListTile(
                           leading: Icon(
                             Icons.person,
-                            color: Colors.black,
                           ),
                           title: Text("Position"),
                           trailing: Padding(
@@ -89,8 +86,7 @@ class LoginView extends GetView<LoginController> {
                               child: DropdownButton<String?>(
                                 value: controller.selectPosition,
                                 elevation: 28,
-                                style: const TextStyle(
-                                    color: Colors.black, fontSize: 20),
+                                style: const TextStyle(fontSize: 20),
                                 onChanged: (String? newValue) {
                                   controller.choosePosition(newValue!);
                                 },
@@ -145,7 +141,6 @@ class LoginView extends GetView<LoginController> {
                         // "Forgot_Password".tr,
                         "Forgot_Password",
                         style: TextStyle(
-                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       )),
@@ -190,7 +185,6 @@ class LoginView extends GetView<LoginController> {
                             "Sign Up",
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                           )),

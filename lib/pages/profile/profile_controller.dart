@@ -3,6 +3,11 @@ import 'package:get/get.dart';
 
 class ProfileController extends GetxController{
 
+
+  void navigateSettingsPage(){
+    Get.toNamed(AppRoutes.SettingsPage);
+  }
+
   void logoutUser(){
 
     // appData.write('isLogged', false);

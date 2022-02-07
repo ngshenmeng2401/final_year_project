@@ -1,12 +1,12 @@
-import 'package:final_year_project/pages/home/teacher/class_tile.dart';
-import 'package:final_year_project/pages/home/teacher/teacher_home_controller.dart';
+import 'package:final_year_project/pages/management/teacher/student_tile.dart';
+import 'package:final_year_project/pages/management/teacher/teacher_management_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TeacherHomeView extends StatelessWidget {
-  
-  final teacherhomeController = Get.put(TeacherHomeController());
+class TeacherManagementView extends StatelessWidget {
 
+  final teachermanageController = Get.put(TeacherManagementController());
+  
   @override
   Widget build(BuildContext context) {
 
@@ -15,8 +15,14 @@ class TeacherHomeView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Class List"),
-        backgroundColor: Colors.black,
+        title: Text("Student List"),
+        actions: [
+          IconButton(
+            onPressed: (){
+
+            }, 
+            icon: Icon(Icons.sort),)
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -37,13 +43,13 @@ class TeacherHomeView extends StatelessWidget {
                     Expanded(
                       flex: 8,
                       child: TextField(
-                        controller: teacherhomeController.searchClassController,
+                        controller: teachermanageController.searchStudentController,
                         onChanged: (value) {
-                          teacherhomeController.checkTextField();
+                          teachermanageController.checkTextField();
                         },
                         decoration: InputDecoration(
-                          // hintText: "Enter_Class_Name".tr,
-                          hintText: "Enter_Class_Name",
+                          // hintText: "Enter_Student_NameID".tr,
+                          hintText: "Enter_Student_NameID",
                           border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 18),
                         ),
@@ -54,9 +60,9 @@ class TeacherHomeView extends StatelessWidget {
                       flex: 1,
                       child: Obx(() => IconButton(
                         onPressed: () {
-                          teacherhomeController.clearTextField();
+                          teachermanageController.clearTextField();
                         },
-                        icon: teacherhomeController.isSearching.value == true
+                        icon: teachermanageController.isSearching.value == true
                             ? Icon(Icons.clear)
                             : Icon(
                                 Icons.clear,
@@ -67,7 +73,7 @@ class TeacherHomeView extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          teacherhomeController.searchStudent();
+                          teachermanageController.searchStudent();
                         }, 
                         icon: Icon(Icons.search)),
                     ),
@@ -75,23 +81,23 @@ class TeacherHomeView extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-                height: screenHeight/1.3,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, 
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10, 
-                    childAspectRatio: (screenHeight / screenWidth) / 1.8,
-                  ),
-                  itemCount: teacherhomeController.classNameList.length, 
+                padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
+                height: screenHeight/1.4,
+                child: ListView.builder(
+                  itemCount: teachermanageController.studentName.length, 
                   itemBuilder: (context, index) {
-                    return ClassTile(index);
+                    return StudentTile(index);
                   }, )
-              ),
+              )
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        teachermanageController.navigateAddStudentView();
+      },
+      child: Icon(Icons.add),
       ),
     );
   }

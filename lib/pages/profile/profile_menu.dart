@@ -17,26 +17,45 @@ class ProfileMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      height: 55,
+      height: screenHeight/17,
       margin: const EdgeInsets.fromLTRB(30, 10, 30,10),
-      child: FlatButton(
+      child: MaterialButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        color: Theme.of(context).hoverColor,
+        color: Colors.grey[200],
         onPressed: press,
-        child: Row(
-          children: <Widget>[
-            SizedBox(width:10),
-            icon,
-            SizedBox(width: 15),
-            Text(text,style: Theme.of(context).textTheme.bodyText1,),
-            Spacer(),
-            if (this.hasNavigation)
-              Icon(
-                Icons.keyboard_arrow_right,
-              ),
-          ],
+        child: 
+        ListTile(
+          leading: icon,
+          title:Text(text,
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+            ),),
+          trailing: hasNavigation == true 
+          ? Icon(Icons.keyboard_arrow_right,color: Colors.black)
+          : null,
         ),
+        // Row(
+        //   children: <Widget>[
+        //     SizedBox(width:10),
+        //     icon,
+        //     SizedBox(width: 15),
+        //     Text(text,
+        //       style: TextStyle(
+        //         fontSize: 18,
+        //       ),),
+        //     Spacer(),
+        //     if (this.hasNavigation)
+        //       Icon(
+        //         Icons.keyboard_arrow_right,
+        //       ),
+        //   ],
+        // ),
       ),
     );
   }

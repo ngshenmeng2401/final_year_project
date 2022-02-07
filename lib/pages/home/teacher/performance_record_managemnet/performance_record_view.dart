@@ -1,11 +1,13 @@
-import 'package:final_year_project/pages/home/teacher/class_tile.dart';
-import 'package:final_year_project/pages/home/teacher/teacher_home_controller.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_controller.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/teacher_record_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TeacherHomeView extends StatelessWidget {
-  
-  final teacherhomeController = Get.put(TeacherHomeController());
+class RecordListView extends StatelessWidget {
+
+  final performanceRecordController = Get.put(PerformanceRecordController());
+  final String className;
+  RecordListView(this.className);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +17,14 @@ class TeacherHomeView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Class List"),
-        backgroundColor: Colors.black,
+        title: Text("Performance Record List"),
+        actions: [
+          IconButton(
+            onPressed: (){
+
+            }, 
+            icon: Icon(Icons.sort),)
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -37,13 +45,13 @@ class TeacherHomeView extends StatelessWidget {
                     Expanded(
                       flex: 8,
                       child: TextField(
-                        controller: teacherhomeController.searchClassController,
+                        controller: performanceRecordController.searchRecordController,
                         onChanged: (value) {
-                          teacherhomeController.checkTextField();
+                          performanceRecordController.checkTextField();
                         },
                         decoration: InputDecoration(
-                          // hintText: "Enter_Class_Name".tr,
-                          hintText: "Enter_Class_Name",
+                          // hintText: "Enter_Student_NameID".tr,
+                          hintText: "Enter_Student_NameID",
                           border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 18),
                         ),
@@ -54,9 +62,9 @@ class TeacherHomeView extends StatelessWidget {
                       flex: 1,
                       child: Obx(() => IconButton(
                         onPressed: () {
-                          teacherhomeController.clearTextField();
+                          performanceRecordController.clearTextField();
                         },
-                        icon: teacherhomeController.isSearching.value == true
+                        icon: performanceRecordController.isSearching.value == true
                             ? Icon(Icons.clear)
                             : Icon(
                                 Icons.clear,
@@ -67,7 +75,7 @@ class TeacherHomeView extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          teacherhomeController.searchStudent();
+                          performanceRecordController.searchRecord();
                         }, 
                         icon: Icon(Icons.search)),
                     ),
@@ -75,23 +83,23 @@ class TeacherHomeView extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                padding: const EdgeInsets.fromLTRB(15, 20, 15, 15),
                 height: screenHeight/1.3,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, 
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10, 
-                    childAspectRatio: (screenHeight / screenWidth) / 1.8,
-                  ),
-                  itemCount: teacherhomeController.classNameList.length, 
+                child: ListView.builder(
+                  itemCount: performanceRecordController.studentName.length, 
                   itemBuilder: (context, index) {
-                    return ClassTile(index);
+                    return TeacherRecordTile(index);
                   }, )
-              ),
+              )
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        performanceRecordController.navigateAddRecordView();
+      },
+      child: Icon(Icons.add),
       ),
     );
   }

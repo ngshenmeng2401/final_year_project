@@ -46,8 +46,8 @@ class SignUpView extends GetView<SignUpController> {
                             labelText: 
                             // "Email".tr,
                             "Email",
-                            icon: Icon(Icons.email,
-                              color: Colors.black,)),
+                            icon: Icon(Icons.email,)
+                          ),
                         ),
                       ),
                       Padding(
@@ -59,8 +59,8 @@ class SignUpView extends GetView<SignUpController> {
                             labelText: 
                             // "User_Name".tr,
                             "User_Name",
-                            icon: Icon(Icons.people,
-                              color: Colors.black,)),
+                            icon: Icon(Icons.people,)
+                          ),
                         ),
                       ),
                       Padding(
@@ -72,8 +72,8 @@ class SignUpView extends GetView<SignUpController> {
                             labelText: 
                             // "Phone_No".tr,
                             "Phone_No",
-                            icon: Icon(Icons.phone,
-                              color: Colors.black,)),
+                            icon: Icon(Icons.phone,)
+                          ),
                         ),
                       ),
                       Padding(
@@ -85,8 +85,8 @@ class SignUpView extends GetView<SignUpController> {
                             labelText: 
                             // "Password".tr,
                             "Password",
-                            icon: Icon(Icons.lock,
-                              color: Colors.black,)),
+                            icon: Icon(Icons.lock,)
+                          ),
                             obscureText: true,
                         ),
                       ),
@@ -98,8 +98,7 @@ class SignUpView extends GetView<SignUpController> {
                             labelText: 
                             // "Confirm_Password".tr,
                             "Confirm_Password",
-                            icon: Icon(Icons.lock,
-                              color: Colors.black,),
+                            icon: Icon(Icons.lock,),
                             ),
                           obscureText: true,
                         )
@@ -112,8 +111,7 @@ class SignUpView extends GetView<SignUpController> {
                             labelText: 
                             // "Referral_Code".tr,
                             "Referral_Code",
-                            icon: Icon(Icons.security,
-                              color: Colors.black,),
+                            icon: Icon(Icons.security,),
                             ),
                           obscureText: true,
                         )
@@ -122,7 +120,6 @@ class SignUpView extends GetView<SignUpController> {
                         padding:const EdgeInsets.fromLTRB(20,0,20,15),
                         child: RichText(
                           text: TextSpan(
-                            style: TextStyle(color: Colors.black),
                             children: const <TextSpan>[
                               TextSpan(text: "* Only"),
                               TextSpan(text: " teacher", style: TextStyle(fontWeight: FontWeight.bold)),
@@ -178,7 +175,6 @@ class SignUpView extends GetView<SignUpController> {
                         // "Login".tr,
                         "Login",
                       style: TextStyle(
-                        color: Colors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       )),

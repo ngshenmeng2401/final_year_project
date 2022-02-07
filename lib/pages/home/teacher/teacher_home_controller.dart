@@ -1,7 +1,8 @@
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController{
+class TeacherHomeController extends GetxController{
 
   var isSearching = false.obs;
   var searchResult = false.obs;
@@ -10,7 +11,7 @@ class HomeController extends GetxController{
 
   late TextEditingController searchClassController = new TextEditingController();
 
-  List<String> className = [
+  List<String> classNameList = [
     "The Pumpkin Patch",
     "Thrashers Corner",
     "A Child’s Place",
@@ -51,6 +52,12 @@ class HomeController extends GetxController{
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search_Product".tr);
+  }
+
+  void navigateRecordListPage(String className){
+
+    // print(className);
+    Get.to(() => RecordListView(className));
   }
 
 }
