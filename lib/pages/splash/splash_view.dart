@@ -19,7 +19,7 @@ class SplashView extends StatelessWidget {
             width: screenWidth/1.3,
             fit: BoxFit.fitWidth,),
             SizedBox(height:15),
-            CircularProgressIndicator(color: Colors.black,),
+            CircularProgressIndicator(),
             SizedBox(height:15),
             // Text("Loading".tr),
             Text("Loading"),

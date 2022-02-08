@@ -23,6 +23,11 @@ class CustomDarkTheme{
             color: Colors.blue[200]!)
         ),
       ),
+      textTheme: TextTheme(
+        headline1: TextStyle(fontSize: 32.0),
+        headline6: TextStyle(fontSize: 18.0),
+        bodyText2: TextStyle(fontSize: 14.0, color: Colors.white),
+      ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.grey[900],
         selectedItemColor: Colors.blue[200],
@@ -32,6 +37,22 @@ class CustomDarkTheme{
         backgroundColor: Colors.black,
       ),
       cardColor: Colors.grey[900],
-        );
+      dividerTheme: DividerThemeData(
+        color: Colors.white
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: Colors.blue,
+      ),
+      dataTableTheme: DataTableThemeData(
+        dataTextStyle: TextStyle(
+          color: Colors.white,
+        ),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white
+          )
+        )
+      ),
+    );
   }
 }

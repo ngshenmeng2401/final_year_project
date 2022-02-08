@@ -1,5 +1,8 @@
 import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
 import 'package:final_year_project/pages/home/staff/staff_home_view.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details_binding.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/edit_record_details.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_view.dart';
 import 'package:final_year_project/pages/home/teacher/teacher_home_page.dart';
 import 'package:final_year_project/pages/login/login_binding.dart';
@@ -88,8 +91,20 @@ class AppPages{
     ),
 
     GetPage(
+      name: AppRoutes.AddRecordDetailsPage,
+      page: () => AddRecordDetailPage(),
+      binding: AddRecordDetailsBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.EditRecordDetailsPage,
+      page: () => EditRecordDetailPage(),
+      // binding: BottomNavigationBarBinding(),
+    ),
+
+    GetPage(
       name: AppRoutes.RecordListPage,
-      page: () => RecordListView("a"),
+      page: () => RecordListView(),
       // binding: BottomNavigationBarBinding(),
     ),
 

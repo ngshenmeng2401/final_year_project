@@ -2,22 +2,23 @@ import 'package:final_year_project/pages/home/teacher/performance_record_managem
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/teacher_record_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class RecordListView extends StatelessWidget {
 
   final performanceRecordController = Get.put(PerformanceRecordController());
-  final String className;
-  RecordListView(this.className);
+  final appData = GetStorage();
 
   @override
   Widget build(BuildContext context) {
 
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    String className = appData.read("className")??'';
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Performance Record List"),
+        title: Text(className),
         actions: [
           IconButton(
             onPressed: (){

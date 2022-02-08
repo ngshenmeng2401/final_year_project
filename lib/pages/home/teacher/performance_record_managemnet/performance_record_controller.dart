@@ -1,9 +1,11 @@
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class PerformanceRecordController extends GetxController{
 
+  final appData = GetStorage();
   var isSearching = false.obs;
   var searchResult = false.obs;
   var isLoading = true.obs;
@@ -11,14 +13,7 @@ class PerformanceRecordController extends GetxController{
 
   late TextEditingController searchRecordController = new TextEditingController();
 
-  List<String> studentName = [
-    "Lim Jun Jie",
-    "Jay Chou",
-    "Emma Stone",
-    "Ahmad",
-    "Ng Shen Meng",
-    "Akmal Hanis",
-    "Steve Rogers",
+  final List<String> studentName = [
     "Lim Jun Jie",
     "Jay Chou",
     "Emma Stone",
@@ -27,6 +22,16 @@ class PerformanceRecordController extends GetxController{
     "Akmal Hanis",
     "Steve Rogers",
   ];
+  var selectName = 'Lim Jun Jie';
+
+  late String className;
+  
+  @override
+  void onInit() {
+
+    super.onInit();
+
+  }
 
   Future<void> searchRecord() async {
 
@@ -63,6 +68,12 @@ class PerformanceRecordController extends GetxController{
 
   void navigateAddRecordView(){
 
-    // Get.toNamed(AppRoutes.AddRecordDetailsPage);
+    Get.toNamed(AppRoutes.AddRecordDetailsPage);
+  }
+
+  void chooseStudent(value){
+     selectName = value;
+     print(selectName);
+     update();
   }
 }

@@ -1,9 +1,11 @@
-import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_view.dart';
+import 'package:final_year_project/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class TeacherHomeController extends GetxController{
 
+  final appData = GetStorage();
   var isSearching = false.obs;
   var searchResult = false.obs;
   var isLoading = true.obs;
@@ -56,8 +58,8 @@ class TeacherHomeController extends GetxController{
 
   void navigateRecordListPage(String className){
 
-    // print(className);
-    Get.to(() => RecordListView(className));
+    appData.write("className", className);
+    Get.toNamed(AppRoutes.RecordListPage);
   }
 
 }

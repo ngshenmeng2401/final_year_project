@@ -135,7 +135,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                   GestureDetector(
                       onTap: () {
-                        // controller.forgotPasswordDialog();
+                        controller.forgotPasswordDialog();
                       },
                       child: Text(
                         // "Forgot_Password".tr,

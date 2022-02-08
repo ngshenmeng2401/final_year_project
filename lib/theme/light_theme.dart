@@ -28,10 +28,9 @@ class CustomLightTheme{
       textTheme: TextTheme(
         headline1: TextStyle(fontSize: 32.0),
         headline6: TextStyle(fontSize: 18.0),
-        bodyText2: TextStyle(fontSize: 14.0),
+        bodyText2: TextStyle(fontSize: 14.0, color: Colors.black),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        
         backgroundColor: Colors.grey[350],
         selectedItemColor: Colors.blue[200],
         unselectedItemColor: Colors.black,
@@ -40,6 +39,23 @@ class CustomLightTheme{
         backgroundColor: Colors.blue,
       ),
       cardColor: Colors.grey[200],
+      dividerTheme: DividerThemeData(
+        color: Colors.blue,
+      ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: Colors.blue,
+      ),
+      dataTableTheme: DataTableThemeData(
+        dataTextStyle: TextStyle(
+          color: Colors.black,
+        ),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black
+          )
+        )
+      ),
+      
     );
   }
 }
