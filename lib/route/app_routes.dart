@@ -17,6 +17,8 @@ abstract class AppRoutes{
   static const StaffHomePage = '/staffhomepage';
   static const TeacherHomePage = '/teacherhomepage';
 
+  static const ChildrenDetailsPage = '/childrendetailspage';
+
   static const RecordListPage = '/recordlistpage';
   static const AddRecordDetailsPage = '/addrecordpage';
   static const EditRecordDetailsPage = '/editrecordpage';

@@ -1,6 +1,7 @@
+import 'package:final_year_project/pages/home/parent/children_details.dart/children_details_view.dart';
 import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
 import 'package:final_year_project/pages/home/staff/staff_home_view.dart';
-import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details_view.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details_binding.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/edit_record_details.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_view.dart';
@@ -76,6 +77,12 @@ class AppPages{
       name: AppRoutes.ParentHomePage,
       page: () => ParentHomeView(),
       // binding: BottomNavigationBarBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.ChildrenDetailsPage,
+      page: () => ChildrenDetailsView(),
+      // binding: AddRecordDetailsBinding(),
     ),
 
     GetPage(

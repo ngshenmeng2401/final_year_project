@@ -1,26 +1,23 @@
+import 'package:final_year_project/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController{
+class ParentHomeController extends GetxController{
 
   var isSearching = false.obs;
+  late TextEditingController searchChildrenController = new TextEditingController();
+
   var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
 
-  late TextEditingController searchClassController = new TextEditingController();
-
-  List<String> className = [
-    "The Pumpkin Patch",
-    "Thrashers Corner",
-    "A Child’s Place",
-    "Fun Acres Preschool",
-    "Treasure Island",
-    "Paradise Petals",
-    "The Toddler House",
+  List<String> childrenName = [
+    "Wong Jun Jie",
+    "Wong Li Wen",
+    "Wong Kai Lnn",
   ];
 
-  Future<void> searchStudent() async {
+  Future<void> searchChildren() async {
 
     // searchProductController.text = "Bake";
 
@@ -41,16 +38,20 @@ class HomeController extends GetxController{
 
   void checkTextField(){
 
-    searchClassController.text.isEmpty
+    searchChildrenController.text.isEmpty
       ? isSearching.value = false
       : isSearching.value = true;
   }
 
   void clearTextField(){
-    searchClassController.clear();
+    searchChildrenController.clear();
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search_Product".tr);
   }
 
+  void navigateChildrenDetailsPage(String childrenName){
+
+    Get.toNamed(AppRoutes.ChildrenDetailsPage);
+  }
 }

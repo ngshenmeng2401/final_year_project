@@ -72,7 +72,7 @@ class ParentManagementController extends GetxController{
   void addChildren(){
 
     Get.defaultDialog(
-      title: "Forgot_Your_Password".tr,
+      title: "Please_key_in:".tr,
       content: Column(
         children: [
           Padding(
