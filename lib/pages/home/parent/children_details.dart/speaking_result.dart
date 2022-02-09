@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SpeakingResult extends StatelessWidget {
@@ -15,7 +16,7 @@ class SpeakingResult extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text("Speaking",style: const TextStyle(fontSize: 22),),
+          Text("Speaking".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Table(
             columnWidths: {
@@ -41,7 +42,7 @@ class SpeakingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Use simple words.",)
+                        child: Text("Use simple words.".tr,)
                     )),
                   ),
                   TableCell(
@@ -67,7 +68,7 @@ class SpeakingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Use simple statements.",)
+                        child: Text("Use simple statements.".tr,)
                     )),
                   ),
                   TableCell(
@@ -93,7 +94,7 @@ class SpeakingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Ask simple questions.",)
+                        child: Text("Ask simple questions.".tr,)
                     )),
                   ),
                   TableCell(
@@ -119,7 +120,7 @@ class SpeakingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Sing/recite songs, rhymes, poems.",)
+                        child: Text("Sing/recite songs, rhymes, poems.".tr,)
                     )),
                   ),
                   TableCell(
@@ -145,7 +146,7 @@ class SpeakingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Tell simple stories.",)
+                        child: Text("Tell simple stories.".tr,)
                     )),
                   ),
                   TableCell(
@@ -171,7 +172,7 @@ class SpeakingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Total",)
+                        child: Text("Total".tr,)
                     )),
                   ),
                   TableCell(

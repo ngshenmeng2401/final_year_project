@@ -13,7 +13,7 @@ class SignUpView extends GetView<SignUpController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("Sign Up",
+        title: Text("Sign Up".tr,
           style:TextStyle(
             fontSize:24
           )),
@@ -44,8 +44,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.emailController,
                           decoration: InputDecoration(
                             labelText: 
-                            // "Email".tr,
-                            "Email",
+                            "Email".tr,
                             icon: Icon(Icons.email,)
                           ),
                         ),
@@ -57,8 +56,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.userNameController,
                           decoration: InputDecoration(
                             labelText: 
-                            // "User_Name".tr,
-                            "User_Name",
+                            "User_Name".tr,
                             icon: Icon(Icons.people,)
                           ),
                         ),
@@ -70,8 +68,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.phoneNoController,
                           decoration: InputDecoration(
                             labelText: 
-                            // "Phone_No".tr,
-                            "Phone_No",
+                            "Phone_No".tr,
                             icon: Icon(Icons.phone,)
                           ),
                         ),
@@ -83,8 +80,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.passwordController,
                           decoration: InputDecoration(
                             labelText: 
-                            // "Password".tr,
-                            "Password",
+                            "Password".tr,
                             icon: Icon(Icons.lock,)
                           ),
                             obscureText: true,
@@ -96,8 +92,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.confirmPasswordController,
                           decoration: InputDecoration(
                             labelText: 
-                            // "Confirm_Password".tr,
-                            "Confirm_Password",
+                            "Confirm_Password".tr,
                             icon: Icon(Icons.lock,),
                             ),
                           obscureText: true,
@@ -109,29 +104,33 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.referralCodeController,
                           decoration: InputDecoration(
                             labelText: 
-                            // "Referral_Code".tr,
-                            "Referral_Code",
+                            "Referral_Code".tr,
                             icon: Icon(Icons.security,),
                             ),
                           obscureText: true,
                         )
                       ),
+                      // Padding(
+                      //   padding:const EdgeInsets.fromLTRB(20,0,20,15),
+                      //   child: RichText(
+                      //     text: TextSpan(
+                      //       children: const <TextSpan>[
+                      //         TextSpan(text: "* Only"),
+                      //         TextSpan(text: " teacher", style: TextStyle(fontWeight: FontWeight.bold)),
+                      //         TextSpan(text: " and"),
+                      //         TextSpan(text: " staff", style: TextStyle(fontWeight: FontWeight.bold)),
+                      //         TextSpan(text: " need to key in referral code,"),
+                      //         TextSpan(text: " parent", style: TextStyle(fontWeight: FontWeight.bold)),
+                      //         TextSpan(text: " just key in"),
+                      //         TextSpan(text: " ' - '. ", style: TextStyle(fontWeight: FontWeight.bold)),
+                      //       ],
+                      //     ),
+                      //   )
+                      // ),
                       Padding(
                         padding:const EdgeInsets.fromLTRB(20,0,20,15),
-                        child: RichText(
-                          text: TextSpan(
-                            children: const <TextSpan>[
-                              TextSpan(text: "* Only"),
-                              TextSpan(text: " teacher", style: TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: " and"),
-                              TextSpan(text: " staff", style: TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: " need to key in referral code,"),
-                              TextSpan(text: " parent", style: TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: " just key in"),
-                              TextSpan(text: " ' - '. ", style: TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        )
+                        child: Text("* Only teacher and staff need to key in referral code, parent just key in ' - '. ".tr,
+                          textAlign: TextAlign.justify,)
                       ),
                     ],
                   ),
@@ -148,8 +147,7 @@ class SignUpView extends GetView<SignUpController> {
                     controller.signUpDialog();
                   },
                   child: Text(
-                    // "Sign_Up".tr,
-                    "Sign_Up",
+                    "Sign_Up".tr,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -160,8 +158,7 @@ class SignUpView extends GetView<SignUpController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      // "Already_have_an_account".tr,
-                      "Already_have_an_account",
+                      "Already_have_an_account".tr,
                       style: TextStyle(
                         fontSize: 16,
                         // fontWeight: FontWeight.bold,
@@ -172,8 +169,7 @@ class SignUpView extends GetView<SignUpController> {
                         controller.navigateLoginView();
                       },
                       child: Text(
-                        // "Login".tr,
-                        "Login",
+                        "Login".tr,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,

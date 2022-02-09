@@ -51,8 +51,7 @@ class RecordListView extends StatelessWidget {
                           performanceRecordController.checkTextField();
                         },
                         decoration: InputDecoration(
-                          // hintText: "Enter_Student_NameID".tr,
-                          hintText: "Enter_Student_NameID",
+                          hintText: "Enter_Student_NameID".tr,
                           border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 18),
                         ),

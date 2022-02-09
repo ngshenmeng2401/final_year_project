@@ -17,7 +17,7 @@ class AddRecordDetailPage extends GetView<PerformanceRecordController> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Record Detail"),
+        title: Text("Add Record Detail".tr),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -30,7 +30,7 @@ class AddRecordDetailPage extends GetView<PerformanceRecordController> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Student ID",
+                  Text("Student ID".tr,
                   style: TextStyle(fontSize: 22),),
                   GetBuilder<PerformanceRecordController>(
                     init: PerformanceRecordController(),
@@ -75,7 +75,7 @@ class AddRecordDetailPage extends GetView<PerformanceRecordController> {
                 ),
                 minWidth: screenWidth/1,
                 height: screenHeight/18,
-                child: Text('Submit',
+                child: Text('Submit'.tr,
                   style: TextStyle(fontSize: 20,),
                 ),
                 onPressed: (){

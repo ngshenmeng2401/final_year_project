@@ -15,7 +15,7 @@ class TeacherHomeView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Class List"),
+        title: Text("Class List".tr),
         backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(
@@ -42,8 +42,7 @@ class TeacherHomeView extends StatelessWidget {
                           teacherhomeController.checkTextField();
                         },
                         decoration: InputDecoration(
-                          // hintText: "Enter_Class_Name".tr,
-                          hintText: "Enter_Class_Name",
+                          hintText: "Enter_Class_Name".tr,
                           border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 18),
                         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:group_button/group_button.dart';
 
@@ -17,14 +18,14 @@ class ListeningQuestions extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("Listening",style: const TextStyle(fontSize: 22),),
+          Text("Listening".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Container(
             child: Row(
               children: [
                 Text("1."),
                 SizedBox(width: 10),
-                Text("Listen to and identify sounds in the enviroment.",style: const TextStyle(fontSize: 16),),
+                Text("Listen to and identify sounds in the enviroment.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -55,7 +56,7 @@ class ListeningQuestions extends StatelessWidget {
               children: [
                 Text("2."),
                 SizedBox(width: 10),
-                Text("Identify words with same beginning sounds.",style: const TextStyle(fontSize: 16),),
+                Text("Identify words with same beginning sounds.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -86,7 +87,7 @@ class ListeningQuestions extends StatelessWidget {
               children: [
                 Text("3."),
                 SizedBox(width: 10),
-                Text("Understand and follow simple instructions.",style: const TextStyle(fontSize: 16),),
+                Text("Understand and follow simple instructions.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -117,7 +118,7 @@ class ListeningQuestions extends StatelessWidget {
               children: [
                 Text("4."),
                 SizedBox(width: 10),
-                Text("Understand meaning of simple words.",style: const TextStyle(fontSize: 16),),
+                Text("Understand meaning of simple words.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),

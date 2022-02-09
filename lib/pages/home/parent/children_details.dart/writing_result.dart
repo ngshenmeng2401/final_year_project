@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class WritingResult extends StatelessWidget {
@@ -15,7 +16,7 @@ class WritingResult extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text("Writing",style: const TextStyle(fontSize: 22),),
+          Text("Writing".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Table(
             columnWidths: {
@@ -41,7 +42,7 @@ class WritingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Write letters of alphabets.",)
+                        child: Text("Write letters of alphabets.".tr,)
                     )),
                   ),
                   TableCell(
@@ -67,7 +68,7 @@ class WritingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Write simple words.",)
+                        child: Text("Write simple words.".tr,)
                     )),
                   ),
                   TableCell(
@@ -93,7 +94,7 @@ class WritingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Total",)
+                        child: Text("Total".tr,)
                     )),
                   ),
                   TableCell(

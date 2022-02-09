@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class ReadingResult extends StatelessWidget {
@@ -15,7 +16,7 @@ class ReadingResult extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text("Reading",style: const TextStyle(fontSize: 22),),
+          Text("Reading".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Table(
             columnWidths: {
@@ -41,7 +42,7 @@ class ReadingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Name letters of the alphabet.",)
+                        child: Text("Name letters of the alphabet.".tr,)
                     )),
                   ),
                   TableCell(
@@ -67,7 +68,7 @@ class ReadingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Read high frequency words.",)
+                        child: Text("Read high frequency words.".tr,)
                     )),
                   ),
                   TableCell(
@@ -93,7 +94,7 @@ class ReadingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Read simple words.",)
+                        child: Text("Read simple words.".tr,)
                     )),
                   ),
                   TableCell(
@@ -119,7 +120,7 @@ class ReadingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Read simple sentences.",)
+                        child: Text("Read simple sentences.".tr,)
                     )),
                   ),
                   TableCell(
@@ -145,7 +146,7 @@ class ReadingResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Total",)
+                        child: Text("Total".tr,)
                     )),
                   ),
                   TableCell(

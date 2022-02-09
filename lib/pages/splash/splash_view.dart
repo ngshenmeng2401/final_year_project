@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({ Key? key }) : super(key: key);
@@ -21,8 +22,7 @@ class SplashView extends StatelessWidget {
             SizedBox(height:15),
             CircularProgressIndicator(),
             SizedBox(height:15),
-            // Text("Loading".tr),
-            Text("Loading"),
+            Text("Loading".tr),
           ],
         ),
       )

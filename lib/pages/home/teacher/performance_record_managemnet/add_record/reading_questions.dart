@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:group_button/group_button.dart';
 
@@ -17,14 +18,14 @@ class ReadingQuestions extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("Reading",style: const TextStyle(fontSize: 22),),
+          Text("Reading".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Container(
             child: Row(
               children: [
                 Text("1."),
                 SizedBox(width: 10),
-                Text("Name letters of the alphabet.",style: const TextStyle(fontSize: 16),),
+                Text("Name letters of the alphabet.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -55,7 +56,7 @@ class ReadingQuestions extends StatelessWidget {
               children: [
                 Text("2."),
                 SizedBox(width: 10),
-                Text("Read high frequency words.",style: const TextStyle(fontSize: 16),),
+                Text("Read high frequency words.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -86,7 +87,7 @@ class ReadingQuestions extends StatelessWidget {
               children: [
                 Text("3."),
                 SizedBox(width: 10),
-                Text("Read simple words.",style: const TextStyle(fontSize: 16),),
+                Text("Read simple words.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -117,7 +118,7 @@ class ReadingQuestions extends StatelessWidget {
               children: [
                 Text("4."),
                 SizedBox(width: 10),
-                Text("Read simple sentences.",style: const TextStyle(fontSize: 16),),
+                Text("Read simple sentences.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:group_button/group_button.dart';
 
@@ -17,14 +18,14 @@ class SpeakingQuestions extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("Speaking",style: const TextStyle(fontSize: 22),),
+          Text("Speaking".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Container(
             child: Row(
               children: [
                 Text("1."),
                 SizedBox(width: 10),
-                Text("Use simple words.",style: const TextStyle(fontSize: 16),),
+                Text("Use simple words.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -55,7 +56,7 @@ class SpeakingQuestions extends StatelessWidget {
               children: [
                 Text("2."),
                 SizedBox(width: 10),
-                Text("Use simple statements.",style: const TextStyle(fontSize: 16),),
+                Text("Use simple statements.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -86,7 +87,7 @@ class SpeakingQuestions extends StatelessWidget {
               children: [
                 Text("3."),
                 SizedBox(width: 10),
-                Text("Ask simple questions.",style: const TextStyle(fontSize: 16),),
+                Text("Ask simple questions.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -117,7 +118,7 @@ class SpeakingQuestions extends StatelessWidget {
               children: [
                 Text("4."),
                 SizedBox(width: 10),
-                Text("Sing/recite songs, rhymes, poems.",style: const TextStyle(fontSize: 16),),
+                Text("Sing/recite songs, rhymes, poems.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -148,7 +149,7 @@ class SpeakingQuestions extends StatelessWidget {
               children: [
                 Text("5."),
                 SizedBox(width: 10),
-                Text("Tell simple stories.",style: const TextStyle(fontSize: 16),),
+                Text("Tell simple stories.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),

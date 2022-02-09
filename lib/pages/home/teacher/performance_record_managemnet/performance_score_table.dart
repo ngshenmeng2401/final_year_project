@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class PerformanceScoreTable extends StatelessWidget {
@@ -62,35 +63,35 @@ class PerformanceScoreTable extends StatelessWidget {
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("Very Poor")
+                  child: Text("Very Poor".tr)
               )),
             ),
             TableCell(
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("Poor")
+                  child: Text("Poor".tr)
               )),
             ),
             TableCell(
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("Moderate")
+                  child: Text("Moderate".tr)
               )),
             ),
             TableCell(
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("Good")
+                  child: Text("Good".tr)
               )),
             ),
             TableCell(
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("Excellent")
+                  child: Text("Excellent".tr)
               )),
             ),
           ],

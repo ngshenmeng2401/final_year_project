@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:group_button/group_button.dart';
 
@@ -17,14 +18,14 @@ class WritingQuestions extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text("Writing",style: const TextStyle(fontSize: 22),),
+          Text("Writing".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Container(
             child: Row(
               children: [
                 Text("1."),
                 SizedBox(width: 10),
-                Text("Write letters of alphabets.",style: const TextStyle(fontSize: 16),),
+                Text("Write letters of alphabets.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),
@@ -55,7 +56,7 @@ class WritingQuestions extends StatelessWidget {
               children: [
                 Text("2."),
                 SizedBox(width: 10),
-                Text("Write simple words.",style: const TextStyle(fontSize: 16),),
+                Text("Write simple words.".tr,style: const TextStyle(fontSize: 16),),
               ],
             ),
           ),

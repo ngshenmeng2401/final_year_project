@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
 
 class ListeningResult extends StatelessWidget {
 
@@ -15,7 +16,7 @@ class ListeningResult extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Text("Listening",style: const TextStyle(fontSize: 22),),
+          Text("Listening".tr,style: const TextStyle(fontSize: 22),),
           SizedBox(height: 10),
           Table(
             columnWidths: {
@@ -41,7 +42,7 @@ class ListeningResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Listen to and identify sounds in the enviroment.",)
+                        child: Text("Listen to and identify sounds in the enviroment.".tr,)
                     )),
                   ),
                   TableCell(
@@ -67,7 +68,7 @@ class ListeningResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Identify words with same beginning sounds.",)
+                        child: Text("Identify words with same beginning sounds.".tr,)
                     )),
                   ),
                   TableCell(
@@ -93,7 +94,7 @@ class ListeningResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Understand and follow simple instructions.",)
+                        child: Text("Understand and follow simple instructions.".tr,)
                     )),
                   ),
                   TableCell(
@@ -119,7 +120,7 @@ class ListeningResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Understand meaning of simple words.",)
+                        child: Text("Understand meaning of simple words.".tr,)
                     )),
                   ),
                   TableCell(
@@ -145,7 +146,7 @@ class ListeningResult extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                       child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text("Total",)
+                        child: Text("Total".tr)
                     )),
                   ),
                   TableCell(

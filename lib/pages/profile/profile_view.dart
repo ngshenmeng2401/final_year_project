@@ -17,7 +17,7 @@ class ProfileView extends GetView<ProfileController> {
 
     return Scaffold(
       appBar:AppBar(
-        title: Text('Profile',),
+        title: Text('Profile'.tr,),
         backgroundColor: Colors.black,
       ),
       body:Center(
@@ -50,15 +50,15 @@ class ProfileView extends GetView<ProfileController> {
                         padding:const EdgeInsets.fromLTRB(0, 20, 0, 10),
                         child: Column(
                           children:[
-                            Text("Username",
+                            Text("Username".tr,
                               style: TextStyle(fontSize: 18),
                             ),
                             SizedBox(height:5),
-                            Text("Email",
+                            Text("Email".tr,
                               style: TextStyle(fontSize: 18),
                             ),
                             SizedBox(height:5),
-                            Text("Phone No",
+                            Text("Phone No".tr,
                               style: TextStyle(fontSize: 18),
                             ),
                           ]
@@ -73,26 +73,26 @@ class ProfileView extends GetView<ProfileController> {
                   children:[
                      ProfileMenu(
                       icon: Icon(Icons.person,color: Colors.black),
-                      text: "Edit Profile",
+                      text: "Edit Profile".tr,
                       press: (){
                       },
                     ),
                     ProfileMenu(
                       icon: Icon(Icons.lock,color: Colors.black),
-                      text: "Change Password",
+                      text: "Change Password".tr,
                       press: (){
                       },
                     ),
                     ProfileMenu(
                       icon: Icon(Icons.settings_outlined,color: Colors.black),
-                      text: "Settings",
+                      text: "Settings".tr,
                       press: (){ 
                         controller.navigateSettingsPage();
                       },
                     ),
                     ProfileMenu(
                       icon: Icon(Icons.logout,color: Colors.red,),
-                      text: "Logout",
+                      text: "Logout".tr,
                       press: (){
                         controller.logoutUser();
                       },

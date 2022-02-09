@@ -15,7 +15,7 @@ class TeacherManagementView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Student List"),
+        title: Text("Student List".tr),
         actions: [
           IconButton(
             onPressed: (){
@@ -48,8 +48,7 @@ class TeacherManagementView extends StatelessWidget {
                           teachermanageController.checkTextField();
                         },
                         decoration: InputDecoration(
-                          // hintText: "Enter_Student_NameID".tr,
-                          hintText: "Enter_Student_NameID",
+                          hintText: "Enter_Student_NameID".tr,
                           border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 18),
                         ),

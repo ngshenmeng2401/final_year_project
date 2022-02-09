@@ -15,7 +15,7 @@ class ParentManagementView extends GetView<ParentManagementController> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Children List"),
+        title: Text("Children List".tr),
         actions: [
           IconButton(
             onPressed: (){

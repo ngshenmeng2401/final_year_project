@@ -15,7 +15,7 @@ class ParentHomeView extends GetView<ParentHomeController> {
 
     return Scaffold(
       appBar: AppBar(
-        title:Text("Parent"),
+        title:Text("Parent".tr),
         backgroundColor: Colors.black,
       ),
       body: SingleChildScrollView(

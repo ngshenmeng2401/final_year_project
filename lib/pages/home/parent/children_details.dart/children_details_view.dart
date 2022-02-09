@@ -19,7 +19,7 @@ class ChildrenDetailsView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Details"),
+        title: Text("Details".tr),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -33,7 +33,7 @@ class ChildrenDetailsView extends StatelessWidget {
                 children: [
                   Container(
                     width: screenWidth/4,
-                    child: Text("Student ID:",
+                    child: Text("Student ID:".tr,
                       style: TextStyle(fontSize: 22),),
                   ),
                   Container(
@@ -50,7 +50,7 @@ class ChildrenDetailsView extends StatelessWidget {
                 children: [
                   Container(
                     width: screenWidth/4,
-                    child: Text("Name:",
+                    child: Text("Name:".tr,
                       style: TextStyle(fontSize: 22),),
                   ),
                   Container(
@@ -80,7 +80,7 @@ class ChildrenDetailsView extends StatelessWidget {
                 ),
                 minWidth: screenWidth/1,
                 height: screenHeight/18,
-                child: Text('Confirm',
+                child: Text('Confirm'.tr,
                   style: TextStyle(fontSize: 20,),
                 ),
                 onPressed: (){

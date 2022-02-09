@@ -11,7 +11,7 @@ class LoginView extends GetView<LoginController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("Login", style: TextStyle(fontSize: 24)),
+        title: Text("Login".tr, style: TextStyle(fontSize: 24)),
       ),
       body: SingleChildScrollView(
           child: Center(
@@ -48,8 +48,7 @@ class LoginView extends GetView<LoginController> {
                             keyboardType: TextInputType.emailAddress,
                             controller: _.emailController,
                             decoration: InputDecoration(
-                              // labelText: "Email".tr,
-                              labelText: "Email",
+                              labelText: "Email".tr,
                             ),
                           ),
                         );
@@ -66,8 +65,7 @@ class LoginView extends GetView<LoginController> {
                             keyboardType: TextInputType.emailAddress,
                             controller: _.passwordController,
                             decoration: InputDecoration(
-                              // labelText: "Email".tr,
-                              labelText: "Password",
+                              labelText: "Password".tr,
                             ),
                           ),
                         );
@@ -80,7 +78,7 @@ class LoginView extends GetView<LoginController> {
                           leading: Icon(
                             Icons.person,
                           ),
-                          title: Text("Position"),
+                          title: Text("Position".tr),
                           trailing: Padding(
                               padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                               child: DropdownButton<String?>(
@@ -129,8 +127,7 @@ class LoginView extends GetView<LoginController> {
                               });
                         },
                       ),
-                      // Text("Remember_Me".tr),
-                      Text("Remember_Me", style: TextStyle(fontSize: 16)),
+                      Text("Remember_Me".tr, style: TextStyle(fontSize: 16)),
                     ],
                   ),
                   GestureDetector(
@@ -138,8 +135,7 @@ class LoginView extends GetView<LoginController> {
                         controller.forgotPasswordDialog();
                       },
                       child: Text(
-                        // "Forgot_Password".tr,
-                        "Forgot_Password",
+                        "Forgot_Password".tr,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -158,7 +154,7 @@ class LoginView extends GetView<LoginController> {
                   onPressed: () {
                     controller.loginUser();
                   },
-                  child: Text("Login",
+                  child: Text("Login".tr,
                       // "Login".tr,
                       style: TextStyle(
                         color: Colors.white,
@@ -171,7 +167,7 @@ class LoginView extends GetView<LoginController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't have an account ?",
+                      Text("Don't_have_an_account_?".tr,
                           style: TextStyle(fontSize: 16)),
                       SizedBox(
                         width: 10,
@@ -181,8 +177,7 @@ class LoginView extends GetView<LoginController> {
                             controller.navigateSignUpView();
                           },
                           child: Text(
-                            // "Sign Up".tr,
-                            "Sign Up",
+                            "Sign Up".tr,
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,

@@ -14,7 +14,7 @@ class AddStudentDetailsView extends StatelessWidget {
 
     return Scaffold(
       appBar:AppBar(
-        title: Text('Add Details'),
+        title: Text('Add Details'.tr),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -26,7 +26,7 @@ class AddStudentDetailsView extends StatelessWidget {
                 controller: teachermanageController.studentIDController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: 'Student ID',
+                  labelText: 'Student ID'.tr,
                   labelStyle: TextStyle(
                   )
                 ),
@@ -36,7 +36,7 @@ class AddStudentDetailsView extends StatelessWidget {
                 controller: teachermanageController.studentNameController,
                 keyboardType: TextInputType.name,
                 decoration: InputDecoration(
-                  labelText: 'Student Name',
+                  labelText: 'Student Name'.tr,
                   labelStyle: TextStyle(
                   )
                 ),
@@ -45,7 +45,7 @@ class AddStudentDetailsView extends StatelessWidget {
               TextField(
                 controller: teachermanageController.studentClassController,
                 decoration: InputDecoration(
-                  labelText: 'Class',
+                  labelText: 'Class'.tr,
                   labelStyle: TextStyle(
                   )
                 ),
@@ -55,7 +55,7 @@ class AddStudentDetailsView extends StatelessWidget {
                 controller: teachermanageController.studentAgeController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: 'Age',
+                  labelText: 'Age'.tr,
                   labelStyle: TextStyle(
                   )
                 ),
@@ -65,7 +65,7 @@ class AddStudentDetailsView extends StatelessWidget {
                 controller: teachermanageController.parentIDController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: 'Parent ID',
+                  labelText: 'Parent ID'.tr,
                   labelStyle: TextStyle(
                   )
                 ),
@@ -75,7 +75,7 @@ class AddStudentDetailsView extends StatelessWidget {
                 controller: teachermanageController.phoneNoController,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
-                  labelText: 'Phone No',
+                  labelText: 'Phone No'.tr,
                   labelStyle: TextStyle(
                   )
                 ),
@@ -87,7 +87,7 @@ class AddStudentDetailsView extends StatelessWidget {
                 ),
                 minWidth: screenWidth/1,
                 height: screenHeight/18,
-                child: Text('Submit',
+                child: Text('Submit'.tr,
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white),
