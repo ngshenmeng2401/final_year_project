@@ -1,4 +1,5 @@
 import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
+import 'package:final_year_project/pages/management/parent/parent_management_view.dart';
 import 'package:final_year_project/pages/profile/profile_view.dart';
 import 'package:final_year_project/widget/bottom_navigation_bar_controller.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,6 +19,7 @@ class ParentBottomNavigationBarWidget extends StatelessWidget {
               index: controller.tabIndex,
               children: [
                 ParentHomeView(),
+                ParentManagementView(),
                 ProfileView(),
               ],
             ),
@@ -35,6 +37,10 @@ class ParentBottomNavigationBarWidget extends StatelessWidget {
               _bottomNavigationBarItem(
                 icon: CupertinoIcons.home,
                 label: 'Home',
+              ),
+              _bottomNavigationBarItem(
+                icon: Icons.assignment_ind,
+                label: 'Management',
               ),
               _bottomNavigationBarItem(
                 icon: CupertinoIcons.person,
