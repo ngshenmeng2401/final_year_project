@@ -1,5 +1,5 @@
+import 'package:final_year_project/pages/management/parent/children_tile.dart';
 import 'package:final_year_project/pages/management/parent/parent_management_controller.dart';
-import 'package:final_year_project/pages/management/teacher/student_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -85,7 +85,7 @@ class ParentManagementView extends GetView<ParentManagementController> {
                 child: ListView.builder(
                   itemCount: parentmanageController.studentName.length, 
                   itemBuilder: (context, index) {
-                    return StudentTile(index);
+                    return ChildrenTile(index);
                   }, )
               )
             ],

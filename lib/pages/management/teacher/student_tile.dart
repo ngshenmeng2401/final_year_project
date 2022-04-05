@@ -1,10 +1,10 @@
-import 'package:final_year_project/pages/management/parent/parent_management_controller.dart';
+import 'package:final_year_project/pages/management/teacher/teacher_management_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class StudentTile extends StatelessWidget {
 
-  final parentmanageController = Get.put(ParentManagementController());
+  final teachermanageController = Get.put(TeacherManagementController());
   final int index;
   StudentTile(this.index);
   
@@ -31,14 +31,14 @@ class StudentTile extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          title: Text(parentmanageController.studentName[index],
+          title: Text(teachermanageController.studentName[index],
             style: TextStyle(fontSize: 18),),
           subtitle: Text("274059",),
           trailing: IconButton(
             onPressed: () {
-              parentmanageController.addChildren();
+              teachermanageController.navigateEditStudentView();
             },
-            icon: Icon(Icons.add),
+            icon: Icon(Icons.edit),
           ),
         )
       )
