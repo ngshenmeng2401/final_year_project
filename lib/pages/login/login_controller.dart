@@ -15,7 +15,7 @@ class LoginController extends GetxController{
   var email = '';
   var password = '';
   var rememberMe = false;
-  var selectPosition = 'Parent';
+  late var selectPosition = 'Parent';
   final List<String> position = ["Parent","Staff","Teacher"];
 
   @override
@@ -125,7 +125,7 @@ class LoginController extends GetxController{
 
     String email = appData.read("email")??'';
     String password = appData.read("password")??'';
-    String loadPosition = appData.read("position")??'';
+    String? loadPosition = appData.read("position")??'';
     rememberMe= (appData.read("rememberme")??false);
 
     emailController.text=email;

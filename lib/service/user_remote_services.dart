@@ -81,13 +81,6 @@ class UserRemoteServices {
       }else{
 
         checkLogin(email, password, position);
-        Get.snackbar(
-          "Login Success","Welcome To E-TAS",
-          backgroundColor: Colors.white60,
-          colorText: Colors.black,
-          icon: Icon(Icons.error, color: Colors.black),
-          snackPosition: SnackPosition.TOP,  
-        );
       }
       return resp;
     } else {

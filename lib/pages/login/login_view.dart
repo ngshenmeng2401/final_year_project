@@ -84,7 +84,7 @@ class LoginView extends GetView<LoginController> {
                               child: DropdownButton<String?>(
                                 value: controller.selectPosition,
                                 elevation: 28,
-                                style: const TextStyle(fontSize: 20),
+                                style: const TextStyle(fontSize: 20, color: Colors.black),
                                 onChanged: (String? newValue) {
                                   controller.choosePosition(newValue!);
                                 },

@@ -19,7 +19,7 @@ class CustomLightTheme{
       inputDecorationTheme: InputDecorationTheme(
         // fillColor: Colors.red[200],
         focusColor: Colors.blue[200],
-        labelStyle: TextStyle(color: Colors.red[300]),
+        labelStyle: TextStyle(),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: Colors.blue[200]!)
