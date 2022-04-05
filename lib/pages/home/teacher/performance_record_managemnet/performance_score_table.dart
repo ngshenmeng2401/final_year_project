@@ -24,48 +24,27 @@ class PerformanceScoreTable extends StatelessWidget {
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("1")
+                  child: Text("Level 1")
               )),
             ),
             TableCell(
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("2")
+                  child: Text("Level 2")
               )),
             ),
             TableCell(
               child: Container(
                 height: screenHeight/32,
                 child: Center(
-                  child: Text("3")
-              )),
-            ),
-            TableCell(
-              child: Container(
-                height: screenHeight/32,
-                child: Center(
-                  child: Text("4")
-              )),
-            ),
-            TableCell(
-              child: Container(
-                height: screenHeight/32,
-                child: Center(
-                  child: Text("5")
+                  child: Text("Level 3")
               )),
             ),
           ],
         ),
         TableRow(
           children: [
-            TableCell(
-              child: Container(
-                height: screenHeight/32,
-                child: Center(
-                  child: Text("Very Poor".tr)
-              )),
-            ),
             TableCell(
               child: Container(
                 height: screenHeight/32,
@@ -85,13 +64,6 @@ class PerformanceScoreTable extends StatelessWidget {
                 height: screenHeight/32,
                 child: Center(
                   child: Text("Good".tr)
-              )),
-            ),
-            TableCell(
-              child: Container(
-                height: screenHeight/32,
-                child: Center(
-                  child: Text("Excellent".tr)
               )),
             ),
           ],
