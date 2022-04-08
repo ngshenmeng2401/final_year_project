@@ -23,6 +23,7 @@ class AddStudentDetailsView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextField(
+                autofocus: false,
                 onChanged: (value) => addStudentDetailsController.checkStudentForm(),
                 controller: addStudentDetailsController.studentNameController,
                 keyboardType: TextInputType.name,
@@ -34,6 +35,7 @@ class AddStudentDetailsView extends StatelessWidget {
               ),
               SizedBox(height: 10),
               TextField(
+                autofocus: false,
                 onChanged: (value) => addStudentDetailsController.checkStudentForm(),
                 controller: addStudentDetailsController.studentClassController,
                 decoration: InputDecoration(
@@ -44,6 +46,7 @@ class AddStudentDetailsView extends StatelessWidget {
               ),
               SizedBox(height: 10),
               TextField(
+                autofocus: false,
                 onChanged: (value) => addStudentDetailsController.checkStudentForm(),
                 controller: addStudentDetailsController.studentAgeController,
                 keyboardType: TextInputType.number,
@@ -55,6 +58,7 @@ class AddStudentDetailsView extends StatelessWidget {
               ),
               SizedBox(height: 10),
               TextField(
+                autofocus: false,
                 onChanged: (value) {
                   addStudentDetailsController.checkStudentForm();
                   addStudentDetailsController.checkParentId();
@@ -85,6 +89,7 @@ class AddStudentDetailsView extends StatelessWidget {
               ),
               SizedBox(height: 10),
               TextField(
+                autofocus: false,
                 onChanged: (value) => addStudentDetailsController.checkStudentForm(),
                 controller: addStudentDetailsController.phoneNoController,
                 keyboardType: TextInputType.phone,
@@ -103,17 +108,17 @@ class AddStudentDetailsView extends StatelessWidget {
                 height: screenHeight / 18,
                 color: Colors.black,
                 onPressed: addStudentDetailsController.isTyping.value == true
-                ? () {
-                    addStudentDetailsController.addStudentDialog();
-                  }
-                : null,
-                child: Text("Submit".tr,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    )),
+                  ? () {
+                      addStudentDetailsController.addStudentDialog();
+                    }
+                  : null,
+                  child: Text("Submit".tr,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      )),
+                )
               )
-            )
             ],
           ),
         ),
