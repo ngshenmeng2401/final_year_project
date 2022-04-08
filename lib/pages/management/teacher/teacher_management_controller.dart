@@ -1,4 +1,6 @@
+import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/route/app_pages.dart';
+import 'package:final_year_project/service/teacher_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,17 +8,13 @@ class TeacherManagementController extends GetxController{
 
   var isSearching = false.obs;
   late TextEditingController searchStudentController = new TextEditingController();
-  late TextEditingController studentIDController = new TextEditingController();
-  late TextEditingController studentNameController = new TextEditingController();
-  late TextEditingController studentClassController = new TextEditingController();
-  late TextEditingController studentAgeController = new TextEditingController();
-  late TextEditingController parentIDController = new TextEditingController();
-  late TextEditingController phoneNoController = new TextEditingController();
 
-  // var productList = <Product>[].obs;
+  var studentList = <Student>[].obs;
   var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
+  var isTyping = false.obs;
+  var isUnder = false.obs;
 
   List<String> studentName = [
     "Lim Jun Jie",
@@ -35,23 +33,43 @@ class TeacherManagementController extends GetxController{
     "Steve Rogers",
   ];
 
+  @override
+  void onInit() {
+
+    super.onInit();
+    checkTextField();
+    loadStudentList();
+  }
+
+  void loadStudentList() async{
+
+    
+    var student = await TeacherRemoteServices.fetchStudent();
+    if (student != null) {
+      studentList.clear();
+      studentList.assignAll(student);
+    } else {
+      statusMsj("No any post".tr);
+    }
+  }
+
   Future<void> searchStudent() async {
 
     // searchProductController.text = "Bake";
 
-    try {
-      isLoading(true);
-      // var products = await ProductRemoveService.searchProduct(searchProductController.text.toString());
-      // if (products != null) {
-      //   productList.assignAll(products);
-      //   searchResult.value = true;
-      // } else {
-      //   searchResult.value = false;
-      //   statusMsj("Not_Found".tr);
-      // }
-    } finally {
-      isLoading(false);
-    }
+    // try {
+    //   isLoading(true);
+    //   var products = await TeacherRemoteServices.searchProduct(searchProductController.text.toString());
+    //   if (products != null) {
+    //     studentList.assignAll(products);
+    //     searchResult.value = true;
+    //   } else {
+    //     searchResult.value = false;
+    //     statusMsj("Not_Found".tr);
+    //   }
+    // } finally {
+    //   isLoading(false);
+    // }
   }
 
   void checkTextField(){
@@ -70,7 +88,7 @@ class TeacherManagementController extends GetxController{
 
   void navigateAddStudentView(){
 
-    Get.toNamed(AppRoutes.AddStudentDetailsPage);
+    Get.toNamed(AppRoutes.AddStudentDetailsPage)!.then((value) => loadStudentList());
   }
 
   void navigateEditStudentView(){

@@ -83,9 +83,9 @@ class TeacherManagementView extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
                 height: screenHeight/1.4,
                 child: ListView.builder(
-                  itemCount: teachermanageController.studentName.length, 
+                  itemCount: teachermanageController.studentList.length, 
                   itemBuilder: (context, index) {
-                    return StudentTile(index);
+                    return StudentTile(index, teachermanageController.studentList[index]);
                   }, )
               )
             ],

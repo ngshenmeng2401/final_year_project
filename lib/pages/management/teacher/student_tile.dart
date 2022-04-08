@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_management_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,8 @@ class StudentTile extends StatelessWidget {
 
   final teachermanageController = Get.put(TeacherManagementController());
   final int index;
-  StudentTile(this.index);
+  final Student student;
+  StudentTile(this.index, this.student);
   
   @override
   Widget build(BuildContext context) {
@@ -31,9 +33,9 @@ class StudentTile extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          title: Text(teachermanageController.studentName[index],
+          title: Text(student.name.toString(),
             style: TextStyle(fontSize: 18),),
-          subtitle: Text("274059",),
+          subtitle: Text(student.id.toString(),),
           trailing: IconButton(
             onPressed: () {
               teachermanageController.navigateEditStudentView();
