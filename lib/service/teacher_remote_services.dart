@@ -39,12 +39,21 @@ class TeacherRemoteServices{
     }
   }
 
-  static Future<List<Student>?> fetchStudent() async {
+  static Future<List<Student>?> fetchStudent(String name, String action, String sortValue) async {
+
+    print(name);
+    print(action);
+    print(sortValue);
 
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/list_student.php"),);
+          "https://javathree99.com/s271059/final_year_project/load_student.php"),
+          body: {
+            "name":name,
+            "action" : action,
+            "sortValue" : sortValue,
+          });
       if (response.statusCode == 200) {
         if (response.body == "nodata") {
           return null;

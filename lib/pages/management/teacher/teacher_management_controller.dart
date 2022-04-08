@@ -10,28 +10,18 @@ class TeacherManagementController extends GetxController{
   late TextEditingController searchStudentController = new TextEditingController();
 
   var studentList = <Student>[].obs;
-  var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
   var isTyping = false.obs;
   var isUnder = false.obs;
 
-  List<String> studentName = [
-    "Lim Jun Jie",
-    "Jay Chou",
-    "Emma Stone",
-    "Ahmad",
-    "Ng Shen Meng",
-    "Akmal Hanis",
-    "Steve Rogers",
-    "Lim Jun Jie",
-    "Jay Chou",
-    "Emma Stone",
-    "Ahmad",
-    "Ng Shen Meng",
-    "Akmal Hanis",
-    "Steve Rogers",
+  List<String> sortingList = [
+    "Default",
+    "idD",
+    "nameA",
+    "nameD",
   ];
+  var selectSorting = "Default";
 
   @override
   void onInit() {
@@ -43,33 +33,55 @@ class TeacherManagementController extends GetxController{
 
   void loadStudentList() async{
 
-    
-    var student = await TeacherRemoteServices.fetchStudent();
-    if (student != null) {
-      studentList.clear();
-      studentList.assignAll(student);
-    } else {
-      statusMsj("No any post".tr);
+    try {
+      isLoading(true);
+      var student = await TeacherRemoteServices.fetchStudent("a", "load", "a");
+      if (student != null) {
+        studentList.assignAll(student);
+      } else {
+        statusMsj("No any post".tr);
+      }
+    } finally {
+      isLoading(false);
     }
+    
   }
 
   Future<void> searchStudent() async {
 
-    // searchProductController.text = "Bake";
+    String searchStudent = searchStudentController.text.toString();
+    studentList.clear();
 
-    // try {
-    //   isLoading(true);
-    //   var products = await TeacherRemoteServices.searchProduct(searchProductController.text.toString());
-    //   if (products != null) {
-    //     studentList.assignAll(products);
-    //     searchResult.value = true;
-    //   } else {
-    //     searchResult.value = false;
-    //     statusMsj("Not_Found".tr);
-    //   }
-    // } finally {
-    //   isLoading(false);
-    // }
+    try {
+      isLoading(true);
+      var student = await TeacherRemoteServices.fetchStudent(searchStudent, "search", "a");
+      if (student != null) {
+        studentList.assignAll(student);
+        print(studentList);
+      } else {
+        statusMsj("No_data".tr);
+      }
+    } finally {
+      isLoading(false);
+    }
+  }
+
+  Future<void> sortStudent(String sortValue) async {
+
+    studentList.clear();
+
+    try {
+      isLoading(true);
+      var student = await TeacherRemoteServices.fetchStudent("1", "sort", sortValue);
+      if (student != null) {
+        studentList.assignAll(student);
+      } else {
+        // gaeUnittList = null;
+        statusMsj("No_data".tr);
+      }
+    } finally {
+      isLoading(false);
+    }
   }
 
   void checkTextField(){
@@ -82,8 +94,92 @@ class TeacherManagementController extends GetxController{
   void clearTextField(){
     searchStudentController.clear();
     isSearching.value = false;
-    // productList.clear();
-    statusMsj("Search_Product".tr);
+    // studentList.clear();
+    loadStudentList();
+  }
+
+  void sortStudentDialog(){
+
+    Get.defaultDialog(
+      
+      title: "Sort by:".tr,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GetBuilder<TeacherManagementController>(
+            init: TeacherManagementController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Default".tr),
+                trailing: Radio(
+                    value: sortingList[0],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+          GetBuilder<TeacherManagementController>(
+            init: TeacherManagementController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Student Id with Descending Order".tr),
+                trailing: Radio(
+                    value: sortingList[1],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+          GetBuilder<TeacherManagementController>(
+            init: TeacherManagementController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Name with Ascending Order".tr),
+                trailing: Radio(
+                    value: sortingList[2],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+          GetBuilder<TeacherManagementController>(
+            init: TeacherManagementController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Name with Descending Order".tr),
+                trailing: Radio(
+                    value: sortingList[3],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+        ],
+      ),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm: () {
+        Get.back();
+        sortStudent(selectSorting);
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
+  }
+
+  void clickSorting(value) {
+    selectSorting = value;
+    // print(selectSorting);
+    update();
   }
 
   void navigateAddStudentView(){

@@ -3,7 +3,7 @@ import 'package:final_year_project/pages/management/teacher/teacher_management_c
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TeacherManagementView extends StatelessWidget {
+class TeacherManagementView extends GetView<TeacherManagementController> {
 
   final teachermanageController = Get.put(TeacherManagementController());
   
@@ -19,7 +19,7 @@ class TeacherManagementView extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: (){
-
+              teachermanageController.sortStudentDialog();
             }, 
             icon: Icon(Icons.sort),)
         ],
@@ -80,13 +80,25 @@ class TeacherManagementView extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
                 height: screenHeight/1.4,
-                child: ListView.builder(
-                  itemCount: teachermanageController.studentList.length, 
-                  itemBuilder: (context, index) {
-                    return StudentTile(index, teachermanageController.studentList[index]);
-                  }, )
+                child: Obx(() {
+                    if (controller.studentList.isEmpty) {
+                      return Center(
+                        child: Text(
+                        controller.statusMsj.toString(),
+                        style: const TextStyle(fontSize: 20),
+                      ));
+                    } else {
+                      return Container(
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        child: ListView.builder(
+                          itemCount: controller.studentList.length, 
+                          itemBuilder: (context, index) {
+                            return StudentTile(index, teachermanageController.studentList[index]);
+                        }, )
+                      );
+                    }
+                }),
               )
             ],
           ),
