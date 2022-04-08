@@ -8,8 +8,8 @@ import 'package:final_year_project/pages/home/teacher/performance_record_managem
 import 'package:final_year_project/pages/home/teacher/teacher_home_page.dart';
 import 'package:final_year_project/pages/login/login_binding.dart';
 import 'package:final_year_project/pages/login/login_view.dart';
-import 'package:final_year_project/pages/management/teacher/add_student_view.dart';
-import 'package:final_year_project/pages/management/teacher/edit_student_view.dart';
+import 'package:final_year_project/pages/management/teacher/add_student/add_student_view.dart';
+import 'package:final_year_project/pages/management/teacher/edit_student/edit_student_view.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_manage_binding.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_management_view.dart';
 import 'package:final_year_project/pages/not_found_screen.dart';
