@@ -42,7 +42,7 @@ class AddRecordDetailPage extends GetView<PerformanceRecordController> {
                           menuMaxHeight: screenHeight/4,
                           value: controller.selectName,
                           elevation: 28,
-                          style: const TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: 20, color: Colors.black),
                           onChanged: (String? newValue) {
                             controller.chooseStudent(newValue!);
                           },

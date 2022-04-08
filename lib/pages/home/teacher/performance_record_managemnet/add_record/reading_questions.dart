@@ -1,7 +1,7 @@
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:group_button/group_button.dart';
 
 class ReadingQuestions extends StatelessWidget {
 
@@ -18,131 +18,232 @@ class ReadingQuestions extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: 10),
           Text("Reading".tr,style: const TextStyle(fontSize: 22),),
-          SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                flex: 8,
+                child: SizedBox()),
+              Expanded(
+                flex: 2,
+                child: Text("Level", 
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center),)
+            ],
+          ),
+          SizedBox(height:15),
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text("1."),
-                SizedBox(width: 10),
-                Text("Name letters of the alphabet.".tr,style: const TextStyle(fontSize: 16),),
+                Expanded(
+                  flex: 1,
+                  child: Text("1.")),
+                Expanded(
+                  flex: 7,
+                  child: Text("Name letters of the alphabet.".tr,
+                    style: const TextStyle(fontSize: 16),)),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: GetBuilder<AddRecordController>(
+                      init: AddRecordController(),
+                      builder: (_) {
+                        return Container(
+                          height: 35,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black38, width:1),
+                          ),
+                          child: DropdownButton<String?>(
+                            isExpanded: true,
+                            // menuMaxHeight: screenHeight/5,
+                            value: _.levelRQ[0],
+                            elevation: 28,
+                            style: const TextStyle(
+                              fontSize: 16, 
+                              color: Colors.black),
+                            onChanged: (String? newValue) {
+                              _.chooseRQLevel(newValue!, 0);
+                            },
+                            underline: Container(),
+                            items: [
+                              for (var data in _.level)
+                                DropdownMenuItem(
+                                  child: Center(
+                                    child: Text(
+                                      data,
+                                    ),
+                                  ),
+                                  value: data,
+                                )
+                            ]
+                          ));
+                        },
+                      ),),
+                )
               ],
             ),
           ),
-          SizedBox(height: 10),
-          GroupButton(
-            groupRunAlignment: GroupRunAlignment.spaceBetween,
-            borderRadius: BorderRadius.circular(10),
-            textAlign: TextAlign.center,
-            groupingType: GroupingType.wrap,
-            spacing: screenWidth/16,
-            unselectedColor: isDarkMode == false ? Colors.grey[600] : Colors.grey,
-            selectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            unselectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            buttons: [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-            ], 
-            onSelected: (int index, bool isSelected) {
-              print("${index+1}");
-              isSelected = true;
-            },),
-          SizedBox(height: 10),
+          SizedBox(height: 15),
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text("2."),
-                SizedBox(width: 10),
-                Text("Read high frequency words.".tr,style: const TextStyle(fontSize: 16),),
+                Expanded(
+                  flex: 1,
+                  child: Text("2.")),
+                Expanded(
+                  flex: 7,
+                  child: Text("Read high frequency words.".tr,
+                    style: const TextStyle(fontSize: 16),)),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: GetBuilder<AddRecordController>(
+                      init: AddRecordController(),
+                      builder: (_) {
+                        return Container(
+                          height: 35,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black38, width:1),
+                          ),
+                          child: DropdownButton<String?>(
+                            isExpanded: true,
+                            // menuMaxHeight: screenHeight/5,
+                            value: _.levelRQ[1],
+                            elevation: 28,
+                            style: const TextStyle(
+                              fontSize: 16, 
+                              color: Colors.black),
+                            onChanged: (String? newValue) {
+                              _.chooseRQLevel(newValue!, 1);
+                            },
+                            underline: Container(),
+                            items: [
+                              for (var data in _.level)
+                                DropdownMenuItem(
+                                  child: Center(
+                                    child: Text(
+                                      data,
+                                    ),
+                                  ),
+                                  value: data,
+                                )
+                            ]
+                          ));
+                        },
+                      ),),
+                )
               ],
             ),
           ),
-          SizedBox(height: 10),
-          GroupButton(
-            groupRunAlignment: GroupRunAlignment.spaceBetween,
-            borderRadius: BorderRadius.circular(10),
-            textAlign: TextAlign.center,
-            groupingType: GroupingType.wrap,
-            spacing: screenWidth/16,
-            unselectedColor: isDarkMode == false ? Colors.grey[600] : Colors.grey,
-            selectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            unselectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            buttons: [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-            ], 
-            onSelected: (int index, bool isSelected) {
-              print("${index+1}");
-              isSelected = true;
-            },),
-          SizedBox(height: 10),
+          SizedBox(height: 15),
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text("3."),
-                SizedBox(width: 10),
-                Text("Read simple words.".tr,style: const TextStyle(fontSize: 16),),
+                Expanded(
+                  flex: 1,
+                  child: Text("3.")),
+                Expanded(
+                  flex: 7,
+                  child: Text("Read simple words.".tr,
+                    style: const TextStyle(fontSize: 16),)),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: GetBuilder<AddRecordController>(
+                      init: AddRecordController(),
+                      builder: (_) {
+                        return Container(
+                          height: 35,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black38, width:1),
+                          ),
+                          child: DropdownButton<String?>(
+                            isExpanded: true,
+                            // menuMaxHeight: screenHeight/5,
+                            value: _.levelRQ[2],
+                            elevation: 28,
+                            style: const TextStyle(
+                              fontSize: 16, 
+                              color: Colors.black),
+                            onChanged: (String? newValue) {
+                              _.chooseRQLevel(newValue!, 2);
+                            },
+                            underline: Container(),
+                            items: [
+                              for (var data in _.level)
+                                DropdownMenuItem(
+                                  child: Center(
+                                    child: Text(
+                                      data,
+                                    ),
+                                  ),
+                                  value: data,
+                                )
+                            ]
+                          ));
+                        },
+                      ),),
+                )
               ],
             ),
           ),
-          SizedBox(height: 10),
-          GroupButton(
-            groupRunAlignment: GroupRunAlignment.spaceBetween,
-            borderRadius: BorderRadius.circular(10),
-            textAlign: TextAlign.center,
-            groupingType: GroupingType.wrap,
-            spacing: screenWidth/16,
-            unselectedColor: isDarkMode == false ? Colors.grey[600] : Colors.grey,
-            selectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            unselectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            buttons: [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-            ], 
-            onSelected: (int index, bool isSelected) {
-              print("${index+1}");
-              isSelected = true;
-            },),
-          SizedBox(height: 10),
+          SizedBox(height: 15),
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text("4."),
-                SizedBox(width: 10),
-                Text("Read simple sentences.".tr,style: const TextStyle(fontSize: 16),),
+                Expanded(
+                  flex: 1,
+                  child: Text("4.")),
+                Expanded(
+                  flex: 7,
+                  child: Text("Read simple sentences.".tr,
+                    style: const TextStyle(fontSize: 16),)),
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    child: GetBuilder<AddRecordController>(
+                      init: AddRecordController(),
+                      builder: (_) {
+                        return Container(
+                          height: 35,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black38, width:1),
+                          ),
+                          child: DropdownButton<String?>(
+                            isExpanded: true,
+                            // menuMaxHeight: screenHeight/5,
+                            value: _.levelRQ[3],
+                            elevation: 28,
+                            style: const TextStyle(
+                              fontSize: 16, 
+                              color: Colors.black),
+                            onChanged: (String? newValue) {
+                              _.chooseRQLevel(newValue!, 3);
+                            },
+                            underline: Container(),
+                            items: [
+                              for (var data in _.level)
+                                DropdownMenuItem(
+                                  child: Center(
+                                    child: Text(
+                                      data,
+                                    ),
+                                  ),
+                                  value: data,
+                                )
+                            ]
+                          ));
+                        },
+                      ),),
+                )
               ],
             ),
           ),
-          SizedBox(height: 10),
-          GroupButton(
-            groupRunAlignment: GroupRunAlignment.spaceBetween,
-            borderRadius: BorderRadius.circular(10),
-            textAlign: TextAlign.center,
-            groupingType: GroupingType.wrap,
-            spacing: screenWidth/16,
-            unselectedColor: isDarkMode == false ? Colors.grey[600] : Colors.grey,
-            selectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            unselectedTextStyle: TextStyle(color: isDarkMode == false ? Colors.black : Colors.white,),
-            buttons: [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-            ], 
-            onSelected: (int index, bool isSelected) {
-              print("${index+1}");
-              isSelected = true;
-            },),
         ],
       ),
     );
