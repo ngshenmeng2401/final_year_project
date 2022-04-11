@@ -5,13 +5,16 @@ import 'package:get/get.dart';
 class AddStudentDetailsController extends GetxController{
 
   late TextEditingController studentNameController = new TextEditingController();
-  late TextEditingController studentClassController = new TextEditingController();
   late TextEditingController studentAgeController = new TextEditingController();
   late TextEditingController parentIDController = new TextEditingController();
   late TextEditingController phoneNoController = new TextEditingController();
 
   var isTyping = false.obs;
   var isUnder = false.obs;
+  var isPhoneNumber = false.obs;
+
+  late var selectClass = 'Amanah';
+  final List<String> studentClass = ["Amanah","Bestari","Cerdas"];
 
   @override
   void onInit() {
@@ -28,9 +31,18 @@ class AddStudentDetailsController extends GetxController{
     : isUnder.value = false;
   }
 
+  void checkPhoneNo(){
+
+    if(phoneNoController.text.length >= 10 && phoneNoController.text.length <= 11){
+      isPhoneNumber.value = true;
+    }else{
+      isPhoneNumber.value = false;
+    }
+  }
+
   void checkStudentForm(){
 
-    if(studentNameController.text.isEmpty || studentClassController.text.isEmpty || studentAgeController.text.isEmpty || parentIDController.text.isEmpty || phoneNoController.text.isEmpty){
+    if(studentNameController.text.isEmpty || studentAgeController.text.isEmpty || parentIDController.text.isEmpty || phoneNoController.text.isEmpty){
 
       isTyping.value = false;
     }else{
@@ -38,10 +50,15 @@ class AddStudentDetailsController extends GetxController{
     }
   }
 
+  void chooseClass(value){
+     selectClass = value;
+     print(selectClass);
+     update();
+  }
+
   void addStudentDialog(){
 
     String name = studentNameController.text.toString();
-    String studentClass = studentClassController.text.toString();
     String age = studentAgeController.text.toString();
     String parentId = parentIDController.text.toString();
     String phoneNo = phoneNoController.text.toString();
@@ -53,7 +70,7 @@ class AddStudentDetailsController extends GetxController{
       textCancel: "No".tr,
       onConfirm:() => {
         Get.back(),
-        addStudentDetails(name, studentClass, age, parentId, phoneNo),
+        addStudentDetails(name, selectClass, age, parentId, phoneNo),
       },
       cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,
@@ -63,7 +80,7 @@ class AddStudentDetailsController extends GetxController{
 
   void addStudentDetails(String name, String studentClass, String age, String parentId, String phoneNo){
 
-    if(isTyping.value == false || isUnder.value == false){
+    if(isTyping.value == false || isUnder.value == false || isPhoneNumber.value == false){
 
       Get.snackbar(
         "Add Failed","Please check your input value",
@@ -76,7 +93,6 @@ class AddStudentDetailsController extends GetxController{
 
       TeacherRemoteServices.addStudentDetails(name, studentClass, age, parentId, phoneNo);
       studentNameController.clear();
-      studentClassController.clear();
       studentAgeController.clear();
       parentIDController.clear();
       phoneNoController.clear();

@@ -34,17 +34,35 @@ class AddStudentDetailsView extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 10),
-              TextField(
-                autofocus: false,
-                onChanged: (value) => addStudentDetailsController.checkStudentForm(),
-                controller: addStudentDetailsController.studentClassController,
-                decoration: InputDecoration(
-                  labelText: 'Class'.tr,
-                  labelStyle: TextStyle(
-                  )
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Class", style: TextStyle(fontSize: 16)),
+                  GetBuilder<AddStudentDetailsController>(
+                    init: AddStudentDetailsController(),
+                    builder: (_) {
+                      return DropdownButton<String?>(
+                        value: _.selectClass,
+                        elevation: 28,
+                        style: const TextStyle(fontSize: 16, color: Colors.black),
+                        onChanged: (String? newValue) {
+                          _.chooseClass(newValue!);
+                        },
+                        items: [
+                          for (var data in _.studentClass)
+                            DropdownMenuItem(
+                              child: new Text(
+                                data,
+                              ),
+                              value: data,
+                            )
+                        ]
+                      );
+                    },
+                  ),
+                ],
               ),
-              SizedBox(height: 10),
+              // SizedBox(height: 10),
               TextField(
                 autofocus: false,
                 onChanged: (value) => addStudentDetailsController.checkStudentForm(),
@@ -90,14 +108,36 @@ class AddStudentDetailsView extends StatelessWidget {
               SizedBox(height: 10),
               TextField(
                 autofocus: false,
-                onChanged: (value) => addStudentDetailsController.checkStudentForm(),
+                onChanged: (value) {
+                  addStudentDetailsController.checkPhoneNo();
+                  addStudentDetailsController.checkStudentForm();
+                },
                 controller: addStudentDetailsController.phoneNoController,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   labelText: 'Phone No'.tr,
-                  labelStyle: TextStyle(
-                  )
                 ),
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Obx(() =>Icon(Icons.error,
+                    color: addStudentDetailsController.isPhoneNumber.value == true ? Colors.green : Colors.red,
+                    size: 20,),
+                  ),
+                  
+                  SizedBox(width: 10),
+                  Obx(() => addStudentDetailsController.isPhoneNumber.value == true
+                  ? Text("Valid Phone Number",
+                    style:  TextStyle(
+                      color: Colors.green,
+                    ),)
+                  : Text("Invalid Phone Number",
+                    style:  TextStyle(
+                      color: Colors.red,
+                    ),),
+                  ),
+                ]
               ),
               SizedBox(height: 15),
               Obx(() => MaterialButton(
