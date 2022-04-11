@@ -99,6 +99,7 @@ class AddStudentDetailsController extends GetxController{
 
       isTyping.value = false;
       isUnder.value = false;
+      isPhoneNumber.value = false;
     }
   }
 }
