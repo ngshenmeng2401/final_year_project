@@ -39,11 +39,61 @@ class TeacherRemoteServices{
     }
   }
 
-  static Future<List<Student>?> fetchStudent(String name, String action, String sortValue) async {
+  static Future<String?> updateStudentDetails(String id, String oldValue, String newValue, String category) async {
+    
+    print(newValue);
+    print(category);
 
-    print(name);
-    print(action);
-    print(sortValue);
+    var response = await client.post(
+
+      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_student.php'), 
+      body: {
+        "id" : id,
+        "oldValue" : oldValue,
+        "newValue" : newValue,
+        "category" : category,
+      });
+    print(response.body);
+    if (response.body == "success") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
+  static Future<String?> deleteStudentDetails(String id, String age, String classRoom) async {
+    
+    print(id);
+    print(classRoom);
+    var response = await client.post(
+
+      Uri.parse('https://javathree99.com/s271059/final_year_project/delete_student.php'), 
+      body: {
+        "id" : id,
+        "age" : age,
+        "classRoom" : classRoom,
+      });
+    print(response.body);
+    if (response.body == "success") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
+  static Future<List<Student>?> fetchStudent(String name, String action, String sortValue) async {
 
     var response =
       await client.post(
@@ -59,7 +109,7 @@ class TeacherRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return studentFromJson(jsonString);
         }
       } else {
