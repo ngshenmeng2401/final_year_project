@@ -128,10 +128,10 @@ class AppPages{
       page: () => AddStudentDetailsView(),
     ),
 
-    GetPage(
-      name: AppRoutes.EditStudentDetailsPage,
-      page: () => EditStudentDetailsView(),
-    ),
+    // GetPage(
+    //   name: AppRoutes.EditStudentDetailsPage,
+    //   page: () => EditStudentDetailsView(),
+    // ),
 
 
     //Profile

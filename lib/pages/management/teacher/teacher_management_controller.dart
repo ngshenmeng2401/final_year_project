@@ -1,4 +1,5 @@
 import 'package:final_year_project/model/student.dart';
+import 'package:final_year_project/pages/management/teacher/edit_student/edit_student_view.dart';
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:final_year_project/service/teacher_remote_services.dart';
 import 'package:flutter/material.dart';
@@ -187,8 +188,8 @@ class TeacherManagementController extends GetxController{
     Get.toNamed(AppRoutes.AddStudentDetailsPage)!.then((value) => loadStudentList());
   }
 
-  void navigateEditStudentView(){
+  void navigateEditStudentView(Student student){
 
-    Get.toNamed(AppRoutes.EditStudentDetailsPage);
+    Get.to(() => EditStudentDetailsView(student))!.then((value) => loadStudentList());
   }
 }

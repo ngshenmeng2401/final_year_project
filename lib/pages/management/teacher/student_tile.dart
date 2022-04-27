@@ -38,9 +38,9 @@ class StudentTile extends StatelessWidget {
           subtitle: Text(student.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              teachermanageController.navigateEditStudentView();
+              teachermanageController.navigateEditStudentView(student);
             },
-            icon: Icon(Icons.edit),
+            icon: Icon(Icons.info_outline),
           ),
         )
       )
