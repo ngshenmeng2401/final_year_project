@@ -66,7 +66,7 @@ class TeacherHomeView extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          teacherhomeController.searchStudent();
+                          // teacherhomeController.searchStudent();
                         }, 
                         icon: Icon(Icons.search)),
                     ),
@@ -83,9 +83,9 @@ class TeacherHomeView extends StatelessWidget {
                     crossAxisSpacing: 10, 
                     childAspectRatio: (screenHeight / screenWidth) / 1.8,
                   ),
-                  itemCount: teacherhomeController.classNameList.length, 
+                  itemCount: teacherhomeController.classroomList.length, 
                   itemBuilder: (context, index) {
-                    return ClassTile(index);
+                    return ClassTile(index, teacherhomeController.classroomList[index]);
                   }, )
               ),
             ],

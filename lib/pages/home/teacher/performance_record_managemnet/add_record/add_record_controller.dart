@@ -1,4 +1,7 @@
+import 'package:final_year_project/model/student.dart';
+import 'package:final_year_project/service/teacher_remote_services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AddRecordController extends GetxController{
 
@@ -12,6 +15,36 @@ class AddRecordController extends GetxController{
     "2",
     "3",
   ];
+
+  final appData = GetStorage(); 
+  var studentList = <Student>[].obs;
+  var isLoading = true.obs;
+  var statusMsj = "Loading".obs;
+
+  @override
+  void onInit() {
+
+    super.onInit();
+    loadStudentList();
+  }
+
+  void loadStudentList() async{
+
+    String className = appData.read("className")??'';
+
+    // try {
+    //   isLoading(true);
+    //   var student = await TeacherRemoteServices.fetchStudent(className);
+    //   if (student != null) {
+    //     studentList.assignAll(student);
+    //   } else {
+    //     statusMsj("No any post".tr);
+    //   }
+    // } finally {
+    //   isLoading(false);
+    // }
+    
+  }
 
   void chooseLQLevel(value, int index){
     levelLQ[index] = value;
