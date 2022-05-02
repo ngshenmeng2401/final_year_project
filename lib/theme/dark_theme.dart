@@ -53,6 +53,9 @@ class CustomDarkTheme{
           )
         )
       ),
+      listTileTheme: ListTileThemeData(
+        tileColor: Colors.grey[700],
+      ),
     );
   }
 }

@@ -55,7 +55,9 @@ class CustomLightTheme{
           )
         )
       ),
-      
+      listTileTheme: ListTileThemeData(
+        tileColor: Colors.grey[100],
+      ),
     );
   }
 }
