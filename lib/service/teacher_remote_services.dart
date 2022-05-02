@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/classroom.dart';
 import 'package:final_year_project/model/student.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -111,6 +112,32 @@ class TeacherRemoteServices{
           var jsonString = response.body;
           // print("IN remoteservices" + jsonString);
           return studentFromJson(jsonString);
+        }
+      } else {
+        //show error message
+        // return null;
+        throw Exception('Failed to load Categories from API');
+      }
+  }
+
+  static Future<List<Classroom>?> fetchClassroom(String name, String action, String sortValue) async {
+
+    var response =
+      await client.post(
+        Uri.parse(
+          "https://javathree99.com/s271059/final_year_project/load_classroom.php"),
+          body: {
+            "name":name,
+            "action" : action,
+            "sortValue" : sortValue,
+          });
+      if (response.statusCode == 200) {
+        if (response.body == "nodata") {
+          return null;
+        } else {
+          var jsonString = response.body;
+          print("IN remoteservices" + jsonString);
+          return classroomFromJson(jsonString);
         }
       } else {
         //show error message

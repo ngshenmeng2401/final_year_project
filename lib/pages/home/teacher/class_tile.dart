@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/classroom.dart';
 import 'package:final_year_project/pages/home/teacher/teacher_home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,8 @@ class ClassTile extends StatelessWidget {
 
   final teacherhomeController = Get.put(TeacherHomeController());
   final int index;
-  ClassTile(this.index);
+  final Classroom classroom;
+  ClassTile(this.index, this.classroom);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class ClassTile extends StatelessWidget {
       elevation: 2,
       child: InkWell(
         onTap: (){
-          teacherhomeController.navigateRecordListPage(teacherhomeController.classNameList[index]);
+          teacherhomeController.navigateRecordListPage(classroom);
         },
         child: Container(
           padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
@@ -31,10 +33,20 @@ class ClassTile extends StatelessWidget {
                   style: TextStyle(fontSize: 16),),
               ),
               Center(
-                child: Text(teacherhomeController.classNameList[index],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20),
-              )),
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(classroom.className.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 24),
+                    ),
+                    Text("( " + classroom.students.toString() + " )",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
+                )),
             ],
           ),
         ),

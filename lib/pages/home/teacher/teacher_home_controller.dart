@@ -1,4 +1,6 @@
+import 'package:final_year_project/model/classroom.dart';
 import 'package:final_year_project/route/app_pages.dart';
+import 'package:final_year_project/service/teacher_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -10,36 +12,32 @@ class TeacherHomeController extends GetxController{
   var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
+  var classroomList = <Classroom>[].obs;
 
   late TextEditingController searchClassController = new TextEditingController();
 
-  List<String> classNameList = [
-    "The Pumpkin Patch",
-    "Thrashers Corner",
-    "A Child’s Place",
-    "Fun Acres Preschool",
-    "Treasure Island",
-    "Paradise Petals",
-    "The Toddler House",
-  ];
+  @override
+  void onInit() {
 
-  Future<void> searchStudent() async {
+    super.onInit();
+    checkTextField();
+    loadClassroomList();
+  }
 
-    // searchProductController.text = "Bake";
+  void loadClassroomList() async{
 
     try {
       isLoading(true);
-      // var products = await ProductRemoveService.searchProduct(searchProductController.text.toString());
-      // if (products != null) {
-      //   productList.assignAll(products);
-      //   searchResult.value = true;
-      // } else {
-      //   searchResult.value = false;
-      //   statusMsj("Not_Found".tr);
-      // }
+      var classroom = await TeacherRemoteServices.fetchClassroom("a", "load", "a");
+      if (classroom != null) {
+        classroomList.assignAll(classroom);
+      } else {
+        statusMsj("No any post".tr);
+      }
     } finally {
       isLoading(false);
     }
+    
   }
 
   void checkTextField(){
@@ -56,9 +54,9 @@ class TeacherHomeController extends GetxController{
     statusMsj("Search_Product".tr);
   }
 
-  void navigateRecordListPage(String className){
+  void navigateRecordListPage(Classroom classroom){
 
-    appData.write("className", className);
+    appData.write("className", classroom.className);
     Get.toNamed(AppRoutes.RecordListPage);
   }
 
