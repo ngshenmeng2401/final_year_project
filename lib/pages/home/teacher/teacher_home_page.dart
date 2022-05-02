@@ -73,21 +73,31 @@ class TeacherHomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-                height: screenHeight/1.3,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, 
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10, 
-                    childAspectRatio: (screenHeight / screenWidth) / 1.8,
-                  ),
-                  itemCount: teacherhomeController.classroomList.length, 
-                  itemBuilder: (context, index) {
-                    return ClassTile(index, teacherhomeController.classroomList[index]);
-                  }, )
-              ),
+              Obx(() {
+                  if (teacherhomeController.classroomList.isEmpty) {
+                    return Center(
+                      child: Text(
+                      teacherhomeController.statusMsj.toString(),
+                      style: const TextStyle(fontSize: 20),
+                    ));
+                  } else {
+                    return Container(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                      height: screenHeight/1.3,
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2, 
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10, 
+                          childAspectRatio: (screenHeight / screenWidth) / 1.8,
+                        ),
+                        itemCount: teacherhomeController.classroomList.length, 
+                        itemBuilder: (context, index) {
+                          return ClassTile(index, teacherhomeController.classroomList[index]);
+                        }, )
+                    );
+                  }
+              }),
             ],
           ),
         ),
