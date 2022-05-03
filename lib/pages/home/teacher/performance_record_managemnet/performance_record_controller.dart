@@ -20,28 +20,17 @@ class PerformanceRecordController extends GetxController{
   var speakingRecordList = <SpeakingRecord>[].obs;
   var writingRecordList = <WritingRecord>[].obs;
 
-  List<String> categoryList = [
-    "Listening",
-    "Reading",
-    "Speaking",
-    "Writing",
-  ];
-  var selectCategory = "Listening";
-
   late TextEditingController searchRecordController = new TextEditingController();
 
-  final List<String> studentName = [
-    "Lim Jun Jie",
-    "Jay Chou",
-    "Emma Stone",
-    "Ahmad",
-    "Ng Shen Meng",
-    "Akmal Hanis",
-    "Steve Rogers",
-  ];
-  var selectName = 'Lim Jun Jie';
-
   late String className;
+
+  List<String> sortingList = [
+    "Default",
+    "idD",
+    "nameA",
+    "nameD",
+  ];
+  var selectSorting = "Default";
   
   @override
   void onInit() {
@@ -63,7 +52,7 @@ class PerformanceRecordController extends GetxController{
 
       if(category == "listening"){
 
-        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "load", "a");
+        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "load", "a", "a");
         if (listeningRecord != null) {
           listeningRecordList.assignAll(listeningRecord);
         } else {
@@ -72,7 +61,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "reading"){
 
-        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "load", "a");
+        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "load", "a", "a");
         if (readingRecord != null) {
           readingRecordList.assignAll(readingRecord);
         } else {
@@ -81,7 +70,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "speaking"){
 
-        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "load", "a");
+        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "load", "a", "a");
         if (speakingRecord != null) {
           speakingRecordList.assignAll(speakingRecord);
         } else {
@@ -90,7 +79,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "writing"){
 
-        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "load", "a");
+        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "load", "a", "a");
         if (writingRecord != null) {
           writingRecordList.assignAll(writingRecord);
         } else {
@@ -107,6 +96,11 @@ class PerformanceRecordController extends GetxController{
 
   Future<void> searchRecord() async {
 
+    listeningRecordList.clear();
+    readingRecordList.clear();
+    speakingRecordList.clear();
+    writingRecordList.clear();
+
     String category = appData.read("category")??'';
     String className = appData.read("className")??'';
     String searchText = searchRecordController.text.toString();
@@ -116,7 +110,7 @@ class PerformanceRecordController extends GetxController{
 
       if(category == "listening"){
 
-        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "search", searchText);
+        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "search", searchText, "a");
         if (listeningRecord != null) {
           listeningRecordList.assignAll(listeningRecord);
         } else {
@@ -125,7 +119,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "reading"){
 
-        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "search", searchText);
+        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "search", searchText, "a");
         if (readingRecord != null) {
           readingRecordList.assignAll(readingRecord);
         } else {
@@ -134,7 +128,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "speaking"){
 
-        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "search", searchText);
+        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "search", searchText, "a");
         if (speakingRecord != null) {
           speakingRecordList.assignAll(speakingRecord);
         } else {
@@ -143,7 +137,57 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "writing"){
 
-        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "search", searchText);
+        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "search", searchText, "a");
+        if (writingRecord != null) {
+          writingRecordList.assignAll(writingRecord);
+        } else {
+          statusMsj("No any record".tr);
+        }
+      }
+
+    } finally {
+      isLoading(false);
+    }
+  }
+
+  Future<void> sortRecord(String sortValue) async {
+
+    String category = appData.read("category")??'';
+    String className = appData.read("className")??'';
+
+    try {
+      isLoading(true);
+
+      if(category == "listening"){
+
+        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "sort", "a", sortValue);
+        if (listeningRecord != null) {
+          listeningRecordList.assignAll(listeningRecord);
+        } else {
+          statusMsj("No any record".tr);
+        }
+
+      }else if(category == "reading"){
+
+        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "sort", "a", sortValue);
+        if (readingRecord != null) {
+          readingRecordList.assignAll(readingRecord);
+        } else {
+          statusMsj("No any record".tr);
+        }
+
+      }else if(category == "speaking"){
+
+        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "sort", "a", sortValue);
+        if (speakingRecord != null) {
+          speakingRecordList.assignAll(speakingRecord);
+        } else {
+          statusMsj("No any record".tr);
+        }
+
+      }else if(category == "writing"){
+
+        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "sort", "a", sortValue);
         if (writingRecord != null) {
           writingRecordList.assignAll(writingRecord);
         } else {
@@ -171,6 +215,90 @@ class PerformanceRecordController extends GetxController{
     statusMsj("Search_Product".tr);
   }
 
+  void sortRecordDialog(){
+
+    Get.defaultDialog(
+      
+      title: "Sort by:".tr,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GetBuilder<PerformanceRecordController>(
+            init: PerformanceRecordController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Default".tr),
+                trailing: Radio(
+                    value: sortingList[0],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+          GetBuilder<PerformanceRecordController>(
+            init: PerformanceRecordController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Student Id with Descending Order".tr),
+                trailing: Radio(
+                    value: sortingList[1],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+          GetBuilder<PerformanceRecordController>(
+            init: PerformanceRecordController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Name with Ascending Order".tr),
+                trailing: Radio(
+                    value: sortingList[2],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+          GetBuilder<PerformanceRecordController>(
+            init: PerformanceRecordController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("Name with Descending Order".tr),
+                trailing: Radio(
+                    value: sortingList[3],
+                    groupValue: selectSorting,
+                    onChanged: (value) {
+                      clickSorting(value);
+                    }),
+              );
+            },
+          ),
+        ],
+      ),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm: () {
+        Get.back();
+        sortRecord(selectSorting);
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
+  }
+
+  void clickSorting(value) {
+    selectSorting = value;
+    // print(selectSorting);
+    update();
+  }
+
   void navigateAddDialog(){
 
     String category = appData.read("category")??'';
@@ -192,84 +320,10 @@ class PerformanceRecordController extends GetxController{
       Get.toNamed(AppRoutes.WritingQuestionsPage)!.then((value) => loadRecordList());
 
     }
-
-    // Get.defaultDialog(
-      
-    //   title: "Categories:".tr,
-    //   content: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: [
-    //       ListTile(
-    //         shape: RoundedRectangleBorder(
-    //           borderRadius: BorderRadius.circular(20),
-    //         ),
-    //         tileColor: Colors.grey[100],
-    //         // leading: Text("1."),
-    //         title: Text("Listening".tr),
-    //         trailing: Icon(Icons.keyboard_arrow_right),
-    //         onTap: () {
-    //           Get.back();
-    //           Get.toNamed(AppRoutes.ListeningQuestionsPage);
-    //         },
-    //       ),
-    //       SizedBox(height: 5),
-    //       ListTile(
-    //         shape: RoundedRectangleBorder(
-    //           borderRadius: BorderRadius.circular(20),
-    //         ),
-    //         tileColor: Colors.grey[100],
-    //         // leading: Text("2."),
-    //         title: Text("Reading".tr),
-    //         trailing: Icon(Icons.keyboard_arrow_right),
-    //         onTap: () {
-    //           Get.back();
-    //           Get.toNamed(AppRoutes.ReadingQuestionsPage);
-    //         },
-    //       ),
-    //       SizedBox(height: 5),
-    //       ListTile(
-    //         shape: RoundedRectangleBorder(
-    //           borderRadius: BorderRadius.circular(20),
-    //         ),
-    //         tileColor: Colors.grey[100],
-    //         // leading: Text("3."),
-    //         title: Text("Speaking".tr),
-    //         trailing: Icon(Icons.keyboard_arrow_right),
-    //         onTap: () {
-    //           Get.back();
-    //           Get.toNamed(AppRoutes.SpeakingQuestionsPage);
-    //         },
-    //       ),
-    //       SizedBox(height: 5),
-    //       ListTile(
-    //         shape: RoundedRectangleBorder(
-    //           borderRadius: BorderRadius.circular(20),
-    //         ),
-    //         tileColor: Colors.grey[100],
-    //         // leading: Text("4."),
-    //         title: Text("Writing".tr),
-    //         trailing: Icon(Icons.keyboard_arrow_right),
-    //         onTap: () {
-    //           Get.back();
-    //           Get.toNamed(AppRoutes.WritingQuestionsPage);
-    //         },
-    //       )
-    //     ],
-    //   ),
-    //   textConfirm: null,
-    //   textCancel: null,
-    //   buttonColor: Colors.black,
-    // );
   }
 
   void navigateAddRecordView(){
 
     Get.toNamed(AppRoutes.AddRecordDetailsPage);
-  }
-
-  void chooseStudent(value){
-     selectName = value;
-     print(selectName);
-     update();
   }
 }

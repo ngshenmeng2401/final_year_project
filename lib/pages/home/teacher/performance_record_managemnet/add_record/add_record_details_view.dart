@@ -27,39 +27,39 @@ class AddRecordDetailPage extends GetView<PerformanceRecordController> {
             children: [
               PerformanceScoreTable(),
               SizedBox(height: screenHeight/30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Student ID".tr,
-                  style: TextStyle(fontSize: 22),),
-                  GetBuilder<PerformanceRecordController>(
-                    init: PerformanceRecordController(),
-                    builder: (_) {
-                      return Container(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                        child: DropdownButton<String?>(
-                          // dropdownColor: Colors.blue,
-                          menuMaxHeight: screenHeight/4,
-                          value: controller.selectName,
-                          elevation: 28,
-                          style: const TextStyle(fontSize: 20, color: Colors.black),
-                          onChanged: (String? newValue) {
-                            controller.chooseStudent(newValue!);
-                          },
-                          items: [
-                            for (var data in controller.studentName)
-                              DropdownMenuItem(
-                                child: new Text(
-                                  data,
-                                ),
-                                value: data,
-                              )
-                          ]
-                        ));
-                    },
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text("Student ID".tr,
+              //     style: TextStyle(fontSize: 22),),
+              //     GetBuilder<PerformanceRecordController>(
+              //       init: PerformanceRecordController(),
+              //       builder: (_) {
+              //         return Container(
+              //           padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+              //           child: DropdownButton<String?>(
+              //             // dropdownColor: Colors.blue,
+              //             menuMaxHeight: screenHeight/4,
+              //             value: controller.selectName,
+              //             elevation: 28,
+              //             style: const TextStyle(fontSize: 20, color: Colors.black),
+              //             onChanged: (String? newValue) {
+              //               controller.chooseStudent(newValue!);
+              //             },
+              //             items: [
+              //               for (var data in controller.studentName)
+              //                 DropdownMenuItem(
+              //                   child: new Text(
+              //                     data,
+              //                   ),
+              //                   value: data,
+              //                 )
+              //             ]
+              //           ));
+              //       },
+              //     ),
+              //   ],
+              // ),
               Divider(),
               ListeningQuestions(),
               Divider(),

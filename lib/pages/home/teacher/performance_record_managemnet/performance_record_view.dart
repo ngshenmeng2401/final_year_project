@@ -26,7 +26,7 @@ class RecordListView extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: (){
-
+              performanceRecordController.sortRecordDialog();
             }, 
             icon: Icon(Icons.sort),)
         ],

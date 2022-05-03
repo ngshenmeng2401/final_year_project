@@ -212,7 +212,7 @@ class HomeRemoteServices{
     }
   }
 
-  static Future<List<ListeningRecord>?> fetchListeningRecord(String className, String action, String name) async {
+  static Future<List<ListeningRecord>?> fetchListeningRecord(String className, String action, String name, String sortValue) async {
 
     var response =
       await client.post(
@@ -222,6 +222,7 @@ class HomeRemoteServices{
             "className":className,
             "action" : action,
             "name" : name,
+            "sortValue" : sortValue,
           });
       if (response.statusCode == 200) {
         if (response.body == "nodata") {
@@ -238,7 +239,7 @@ class HomeRemoteServices{
       }
   }
 
-  static Future<List<ReadingRecord>?> fetchReadingRecord(String className, String action, String name) async {
+  static Future<List<ReadingRecord>?> fetchReadingRecord(String className, String action, String name, String sortValue) async {
 
     var response =
       await client.post(
@@ -248,6 +249,7 @@ class HomeRemoteServices{
             "className":className,
             "action" : action,
             "name" : name,
+            "sortValue" : sortValue,
           });
       if (response.statusCode == 200) {
         if (response.body == "nodata") {
@@ -264,7 +266,7 @@ class HomeRemoteServices{
       }
   }
 
-  static Future<List<SpeakingRecord>?> fetchSpeakingRecord(String className, String action, String name) async {
+  static Future<List<SpeakingRecord>?> fetchSpeakingRecord(String className, String action, String name, String sortValue) async {
 
     var response =
       await client.post(
@@ -274,6 +276,7 @@ class HomeRemoteServices{
             "className":className,
             "action" : action,
             "name" : name,
+            "sortValue" : sortValue,
           });
       if (response.statusCode == 200) {
         if (response.body == "nodata") {
@@ -290,7 +293,7 @@ class HomeRemoteServices{
       }
   }
 
-  static Future<List<WritingRecord>?> fetchWritingRecord(String className, String action, String name) async {
+  static Future<List<WritingRecord>?> fetchWritingRecord(String className, String action, String name, String sortValue) async {
 
     var response =
       await client.post(
@@ -300,6 +303,7 @@ class HomeRemoteServices{
             "className":className,
             "action" : action,
             "name" : name,
+            "sortValue" : sortValue,
           });
       if (response.statusCode == 200) {
         if (response.body == "nodata") {
