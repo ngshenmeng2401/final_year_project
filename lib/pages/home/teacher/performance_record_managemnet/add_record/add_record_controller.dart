@@ -1,5 +1,6 @@
 import 'package:final_year_project/model/student.dart';
-import 'package:final_year_project/service/teacher_remote_services.dart';
+import 'package:final_year_project/service/home_remote_services.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -10,11 +11,7 @@ class AddRecordController extends GetxController{
   final List<String> levelSQ = ["1","1","1","1","1"];
   final List<String> levelWQ = ["1","1"];
 
-  final List<String> level = [
-    "1",
-    "2",
-    "3",
-  ];
+  final List<String> level = ["1","2","3",];
 
   final appData = GetStorage(); 
   var studentList = <Student>[].obs;
@@ -37,7 +34,7 @@ class AddRecordController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await TeacherRemoteServices.fetchStudentWithClass(className);
+      var student = await HomeRemoteServices.fetchStudentWithClass(className);
       if (student != null) {
         studentList.assignAll(student);
 
@@ -83,5 +80,67 @@ class AddRecordController extends GetxController{
      selectName = value;
      print(selectName);
      update();
+  }
+
+  void addRecordDialog(String category){
+
+    Get.defaultDialog(
+      title: "Are you sure ?".tr,
+      content: Column(),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm:() => {
+        Get.back(),
+        addRecord(category),
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
+  }
+
+  void addRecord(String category){
+
+    String q1, q2, q3, q4, q5;
+  
+    print(selectName);
+    print(category);
+
+    if(category == "listening"){
+
+      q1 = levelLQ[0];
+      q2 = levelLQ[1];
+      q3 = levelLQ[2];
+      q4 = levelLQ[3];
+
+      HomeRemoteServices.addListeningRecord(selectName, q1, q2, q3, q4);
+
+    }else if(category == "reading"){
+
+      q1 = levelRQ[0];
+      q2 = levelRQ[1];
+      q3 = levelRQ[2];
+      q4 = levelRQ[3];
+
+      HomeRemoteServices.addReadingRecord(selectName, q1, q2, q3, q4);
+
+    }else if(category == "speaking"){
+
+      q1 = levelSQ[0];
+      q2 = levelSQ[1];
+      q3 = levelSQ[2];
+      q4 = levelSQ[3];
+      q5 = levelSQ[4];
+
+      HomeRemoteServices.addSpeakingRecord(selectName, q1, q2, q3, q4, q5);
+
+    }else if(category == "writing"){
+
+      q1 = levelWQ[0];
+      q2 = levelWQ[1];
+
+      HomeRemoteServices.addWritingRecord(selectName, q1, q2);
+
+    }
   }
 }
