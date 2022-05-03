@@ -2,6 +2,10 @@ import 'package:final_year_project/model/listening_record.dart';
 import 'package:final_year_project/model/reading_record.dart';
 import 'package:final_year_project/model/speaking_record.dart';
 import 'package:final_year_project/model/writing_record.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/listening_questions.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/reading_questions.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/speaking_questions.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/writing_questions.dart';
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:final_year_project/service/home_remote_services.dart';
 import 'package:flutter/material.dart';
@@ -325,5 +329,25 @@ class PerformanceRecordController extends GetxController{
   void navigateAddRecordView(){
 
     Get.toNamed(AppRoutes.AddRecordDetailsPage);
+  }
+
+  void navigateEditListeningRecord(ListeningRecord listeningRecord){
+
+    Get.to(() => EditListeningQuestions(listeningRecord))!.then((value) => loadRecordList());
+  }
+
+  void navigateEditReadingRecord(ReadingRecord readingRecord){
+
+    Get.to(() => EditReadingQuestions(readingRecord))!.then((value) => loadRecordList());
+  }
+
+  void navigateEditSpeakingRecord(SpeakingRecord speakingRecord){
+
+    Get.to(() => EditSpeakingQuestions(speakingRecord))!.then((value) => loadRecordList());
+  }
+
+  void navigateEditWritingRecord(WritingRecord writingRecord){
+
+    Get.to(() => EditWritingQuestions(writingRecord))!.then((value) => loadRecordList());
   }
 }

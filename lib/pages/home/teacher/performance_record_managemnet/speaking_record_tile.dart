@@ -37,9 +37,9 @@ class SpeakingRecordTile extends StatelessWidget {
           subtitle: Text(speakingRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              // performanceRecordController.navigateEditStudentView();
+              performanceRecordController.navigateEditSpeakingRecord(speakingRecord);
             },
-            icon: Icon(Icons.edit),
+            icon: Icon(Icons.info),
           ),
         )
       )

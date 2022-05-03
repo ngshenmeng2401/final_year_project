@@ -37,9 +37,9 @@ class WritingRecordTile extends StatelessWidget {
           subtitle: Text(writingRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              // performanceRecordController.navigateEditStudentView();
+              performanceRecordController.navigateEditWritingRecord(writingRecord);
             },
-            icon: Icon(Icons.edit),
+            icon: Icon(Icons.info),
           ),
         )
       )

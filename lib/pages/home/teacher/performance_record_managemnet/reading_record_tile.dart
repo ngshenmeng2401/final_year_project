@@ -37,9 +37,9 @@ class ReadingRecordTile extends StatelessWidget {
           subtitle: Text(readingRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              // performanceRecordController.navigateEditStudentView();
+              performanceRecordController.navigateEditReadingRecord(readingRecord);
             },
-            icon: Icon(Icons.edit),
+            icon: Icon(Icons.info),
           ),
         )
       )
