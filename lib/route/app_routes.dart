@@ -21,6 +21,10 @@ abstract class AppRoutes{
 
   static const RecordListPage = '/recordlistpage';
   static const AddRecordDetailsPage = '/addrecordpage';
+  static const ListeningQuestionsPage = '/listeningquestionspage';
+  static const ReadingQuestionsPage = '/readingquestionspage';
+  static const SpeakingQuestionsPage = '/speakingquestionspage';
+  static const WritingQuestionsPage = '/writingquestionspage';
   static const EditRecordDetailsPage = '/editrecordpage';
 
   //Management Page

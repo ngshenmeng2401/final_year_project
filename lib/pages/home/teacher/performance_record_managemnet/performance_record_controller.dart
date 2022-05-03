@@ -11,6 +11,14 @@ class PerformanceRecordController extends GetxController{
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
 
+  List<String> categoryList = [
+    "Listening",
+    "Reading",
+    "Speaking",
+    "Writing",
+  ];
+  var selectCategory = "Listening";
+
   late TextEditingController searchRecordController = new TextEditingController();
 
   final List<String> studentName = [
@@ -64,6 +72,83 @@ class PerformanceRecordController extends GetxController{
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search_Product".tr);
+  }
+
+  void navigateAddDialog(){
+
+    Get.defaultDialog(
+      
+      title: "Categories:".tr,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("1."),
+            title: Text("Listening".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              Get.toNamed(AppRoutes.ListeningQuestionsPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("2."),
+            title: Text("Reading".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              Get.toNamed(AppRoutes.ReadingQuestionsPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("3."),
+            title: Text("Speaking".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              Get.toNamed(AppRoutes.SpeakingQuestionsPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("4."),
+            title: Text("Writing".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              Get.toNamed(AppRoutes.WritingQuestionsPage);
+            },
+          )
+        ],
+      ),
+      textConfirm: null,
+      textCancel: null,
+      // onConfirm: () {
+      //   Get.back();
+      //   sortStudent(selectSorting);
+      // },
+      // cancelTextColor: Colors.black,
+      // confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
   }
 
   void navigateAddRecordView(){

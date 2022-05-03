@@ -120,6 +120,30 @@ class TeacherRemoteServices{
       }
   }
 
+  static Future<List<Student>?> fetchStudentWithClass(String className) async {
+
+    var response =
+      await client.post(
+        Uri.parse(
+          "https://javathree99.com/s271059/final_year_project/load_student_with_class.php"),
+          body: {
+            "className":className,
+          });
+      if (response.statusCode == 200) {
+        if (response.body == "nodata") {
+          return null;
+        } else {
+          var jsonString = response.body;
+          print("IN remoteservices" + jsonString);
+          return studentFromJson(jsonString);
+        }
+      } else {
+        //show error message
+        // return null;
+        throw Exception('Failed to load Categories from API');
+      }
+  }
+
   static Future<List<Classroom>?> fetchClassroom(String name, String action, String sortValue) async {
 
     var response =

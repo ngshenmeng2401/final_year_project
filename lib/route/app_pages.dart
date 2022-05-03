@@ -3,6 +3,10 @@ import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
 import 'package:final_year_project/pages/home/staff/staff_home_view.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details_view.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details_binding.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/listening_questions.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/reading_questions.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/speaking_questions.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/writing_questions.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/edit_record_details.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_view.dart';
 import 'package:final_year_project/pages/home/teacher/teacher_home_page.dart';
@@ -101,6 +105,26 @@ class AppPages{
       name: AppRoutes.AddRecordDetailsPage,
       page: () => AddRecordDetailPage(),
       binding: AddRecordDetailsBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.ListeningQuestionsPage,
+      page: () => ListeningQuestions(),
+    ),
+
+    GetPage(
+      name: AppRoutes.ReadingQuestionsPage,
+      page: () => ReadingQuestions(),
+    ),
+
+    GetPage(
+      name: AppRoutes.SpeakingQuestionsPage,
+      page: () => SpeakingQuestions(),
+    ),
+
+    GetPage(
+      name: AppRoutes.WritingQuestionsPage,
+      page: () => WritingQuestions(),
     ),
 
     GetPage(

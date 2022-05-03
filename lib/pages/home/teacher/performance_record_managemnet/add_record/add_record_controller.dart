@@ -21,6 +21,9 @@ class AddRecordController extends GetxController{
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
 
+  final List<String> studentNameList = ["ID",];
+  var selectName = 'ID';
+
   @override
   void onInit() {
 
@@ -32,17 +35,23 @@ class AddRecordController extends GetxController{
 
     String className = appData.read("className")??'';
 
-    // try {
-    //   isLoading(true);
-    //   var student = await TeacherRemoteServices.fetchStudent(className);
-    //   if (student != null) {
-    //     studentList.assignAll(student);
-    //   } else {
-    //     statusMsj("No any post".tr);
-    //   }
-    // } finally {
-    //   isLoading(false);
-    // }
+    try {
+      isLoading(true);
+      var student = await TeacherRemoteServices.fetchStudentWithClass(className);
+      if (student != null) {
+        studentList.assignAll(student);
+
+        for(int i = 0; i < studentList.length; i++){
+          studentNameList.insert(i, studentList[i].id.toString());
+          // print(studentNameList);
+          update();
+        }
+      } else {
+        statusMsj("No any post".tr);
+      }
+    } finally {
+      isLoading(false);
+    }
     
   }
 
@@ -67,6 +76,12 @@ class AddRecordController extends GetxController{
   void chooseWQLevel(value, int index){
      levelWQ[index] = value;
      print(levelWQ);
+     update();
+  }
+
+  void chooseStudent(value){
+     selectName = value;
+     print(selectName);
      update();
   }
 }

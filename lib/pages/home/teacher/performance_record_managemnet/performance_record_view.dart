@@ -97,7 +97,7 @@ class RecordListView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
       onPressed: () {
-        performanceRecordController.navigateAddRecordView();
+        performanceRecordController.navigateAddDialog();
       },
       child: Icon(Icons.add),
       ),
