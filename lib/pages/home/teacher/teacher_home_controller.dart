@@ -1,6 +1,6 @@
 import 'package:final_year_project/model/classroom.dart';
 import 'package:final_year_project/route/app_pages.dart';
-import 'package:final_year_project/service/teacher_remote_services.dart';
+import 'package:final_year_project/service/home_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -28,7 +28,7 @@ class TeacherHomeController extends GetxController{
 
     try {
       isLoading(true);
-      var classroom = await TeacherRemoteServices.fetchClassroom("a", "load", "a");
+      var classroom = await HomeRemoteServices.fetchClassroom("a", "load", "a");
       if (classroom != null) {
         classroomList.assignAll(classroom);
       } else {
@@ -56,8 +56,87 @@ class TeacherHomeController extends GetxController{
 
   void navigateRecordListPage(Classroom classroom){
 
-    appData.write("className", classroom.className);
-    Get.toNamed(AppRoutes.RecordListPage);
+    Get.defaultDialog(
+      
+      title: "Categories:".tr,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("1."),
+            title: Text("Listening".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "listening");
+              appData.write("className", classroom.className);
+              Get.toNamed(AppRoutes.RecordListPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("2."),
+            title: Text("Reading".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "reading");
+              appData.write("className", classroom.className);
+              Get.toNamed(AppRoutes.RecordListPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("3."),
+            title: Text("Speaking".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "speaking");
+              appData.write("className", classroom.className);
+              Get.toNamed(AppRoutes.RecordListPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("4."),
+            title: Text("Writing".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "writing");
+              appData.write("className", classroom.className);
+              Get.toNamed(AppRoutes.RecordListPage);
+            },
+          )
+        ],
+      ),
+      textConfirm: null,
+      textCancel: null,
+      buttonColor: Colors.black,
+    );
   }
+
+  // void navigateRecordListPage(Classroom classroom){
+
+  //   appData.write("className", classroom.className);
+  //   Get.toNamed(AppRoutes.RecordListPage);
+  // }
 
 }

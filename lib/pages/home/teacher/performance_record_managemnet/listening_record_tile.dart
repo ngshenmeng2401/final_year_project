@@ -1,12 +1,14 @@
+import 'package:final_year_project/model/listening_record.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TeacherRecordTile extends StatelessWidget {
+class ListeningRecordTile extends StatelessWidget {
 
   final performanceRecordController = Get.put(PerformanceRecordController());
   final int index;
-  TeacherRecordTile(this.index);
+  final ListeningRecord listeningRecord;
+  ListeningRecordTile(this.index, this.listeningRecord);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +32,9 @@ class TeacherRecordTile extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          title: Text(performanceRecordController.studentName[index],
+          title: Text(listeningRecord.name.toString(),
             style: TextStyle(fontSize: 18),),
-          subtitle: Text("274059",),
+          subtitle: Text(listeningRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
               // performanceRecordController.navigateEditStudentView();

@@ -1,5 +1,8 @@
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_controller.dart';
-import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/teacher_record_tile.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/listening_record_tile.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/reading_record_tile.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/speaking_record_tile.dart';
+import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/writing_record_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -15,6 +18,7 @@ class RecordListView extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     String className = appData.read("className")??'';
+    String category = appData.read("category")??'';
 
     return Scaffold(
       appBar: AppBar(
@@ -63,6 +67,7 @@ class RecordListView extends StatelessWidget {
                       child: Obx(() => IconButton(
                         onPressed: () {
                           performanceRecordController.clearTextField();
+                          performanceRecordController.loadRecordList();
                         },
                         icon: performanceRecordController.isSearching.value == true
                             ? Icon(Icons.clear)
@@ -85,11 +90,111 @@ class RecordListView extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.fromLTRB(15, 20, 15, 15),
                 height: screenHeight/1.3,
-                child: ListView.builder(
-                  itemCount: performanceRecordController.studentName.length, 
-                  itemBuilder: (context, index) {
-                    return TeacherRecordTile(index);
-                  }, )
+                child: Obx(() {
+
+                   if (performanceRecordController.isLoading.value) {
+                      return Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const CircularProgressIndicator(
+                              strokeWidth: 2,
+                              // color: Colors.red[200],
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              performanceRecordController.statusMsj.toString().tr,
+                              style: const TextStyle(fontSize: 20),
+                            ),
+                          ],
+                        ),
+                      );
+                    }else if(category == "listening"){
+
+                      if (performanceRecordController.listeningRecordList.isEmpty) {
+                        return Center(
+                          child: Text(
+                          performanceRecordController.statusMsj.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ));
+                      } else {
+                        return Container(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          child: ListView.builder(
+                          itemCount: performanceRecordController.listeningRecordList.length, 
+                          itemBuilder: (context, index) {
+                            return ListeningRecordTile(index, performanceRecordController.listeningRecordList[index]);
+                          }, )
+                        );
+                      }
+
+                    }
+                    else if(category == "reading"){
+
+                      if (performanceRecordController.readingRecordList.isEmpty) {
+                        return Center(
+                          child: Text(
+                          performanceRecordController.statusMsj.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ));
+                      } else {
+                        return Container(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          child: ListView.builder(
+                          itemCount: performanceRecordController.readingRecordList.length, 
+                          itemBuilder: (context, index) {
+                            return ReadingRecordTile(index, performanceRecordController.readingRecordList[index]);
+                          }, )
+                        );
+                      }
+
+                    }else if(category == "speaking"){
+
+                      if (performanceRecordController.speakingRecordList.isEmpty) {
+                        return Center(
+                          child: Text(
+                          performanceRecordController.statusMsj.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ));
+                      } else {
+                        return Container(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          child: ListView.builder(
+                          itemCount: performanceRecordController.speakingRecordList.length, 
+                          itemBuilder: (context, index) {
+                            return SpeakingRecordTile(index, performanceRecordController.speakingRecordList[index]);
+                          }, )
+                        );
+                      }
+
+                    }else if(category == "writing"){
+
+                      if (performanceRecordController.writingRecordList.isEmpty) {
+                        return Center(
+                          child: Text(
+                          performanceRecordController.statusMsj.toString(),
+                          style: const TextStyle(fontSize: 20),
+                        ));
+                      } else {
+                        return Container(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          child: ListView.builder(
+                          itemCount: performanceRecordController.writingRecordList.length, 
+                          itemBuilder: (context, index) {
+                            return WritingRecordTile(index, performanceRecordController.writingRecordList[index]);
+                          }, )
+                        );
+                      }
+
+                    }
+                    else{
+                      return Center(
+                        child: Text(
+                        performanceRecordController.statusMsj.toString(),
+                        style: const TextStyle(fontSize: 20),
+                      ));
+                    }
+                })
               )
             ],
           ),
