@@ -288,22 +288,27 @@ class ListeningQuestions extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              MaterialButton(
-                shape:RoundedRectangleBorder(
-                  borderRadius:BorderRadius.circular(20),
-                ),
-                minWidth: screenWidth/1,
-                height: screenHeight/18,
-                child: Text('Submit'.tr,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white
-                  ),
-                ),
-                onPressed: (){
-                  print("Submit");
-                },
-                color: Colors.black,
+              GetBuilder<AddRecordController>(
+                init: AddRecordController(),
+                builder: (_) {
+                  return MaterialButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    minWidth: screenWidth / 1.1,
+                    height: screenHeight / 18,
+                    color: Colors.black,
+                    onPressed: addRecordController.selectName == "ID"
+                    ? null
+                    : () {
+                        addRecordController.addRecordDialog("listening");
+                      },
+                    child: Text("Submit".tr,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        )),
+                  );},
               ),
             ],
           ),
