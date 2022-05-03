@@ -1,4 +1,4 @@
-import 'package:final_year_project/service/teacher_remote_services.dart';
+import 'package:final_year_project/service/management_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -91,7 +91,7 @@ class AddStudentDetailsController extends GetxController{
       );
     }else{
 
-      TeacherRemoteServices.addStudentDetails(name, studentClass, age, parentId, phoneNo);
+      ManagementRemoteServices.addStudentDetails(name, studentClass, age, parentId, phoneNo);
       studentNameController.clear();
       studentAgeController.clear();
       parentIDController.clear();

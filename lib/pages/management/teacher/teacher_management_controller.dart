@@ -1,7 +1,7 @@
 import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/pages/management/teacher/edit_student/edit_student_view.dart';
 import 'package:final_year_project/route/app_pages.dart';
-import 'package:final_year_project/service/teacher_remote_services.dart';
+import 'package:final_year_project/service/management_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +36,7 @@ class TeacherManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await TeacherRemoteServices.fetchStudent("a", "load", "a");
+      var student = await ManagementRemoteServices.fetchStudent("a", "load", "a");
       if (student != null) {
         studentList.assignAll(student);
       } else {
@@ -55,7 +55,7 @@ class TeacherManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await TeacherRemoteServices.fetchStudent(searchStudent, "search", "a");
+      var student = await ManagementRemoteServices.fetchStudent(searchStudent, "search", "a");
       if (student != null) {
         studentList.assignAll(student);
         print(studentList);
@@ -73,7 +73,7 @@ class TeacherManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await TeacherRemoteServices.fetchStudent("1", "sort", sortValue);
+      var student = await ManagementRemoteServices.fetchStudent("1", "sort", sortValue);
       if (student != null) {
         studentList.assignAll(student);
       } else {

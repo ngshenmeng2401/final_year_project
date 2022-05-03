@@ -4,7 +4,7 @@ import 'package:final_year_project/pages/management/teacher/edit_student/edit_pa
 import 'package:final_year_project/pages/management/teacher/edit_student/edit_phone_no.dart';
 import 'package:final_year_project/pages/management/teacher/edit_student/edit_student_name.dart';
 import 'package:final_year_project/route/app_pages.dart';
-import 'package:final_year_project/service/teacher_remote_services.dart';
+import 'package:final_year_project/service/management_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -88,7 +88,7 @@ class EditStudentDetailsController extends GetxController{
     print(newValue);
     print(category);
 
-    TeacherRemoteServices.updateStudentDetails(id, oldValue, newValue, category);
+    ManagementRemoteServices.updateStudentDetails(id, oldValue, newValue, category);
     // Get.offAllNamed(AppRoutes.TeacherManagementPage);
   }
 
@@ -101,7 +101,7 @@ class EditStudentDetailsController extends GetxController{
       textCancel: "No".tr,
       onConfirm:() => {
         Get.back(),
-        TeacherRemoteServices.deleteStudentDetails(id, age, className),
+        ManagementRemoteServices.deleteStudentDetails(id, age, className),
         Get.back(),
       },
       cancelTextColor: Colors.black,
