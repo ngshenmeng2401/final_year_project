@@ -37,7 +37,7 @@ class ClassTile extends StatelessWidget {
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(classroom.className.toString(),
+                    Text(classroom.age.toString() + " " + classroom.className.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 24),
                     ),
