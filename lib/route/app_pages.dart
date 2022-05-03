@@ -1,19 +1,15 @@
 import 'package:final_year_project/pages/home/parent/children_details.dart/children_details_view.dart';
 import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
 import 'package:final_year_project/pages/home/staff/staff_home_view.dart';
-import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details_view.dart';
-import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_details_binding.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/listening_questions.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/reading_questions.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/speaking_questions.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/writing_questions.dart';
-import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/edit_record_details.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/performance_record_view.dart';
 import 'package:final_year_project/pages/home/teacher/teacher_home_page.dart';
 import 'package:final_year_project/pages/login/login_binding.dart';
 import 'package:final_year_project/pages/login/login_view.dart';
 import 'package:final_year_project/pages/management/teacher/add_student/add_student_view.dart';
-import 'package:final_year_project/pages/management/teacher/edit_student/edit_student_view.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_manage_binding.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_management_view.dart';
 import 'package:final_year_project/pages/not_found_screen.dart';
@@ -102,12 +98,6 @@ class AppPages{
     ),
 
     GetPage(
-      name: AppRoutes.AddRecordDetailsPage,
-      page: () => AddRecordDetailPage(),
-      binding: AddRecordDetailsBinding(),
-    ),
-
-    GetPage(
       name: AppRoutes.ListeningQuestionsPage,
       page: () => ListeningQuestions(),
     ),
@@ -128,15 +118,8 @@ class AppPages{
     ),
 
     GetPage(
-      name: AppRoutes.EditRecordDetailsPage,
-      page: () => EditRecordDetailPage(),
-      // binding: BottomNavigationBarBinding(),
-    ),
-
-    GetPage(
       name: AppRoutes.RecordListPage,
       page: () => RecordListView(),
-      // binding: BottomNavigationBarBinding(),
     ),
 
 
