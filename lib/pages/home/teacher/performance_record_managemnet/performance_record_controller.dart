@@ -326,11 +326,6 @@ class PerformanceRecordController extends GetxController{
     }
   }
 
-  void navigateAddRecordView(){
-
-    Get.toNamed(AppRoutes.AddRecordDetailsPage);
-  }
-
   void navigateEditListeningRecord(ListeningRecord listeningRecord){
 
     Get.to(() => EditListeningQuestions(listeningRecord))!.then((value) => loadRecordList());

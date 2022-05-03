@@ -26,7 +26,7 @@ class HomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return studentFromJson(jsonString);
         }
       } else {
@@ -52,7 +52,7 @@ class HomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return classroomFromJson(jsonString);
         }
       } else {
@@ -212,6 +212,188 @@ class HomeRemoteServices{
     }
   }
 
+  static Future<String?> editListeningRecord(String studentId, String lq1, String lq2, String lq3, String lq4) async {
+    
+    print(studentId);
+    print(lq1);
+    print(lq2);
+    print(lq3);
+    print(lq4);
+
+    var response = await client.post(
+
+      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_listening_record.php'), 
+      body: {
+      "studentId" : studentId,
+      "lq1" : lq1,
+      "lq2" : lq2,
+      "lq3" : lq3,
+      "lq4" : lq4,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Failed", "Can't found the record");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
+  static Future<String?> editReadingRecord(String studentId, String rq1, String rq2, String rq3, String rq4) async {
+    
+    print(studentId);
+    print(rq1);
+    print(rq2);
+    print(rq3);
+    print(rq4);
+
+    var response = await client.post(
+
+      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_reading_record.php'), 
+      body: {
+      "studentId" : studentId,
+      "rq1" : rq1,
+      "rq2" : rq2,
+      "rq3" : rq3,
+      "rq4" : rq4,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Failed", "Can't found the record");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
+  static Future<String?> editSpeakingRecord(String studentId, String sq1, String sq2, String sq3, String sq4, String sq5) async {
+    
+    print(studentId);
+    print(sq1);
+    print(sq2);
+    print(sq3);
+    print(sq4);
+    print(sq5);
+
+    var response = await client.post(
+
+      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_speaking_record.php'), 
+      body: {
+      "studentId" : studentId,
+      "sq1" : sq1,
+      "sq2" : sq2,
+      "sq3" : sq3,
+      "sq4" : sq4,
+      "sq5" : sq5,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Failed", "Can't found the record");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
+  static Future<String?> editWritingRecord(String studentId, String wq1, String wq2) async {
+    
+    print(studentId);
+    print(wq1);
+    print(wq2);
+
+    var response = await client.post(
+
+      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_writing_record.php'), 
+      body: {
+      "studentId" : studentId,
+      "wq1" : wq1,
+      "wq2" : wq2,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Failed", "Can't found the record");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
+  static Future<String?> deleteRecord(String category, String studentId) async {
+    
+    print(studentId);
+    print(category);
+
+    var response = await client.post(
+
+      Uri.parse('https://javathree99.com/s271059/final_year_project/delete_question_record.php'), 
+      body: {
+      "studentId" : studentId,
+      "category" : category,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Delete Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Delete Failed", "Can't found the record");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Delete Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
   static Future<List<ListeningRecord>?> fetchListeningRecord(String className, String action, String name, String sortValue) async {
 
     var response =
@@ -229,7 +411,7 @@ class HomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return listeningRecordFromJson(jsonString);
         }
       } else {
@@ -256,7 +438,7 @@ class HomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return readingRecordFromJson(jsonString);
         }
       } else {
@@ -283,7 +465,7 @@ class HomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return speakingRecordFromJson(jsonString);
         }
       } else {
@@ -310,7 +492,7 @@ class HomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return writingRecordFromJson(jsonString);
         }
       } else {
