@@ -43,6 +43,7 @@ class TeacherManagementView extends GetView<TeacherManagementController> {
                     Expanded(
                       flex: 8,
                       child: TextField(
+                        autofocus: false,
                         controller: teachermanageController.searchStudentController,
                         onChanged: (value) {
                           teachermanageController.checkTextField();
@@ -80,6 +81,7 @@ class TeacherManagementView extends GetView<TeacherManagementController> {
                 ),
               ),
               Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 height: screenHeight/1.4,
                 child: Obx(() {
                     if (controller.studentList.isEmpty) {
@@ -89,14 +91,11 @@ class TeacherManagementView extends GetView<TeacherManagementController> {
                         style: const TextStyle(fontSize: 20),
                       ));
                     } else {
-                      return Container(
-                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                        child: ListView.builder(
-                          itemCount: controller.studentList.length, 
-                          itemBuilder: (context, index) {
-                            return StudentTile(index, teachermanageController.studentList[index]);
-                        }, )
-                      );
+                      return ListView.builder(
+                        itemCount: controller.studentList.length, 
+                        itemBuilder: (context, index) {
+                          return StudentTile(index, teachermanageController.studentList[index]);
+                      }, );
                     }
                 }),
               )

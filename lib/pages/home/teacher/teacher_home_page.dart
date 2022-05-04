@@ -37,6 +37,7 @@ class TeacherHomeView extends StatelessWidget {
                     Expanded(
                       flex: 8,
                       child: TextField(
+                        autofocus: false,
                         controller: teacherhomeController.searchClassController,
                         onChanged: (value) {
                           teacherhomeController.checkTextField();
