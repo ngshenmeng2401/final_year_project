@@ -36,6 +36,7 @@ class HistoryView extends StatelessWidget {
                     Expanded(
                       flex: 8,
                       child: TextField(
+                        autofocus: false,
                         controller: historyController.searchNameController,
                         onChanged: (value) {
                           historyController.checkTextField();
@@ -97,6 +98,12 @@ class HistoryView extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        historyController.navigateAddHistoryView();
+      },
+      child: Icon(Icons.add),
       ),
     );
   }

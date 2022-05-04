@@ -1,3 +1,4 @@
+import 'package:final_year_project/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -32,5 +33,10 @@ class HistoryController extends GetxController{
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search_Product".tr);
+  }
+
+  void navigateAddHistoryView(){
+
+    Get.toNamed(AppRoutes.AddHistoryPage);
   }
 }
