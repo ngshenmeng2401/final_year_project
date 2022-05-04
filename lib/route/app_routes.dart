@@ -27,6 +27,9 @@ abstract class AppRoutes{
   static const WritingQuestionsPage = '/writingquestionspage';
   static const EditRecordDetailsPage = '/editrecordpage';
 
+  //History Page
+  static const HistoryPage = '/historypage';
+
   //Management Page
   static const ParentManagementPage = '/parentmanagementpage';
   static const TeacherManagementPage = '/teachermanagementpage';

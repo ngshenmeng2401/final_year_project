@@ -1,3 +1,4 @@
+import 'package:final_year_project/pages/history/history_view.dart';
 import 'package:final_year_project/pages/home/parent/children_details.dart/children_details_view.dart';
 import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
 import 'package:final_year_project/pages/home/staff/staff_home_view.dart';
@@ -122,6 +123,11 @@ class AppPages{
       page: () => RecordListView(),
     ),
 
+    //History Page
+    GetPage(
+      name: AppRoutes.HistoryPage,
+      page: () => HistoryView(),
+    ),
 
     //Management
     GetPage(
