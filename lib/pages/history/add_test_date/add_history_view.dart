@@ -15,7 +15,7 @@ class AddHistoryView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add History")
+        title: Text("Add Test Record")
       ),
       body: SingleChildScrollView(
         child: Container(
