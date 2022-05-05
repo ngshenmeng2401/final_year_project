@@ -39,7 +39,8 @@ class AddRecordController extends GetxController{
         studentList.assignAll(student);
 
         for(int i = 0; i < studentList.length; i++){
-          studentNameList.insert(i, studentList[i].id.toString());
+          // studentNameList.insert(i, studentList[i].id.toString());
+          studentNameList.add(studentList[i].id.toString());
           // print(studentNameList);
           update();
         }
