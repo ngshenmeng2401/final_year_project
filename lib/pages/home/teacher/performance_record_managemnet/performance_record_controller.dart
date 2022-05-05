@@ -313,7 +313,11 @@ class PerformanceRecordController extends GetxController{
       onConfirm:() => {
         Get.back(),
         HomeRemoteServices.deleteRecord(category, studentId),
-        Future.delayed(const Duration(milliseconds: 500), () {
+        listeningRecordList.clear(),
+        readingRecordList.clear(),
+        speakingRecordList.clear(),
+        writingRecordList.clear(),
+        Future.delayed(const Duration(milliseconds: 1000), () {
           loadRecordList();
         }),
       },

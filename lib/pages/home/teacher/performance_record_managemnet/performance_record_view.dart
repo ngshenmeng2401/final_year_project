@@ -22,7 +22,7 @@ class RecordListView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(className),
+        title: Text(className + " (" + category + ")"),
         actions: [
           IconButton(
             onPressed: (){
