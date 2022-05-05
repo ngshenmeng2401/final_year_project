@@ -303,6 +303,26 @@ class PerformanceRecordController extends GetxController{
     update();
   }
 
+  void deleteRecordDialog(String category, String studentId){
+
+    Get.defaultDialog(
+      title: "Are you sure ?".tr,
+      content: Column(),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm:() => {
+        Get.back(),
+        HomeRemoteServices.deleteRecord(category, studentId),
+        Future.delayed(const Duration(milliseconds: 500), () {
+          loadRecordList();
+        }),
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
+  }
+
   void navigateAddDialog(){
 
     String category = appData.read("category")??'';

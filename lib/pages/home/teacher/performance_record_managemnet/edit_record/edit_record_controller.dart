@@ -104,26 +104,4 @@ class EditPerformanceRecordController extends GetxController{
 
     }
   }
-
-  void deleteRecordDialog(String category, String studentId){
-
-    Get.defaultDialog(
-      title: "Are you sure ?".tr,
-      content: Column(),
-      textConfirm: "Yes".tr,
-      textCancel: "No".tr,
-      onConfirm:() => {
-        Get.back(),
-        HomeRemoteServices.deleteRecord(category, studentId),
-        // Future.delayed(const Duration(milliseconds: 500), () {
-          Get.back(),
-        // }),
-      },
-      cancelTextColor: Colors.black,
-      confirmTextColor: Colors.white,
-      buttonColor: Colors.black,
-    );
-  }
-
-  
 }

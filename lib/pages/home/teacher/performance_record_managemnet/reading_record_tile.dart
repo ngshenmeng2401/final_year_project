@@ -25,6 +25,9 @@ class ReadingRecordTile extends StatelessWidget {
         width: screenWidth,
         height: screenHeight/14,
         child: ListTile(
+          onTap: (){
+            performanceRecordController.navigateEditReadingRecord(readingRecord);
+          },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
             child: Text(' ${index + 1}',
@@ -37,9 +40,9 @@ class ReadingRecordTile extends StatelessWidget {
           subtitle: Text(readingRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              performanceRecordController.navigateEditReadingRecord(readingRecord);
+              performanceRecordController.deleteRecordDialog("reading", readingRecord.id.toString());
             },
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.delete),
           ),
         )
       )

@@ -25,6 +25,9 @@ class WritingRecordTile extends StatelessWidget {
         width: screenWidth,
         height: screenHeight/14,
         child: ListTile(
+          onTap: (){
+            performanceRecordController.navigateEditWritingRecord(writingRecord);
+          },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
             child: Text(' ${index + 1}',
@@ -37,9 +40,9 @@ class WritingRecordTile extends StatelessWidget {
           subtitle: Text(writingRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              performanceRecordController.navigateEditWritingRecord(writingRecord);
+              performanceRecordController.deleteRecordDialog("writing", writingRecord.id.toString());
             },
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.delete),
           ),
         )
       )

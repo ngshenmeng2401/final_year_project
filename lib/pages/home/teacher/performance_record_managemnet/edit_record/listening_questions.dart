@@ -285,22 +285,22 @@ class EditListeningQuestions extends StatelessWidget {
                     )),
               ),
               SizedBox(height: 20),
-              MaterialButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                minWidth: screenWidth / 1.1,
-                height: screenHeight / 18,
-                color: Colors.black,
-                onPressed: () {
-                    editPerformanceRecordController.deleteRecordDialog("listening", listeningRecord.id.toString());
-                  },
-                child: Text("Delete".tr,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    )),
-              ),
+              // MaterialButton(
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(20),
+              //   ),
+              //   minWidth: screenWidth / 1.1,
+              //   height: screenHeight / 18,
+              //   color: Colors.black,
+              //   onPressed: () {
+              //       editPerformanceRecordController.deleteRecordDialog("listening", listeningRecord.id.toString());
+              //     },
+              //   child: Text("Delete".tr,
+              //       style: const TextStyle(
+              //         color: Colors.white,
+              //         fontSize: 20,
+              //       )),
+              // ),
             ],
           ),
         ),

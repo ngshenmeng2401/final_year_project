@@ -25,6 +25,9 @@ class SpeakingRecordTile extends StatelessWidget {
         width: screenWidth,
         height: screenHeight/14,
         child: ListTile(
+          onTap: (){
+            performanceRecordController.navigateEditSpeakingRecord(speakingRecord);
+          },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
             child: Text(' ${index + 1}',
@@ -37,9 +40,9 @@ class SpeakingRecordTile extends StatelessWidget {
           subtitle: Text(speakingRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              performanceRecordController.navigateEditSpeakingRecord(speakingRecord);
+              performanceRecordController.deleteRecordDialog("speaking", speakingRecord.id.toString());
             },
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.delete),
           ),
         )
       )

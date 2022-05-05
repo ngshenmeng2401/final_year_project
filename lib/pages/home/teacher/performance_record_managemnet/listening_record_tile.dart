@@ -25,6 +25,9 @@ class ListeningRecordTile extends StatelessWidget {
         width: screenWidth,
         height: screenHeight/14,
         child: ListTile(
+          onTap: (){
+            performanceRecordController.navigateEditListeningRecord(listeningRecord);
+          },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
             child: Text(' ${index + 1}',
@@ -37,9 +40,9 @@ class ListeningRecordTile extends StatelessWidget {
           subtitle: Text(listeningRecord.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              performanceRecordController.navigateEditListeningRecord(listeningRecord);
+              performanceRecordController.deleteRecordDialog("listening", listeningRecord.id.toString());
             },
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.delete),
           ),
         )
       )
