@@ -156,10 +156,10 @@ class AddHistoryView extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              // GetBuilder<AddHistoryCOntroller>(
-              //   init: AddHistoryCOntroller(),
-              //   builder: (_) {
-              //     return 
+              GetBuilder<AddHistoryCOntroller>(
+                init: AddHistoryCOntroller(),
+                builder: (_) {
+                  return 
                   MaterialButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -167,21 +167,18 @@ class AddHistoryView extends StatelessWidget {
                     minWidth: screenWidth / 1.1,
                     height: screenHeight / 18,
                     color: Colors.black,
-                    onPressed: 
-                    // addRecordController.selectName == "ID"
-                    // ? null
-                    // : 
-                    () {
-                        // addRecordController.addRecordDialog("listening");
+                    onPressed: addHistoryController.selectName == "ID"
+                    ? null
+                    : () {
+                        addHistoryController.addRecordDialog();
                       },
                     child: Text("Submit".tr,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         )),
-                  )
-              //     ;},
-              // ),
+                  );},
+              ),
             ],
           ),
         ),
