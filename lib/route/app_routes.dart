@@ -29,6 +29,8 @@ abstract class AppRoutes{
 
   //History Page
   static const HistoryPage = '/historypage';
+  static const AddHistoryPage = '/addhistorypage';
+  static const EditHistoryPage = '/edithistorypage';
 
   //Management Page
   static const ParentManagementPage = '/parentmanagementpage';

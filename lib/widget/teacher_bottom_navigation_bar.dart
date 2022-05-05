@@ -1,3 +1,4 @@
+import 'package:final_year_project/pages/history/history_view.dart';
 import 'package:final_year_project/pages/home/teacher/teacher_home_page.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_management_view.dart';
 import 'package:final_year_project/pages/profile/profile_view.dart';
@@ -19,6 +20,7 @@ class TeacherBottomNavigationBarWidget extends StatelessWidget {
               index: controller.tabIndex,
               children: [
                 TeacherHomeView(),
+                HistoryView(),
                 TeacherManagementView(),
                 ProfileView(),
               ],
@@ -36,6 +38,10 @@ class TeacherBottomNavigationBarWidget extends StatelessWidget {
               _bottomNavigationBarItem(
                 icon: CupertinoIcons.home,
                 label: 'Home',
+              ),
+              _bottomNavigationBarItem(
+                icon: CupertinoIcons.timer,
+                label: 'History',
               ),
               _bottomNavigationBarItem(
                 icon: Icons.assignment_ind,
