@@ -183,6 +183,24 @@ class HistoryController extends GetxController{
     update();
   }
 
+  void deleteRecordDialog(String testId){
+
+    Get.defaultDialog(
+      title: "Are you sure ?".tr,
+      content: Column(),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm:() => {
+        Get.back(),
+        HistoryRemoteServices.deleteTestRecord(testId),
+        loadTestRecordList(),
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
+  }
+
   void navigateAddHistoryView(){
 
     Get.toNamed(AppRoutes.AddHistoryPage)!.then((value) => loadTestRecordList());

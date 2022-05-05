@@ -41,7 +41,7 @@ class TestRecordTile extends StatelessWidget {
           subtitle: Text(testReocrd.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              // teachermanageController.navigateEditStudentView(student);
+              historyController.deleteRecordDialog(testReocrd.testId.toString());
             },
             icon: Icon(Icons.delete),
           ),

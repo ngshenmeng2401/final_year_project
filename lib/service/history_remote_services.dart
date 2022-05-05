@@ -77,6 +77,36 @@ class HistoryRemoteServices{
     }
   }
 
+  static Future<String?> deleteTestRecord(String testId) async {
+    
+    print(testId);
+
+    var response = await client.post(
+
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/delete_test_record.php'), 
+      body: {
+      "testId" : testId,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Edit Failed", "Did not found the record");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
   static Future<List<TestReocrd>?> fetchTestRecord(String name, String action, String sortValue) async {
 
     var response =
