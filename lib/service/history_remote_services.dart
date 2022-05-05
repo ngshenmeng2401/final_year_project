@@ -49,32 +49,32 @@ class HistoryRemoteServices{
     print(previousTestDate);
     print(lastTestDate);
 
-    // var response = await client.post(
+    var response = await client.post(
 
-    //   Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_test_record.php'), 
-    //   body: {
-    //   "testId" : testId,
-    //   "previousTestDate" : previousTestDate,
-    //   "lastTestDate" : lastTestDate,
-    // });
-    // print(response.body);
-    // if (response.body == "Success") {
-    //   var resp = response.body;
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_test_record.php'), 
+      body: {
+      "testId" : testId,
+      "previousTestDate" : previousTestDate,
+      "lastTestDate" : lastTestDate,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
       
-    //   getSnackBar("Edit Successful", "");
+      getSnackBar("Edit Successful", "");
 
-    //   return resp;
-    // }else if (response.body == "NotFound") {
-    //   var resp = response.body;
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
       
-    //   getSnackBar("Edit Failed", "Did not found the record");
+      getSnackBar("Edit Failed", "Did not found the record");
 
-    //   return resp;
-    // } else {
-    //   // show error message
-    //   getSnackBar("Edit Failed", "Please check your input value.");
-    //   return null;
-    // }
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+    }
   }
 
   static Future<List<TestReocrd>?> fetchTestRecord(String name, String action, String sortValue) async {
@@ -93,7 +93,7 @@ class HistoryRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return testReocrdFromJson(jsonString);
         }
       } else {
