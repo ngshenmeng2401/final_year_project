@@ -1,10 +1,14 @@
+import 'package:final_year_project/model/test_record.dart';
+import 'package:final_year_project/pages/history/history_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HistoryTile extends StatelessWidget {
+class TestRecordTile extends StatelessWidget {
   
+  final historyController = Get.put(HistoryController());
   final int index;
-  final String historyList;
-  HistoryTile(this.index, this.historyList);
+  final TestReocrd testReocrd;
+  TestRecordTile(this.index, this.testReocrd);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,9 @@ class HistoryTile extends StatelessWidget {
         width: screenWidth,
         height: screenHeight/14,
         child: ListTile(
+          onTap: (){
+            historyController.navigateEditHistoryView(testReocrd);
+          },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
             child: Text(' ${index + 1}',
@@ -29,9 +36,9 @@ class HistoryTile extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          title: Text(historyList.toString(),
+          title: Text(testReocrd.name.toString(),
             style: TextStyle(fontSize: 18),),
-          // subtitle: Text(student.id.toString(),),
+          subtitle: Text(testReocrd.id.toString(),),
           trailing: IconButton(
             onPressed: () {
               // teachermanageController.navigateEditStudentView(student);

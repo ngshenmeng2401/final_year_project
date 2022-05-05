@@ -15,7 +15,14 @@ class HistoryView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("History")
+        title: Text("History"),
+        actions: [
+          IconButton(
+            onPressed: (){
+              historyController.sortTestRecordDialog();
+            }, 
+            icon: Icon(Icons.sort),)
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -54,6 +61,7 @@ class HistoryView extends StatelessWidget {
                       child: Obx(() => IconButton(
                         onPressed: () {
                           historyController.clearTextField();
+                          historyController.loadTestRecordList();
                         },
                         icon: historyController.isSearching.value == true
                             ? Icon(Icons.clear)
@@ -66,7 +74,7 @@ class HistoryView extends StatelessWidget {
                       flex: 1,
                       child: IconButton(
                         onPressed: () {
-                          // teacherhomeController.searchStudent();
+                          historyController.searchTestRecord();
                         }, 
                         icon: Icon(Icons.search)),
                     ),
@@ -76,24 +84,21 @@ class HistoryView extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 height: screenHeight/1.4,
-                child: 
-                // Obx(() {
-                //     if (controller.studentList.isEmpty) {
-                //       return Center(
-                //         child: Text(
-                //         controller.statusMsj.toString(),
-                //         style: const TextStyle(fontSize: 20),
-                //       ));
-                //     } else {
-                //       return 
-                      ListView.builder(
-                        itemCount: historyController.historyList.length, 
+                child: Obx(() {
+                    if (historyController.testReocrdList.isEmpty) {
+                      return Center(
+                        child: Text(
+                        historyController.statusMsj.toString(),
+                        style: const TextStyle(fontSize: 20),
+                      ));
+                    } else {
+                      return ListView.builder(
+                        itemCount: historyController.testReocrdList.length, 
                         itemBuilder: (context, index) {
-                          return HistoryTile(index, historyController.historyList[index]);
-                      }, )
-                      // ;
-                //     }
-                // }),
+                          return TestRecordTile(index, historyController.testReocrdList[index]);
+                      }, );
+                    }
+                }),
               )
             ],
           ),
