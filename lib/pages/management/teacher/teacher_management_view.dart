@@ -104,6 +104,7 @@ class TeacherManagementView extends GetView<TeacherManagementController> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+      heroTag: "addStudent",
       onPressed: () {
         teachermanageController.navigateAddStudentView();
       },

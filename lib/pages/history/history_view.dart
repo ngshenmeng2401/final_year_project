@@ -100,6 +100,7 @@ class HistoryView extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+      heroTag: "addRecord",
       onPressed: () {
         historyController.navigateAddHistoryView();
       },
