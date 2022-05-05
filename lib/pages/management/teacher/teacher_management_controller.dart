@@ -40,7 +40,7 @@ class TeacherManagementController extends GetxController{
       if (student != null) {
         studentList.assignAll(student);
       } else {
-        statusMsj("No any post".tr);
+        statusMsj("No any student record".tr);
       }
     } finally {
       isLoading(false);

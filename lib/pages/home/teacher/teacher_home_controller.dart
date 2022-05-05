@@ -32,7 +32,7 @@ class TeacherHomeController extends GetxController{
       if (classroom != null) {
         classroomList.assignAll(classroom);
       } else {
-        statusMsj("No any post".tr);
+        statusMsj("No any class".tr);
       }
     } finally {
       isLoading(false);
