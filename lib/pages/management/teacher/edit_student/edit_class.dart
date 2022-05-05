@@ -62,22 +62,26 @@ class EditClass extends StatelessWidget {
                   GetBuilder<EditStudentDetailsController>(
                     init: EditStudentDetailsController(),
                     builder: (_) {
-                      return DropdownButton<String?>(
-                        value: _.selectClass,
-                        elevation: 28,
-                        style: const TextStyle(fontSize: 16, color: Colors.black),
-                        onChanged: (String? newValue) {
-                          _.chooseClass(newValue!);
-                        },
-                        items: [
-                          for (var data in _.studentClass)
-                            DropdownMenuItem(
-                              child: new Text(
-                                data,
-                              ),
-                              value: data,
-                            )
-                        ]
+                      return Container(
+                        width: screenWidth/5,
+                        child: DropdownButton<String?>(
+                          isExpanded: true,
+                          value: _.selectClass,
+                          elevation: 28,
+                          style: const TextStyle(fontSize: 16, color: Colors.black),
+                          onChanged: (String? newValue) {
+                            _.chooseClass(newValue!);
+                          },
+                          items: [
+                            for (var data in _.studentClass)
+                              DropdownMenuItem(
+                                child: new Text(
+                                  data,
+                                ),
+                                value: data,
+                              )
+                          ]
+                        ),
                       );
                     },
                   ),
