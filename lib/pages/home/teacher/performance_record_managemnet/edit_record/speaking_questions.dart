@@ -8,7 +8,7 @@ import 'package:get_storage/get_storage.dart';
 class EditSpeakingQuestions extends StatelessWidget {
 
   final appData = GetStorage();
-  final editRecordController = Get.put(EditRecordController());
+  final editPerformanceRecordController = Get.put(EditPerformanceRecordController());
   final SpeakingRecord speakingRecord;
   EditSpeakingQuestions(this.speakingRecord);
 
@@ -18,11 +18,11 @@ class EditSpeakingQuestions extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     final bool isDarkMode = appData.read("isDarkMode") ?? false;
-    editRecordController.chooseSQLevel(speakingRecord.sq1.toString(), 0);
-    editRecordController.chooseSQLevel(speakingRecord.sq2.toString(), 1);
-    editRecordController.chooseSQLevel(speakingRecord.sq3.toString(), 2);
-    editRecordController.chooseSQLevel(speakingRecord.sq4.toString(), 3);
-    editRecordController.chooseSQLevel(speakingRecord.sq5.toString(), 4);
+    editPerformanceRecordController.chooseSQLevel(speakingRecord.sq1.toString(), 0);
+    editPerformanceRecordController.chooseSQLevel(speakingRecord.sq2.toString(), 1);
+    editPerformanceRecordController.chooseSQLevel(speakingRecord.sq3.toString(), 2);
+    editPerformanceRecordController.chooseSQLevel(speakingRecord.sq4.toString(), 3);
+    editPerformanceRecordController.chooseSQLevel(speakingRecord.sq5.toString(), 4);
 
     return Scaffold(
       appBar: AppBar(
@@ -71,8 +71,8 @@ class EditSpeakingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -124,8 +124,8 @@ class EditSpeakingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -177,8 +177,8 @@ class EditSpeakingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -230,8 +230,8 @@ class EditSpeakingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -283,8 +283,8 @@ class EditSpeakingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -330,7 +330,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                 height: screenHeight / 18,
                 color: Colors.black,
                 onPressed: () {
-                    editRecordController.editRecordDialog("speaking", speakingRecord.id.toString());
+                    editPerformanceRecordController.editRecordDialog("speaking", speakingRecord.id.toString());
                   },
                 child: Text("Update".tr,
                     style: const TextStyle(
@@ -347,7 +347,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                 height: screenHeight / 18,
                 color: Colors.black,
                 onPressed: () {
-                    editRecordController.deleteRecordDialog("speaking", speakingRecord.id.toString());
+                    editPerformanceRecordController.deleteRecordDialog("speaking", speakingRecord.id.toString());
                   },
                 child: Text("Delete".tr,
                     style: const TextStyle(

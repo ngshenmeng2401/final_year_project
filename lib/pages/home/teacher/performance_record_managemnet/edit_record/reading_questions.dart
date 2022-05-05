@@ -8,7 +8,7 @@ import 'package:get_storage/get_storage.dart';
 class EditReadingQuestions extends StatelessWidget {
 
   final appData = GetStorage();
-  final editRecordController = Get.put(EditRecordController());
+  final editPerformanceRecordController = Get.put(EditPerformanceRecordController());
   final ReadingRecord readingRecord;
   EditReadingQuestions(this.readingRecord);
 
@@ -18,10 +18,10 @@ class EditReadingQuestions extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     final bool isDarkMode = appData.read("isDarkMode") ?? false;
-    editRecordController.chooseRQLevel(readingRecord.rq1.toString(), 0);
-    editRecordController.chooseRQLevel(readingRecord.rq2.toString(), 1);
-    editRecordController.chooseRQLevel(readingRecord.rq3.toString(), 2);
-    editRecordController.chooseRQLevel(readingRecord.rq4.toString(), 3);
+    editPerformanceRecordController.chooseRQLevel(readingRecord.rq1.toString(), 0);
+    editPerformanceRecordController.chooseRQLevel(readingRecord.rq2.toString(), 1);
+    editPerformanceRecordController.chooseRQLevel(readingRecord.rq3.toString(), 2);
+    editPerformanceRecordController.chooseRQLevel(readingRecord.rq4.toString(), 3);
 
     return Scaffold(
       appBar: AppBar(
@@ -70,8 +70,8 @@ class EditReadingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -123,8 +123,8 @@ class EditReadingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -176,8 +176,8 @@ class EditReadingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -229,8 +229,8 @@ class EditReadingQuestions extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        child: GetBuilder<EditRecordController>(
-                          init: EditRecordController(),
+                        child: GetBuilder<EditPerformanceRecordController>(
+                          init: EditPerformanceRecordController(),
                           builder: (_) {
                             return Container(
                               height: 35,
@@ -276,7 +276,7 @@ class EditReadingQuestions extends StatelessWidget {
                 height: screenHeight / 18,
                 color: Colors.black,
                 onPressed: () {
-                    editRecordController.editRecordDialog("reading", readingRecord.id.toString());
+                    editPerformanceRecordController.editRecordDialog("reading", readingRecord.id.toString());
                   },
                 child: Text("Update".tr,
                     style: const TextStyle(
@@ -293,7 +293,7 @@ class EditReadingQuestions extends StatelessWidget {
                 height: screenHeight / 18,
                 color: Colors.black,
                 onPressed: () {
-                    editRecordController.deleteRecordDialog("reading", readingRecord.id.toString());
+                    editPerformanceRecordController.deleteRecordDialog("reading", readingRecord.id.toString());
                   },
                 child: Text("Delete".tr,
                     style: const TextStyle(

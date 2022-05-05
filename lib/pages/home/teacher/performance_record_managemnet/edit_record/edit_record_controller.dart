@@ -2,7 +2,7 @@ import 'package:final_year_project/service/home_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EditRecordController extends GetxController{
+class EditPerformanceRecordController extends GetxController{
 
   final List<String> levelLQ = ["1","1","1","1"];
   final List<String> levelRQ = ["1","1","1","1"];
