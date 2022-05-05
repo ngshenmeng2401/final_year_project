@@ -17,7 +17,7 @@ class ManagementRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/add_student.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/add_student.php'), 
       body: {
       "name" : name,
       "studentClass" : studentClass,
@@ -46,7 +46,7 @@ class ManagementRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_student.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_student.php'), 
       body: {
         "id" : id,
         "oldValue" : oldValue,
@@ -73,7 +73,7 @@ class ManagementRemoteServices{
     print(classRoom);
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/delete_student.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/delete_student.php'), 
       body: {
         "id" : id,
         "age" : age,
@@ -98,7 +98,7 @@ class ManagementRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/load_student.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_student.php"),
           body: {
             "name":name,
             "action" : action,

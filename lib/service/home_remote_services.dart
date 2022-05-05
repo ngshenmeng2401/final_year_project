@@ -17,7 +17,7 @@ class HomeRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/load_student_with_class.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_student_with_class.php"),
           body: {
             "className":className,
           });
@@ -41,7 +41,7 @@ class HomeRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/load_classroom.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_classroom.php"),
           body: {
             "name":name,
             "action" : action,
@@ -72,7 +72,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/add_listening_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/add_listening_record.php'), 
       body: {
       "studentId" : studentId,
       "lq1" : lq1,
@@ -110,7 +110,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/add_reading_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/add_reading_record.php'), 
       body: {
       "studentId" : studentId,
       "rq1" : rq1,
@@ -149,7 +149,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/add_speaking_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/add_speaking_record.php'), 
       body: {
       "studentId" : studentId,
       "sq1" : sq1,
@@ -186,7 +186,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/add_writing_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/add_writing_record.php'), 
       body: {
       "studentId" : studentId,
       "wq1" : wq1,
@@ -222,7 +222,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_listening_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_listening_record.php'), 
       body: {
       "studentId" : studentId,
       "lq1" : lq1,
@@ -260,7 +260,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_reading_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_reading_record.php'), 
       body: {
       "studentId" : studentId,
       "rq1" : rq1,
@@ -299,7 +299,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_speaking_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_speaking_record.php'), 
       body: {
       "studentId" : studentId,
       "sq1" : sq1,
@@ -336,7 +336,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/edit_writing_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_writing_record.php'), 
       body: {
       "studentId" : studentId,
       "wq1" : wq1,
@@ -369,7 +369,7 @@ class HomeRemoteServices{
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/delete_question_record.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/delete_question_record.php'), 
       body: {
       "studentId" : studentId,
       "category" : category,
@@ -399,7 +399,7 @@ class HomeRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/load_listening_record.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_listening_record.php"),
           body: {
             "className":className,
             "action" : action,
@@ -426,7 +426,7 @@ class HomeRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/load_reading_record.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_reading_record.php"),
           body: {
             "className":className,
             "action" : action,
@@ -453,7 +453,7 @@ class HomeRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/load_speaking_record.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_speaking_record.php"),
           body: {
             "className":className,
             "action" : action,
@@ -480,7 +480,7 @@ class HomeRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://javathree99.com/s271059/final_year_project/load_writing_record.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_writing_record.php"),
           body: {
             "className":className,
             "action" : action,

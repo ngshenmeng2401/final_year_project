@@ -17,7 +17,7 @@ class UserRemoteServices {
     
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/signup_user.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/signup_user.php'), 
       body: {
       "email" : email,
       "username" : username,
@@ -60,7 +60,7 @@ class UserRemoteServices {
 
     var response = await client.post(
 
-      Uri.parse('https://javathree99.com/s271059/final_year_project/login_user.php'), 
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/login_user.php'), 
       body: {
       "email" : email,
       "password" : password,
