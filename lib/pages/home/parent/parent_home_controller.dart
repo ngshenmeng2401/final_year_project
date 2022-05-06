@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:final_year_project/model/children.dart';
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:final_year_project/service/parent/home_remote_services.dart';
@@ -13,19 +15,15 @@ class ParentHomeController extends GetxController{
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
   var childrenList = <Children>[].obs;
-
-  List<String> childrenName = [
-    "Wong Jun Jie",
-    "Wong Li Wen",
-    "Wong Kai Lnn",
-  ];
+  late Timer? timer;
 
   @override
   void onInit() {
 
     super.onInit();
     checkTextField();
-    loadClassroomList();
+    timer = Timer.periodic(const Duration(seconds: 2), (Timer t) => loadClassroomList());
+    // loadClassroomList();
   }
 
   void loadClassroomList() async{
@@ -75,6 +73,27 @@ class ParentHomeController extends GetxController{
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search_Product".tr);
+  }
+
+  void deleteRecordDialog(String studentId){
+
+    Get.defaultDialog(
+      title: "Delete? Are you sure ?".tr,
+      content: Column(),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm:() => {
+        Get.back(),
+        ParentHomeRemoteServices.deleteRecord(studentId),
+        childrenList.clear(),
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          loadClassroomList();
+        }),
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
   }
 
   void navigateChildrenDetailsPage(String childrenName){

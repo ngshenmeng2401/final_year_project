@@ -22,8 +22,11 @@ class ChildrenTile extends StatelessWidget {
       ),
       elevation: 2,
       child: InkWell(
+        onLongPress: (){
+          parentHomeController.deleteRecordDialog(children.studentId.toString());
+        },
         onTap: (){
-          parentHomeController.navigateChildrenDetailsPage(parentHomeController.childrenName[index]);
+          // parentHomeController.navigateChildrenDetailsPage(parentHomeController.childrenName[index]);
         },
         child: Container(
           padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
