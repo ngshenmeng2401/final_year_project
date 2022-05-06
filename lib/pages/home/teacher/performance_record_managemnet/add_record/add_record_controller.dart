@@ -1,5 +1,5 @@
 import 'package:final_year_project/model/student.dart';
-import 'package:final_year_project/service/home_remote_services.dart';
+import 'package:final_year_project/service/staff/home_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
