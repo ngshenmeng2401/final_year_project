@@ -1,4 +1,6 @@
+import 'package:final_year_project/model/children.dart';
 import 'package:final_year_project/route/app_pages.dart';
+import 'package:final_year_project/service/home_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +12,7 @@ class ParentHomeController extends GetxController{
   var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
+  var childrenList = <Children>[].obs;
 
   List<String> childrenName = [
     "Wong Jun Jie",
@@ -17,20 +20,44 @@ class ParentHomeController extends GetxController{
     "Wong Kai Lnn",
   ];
 
-  Future<void> searchChildren() async {
+  @override
+  void onInit() {
 
-    // searchProductController.text = "Bake";
+    super.onInit();
+    checkTextField();
+    loadClassroomList();
+  }
+
+  void loadClassroomList() async{
 
     try {
       isLoading(true);
-      // var products = await ProductRemoveService.searchProduct(searchProductController.text.toString());
-      // if (products != null) {
-      //   productList.assignAll(products);
-      //   searchResult.value = true;
-      // } else {
-      //   searchResult.value = false;
-      //   statusMsj("Not_Found".tr);
-      // }
+      var children = await HomeRemoteServices.fetchChildren("a", "load");
+      if (children != null) {
+        childrenList.assignAll(children);
+      } else {
+        statusMsj("No any class".tr);
+      }
+    } finally {
+      isLoading(false);
+    }
+    
+  }
+
+  Future<void> searchChildren() async {
+
+    String searchChildren = searchChildrenController.text.toString();
+    childrenList.clear();
+
+    try {
+      isLoading(true);
+      var student = await HomeRemoteServices.fetchChildren(searchChildren, "search");
+      if (student != null) {
+        childrenList.assignAll(student);
+        print(childrenList);
+      } else {
+        statusMsj("No record".tr);
+      }
     } finally {
       isLoading(false);
     }

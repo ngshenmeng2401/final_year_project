@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/children.dart';
 import 'package:final_year_project/pages/home/parent/parent_home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,7 +6,8 @@ import 'package:get/get.dart';
 class ChildrenTile extends StatelessWidget {
 
   final int index;
-  ChildrenTile(this.index);
+  final Children children;
+  ChildrenTile(this.index, this.children);
   final parentHomeController = Get.put(ParentHomeController());
 
   @override
@@ -36,12 +38,13 @@ class ChildrenTile extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(parentHomeController.childrenName[index],
+                    Text(children.name.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 20),
                     ),
                     SizedBox(height: 10),
-                    Icon(Icons.info_outline_rounded),
+                    Icon(Icons.info_outline_rounded,
+                      size: 30,),
                   ],
                 )),
               

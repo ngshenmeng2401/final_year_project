@@ -72,21 +72,31 @@ class ParentHomeView extends GetView<ParentHomeController> {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
-                height: screenHeight/1.25,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, 
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10, 
-                    childAspectRatio: (screenHeight / screenWidth) / 1.8,
-                  ),
-                  itemCount: parentHomeController.childrenName.length, 
-                  itemBuilder: (context, index) {
-                    return ChildrenTile(index);
-                  }, )
-              )
+              Obx(() {
+                if (parentHomeController.childrenList.isEmpty) {
+                  return Center(
+                    child: Text(
+                    parentHomeController.statusMsj.toString(),
+                    style: const TextStyle(fontSize: 20),
+                  ));
+                } else {
+                  return Container(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                    height: screenHeight/1.3,
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, 
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10, 
+                        childAspectRatio: (screenHeight / screenWidth) / 1.8,
+                      ),
+                      itemCount: parentHomeController.childrenList.length, 
+                      itemBuilder: (context, index) {
+                        return ChildrenTile(index, parentHomeController.childrenList[index]);
+                      }, )
+                  );
+                }
+              }),
             ],
           ),
         ),
