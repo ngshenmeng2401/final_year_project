@@ -1,4 +1,6 @@
+import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/route/app_pages.dart';
+import 'package:final_year_project/service/management_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +15,7 @@ class ParentManagementController extends GetxController{
   var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
+  var studentList = <Student>[].obs;
 
   List<String> studentName = [
     "Lim Jun Jie",
@@ -31,24 +34,66 @@ class ParentManagementController extends GetxController{
     "Steve Rogers",
   ];
 
-  Future<void> searchChildren() async {
+  @override
+  void onInit() {
 
-    // searchProductController.text = "Bake";
+    super.onInit();
+    checkTextField();
+    loadStudentList();
+  }
+
+  void loadStudentList() async{
 
     try {
       isLoading(true);
-      // var products = await ProductRemoveService.searchProduct(searchProductController.text.toString());
-      // if (products != null) {
-      //   productList.assignAll(products);
-      //   searchResult.value = true;
-      // } else {
-      //   searchResult.value = false;
-      //   statusMsj("Not_Found".tr);
-      // }
+      var student = await ManagementRemoteServices.fetchStudent("a", "load", "a");
+      if (student != null) {
+        studentList.assignAll(student);
+      } else {
+        statusMsj("No any student record".tr);
+      }
+    } finally {
+      isLoading(false);
+    }
+    
+  }
+
+  Future<void> searchChildren() async {
+
+    String searchChildren = searchChildrenController.text.toString();
+    studentList.clear();
+
+    try {
+      isLoading(true);
+      var student = await ManagementRemoteServices.fetchStudent(searchChildren, "search", "a");
+      if (student != null) {
+        studentList.assignAll(student);
+        print(studentList);
+      } else {
+        statusMsj("No_data".tr);
+      }
     } finally {
       isLoading(false);
     }
   }
+
+  // Future<void> sortStudent(String sortValue) async {
+
+  //   studentList.clear();
+
+  //   try {
+  //     isLoading(true);
+  //     var student = await ManagementRemoteServices.fetchStudent("1", "sort", sortValue);
+  //     if (student != null) {
+  //       studentList.assignAll(student);
+  //     } else {
+  //       // gaeUnittList = null;
+  //       statusMsj("No_data".tr);
+  //     }
+  //   } finally {
+  //     isLoading(false);
+  //   }
+  // }
 
   void checkTextField(){
 
@@ -69,7 +114,7 @@ class ParentManagementController extends GetxController{
     Get.toNamed(AppRoutes.AddStudentDetailsPage);
   }
 
-  void addChildren(){
+  void addChildrenDialog(String studentId){
 
     Get.defaultDialog(
       title: "Please_key_in:".tr,
@@ -99,7 +144,7 @@ class ParentManagementController extends GetxController{
       ),
       textConfirm: "Submit".tr,
       textCancel: "Cancel".tr,
-      onConfirm:() => checkAddChildren() ,
+      onConfirm:() => checkAddChildren(studentId) ,
       onCancel: () => Get.back(),
       cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,
@@ -107,7 +152,7 @@ class ParentManagementController extends GetxController{
     );
   }
 
-  void checkAddChildren(){
+  void checkAddChildren(String studentId){
 
     String parentID = parentIDController.text.toString();
     String phoneNo = phoneNoController.text.toString();
@@ -145,14 +190,9 @@ class ParentManagementController extends GetxController{
     }else{
 
       Get.back();
-      Get.snackbar(
-        "Message".tr,"Add_Children_Successful".tr,
-        backgroundColor: Colors.white60,
-        colorText: Colors.black,
-        icon: Icon(Icons.error, color: Colors.black),
-        snackPosition: SnackPosition.TOP,  
-      );
-      
+      ManagementRemoteServices.addChildren(studentId, parentID, phoneNo);
+      parentIDController.clear();
+      phoneNoController.clear();
     }
   }
 }

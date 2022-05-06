@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/pages/management/parent/parent_management_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,8 @@ class ChildrenTile extends StatelessWidget {
 
   final parentmanageController = Get.put(ParentManagementController());
   final int index;
-  ChildrenTile(this.index);
+  final Student student;
+  ChildrenTile(this.index, this.student);
   
   @override
   Widget build(BuildContext context) {
@@ -31,12 +33,12 @@ class ChildrenTile extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          title: Text(parentmanageController.studentName[index],
+          title: Text(student.name.toString(),
             style: TextStyle(fontSize: 18),),
-          subtitle: Text("274059",),
+          subtitle: Text(student.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              parentmanageController.addChildren();
+              parentmanageController.addChildrenDialog(student.id.toString(),);
             },
             icon: Icon(Icons.add),
           ),

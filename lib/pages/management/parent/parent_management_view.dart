@@ -79,14 +79,33 @@ class ParentManagementView extends GetView<ParentManagementController> {
                   ],
                 ),
               ),
+              // Container(
+              //   padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
+              //   height: screenHeight/1.25,
+              //   child: ListView.builder(
+              //     itemCount: parentmanageController.studentName.length, 
+              //     itemBuilder: (context, index) {
+              //       return ChildrenTile(index);
+              //     }, )
+              // ),
               Container(
-                padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 height: screenHeight/1.25,
-                child: ListView.builder(
-                  itemCount: parentmanageController.studentName.length, 
-                  itemBuilder: (context, index) {
-                    return ChildrenTile(index);
-                  }, )
+                child: Obx(() {
+                    if (controller.studentList.isEmpty) {
+                      return Center(
+                        child: Text(
+                        controller.statusMsj.toString(),
+                        style: const TextStyle(fontSize: 20),
+                      ));
+                    } else {
+                      return ListView.builder(
+                        itemCount: controller.studentList.length, 
+                        itemBuilder: (context, index) {
+                          return ChildrenTile(index, parentmanageController.studentList[index]);
+                      }, );
+                    }
+                }),
               )
             ],
           ),
