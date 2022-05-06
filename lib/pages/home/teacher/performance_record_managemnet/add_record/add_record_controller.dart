@@ -34,7 +34,7 @@ class AddRecordController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await HomeRemoteServices.fetchStudentWithClass(className);
+      var student = await StaffHomeRemoteServices.fetchStudentWithClass(className);
       if (student != null) {
         studentList.assignAll(student);
 
@@ -114,7 +114,7 @@ class AddRecordController extends GetxController{
       q3 = levelLQ[2];
       q4 = levelLQ[3];
 
-      HomeRemoteServices.addListeningRecord(selectName, q1, q2, q3, q4);
+      StaffHomeRemoteServices.addListeningRecord(selectName, q1, q2, q3, q4);
 
     }else if(category == "reading"){
 
@@ -123,7 +123,7 @@ class AddRecordController extends GetxController{
       q3 = levelRQ[2];
       q4 = levelRQ[3];
 
-      HomeRemoteServices.addReadingRecord(selectName, q1, q2, q3, q4);
+      StaffHomeRemoteServices.addReadingRecord(selectName, q1, q2, q3, q4);
 
     }else if(category == "speaking"){
 
@@ -133,14 +133,14 @@ class AddRecordController extends GetxController{
       q4 = levelSQ[3];
       q5 = levelSQ[4];
 
-      HomeRemoteServices.addSpeakingRecord(selectName, q1, q2, q3, q4, q5);
+      StaffHomeRemoteServices.addSpeakingRecord(selectName, q1, q2, q3, q4, q5);
 
     }else if(category == "writing"){
 
       q1 = levelWQ[0];
       q2 = levelWQ[1];
 
-      HomeRemoteServices.addWritingRecord(selectName, q1, q2);
+      StaffHomeRemoteServices.addWritingRecord(selectName, q1, q2);
 
     }
   }

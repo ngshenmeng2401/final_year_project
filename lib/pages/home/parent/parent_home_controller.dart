@@ -1,6 +1,6 @@
 import 'package:final_year_project/model/children.dart';
 import 'package:final_year_project/route/app_pages.dart';
-import 'package:final_year_project/service/staff/home_remote_services.dart';
+import 'package:final_year_project/service/parent/home_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +32,7 @@ class ParentHomeController extends GetxController{
 
     try {
       isLoading(true);
-      var children = await HomeRemoteServices.fetchChildren("a", "load");
+      var children = await ParentHomeRemoteServices.fetchChildren("a", "load");
       if (children != null) {
         childrenList.assignAll(children);
       } else {
@@ -51,7 +51,7 @@ class ParentHomeController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await HomeRemoteServices.fetchChildren(searchChildren, "search");
+      var student = await ParentHomeRemoteServices.fetchChildren(searchChildren, "search");
       if (student != null) {
         childrenList.assignAll(student);
         print(childrenList);

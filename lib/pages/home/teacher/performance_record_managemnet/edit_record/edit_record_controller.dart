@@ -68,7 +68,7 @@ class EditPerformanceRecordController extends GetxController{
 
       // print(q1 + " " + q2 + " " + q3 + " " + q4);
 
-      HomeRemoteServices.editListeningRecord(studentId, q1, q2, q3, q4);
+      StaffHomeRemoteServices.editListeningRecord(studentId, q1, q2, q3, q4);
 
     }else if(category == "reading"){
 
@@ -79,7 +79,7 @@ class EditPerformanceRecordController extends GetxController{
 
       // print(q1 + " " + q2 + " " + q3 + " " + q4);
 
-      HomeRemoteServices.editReadingRecord(studentId, q1, q2, q3, q4);
+      StaffHomeRemoteServices.editReadingRecord(studentId, q1, q2, q3, q4);
 
     }else if(category == "speaking"){
 
@@ -91,7 +91,7 @@ class EditPerformanceRecordController extends GetxController{
 
       // print(q1 + " " + q2 + " " + q3 + " " + q4 + " " + q5);
 
-      HomeRemoteServices.editSpeakingRecord(studentId, q1, q2, q3, q4, q5);
+      StaffHomeRemoteServices.editSpeakingRecord(studentId, q1, q2, q3, q4, q5);
 
     }else if(category == "writing"){
 
@@ -100,7 +100,7 @@ class EditPerformanceRecordController extends GetxController{
 
       // print(q1 + " " + q2);
 
-      HomeRemoteServices.editWritingRecord(studentId, q1, q2);
+      StaffHomeRemoteServices.editWritingRecord(studentId, q1, q2);
 
     }
   }

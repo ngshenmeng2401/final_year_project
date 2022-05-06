@@ -56,7 +56,7 @@ class PerformanceRecordController extends GetxController{
 
       if(category == "listening"){
 
-        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "load", "a", "a");
+        var listeningRecord = await StaffHomeRemoteServices.fetchListeningRecord(className, "load", "a", "a");
         if (listeningRecord != null) {
           listeningRecordList.assignAll(listeningRecord);
         } else {
@@ -65,7 +65,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "reading"){
 
-        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "load", "a", "a");
+        var readingRecord = await StaffHomeRemoteServices.fetchReadingRecord(className, "load", "a", "a");
         if (readingRecord != null) {
           readingRecordList.assignAll(readingRecord);
         } else {
@@ -74,7 +74,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "speaking"){
 
-        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "load", "a", "a");
+        var speakingRecord = await StaffHomeRemoteServices.fetchSpeakingRecord(className, "load", "a", "a");
         if (speakingRecord != null) {
           speakingRecordList.assignAll(speakingRecord);
         } else {
@@ -83,7 +83,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "writing"){
 
-        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "load", "a", "a");
+        var writingRecord = await StaffHomeRemoteServices.fetchWritingRecord(className, "load", "a", "a");
         if (writingRecord != null) {
           writingRecordList.assignAll(writingRecord);
         } else {
@@ -114,7 +114,7 @@ class PerformanceRecordController extends GetxController{
 
       if(category == "listening"){
 
-        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "search", searchText, "a");
+        var listeningRecord = await StaffHomeRemoteServices.fetchListeningRecord(className, "search", searchText, "a");
         if (listeningRecord != null) {
           listeningRecordList.assignAll(listeningRecord);
         } else {
@@ -123,7 +123,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "reading"){
 
-        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "search", searchText, "a");
+        var readingRecord = await StaffHomeRemoteServices.fetchReadingRecord(className, "search", searchText, "a");
         if (readingRecord != null) {
           readingRecordList.assignAll(readingRecord);
         } else {
@@ -132,7 +132,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "speaking"){
 
-        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "search", searchText, "a");
+        var speakingRecord = await StaffHomeRemoteServices.fetchSpeakingRecord(className, "search", searchText, "a");
         if (speakingRecord != null) {
           speakingRecordList.assignAll(speakingRecord);
         } else {
@@ -141,7 +141,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "writing"){
 
-        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "search", searchText, "a");
+        var writingRecord = await StaffHomeRemoteServices.fetchWritingRecord(className, "search", searchText, "a");
         if (writingRecord != null) {
           writingRecordList.assignAll(writingRecord);
         } else {
@@ -164,7 +164,7 @@ class PerformanceRecordController extends GetxController{
 
       if(category == "listening"){
 
-        var listeningRecord = await HomeRemoteServices.fetchListeningRecord(className, "sort", "a", sortValue);
+        var listeningRecord = await StaffHomeRemoteServices.fetchListeningRecord(className, "sort", "a", sortValue);
         if (listeningRecord != null) {
           listeningRecordList.assignAll(listeningRecord);
         } else {
@@ -173,7 +173,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "reading"){
 
-        var readingRecord = await HomeRemoteServices.fetchReadingRecord(className, "sort", "a", sortValue);
+        var readingRecord = await StaffHomeRemoteServices.fetchReadingRecord(className, "sort", "a", sortValue);
         if (readingRecord != null) {
           readingRecordList.assignAll(readingRecord);
         } else {
@@ -182,7 +182,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "speaking"){
 
-        var speakingRecord = await HomeRemoteServices.fetchSpeakingRecord(className, "sort", "a", sortValue);
+        var speakingRecord = await StaffHomeRemoteServices.fetchSpeakingRecord(className, "sort", "a", sortValue);
         if (speakingRecord != null) {
           speakingRecordList.assignAll(speakingRecord);
         } else {
@@ -191,7 +191,7 @@ class PerformanceRecordController extends GetxController{
 
       }else if(category == "writing"){
 
-        var writingRecord = await HomeRemoteServices.fetchWritingRecord(className, "sort", "a", sortValue);
+        var writingRecord = await StaffHomeRemoteServices.fetchWritingRecord(className, "sort", "a", sortValue);
         if (writingRecord != null) {
           writingRecordList.assignAll(writingRecord);
         } else {
@@ -312,7 +312,7 @@ class PerformanceRecordController extends GetxController{
       textCancel: "No".tr,
       onConfirm:() => {
         Get.back(),
-        HomeRemoteServices.deleteRecord(category, studentId),
+        StaffHomeRemoteServices.deleteRecord(category, studentId),
         listeningRecordList.clear(),
         readingRecordList.clear(),
         speakingRecordList.clear(),

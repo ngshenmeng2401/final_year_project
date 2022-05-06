@@ -3,7 +3,7 @@ import 'package:final_year_project/pages/management/teacher/edit_student/edit_cl
 import 'package:final_year_project/pages/management/teacher/edit_student/edit_parent_id.dart';
 import 'package:final_year_project/pages/management/teacher/edit_student/edit_phone_no.dart';
 import 'package:final_year_project/pages/management/teacher/edit_student/edit_student_name.dart';
-import 'package:final_year_project/service/management_remote_services.dart';
+import 'package:final_year_project/service/staff/management_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
