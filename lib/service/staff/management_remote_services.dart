@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
-class ManagementRemoteServices{
+class StaffManagementRemoteServices{
 
   static var client = http.Client();
   static final appData = GetStorage();

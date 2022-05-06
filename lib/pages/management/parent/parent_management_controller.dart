@@ -46,7 +46,7 @@ class ParentManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await ManagementRemoteServices.fetchStudent("a", "load", "a");
+      var student = await StaffManagementRemoteServices.fetchStudent("a", "load", "a");
       if (student != null) {
         studentList.assignAll(student);
       } else {
@@ -65,7 +65,7 @@ class ParentManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await ManagementRemoteServices.fetchStudent(searchChildren, "search", "a");
+      var student = await StaffManagementRemoteServices.fetchStudent(searchChildren, "search", "a");
       if (student != null) {
         studentList.assignAll(student);
         print(studentList);
@@ -190,7 +190,7 @@ class ParentManagementController extends GetxController{
     }else{
 
       Get.back();
-      ManagementRemoteServices.addChildren(studentId, parentID, phoneNo);
+      StaffManagementRemoteServices.addChildren(studentId, parentID, phoneNo);
       parentIDController.clear();
       phoneNoController.clear();
     }

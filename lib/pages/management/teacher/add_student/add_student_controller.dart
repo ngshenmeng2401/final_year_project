@@ -91,7 +91,7 @@ class AddStudentDetailsController extends GetxController{
       );
     }else{
 
-      ManagementRemoteServices.addStudentDetails(name, studentClass, age, parentId, phoneNo);
+      StaffManagementRemoteServices.addStudentDetails(name, studentClass, age, parentId, phoneNo);
       studentNameController.clear();
       studentAgeController.clear();
       parentIDController.clear();

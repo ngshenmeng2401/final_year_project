@@ -36,7 +36,7 @@ class TeacherManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await ManagementRemoteServices.fetchStudent("a", "load", "a");
+      var student = await StaffManagementRemoteServices.fetchStudent("a", "load", "a");
       if (student != null) {
         studentList.assignAll(student);
       } else {
@@ -55,7 +55,7 @@ class TeacherManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await ManagementRemoteServices.fetchStudent(searchStudent, "search", "a");
+      var student = await StaffManagementRemoteServices.fetchStudent(searchStudent, "search", "a");
       if (student != null) {
         studentList.assignAll(student);
         print(studentList);
@@ -73,7 +73,7 @@ class TeacherManagementController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await ManagementRemoteServices.fetchStudent("1", "sort", sortValue);
+      var student = await StaffManagementRemoteServices.fetchStudent("1", "sort", sortValue);
       if (student != null) {
         studentList.assignAll(student);
       } else {

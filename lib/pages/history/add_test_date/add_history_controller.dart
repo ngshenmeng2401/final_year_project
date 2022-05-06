@@ -34,7 +34,7 @@ class AddHistoryCOntroller extends GetxController{
 
     try {
       isLoading(true);
-      var student = await ManagementRemoteServices.fetchStudent("a", "load", "a");
+      var student = await StaffManagementRemoteServices.fetchStudent("a", "load", "a");
       if (student != null) {
         studentList.assignAll(student);
 

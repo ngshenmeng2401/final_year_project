@@ -87,7 +87,7 @@ class EditStudentDetailsController extends GetxController{
     print(newValue);
     print(category);
 
-    ManagementRemoteServices.updateStudentDetails(id, oldValue, newValue, category);
+    StaffManagementRemoteServices.updateStudentDetails(id, oldValue, newValue, category);
     // Get.offAllNamed(AppRoutes.TeacherManagementPage);
   }
 
@@ -100,7 +100,7 @@ class EditStudentDetailsController extends GetxController{
       textCancel: "No".tr,
       onConfirm:() => {
         Get.back(),
-        ManagementRemoteServices.deleteStudentDetails(id, age, className),
+        StaffManagementRemoteServices.deleteStudentDetails(id, age, className),
         Get.back(),
       },
       cancelTextColor: Colors.black,
