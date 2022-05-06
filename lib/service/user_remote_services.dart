@@ -1,11 +1,13 @@
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
 class UserRemoteServices {
 
   static var client = http.Client();
+  static final appData = GetStorage();
 
   static Future<String?> signUpUser(String email, String username , String phoneNo, String password, String referralCode) async {
 
@@ -95,8 +97,8 @@ class UserRemoteServices {
     if(email != "" && password != ""){
       print("Sucessful");
 
-      // appData.write("isLogged", true);
-      // appData.write("keepLogin", email);
+      appData.write("isLogged", true);
+      appData.write("keepLogin", email);
 
       if(position == "Parent"){
 
@@ -108,7 +110,7 @@ class UserRemoteServices {
 
       }else if(position == "Staff"){
 
-        Get.offNamed(AppRoutes.StaffBottomNavigation);
+        Get.offNamed(AppRoutes.TeacherBottomNavigation);
       }
 
       Get.snackbar(
