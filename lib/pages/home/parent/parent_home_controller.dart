@@ -35,6 +35,7 @@ class ParentHomeController extends GetxController{
       var children = await ParentHomeRemoteServices.fetchChildren("a", "load");
       if (children != null) {
         childrenList.assignAll(children);
+
       } else {
         statusMsj("No any class".tr);
       }
@@ -54,6 +55,7 @@ class ParentHomeController extends GetxController{
       var student = await ParentHomeRemoteServices.fetchChildren(searchChildren, "search");
       if (student != null) {
         childrenList.assignAll(student);
+
         print(childrenList);
       } else {
         statusMsj("No record".tr);
@@ -78,7 +80,12 @@ class ParentHomeController extends GetxController{
     statusMsj("Loading".tr);
   }
 
-  void navigateChildrenRecordPage(String studentId){
+  void navigateChildrenRecordPage(String studentId, String listeningResult, String readingResult, String speakingResult, String writingResult){
+
+    print(listeningResult);
+    print(readingResult);
+    print(speakingResult);
+    print(writingResult);
 
     Get.defaultDialog(
       
@@ -94,12 +101,14 @@ class ParentHomeController extends GetxController{
             // leading: Text("1."),
             title: Text("Listening".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {
+            onTap: listeningResult == "yes" 
+            ? () {
               Get.back();
               appData.write("category", "listening");
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.ListeningResultPage);
-            },
+            }
+            : null,
           ),
           SizedBox(height: 5),
           ListTile(
@@ -110,12 +119,14 @@ class ParentHomeController extends GetxController{
             // leading: Text("2."),
             title: Text("Reading".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {
+            onTap: readingResult == "yes" 
+            ? () {
               Get.back();
               appData.write("category", "reading");
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.ReadingResultPage);
-            },
+            } 
+            : null,
           ),
           SizedBox(height: 5),
           ListTile(
@@ -126,12 +137,14 @@ class ParentHomeController extends GetxController{
             // leading: Text("3."),
             title: Text("Speaking".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {
+            onTap: speakingResult == "yes" 
+            ? () {
               Get.back();
               appData.write("category", "speaking");
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.SpeakingResultPage);
-            },
+            }
+            : null,
           ),
           SizedBox(height: 5),
           ListTile(
@@ -142,12 +155,14 @@ class ParentHomeController extends GetxController{
             // leading: Text("4."),
             title: Text("Writing".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {
+            onTap: writingResult == "yes" 
+            ? () {
               Get.back();
               appData.write("category", "writing");
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.WritingResultPage);
-            },
+            }
+            : null,
           )
         ],
       ),
