@@ -25,10 +25,10 @@ class ParentHomeController extends GetxController{
     super.onInit();
     checkTextField();
     // timer = Timer.periodic(const Duration(seconds: 2), (Timer t) => loadClassroomList());
-    loadClassroomList();
+    loadChildrenList();
   }
 
-  void loadClassroomList() async{
+  void loadChildrenList() async{
 
     try {
       isLoading(true);
@@ -73,8 +73,9 @@ class ParentHomeController extends GetxController{
   void clearTextField(){
     searchChildrenController.clear();
     isSearching.value = false;
-    // productList.clear();
-    statusMsj("Search_Product".tr);
+    childrenList.clear();
+    loadChildrenList();
+    statusMsj("Loading".tr);
   }
 
   void navigateChildrenRecordPage(String studentId){
@@ -168,7 +169,7 @@ class ParentHomeController extends GetxController{
         ParentHomeRemoteServices.deleteRecord(studentId),
         childrenList.clear(),
         Future.delayed(const Duration(milliseconds: 1000), () {
-          loadClassroomList();
+          loadChildrenList();
         }),
       },
       cancelTextColor: Colors.black,
