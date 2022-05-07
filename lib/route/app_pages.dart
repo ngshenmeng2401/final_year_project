@@ -1,5 +1,4 @@
-import 'package:final_year_project/pages/history/add_test_date/add_history_view.dart';
-import 'package:final_year_project/pages/history/history_view.dart';
+import 'package:final_year_project/pages/history/teacher/add_test_date/add_history_view.dart';
 import 'package:final_year_project/pages/home/parent/children_details.dart/children_details_view.dart';
 import 'package:final_year_project/pages/home/parent/children_details.dart/listening_result.dart';
 import 'package:final_year_project/pages/home/parent/children_details.dart/reading_result.dart';

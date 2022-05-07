@@ -1,5 +1,5 @@
 import 'package:final_year_project/model/test_record.dart';
-import 'package:final_year_project/pages/history/edit_test_date/edit_history_controller.dart';
+import 'package:final_year_project/pages/history/teacher/edit_test_date/edit_history_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';

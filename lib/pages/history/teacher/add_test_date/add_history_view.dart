@@ -1,4 +1,4 @@
-import 'package:final_year_project/pages/history/add_test_date/add_history_controller.dart';
+import 'package:final_year_project/pages/history/teacher/add_test_date/add_history_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
