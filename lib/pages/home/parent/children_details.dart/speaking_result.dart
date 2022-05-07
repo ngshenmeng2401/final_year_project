@@ -32,11 +32,13 @@ class SpeakingResult extends StatelessWidget {
                     child: Text("Student ID:".tr,
                       style: TextStyle(fontSize: 22),),
                   ),
-                  Container(
-                    width: screenWidth/2,
-                    child: Text("274059",
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 22),),
+                  Obx(() => 
+                    Container(
+                      width: screenWidth/2,
+                      child: Text(childrenDetailsController.studentID.value,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 22),),
+                    ),
                   ),
                 ],
               ),
@@ -49,15 +51,19 @@ class SpeakingResult extends StatelessWidget {
                     child: Text("Name:".tr,
                       style: TextStyle(fontSize: 22),),
                   ),
-                  Container(
-                    width: screenWidth/2,
-                    child: Text("NG SHEN MENG",
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 22),),
+                  Obx(() => 
+                    Container(
+                      width: screenWidth/2,
+                      child: Text(childrenDetailsController.studentName.value,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 22),),
+                    ),
                   ),
                 ],
               ),
-              Divider(),
+              Divider(
+                height: screenHeight/20,
+              ),
               Table(
                 columnWidths: {
                   0: FlexColumnWidth(1),
@@ -74,23 +80,53 @@ class SpeakingResult extends StatelessWidget {
                         child: Container(
                           height: screenHeight/32,
                           child: Center(
-                            child: Text("1")
+                            child: Text("No".tr,)
                         )),
                       ),
                       TableCell(
                         child: Container(
+                          height: screenHeight/32,
                           padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                           child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("Use simple words.".tr,)
+                            child: Text("Details".tr,)
                         )),
                       ),
                       TableCell(
                         child: Container(
                           height: screenHeight/32,
                           child: Center(
-                            child: Text("5")
+                            child: Text("Level")
                         )),
+                      ),
+                    ],
+                  ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("1")
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Use simple words.".tr,)
+                        )),
+                      ),
+                      Obx(() =>
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text(childrenDetailsController.result1.value)
+                          )),
+                        ),
                       ),
                     ],
                   ),
@@ -105,18 +141,21 @@ class SpeakingResult extends StatelessWidget {
                       ),
                       TableCell(
                         child: Container(
+                          height: screenHeight/32,
                           padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text("Use simple statements.".tr,)
                         )),
                       ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("5")
-                        )),
+                      Obx(() =>
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text(childrenDetailsController.result2.value)
+                          )),
+                        ),
                       ),
                     ],
                   ),
@@ -131,18 +170,21 @@ class SpeakingResult extends StatelessWidget {
                       ),
                       TableCell(
                         child: Container(
+                          height: screenHeight/32,
                           padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text("Ask simple questions.".tr,)
                         )),
                       ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("5")
-                        )),
+                      Obx(() =>
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text(childrenDetailsController.result3.value)
+                          )),
+                        ),
                       ),
                     ],
                   ),
@@ -157,18 +199,21 @@ class SpeakingResult extends StatelessWidget {
                       ),
                       TableCell(
                         child: Container(
+                          height: screenHeight/32,
                           padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text("Sing/recite songs, rhymes, poems.".tr,)
                         )),
                       ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("5")
-                        )),
+                      Obx(() =>
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text(childrenDetailsController.result4.value)
+                          )),
+                        ),
                       ),
                     ],
                   ),
@@ -183,47 +228,50 @@ class SpeakingResult extends StatelessWidget {
                       ),
                       TableCell(
                         child: Container(
+                          height: screenHeight/32,
                           padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text("Tell simple stories.".tr,)
                         )),
                       ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("5")
-                        )),
+                      Obx(() =>
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text(childrenDetailsController.result5.value)
+                          )),
+                        ),
                       ),
                     ],
                   ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("")
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Total".tr,)
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("25/25")
-                        )),
-                      ),
-                    ],
-                  ),
+                  // TableRow(
+                  //   children: [
+                  //     TableCell(
+                  //       child: Container(
+                  //         height: screenHeight/32,
+                  //         child: Center(
+                  //           child: Text("")
+                  //       )),
+                  //     ),
+                  //     TableCell(
+                  //       child: Container(
+                  //         padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                  //         child: Align(
+                  //           alignment: Alignment.centerLeft,
+                  //           child: Text("Total".tr,)
+                  //       )),
+                  //     ),
+                  //     TableCell(
+                  //       child: Container(
+                  //         height: screenHeight/32,
+                  //         child: Center(
+                  //           child: Text("25/25")
+                  //       )),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ],

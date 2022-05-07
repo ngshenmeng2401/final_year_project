@@ -17,6 +17,9 @@ class ChildrenDetailsController extends GetxController{
 
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
+  var studentID = "".obs, studentName = "".obs;
+  var result1 = "".obs, result2 = "".obs, result3 = "".obs, result4 = "".obs, result5 = "".obs;
+  var resultList = [];
 
   @override
   void onInit() {
@@ -30,6 +33,7 @@ class ChildrenDetailsController extends GetxController{
 
     String studentId = appData.read("studentId")??'';
     String category = appData.read("category")??'';
+    studentID.value = studentId;
 
     // try {
     //   isLoading(true);
@@ -38,9 +42,12 @@ class ChildrenDetailsController extends GetxController{
         var listeningResult = await ParentHomeRemoteServices.fetchChildrenListeningResult(studentId);
         if (listeningResult != null) {
           listeningResultList.assignAll(listeningResult);
-          for(int i = 0; i < listeningResultList.length; i++){
-            
-          }
+          
+          studentName.value = listeningResultList[0].name.toString();
+          result1.value = listeningResultList[0].lq1.toString();
+          result2.value = listeningResultList[0].lq2.toString();
+          result3.value = listeningResultList[0].lq3.toString();
+          result4.value = listeningResultList[0].lq4.toString();
 
         } else {
           statusMsj("No any record".tr);
@@ -51,6 +58,13 @@ class ChildrenDetailsController extends GetxController{
         var readingResult = await ParentHomeRemoteServices.fetchChildrenReadingResult(studentId);
         if (readingResult != null) {
           readingResultList.assignAll(readingResult);
+
+          studentName.value = readingResultList[0].name.toString();
+          result1.value = readingResultList[0].rq1.toString();
+          result2.value = readingResultList[0].rq2.toString();
+          result3.value = readingResultList[0].rq3.toString();
+          result4.value = readingResultList[0].rq4.toString();
+
         } else {
           statusMsj("No any record".tr);
         }
@@ -60,6 +74,14 @@ class ChildrenDetailsController extends GetxController{
         var speakingResult = await ParentHomeRemoteServices.fetchChildrenSpeakingResult(studentId);
         if (speakingResult != null) {
           speakingResultList.assignAll(speakingResult);
+
+          studentName.value = speakingResultList[0].name.toString();
+          result1.value = speakingResultList[0].sq1.toString();
+          result2.value = speakingResultList[0].sq2.toString();
+          result3.value = speakingResultList[0].sq3.toString();
+          result4.value = speakingResultList[0].sq4.toString();
+          result5.value = speakingResultList[0].sq5.toString();
+
         } else {
           statusMsj("No any record".tr);
         }
@@ -69,6 +91,11 @@ class ChildrenDetailsController extends GetxController{
         var writingResult = await ParentHomeRemoteServices.fetchChildrenWritingResult(studentId);
         if (writingResult != null) {
           writingResultList.assignAll(writingResult);
+
+          studentName.value = writingResultList[0].name.toString();
+          result1.value = writingResultList[0].wq1.toString();
+          result2.value = writingResultList[0].wq2.toString();
+
         } else {
           statusMsj("No any record".tr);
         }
