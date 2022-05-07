@@ -5,9 +5,11 @@ import 'package:final_year_project/route/app_pages.dart';
 import 'package:final_year_project/service/parent/home_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class ParentHomeController extends GetxController{
 
+  final appData = GetStorage();
   var isSearching = false.obs;
   late TextEditingController searchChildrenController = new TextEditingController();
 
@@ -22,8 +24,8 @@ class ParentHomeController extends GetxController{
 
     super.onInit();
     checkTextField();
-    timer = Timer.periodic(const Duration(seconds: 2), (Timer t) => loadClassroomList());
-    // loadClassroomList();
+    // timer = Timer.periodic(const Duration(seconds: 2), (Timer t) => loadClassroomList());
+    loadClassroomList();
   }
 
   void loadClassroomList() async{
@@ -73,6 +75,85 @@ class ParentHomeController extends GetxController{
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search_Product".tr);
+  }
+
+  void navigateChildrenRecordPage(String studentId){
+
+    Get.defaultDialog(
+      
+      title: "Categories:".tr,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("1."),
+            title: Text("Listening".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "listening");
+              appData.write("studentId", studentId);
+              Get.toNamed(AppRoutes.ListeningResultPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("2."),
+            title: Text("Reading".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "reading");
+              appData.write("studentId", studentId);
+              Get.toNamed(AppRoutes.ReadingResultPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("3."),
+            title: Text("Speaking".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "speaking");
+              appData.write("studentId", studentId);
+              Get.toNamed(AppRoutes.SpeakingResultPage);
+            },
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            tileColor: Colors.grey[100],
+            // leading: Text("4."),
+            title: Text("Writing".tr),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Get.back();
+              appData.write("category", "writing");
+              appData.write("studentId", studentId);
+              Get.toNamed(AppRoutes.WritingResultPage);
+            },
+          )
+        ],
+      ),
+      textConfirm: null,
+      textCancel: null,
+      buttonColor: Colors.black,
+    );
   }
 
   void deleteRecordDialog(String studentId){

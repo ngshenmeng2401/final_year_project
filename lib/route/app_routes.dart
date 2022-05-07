@@ -27,6 +27,11 @@ abstract class AppRoutes{
   static const WritingQuestionsPage = '/writingquestionspage';
   static const EditRecordDetailsPage = '/editrecordpage';
 
+  static const ListeningResultPage = '/listeningresultpage';
+  static const ReadingResultPage = '/readingresultpage';
+  static const SpeakingResultPage = '/speakingresultpage';
+  static const WritingResultPage = '/writingresultpage';
+
   //History Page
   static const HistoryPage = '/historypage';
   static const AddHistoryPage = '/addhistorypage';

@@ -1,6 +1,10 @@
 import 'package:final_year_project/pages/history/add_test_date/add_history_view.dart';
 import 'package:final_year_project/pages/history/history_view.dart';
 import 'package:final_year_project/pages/home/parent/children_details.dart/children_details_view.dart';
+import 'package:final_year_project/pages/home/parent/children_details.dart/listening_result.dart';
+import 'package:final_year_project/pages/home/parent/children_details.dart/reading_result.dart';
+import 'package:final_year_project/pages/home/parent/children_details.dart/speaking_result.dart';
+import 'package:final_year_project/pages/home/parent/children_details.dart/writing_result.dart';
 import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
 import 'package:final_year_project/pages/home/staff/staff_home_view.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/listening_questions.dart';
@@ -124,11 +128,25 @@ class AppPages{
       page: () => RecordListView(),
     ),
 
-    //History Page
-    // GetPage(
-    //   name: AppRoutes.HistoryPage,
-    //   page: () => HistoryView(),
-    // ),
+    GetPage(
+      name: AppRoutes.ListeningResultPage,
+      page: () => ListeningResult(),
+    ),
+
+    GetPage(
+      name: AppRoutes.ReadingResultPage,
+      page: () => ReadingResult(),
+    ),
+
+    GetPage(
+      name: AppRoutes.SpeakingResultPage,
+      page: () => SpeakingResult(),
+    ),
+
+    GetPage(
+      name: AppRoutes.WritingResultPage,
+      page: () => WritingResult(),
+    ),
 
     GetPage(
       name: AppRoutes.AddHistoryPage,
