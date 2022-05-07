@@ -1,3 +1,4 @@
+import 'package:final_year_project/pages/history/parent/children_history_list.dart';
 import 'package:final_year_project/pages/home/parent/parent_home_view.dart';
 import 'package:final_year_project/pages/management/parent/parent_management_view.dart';
 import 'package:final_year_project/pages/profile/profile_view.dart';
@@ -19,6 +20,7 @@ class ParentBottomNavigationBarWidget extends StatelessWidget {
               index: controller.tabIndex,
               children: [
                 ParentHomeView(),
+                ChildrenHistoryList(),
                 ParentManagementView(),
                 ProfileView(),
               ],
@@ -36,6 +38,10 @@ class ParentBottomNavigationBarWidget extends StatelessWidget {
               _bottomNavigationBarItem(
                 icon: CupertinoIcons.home,
                 label: 'Home',
+              ),
+              _bottomNavigationBarItem(
+                icon: CupertinoIcons.timer,
+                label: 'History',
               ),
               _bottomNavigationBarItem(
                 icon: Icons.assignment_ind,
