@@ -26,7 +26,7 @@ class ChildrenTile extends StatelessWidget {
           parentHomeController.deleteRecordDialog(children.studentId.toString());
         },
         onTap: (){
-          // parentHomeController.navigateChildrenDetailsPage(parentHomeController.childrenName[index]);
+          parentHomeController.navigateChildrenRecordPage(children.studentId.toString());
         },
         child: Container(
           padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),

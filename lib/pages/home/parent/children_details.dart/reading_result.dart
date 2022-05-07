@@ -1,3 +1,4 @@
+import 'package:final_year_project/pages/home/parent/children_details.dart/children_details_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -5,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 class ReadingResult extends StatelessWidget {
 
   final appData = GetStorage();
+  final childrenDetailsController = Get.put(ChildrenDetailsController());
 
   @override
   Widget build(BuildContext context) {
