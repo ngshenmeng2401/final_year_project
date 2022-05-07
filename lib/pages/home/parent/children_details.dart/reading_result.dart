@@ -13,154 +13,194 @@ class ReadingResult extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      child: Column(
-        children: [
-          Text("Reading".tr,style: const TextStyle(fontSize: 22),),
-          SizedBox(height: 10),
-          Table(
-            columnWidths: {
-              0: FlexColumnWidth(1),
-              1: FlexColumnWidth(7.5),
-              2: FlexColumnWidth(1.5),
-            },
-            border: TableBorder.all(
-              color: isDarkMode == false ? Colors.black : Colors.white,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Reading".tr,style: const TextStyle(fontSize: 22),)
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+          child: Column(
             children: [
-              TableRow(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("1")
-                    )),
+                  Container(
+                    width: screenWidth/4,
+                    child: Text("Student ID:".tr,
+                      style: TextStyle(fontSize: 22),),
                   ),
-                  TableCell(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Name letters of the alphabet.".tr,)
-                    )),
-                  ),
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("5")
-                    )),
+                  Container(
+                    width: screenWidth/2,
+                    child: Text("274059",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontSize: 22),),
                   ),
                 ],
               ),
-              TableRow(
+              SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("2")
-                    )),
+                  Container(
+                    width: screenWidth/4,
+                    child: Text("Name:".tr,
+                      style: TextStyle(fontSize: 22),),
                   ),
-                  TableCell(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Read high frequency words.".tr,)
-                    )),
-                  ),
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("5")
-                    )),
+                  Container(
+                    width: screenWidth/2,
+                    child: Text("NG SHEN MENG",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontSize: 22),),
                   ),
                 ],
               ),
-              TableRow(
+              Divider(),
+              Table(
+                columnWidths: {
+                  0: FlexColumnWidth(1),
+                  1: FlexColumnWidth(7.5),
+                  2: FlexColumnWidth(1.5),
+                },
+                border: TableBorder.all(
+                  color: isDarkMode == false ? Colors.black : Colors.white,
+                ),
                 children: [
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("3")
-                    )),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("1")
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Name letters of the alphabet.".tr,)
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("5")
+                        )),
+                      ),
+                    ],
                   ),
-                  TableCell(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Read simple words.".tr,)
-                    )),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("2")
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Read high frequency words.".tr,)
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("5")
+                        )),
+                      ),
+                    ],
                   ),
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("5")
-                    )),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("3")
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Read simple words.".tr,)
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("5")
+                        )),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("4")
-                    )),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("4")
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Read simple sentences.".tr,)
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("5")
+                        )),
+                      ),
+                    ],
                   ),
-                  TableCell(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Read simple sentences.".tr,)
-                    )),
-                  ),
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("5")
-                    )),
-                  ),
-                ],
-              ),
-              TableRow(
-                children: [
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("")
-                    )),
-                  ),
-                  TableCell(
-                    child: Container(
-                      padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Total".tr,)
-                    )),
-                  ),
-                  TableCell(
-                    child: Container(
-                      height: screenHeight/32,
-                      child: Center(
-                        child: Text("25 / 25")
-                    )),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("")
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Total".tr,)
+                        )),
+                      ),
+                      TableCell(
+                        child: Container(
+                          height: screenHeight/32,
+                          child: Center(
+                            child: Text("25 / 25")
+                        )),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
