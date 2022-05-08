@@ -245,6 +245,27 @@ class ListeningResult extends StatelessWidget {
                   // ),
                 ],
               ),
+              SizedBox(height: 20),
+              Obx(() =>
+                MaterialButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  minWidth: screenWidth / 1.1,
+                  height: screenHeight / 18,
+                  color: Colors.black,
+                  onPressed: childrenDetailsController.seenStatus.value != "seen" 
+                  ? () {
+                      childrenDetailsController.acceptResult(screenWidth);
+                    }
+                  : null,
+                  child: Text("Accept".tr,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    )),
+                ),
+              ),
             ],
           ),
         ),

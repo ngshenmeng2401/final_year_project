@@ -12,6 +12,7 @@ class ChildrenSpeakingResult {
     ChildrenSpeakingResult({
         this.studentId,
         this.name,
+        this.speakingSeenStatus,
         this.sq1,
         this.sq2,
         this.sq3,
@@ -21,6 +22,7 @@ class ChildrenSpeakingResult {
 
     String? studentId;
     String? name;
+    String? speakingSeenStatus;
     String? sq1;
     String? sq2;
     String? sq3;
@@ -30,6 +32,7 @@ class ChildrenSpeakingResult {
     factory ChildrenSpeakingResult.fromJson(Map<String, dynamic> json) => ChildrenSpeakingResult(
         studentId: json["student_id"],
         name: json["name"],
+        speakingSeenStatus: json["speaking_seen_status"],
         sq1: json["sq1"],
         sq2: json["sq2"],
         sq3: json["sq3"],
@@ -40,6 +43,7 @@ class ChildrenSpeakingResult {
     Map<String, dynamic> toJson() => {
         "student_id": studentId,
         "name": name,
+        "speaking_seen_status": speakingSeenStatus,
         "sq1": sq1,
         "sq2": sq2,
         "sq3": sq3,

@@ -194,6 +194,40 @@ class ParentHomeRemoteServices{
       }
   }
 
+  static Future<String?> acceptResult(String studentId, String category) async {
+
+    String email = appData.read("keepLogin")??'';
+    
+    print(studentId);
+
+    var response = await client.post(
+
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/accept_result.php'), 
+      body: {
+      "email" : email,
+      "studentId" : studentId,
+      "category" : category,
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Accept Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Accept Failed", "Can't found the record");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Accept Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
   static void getSnackBar(String title, String subtitle){
 
     Get.snackbar(

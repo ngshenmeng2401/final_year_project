@@ -17,7 +17,7 @@ class ChildrenDetailsController extends GetxController{
 
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
-  var studentID = "".obs, studentName = "".obs;
+  var studentID = "".obs, studentName = "".obs, seenStatus = "".obs;
   var result1 = "".obs, result2 = "".obs, result3 = "".obs, result4 = "".obs, result5 = "".obs;
   var resultList = [];
 
@@ -48,6 +48,7 @@ class ChildrenDetailsController extends GetxController{
           result2.value = listeningResultList[0].lq2.toString();
           result3.value = listeningResultList[0].lq3.toString();
           result4.value = listeningResultList[0].lq4.toString();
+          seenStatus.value = listeningResultList[0].listeningSeenStatus.toString();
 
         } else {
           statusMsj("No any record".tr);
@@ -64,6 +65,7 @@ class ChildrenDetailsController extends GetxController{
           result2.value = readingResultList[0].rq2.toString();
           result3.value = readingResultList[0].rq3.toString();
           result4.value = readingResultList[0].rq4.toString();
+          seenStatus.value = readingResultList[0].readingSeenStatus.toString();
 
         } else {
           statusMsj("No any record".tr);
@@ -81,6 +83,7 @@ class ChildrenDetailsController extends GetxController{
           result3.value = speakingResultList[0].sq3.toString();
           result4.value = speakingResultList[0].sq4.toString();
           result5.value = speakingResultList[0].sq5.toString();
+          seenStatus.value = speakingResultList[0].speakingSeenStatus.toString();
 
         } else {
           statusMsj("No any record".tr);
@@ -95,6 +98,7 @@ class ChildrenDetailsController extends GetxController{
           studentName.value = writingResultList[0].name.toString();
           result1.value = writingResultList[0].wq1.toString();
           result2.value = writingResultList[0].wq2.toString();
+          seenStatus.value = writingResultList[0].writingSeenStatus.toString();
 
         } else {
           statusMsj("No any record".tr);
@@ -104,18 +108,40 @@ class ChildrenDetailsController extends GetxController{
     // } finally {
     //   isLoading(false);
     // }
-    
   }
 
-  void confirmResult(){
+  void acceptResult(double screenWidth){
+
+    String studentId = appData.read("studentId")??'';
+    String category = appData.read("category")??'';
 
     Get.defaultDialog(
-      title: "Please_key_in:".tr,
-      content: Column(),
-      textConfirm: "Submit".tr,
+      title: "Accept the result?".tr,
+      titleStyle: TextStyle(fontSize: 20),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: screenWidth/2,
+            child: Text("Once the result was accepted, the result can't be changed.",
+              textAlign: TextAlign.center),
+          )
+        ],
+      ),
+      textConfirm: "Accept".tr,
       textCancel: "Cancel".tr,
-      onConfirm:() => Get.back(),
-      onCancel: () => Get.back(),
+      onConfirm:() => {
+        Get.back(),
+        ParentHomeRemoteServices.acceptResult(studentId, category),
+        listeningResultList.clear(),
+        readingResultList.clear(),
+        speakingResultList.clear(),
+        writingResultList.clear(),
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          loadResultList();
+        }),
+        // loadResultList(),
+      },
       cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,
       buttonColor: Colors.black,

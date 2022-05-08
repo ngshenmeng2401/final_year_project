@@ -84,7 +84,7 @@ class ChildrenDetailsView extends StatelessWidget {
                   style: TextStyle(fontSize: 20,),
                 ),
                 onPressed: (){
-                  childrenDetailsController.confirmResult();
+                  // childrenDetailsController.confirmResult();
                 },
                 color: Colors.black,
               ),

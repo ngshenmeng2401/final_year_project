@@ -11,6 +11,7 @@ String childrenListeningResultToJson(List<ChildrenListeningResult> data) => json
 class ChildrenListeningResult {
     ChildrenListeningResult({
         this.studentId,
+        this.listeningSeenStatus,
         this.name,
         this.lq1,
         this.lq2,
@@ -19,6 +20,7 @@ class ChildrenListeningResult {
     });
 
     String? studentId;
+    String? listeningSeenStatus;
     String? name;
     String? lq1;
     String? lq2;
@@ -26,7 +28,8 @@ class ChildrenListeningResult {
     String? lq4;
 
     factory ChildrenListeningResult.fromJson(Map<String, dynamic> json) => ChildrenListeningResult(
-        studentId: json["student_id"],
+        studentId: json["studentId"],
+        listeningSeenStatus: json["listening_seen_status"],
         name: json["name"],
         lq1: json["lq1"],
         lq2: json["lq2"],
@@ -35,7 +38,8 @@ class ChildrenListeningResult {
     );
 
     Map<String, dynamic> toJson() => {
-        "student_id": studentId,
+        "studentId": studentId,
+        "listening_seen_status": listeningSeenStatus,
         "name": name,
         "lq1": lq1,
         "lq2": lq2,
