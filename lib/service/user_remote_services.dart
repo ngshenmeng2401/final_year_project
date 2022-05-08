@@ -28,26 +28,16 @@ class UserRemoteServices {
       "referralCode" : referralCode,
     });
     print(response.body);
-    if (response.statusCode == 200) {
-      var resp = response.body;
+    if (response.body == "Success"){
+        var resp = response.body;
       
-      Get.snackbar(
-        "Register_Successful","Please_check_your_email_to_activate_your_account.",
-        backgroundColor: Colors.white60,
-        colorText: Colors.black,
-        icon: Icon(Icons.error, color: Colors.black),
-        snackPosition: SnackPosition.TOP,  
-      );
-      return resp;
-    } else {
+        getSnackBar("Register Successful", "Please check your email to activate your account");
+        
+        return resp;
+
+    }else {
       // show error message
-      Get.snackbar(
-        "Register_Failed","Please check your input value..",
-        backgroundColor: Colors.white60,
-        colorText: Colors.black,
-        icon: Icon(Icons.error, color: Colors.black),
-        snackPosition: SnackPosition.TOP,  
-      );
+      getSnackBar("Register Failed", "Please check your input value.");
       return null;
       // throw Exception("Error");
     }
@@ -73,13 +63,8 @@ class UserRemoteServices {
       var resp = response.body;
       if (response.body == "failed"){
 
-         Get.snackbar(
-          "Login_Failed","Please check your input value..",
-          backgroundColor: Colors.white60,
-          colorText: Colors.black,
-          icon: Icon(Icons.error, color: Colors.black),
-          snackPosition: SnackPosition.TOP,  
-        );
+        getSnackBar("Login Failed", "Please check your input value.");
+
       }else{
 
         checkLogin(email, password, position);
@@ -113,24 +98,22 @@ class UserRemoteServices {
         Get.offNamed(AppRoutes.TeacherBottomNavigation);
       }
 
-      Get.snackbar(
-        "Login Success","Welcome To Tassneem E Score",
-        backgroundColor: Colors.white60,
-        colorText: Colors.black,
-        icon: Icon(Icons.error, color: Colors.black),
-        snackPosition: SnackPosition.TOP,  
-      );
+      getSnackBar("Login Success", "Welcome To E-Tas");
 
     }else {
-
-      Get.snackbar(
-        "Error","Please_enter_your_email_and_password",
-        backgroundColor: Colors.white60,
-        colorText: Colors.black,
-        icon: Icon(Icons.error, color: Colors.black),
-        snackPosition: SnackPosition.TOP,  
-      );
+      getSnackBar("Error", "Please enter your email and password");
     }
 
+  }
+
+  static void getSnackBar(String title, String subtitle){
+
+    Get.snackbar(
+      title,subtitle,
+      backgroundColor: Colors.white60,
+      colorText: Colors.black,
+      icon: const Icon(Icons.error, color: Colors.black),
+      snackPosition: SnackPosition.TOP,  
+    );
   }
 }
