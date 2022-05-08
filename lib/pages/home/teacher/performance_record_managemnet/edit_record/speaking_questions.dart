@@ -43,6 +43,16 @@ class EditSpeakingQuestions extends StatelessWidget {
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
+              SizedBox(height:20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Status".tr,
+                  style: TextStyle(fontSize: 18),),
+                  Text(speakingRecord.speakingSeenStatus.toString(),
+                  style: TextStyle(fontSize: 18),),
+                ],
+              ),
               Divider(height: 30,),
               Row(
                 children: [
@@ -87,9 +97,11 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 0);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -140,9 +152,11 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 1);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -193,9 +207,11 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 2);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -246,9 +262,11 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 3);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -299,9 +317,11 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 4);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -321,7 +341,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              Divider(height: 30,),
               MaterialButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -329,31 +349,17 @@ class EditSpeakingQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: () {
+                onPressed: speakingRecord.speakingSeenStatus != "seen"
+                ? () {
                     editPerformanceRecordController.editRecordDialog("speaking", speakingRecord.id.toString());
-                  },
+                  }
+                : null,
                 child: Text("Update".tr,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                     )),
               ),
-              SizedBox(height: 20),
-              // MaterialButton(
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(20),
-              //   ),
-              //   minWidth: screenWidth / 1.1,
-              //   height: screenHeight / 18,
-              //   color: Colors.black,
-              //   onPressed: () {
-              //     },
-              //   child: Text("Delete".tr,
-              //       style: const TextStyle(
-              //         color: Colors.white,
-              //         fontSize: 20,
-              //       )),
-              // ),
             ],
           ),
         ),

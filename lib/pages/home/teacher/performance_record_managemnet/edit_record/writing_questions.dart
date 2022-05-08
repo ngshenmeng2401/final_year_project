@@ -39,6 +39,16 @@ class EditWritingQuestions extends StatelessWidget {
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
+              SizedBox(height:20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Status".tr,
+                  style: TextStyle(fontSize: 18),),
+                  Text(writingRecord.writingSeenStatus.toString(),
+                  style: TextStyle(fontSize: 18),),
+                ],
+              ),
               Divider(height: 30,),
               Row(
                 children: [
@@ -83,9 +93,11 @@ class EditWritingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: writingRecord.writingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseWQLevel(newValue!, 0);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -136,9 +148,11 @@ class EditWritingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: writingRecord.writingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseWQLevel(newValue!, 1);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -158,7 +172,7 @@ class EditWritingQuestions extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              Divider(height: 30,),
               MaterialButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -166,9 +180,11 @@ class EditWritingQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: () {
+                onPressed: writingRecord.writingSeenStatus != "seen"
+                ? () {
                     editPerformanceRecordController.editRecordDialog("writing", writingRecord.id.toString());
-                  },
+                  }
+                : null,
                 child: Text("Update".tr,
                     style: const TextStyle(
                       color: Colors.white,
@@ -176,21 +192,6 @@ class EditWritingQuestions extends StatelessWidget {
                     )),
               ),
               SizedBox(height: 20),
-              // MaterialButton(
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(20),
-              //   ),
-              //   minWidth: screenWidth / 1.1,
-              //   height: screenHeight / 18,
-              //   color: Colors.black,
-              //   onPressed: () {
-              //     },
-              //   child: Text("Delete".tr,
-              //       style: const TextStyle(
-              //         color: Colors.white,
-              //         fontSize: 20,
-              //       )),
-              // ),
             ],
           ),
         ),

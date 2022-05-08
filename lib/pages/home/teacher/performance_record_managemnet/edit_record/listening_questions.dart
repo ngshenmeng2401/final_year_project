@@ -42,6 +42,16 @@ class EditListeningQuestions extends StatelessWidget {
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
+              SizedBox(height:20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Status".tr,
+                  style: TextStyle(fontSize: 18),),
+                  Text(listeningRecord.listeningSeenStatus.toString(),
+                  style: TextStyle(fontSize: 18),),
+                ],
+              ),
               Divider(height: 30,),
               Row(
                 children: [
@@ -86,9 +96,11 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: listeningRecord.listeningSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 0);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -139,9 +151,11 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: listeningRecord.listeningSeenStatus != "seen" 
+                                ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 1);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -192,9 +206,11 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: listeningRecord.listeningSeenStatus != "seen" 
+                                ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 2);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -245,9 +261,11 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: listeningRecord.listeningSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 3);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -267,7 +285,7 @@ class EditListeningQuestions extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              Divider(height: 30,),
               MaterialButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -275,32 +293,17 @@ class EditListeningQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: () {
+                onPressed: listeningRecord.listeningSeenStatus != "seen"
+                ? () {
                     editPerformanceRecordController.editRecordDialog("listening", listeningRecord.id.toString());
-                },
+                }
+                : null,
                 child: Text("Update".tr,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                     )),
               ),
-              SizedBox(height: 20),
-              // MaterialButton(
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(20),
-              //   ),
-              //   minWidth: screenWidth / 1.1,
-              //   height: screenHeight / 18,
-              //   color: Colors.black,
-              //   onPressed: () {
-              //       editPerformanceRecordController.deleteRecordDialog("listening", listeningRecord.id.toString());
-              //     },
-              //   child: Text("Delete".tr,
-              //       style: const TextStyle(
-              //         color: Colors.white,
-              //         fontSize: 20,
-              //       )),
-              // ),
             ],
           ),
         ),

@@ -42,6 +42,16 @@ class EditReadingQuestions extends StatelessWidget {
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
+              SizedBox(height:20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Status".tr,
+                  style: TextStyle(fontSize: 18),),
+                  Text(readingRecord.readingSeenStatus.toString(),
+                  style: TextStyle(fontSize: 18),),
+                ],
+              ),
               Divider(height: 30,),
               Row(
                 children: [
@@ -86,9 +96,11 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: readingRecord.readingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 0);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -139,9 +151,11 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: readingRecord.readingSeenStatus != "seen" 
+                                ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 1);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -192,9 +206,11 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: readingRecord.readingSeenStatus != "seen" 
+                                ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 2);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -245,9 +261,11 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 16, 
                                   color: Colors.black),
-                                onChanged: (String? newValue) {
+                                onChanged: readingRecord.readingSeenStatus != "seen"
+                                ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 3);
-                                },
+                                }
+                                : null,
                                 underline: Container(),
                                 items: [
                                   for (var data in _.level)
@@ -267,7 +285,7 @@ class EditReadingQuestions extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              Divider(height: 30,),
               MaterialButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -275,9 +293,11 @@ class EditReadingQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: () {
+                onPressed: readingRecord.readingSeenStatus != "seen"
+                ? () {
                     editPerformanceRecordController.editRecordDialog("reading", readingRecord.id.toString());
-                  },
+                  }
+                : null,
                 child: Text("Update".tr,
                     style: const TextStyle(
                       color: Colors.white,
@@ -285,22 +305,6 @@ class EditReadingQuestions extends StatelessWidget {
                     )),
               ),
               SizedBox(height: 20),
-              // MaterialButton(
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(20),
-              //   ),
-              //   minWidth: screenWidth / 1.1,
-              //   height: screenHeight / 18,
-              //   color: Colors.black,
-              //   onPressed: () {
-              //       editPerformanceRecordController.deleteRecordDialog("reading", readingRecord.id.toString());
-              //     },
-              //   child: Text("Delete".tr,
-              //       style: const TextStyle(
-              //         color: Colors.white,
-              //         fontSize: 20,
-              //       )),
-              // ),
             ],
           ),
         ),

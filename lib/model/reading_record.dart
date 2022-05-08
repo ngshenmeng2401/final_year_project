@@ -17,6 +17,7 @@ class ReadingRecord {
         this.rq2,
         this.rq3,
         this.rq4,
+        this.readingSeenStatus,
     });
 
     String? id;
@@ -26,6 +27,7 @@ class ReadingRecord {
     String? rq2;
     String? rq3;
     String? rq4;
+    String? readingSeenStatus;
 
     factory ReadingRecord.fromJson(Map<String, dynamic> json) => ReadingRecord(
         id: json["id"],
@@ -35,6 +37,7 @@ class ReadingRecord {
         rq2: json["rq2"],
         rq3: json["rq3"],
         rq4: json["rq4"],
+        readingSeenStatus: json["reading_seen_status"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -45,5 +48,6 @@ class ReadingRecord {
         "rq2": rq2,
         "rq3": rq3,
         "rq4": rq4,
+        "reading_seen_status": readingSeenStatus,
     };
 }
