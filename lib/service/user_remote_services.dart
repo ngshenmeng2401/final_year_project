@@ -42,7 +42,6 @@ class UserRemoteServices {
       return null;
       // throw Exception("Error");
     }
-    
   }
 
   static Future<String?> loginUser(String email, String password, String position) async {
@@ -131,6 +130,45 @@ class UserRemoteServices {
         // return null;
         throw Exception('Failed to load Categories from API');
       }
+  }
+
+  static Future<String?> changePassword(String email, String currentPassword , String password, String confirmPassword) async {
+
+    print(email);
+    print(currentPassword);
+    print(password);
+    print(confirmPassword);
+    
+    var response = await client.post(
+
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/change_password.php'), 
+      body: {
+      "email" : email,
+      "currentPassword" : currentPassword,
+      "password" : password,
+      "confirmPassword" : confirmPassword,
+    });
+    print(response.body);
+    if (response.body == "Success"){
+        var resp = response.body;
+      
+        getSnackBar("Change Successful", "");
+        
+        return resp;
+
+    }else if (response.body == "NotFound"){
+        var resp = response.body;
+      
+        getSnackBar("Not found the record", "");
+        
+        return resp;
+
+    }else {
+      // show error message
+      getSnackBar("Change Failed", "Please check your input value.");
+      return null;
+      // throw Exception("Error");
+    }
   }
 
   static void getSnackBar(String title, String subtitle){

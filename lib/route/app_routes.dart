@@ -46,6 +46,9 @@ abstract class AppRoutes{
   //Profile Page
   static const AccountPage = '/accountpage';
 
+  //Change Password
+  static const ChangePasswordPage = '/changepasswordpage';
+
   //Settings Page
   static const SettingsPage = '/settingspage';
   static const LanguagesPage = '/languagespage';

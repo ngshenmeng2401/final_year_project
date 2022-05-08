@@ -79,7 +79,9 @@ class ProfileView extends GetView<ProfileController> {
                 ProfileMenu(
                   icon: Icon(Icons.lock, color: Colors.black),
                   text: "Change Password".tr,
-                  press: () {},
+                  press: () {
+                    profileController.navigateChangePasswordPage();
+                  },
                 ),
                 ProfileMenu(
                   icon: Icon(Icons.settings_outlined, color: Colors.black),

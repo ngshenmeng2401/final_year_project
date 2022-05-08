@@ -34,6 +34,10 @@ class ProfileController extends GetxController{
     Get.toNamed(AppRoutes.SettingsPage);
   }
 
+  void navigateChangePasswordPage(){
+    Get.toNamed(AppRoutes.ChangePasswordPage);
+  }
+
   void logoutUser(){
 
     // appData.write('isLogged', false);

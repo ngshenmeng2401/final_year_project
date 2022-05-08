@@ -18,6 +18,7 @@ import 'package:final_year_project/pages/management/teacher/add_student/add_stud
 import 'package:final_year_project/pages/management/teacher/teacher_manage_binding.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_management_view.dart';
 import 'package:final_year_project/pages/not_found_screen.dart';
+import 'package:final_year_project/pages/profile/change_password/change_password_view.dart';
 import 'package:final_year_project/pages/profile/profile_view.dart';
 import 'package:final_year_project/pages/profile/settings/settings_view.dart';
 import 'package:final_year_project/pages/profile/settings/theme_binding.dart';
@@ -174,6 +175,11 @@ class AppPages{
     GetPage(
       name: AppRoutes.AccountPage,
       page: () => ProfileView(),
+    ),
+
+    GetPage(
+      name: AppRoutes.ChangePasswordPage,
+      page: () => ChangePasswordView(),
     ),
 
 
