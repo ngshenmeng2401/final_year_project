@@ -48,7 +48,7 @@ class StatisticsRemoteService{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return listeningSummaryFromJson(jsonString);
         }
       } else {
@@ -70,7 +70,7 @@ class StatisticsRemoteService{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return readingSummaryFromJson(jsonString);
         }
       } else {
@@ -92,7 +92,7 @@ class StatisticsRemoteService{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return speakingSummaryFromJson(jsonString);
         }
       } else {
@@ -114,7 +114,7 @@ class StatisticsRemoteService{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return totalLevelFromJson(jsonString);
         }
       } else {
@@ -136,7 +136,7 @@ class StatisticsRemoteService{
           return null;
         } else {
           var jsonString = response.body;
-          print("IN remoteservices" + jsonString);
+          // print("IN remoteservices" + jsonString);
           return writingSummaryFromJson(jsonString);
         }
       } else {

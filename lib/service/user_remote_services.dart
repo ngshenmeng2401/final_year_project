@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/user.dart';
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -104,6 +105,32 @@ class UserRemoteServices {
       getSnackBar("Error", "Please enter your email and password");
     }
 
+  }
+
+  static Future<List<User>?> fetchUserDetails() async {
+
+    String email = appData.read("keepLogin")??'';
+
+    var response =
+      await client.post(
+        Uri.parse(
+          "https://hubbuddies.com/271059/final_year_project/load_user.php"),
+          body: {
+            "email":email,
+          });
+      if (response.statusCode == 200) {
+        if (response.body == "nodata") {
+          return null;
+        } else {
+          var jsonString = response.body;
+          print("IN remoteservices" + jsonString);
+          return userFromJson(jsonString);
+        }
+      } else {
+        //show error message
+        // return null;
+        throw Exception('Failed to load Categories from API');
+      }
   }
 
   static void getSnackBar(String title, String subtitle){
