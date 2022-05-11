@@ -40,7 +40,7 @@ class ReadingQuestions extends StatelessWidget {
                           menuMaxHeight: screenHeight/4,
                           value: _.selectName,
                           elevation: 28,
-                          style: const TextStyle(fontSize: 18, color: Colors.black),
+                          style: TextStyle(fontSize: 18, color: isDarkMode == true ?Colors.white : Colors.black),
                           onChanged: (String? newValue) {
                             _.chooseStudent(newValue!);
                           },
@@ -95,16 +95,16 @@ class ReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[0],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseRQLevel(newValue!, 0);
                                 },
@@ -148,16 +148,16 @@ class ReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[1],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseRQLevel(newValue!, 1);
                                 },
@@ -201,16 +201,16 @@ class ReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[2],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseRQLevel(newValue!, 2);
                                 },
@@ -254,16 +254,16 @@ class ReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[3],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseRQLevel(newValue!, 3);
                                 },

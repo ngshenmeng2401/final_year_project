@@ -40,7 +40,9 @@ class SpeakingQuestions extends StatelessWidget {
                           menuMaxHeight: screenHeight/4,
                           value: _.selectName,
                           elevation: 28,
-                          style: const TextStyle(fontSize: 18, color: Colors.black),
+                          style: TextStyle(
+                            fontSize: 18, 
+                            color: isDarkMode == true ?Colors.white : Colors.black),
                           onChanged: (String? newValue) {
                             _.chooseStudent(newValue!);
                           },
@@ -95,16 +97,16 @@ class SpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[0],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseSQLevel(newValue!, 0);
                                 },
@@ -148,16 +150,16 @@ class SpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[1],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseSQLevel(newValue!, 1);
                                 },
@@ -201,16 +203,16 @@ class SpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[2],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseSQLevel(newValue!, 2);
                                 },
@@ -254,16 +256,16 @@ class SpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[3],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseSQLevel(newValue!, 3);
                                 },
@@ -307,16 +309,16 @@ class SpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[4],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseSQLevel(newValue!, 4);
                                 },

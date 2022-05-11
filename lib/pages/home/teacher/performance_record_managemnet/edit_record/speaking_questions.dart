@@ -87,16 +87,16 @@ class EditSpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[0],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: speakingRecord.speakingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 0);
@@ -142,16 +142,16 @@ class EditSpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[1],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: speakingRecord.speakingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 1);
@@ -197,16 +197,16 @@ class EditSpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[2],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: speakingRecord.speakingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 2);
@@ -252,16 +252,16 @@ class EditSpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[3],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: speakingRecord.speakingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 3);
@@ -307,16 +307,16 @@ class EditSpeakingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelSQ[4],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: speakingRecord.speakingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 4);

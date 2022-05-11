@@ -83,16 +83,16 @@ class EditWritingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelWQ[0],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: writingRecord.writingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseWQLevel(newValue!, 0);
@@ -138,16 +138,16 @@ class EditWritingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelWQ[1],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: writingRecord.writingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseWQLevel(newValue!, 1);

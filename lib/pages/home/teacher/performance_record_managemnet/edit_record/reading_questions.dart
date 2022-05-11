@@ -86,16 +86,16 @@ class EditReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[0],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: readingRecord.readingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 0);
@@ -141,16 +141,16 @@ class EditReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[1],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: readingRecord.readingSeenStatus != "seen" 
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 1);
@@ -196,16 +196,16 @@ class EditReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[2],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: readingRecord.readingSeenStatus != "seen" 
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 2);
@@ -251,16 +251,16 @@ class EditReadingQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelRQ[3],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: readingRecord.readingSeenStatus != "seen"
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 3);

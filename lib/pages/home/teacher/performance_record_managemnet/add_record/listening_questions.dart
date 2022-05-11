@@ -35,13 +35,15 @@ class ListeningQuestions extends StatelessWidget {
                     init: AddRecordController(),
                     builder: (_) {
                       return Container(
+                        width: screenWidth/6,
                         padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                         child: DropdownButton<String?>(
+                          isExpanded: true,
                           // dropdownColor: Colors.blue,
                           menuMaxHeight: screenHeight/4,
                           value: _.selectName,
                           elevation: 28,
-                          style: const TextStyle(fontSize: 18, color: Colors.black),
+                          style: TextStyle(fontSize: 18, color: isDarkMode == true ?Colors.white : Colors.black),
                           onChanged: (String? newValue) {
                             _.chooseStudent(newValue!);
                           },
@@ -71,7 +73,7 @@ class ListeningQuestions extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Text("Level", 
-                      style: const TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18),
                       textAlign: TextAlign.center),)
                 ],
               ),
@@ -96,16 +98,16 @@ class ListeningQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelLQ[0],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseLQLevel(newValue!, 0);
                                 },
@@ -149,16 +151,16 @@ class ListeningQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelLQ[1],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseLQLevel(newValue!, 1);
                                 },
@@ -202,16 +204,16 @@ class ListeningQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelLQ[2],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseLQLevel(newValue!, 2);
                                 },
@@ -255,16 +257,16 @@ class ListeningQuestions extends StatelessWidget {
                             return Container(
                               height: 35,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black38, width:1),
+                                border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
                               ),
                               child: DropdownButton<String?>(
                                 isExpanded: true,
                                 // menuMaxHeight: screenHeight/5,
                                 value: _.levelLQ[3],
                                 elevation: 28,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16, 
-                                  color: Colors.black),
+                                  color: isDarkMode == true ?Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   _.chooseLQLevel(newValue!, 3);
                                 },

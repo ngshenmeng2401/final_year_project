@@ -1,16 +1,19 @@
 import 'package:final_year_project/pages/management/teacher/add_student/add_student_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class AddStudentDetailsView extends StatelessWidget {
 
   final addStudentDetailsController = Get.put(AddStudentDetailsController());
+  final appData = GetStorage();
 
   @override
   Widget build(BuildContext context) {
 
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return Scaffold(
       appBar:AppBar(
@@ -47,7 +50,7 @@ class AddStudentDetailsView extends StatelessWidget {
                           isExpanded: true,
                           value: _.selectClass,
                           elevation: 28,
-                          style: const TextStyle(fontSize: 16, color: Colors.black),
+                          style: TextStyle(fontSize: 16, color: isDarkMode == true ?Colors.white : Colors.black),
                           onChanged: (String? newValue) {
                             _.chooseClass(newValue!);
                           },
