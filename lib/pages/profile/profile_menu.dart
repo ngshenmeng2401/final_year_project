@@ -6,12 +6,14 @@ class ProfileMenu extends StatelessWidget {
   final Icon icon;
   final bool hasNavigation;
   final VoidCallback press;
+  final bool isDarkMode;
 
   const ProfileMenu({
     Key? key, 
     required this.text, 
     required this.icon, 
-    required this.press, 
+    required this.press,
+    required this.isDarkMode, 
     this.hasNavigation=true, 
   }) : super(key: key);
 
@@ -38,10 +40,11 @@ class ProfileMenu extends StatelessWidget {
             textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 18,
-              color: Colors.white,
+              color: isDarkMode == true ?Colors.white : Colors.black,
             ),),
           trailing: hasNavigation == true 
-          ? Icon(Icons.keyboard_arrow_right,color: Colors.white)
+          ? Icon(Icons.keyboard_arrow_right,
+              color: isDarkMode == true ? Colors.white : Colors.black,)
           : null,
         ),
       ),

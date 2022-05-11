@@ -68,11 +68,13 @@ class ProfileView extends GetView<ProfileController> {
               child: Column(
                 children: [
                   ProfileMenu(
+                    isDarkMode: isDarkMode,
                     icon: Icon(Icons.person, color: isDarkMode == true ?Colors.white : Colors.black),
                     text: "Edit Profile".tr,
                     press: () {},
                   ),
                   ProfileMenu(
+                    isDarkMode: isDarkMode,
                     icon: Icon(Icons.lock, color: isDarkMode == true ?Colors.white : Colors.black),
                     text: "Change Password".tr,
                     press: () {
@@ -80,6 +82,7 @@ class ProfileView extends GetView<ProfileController> {
                     },
                   ),
                   ProfileMenu(
+                    isDarkMode: isDarkMode,
                     icon: Icon(Icons.settings_outlined, color: isDarkMode == true ?Colors.white : Colors.black),
                     text: "Settings".tr,
                     press: () {
@@ -87,6 +90,7 @@ class ProfileView extends GetView<ProfileController> {
                     },
                   ),
                   ProfileMenu(
+                    isDarkMode: isDarkMode,
                     icon: Icon(
                       Icons.logout,
                       color: Colors.red,
