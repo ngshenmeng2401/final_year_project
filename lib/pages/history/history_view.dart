@@ -2,16 +2,19 @@ import 'package:final_year_project/pages/history/history_controller.dart';
 import 'package:final_year_project/pages/history/history_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class HistoryView extends StatelessWidget {
 
   final historyController = Get.put(HistoryController());
+  final appData = GetStorage();
 
   @override
   Widget build(BuildContext context) {
 
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return Scaffold(
       appBar: AppBar(
@@ -109,7 +112,8 @@ class HistoryView extends StatelessWidget {
       onPressed: () {
         historyController.navigateAddHistoryView();
       },
-      child: Icon(Icons.add),
+      child: Icon(Icons.add,
+        color: isDarkMode == true ?Colors.white : Colors.black,),
       ),
     );
   }

@@ -41,7 +41,7 @@ class CustomDarkTheme{
         color: Colors.white
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue[400],
       ),
       dataTableTheme: DataTableThemeData(
         dataTextStyle: TextStyle(
@@ -52,6 +52,9 @@ class CustomDarkTheme{
             color: Colors.white
           )
         )
+      ),
+      iconTheme:  IconThemeData(
+        color: Colors.white
       ),
     );
   }

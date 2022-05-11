@@ -2,16 +2,19 @@ import 'package:final_year_project/pages/management/teacher/student_tile.dart';
 import 'package:final_year_project/pages/management/teacher/teacher_management_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class TeacherManagementView extends GetView<TeacherManagementController> {
 
   final teachermanageController = Get.put(TeacherManagementController());
-  
+  final appData = GetStorage();
+
   @override
   Widget build(BuildContext context) {
 
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return Scaffold(
       appBar: AppBar(
@@ -108,7 +111,9 @@ class TeacherManagementView extends GetView<TeacherManagementController> {
       onPressed: () {
         teachermanageController.navigateAddStudentView();
       },
-      child: Icon(Icons.add),
+      child: Icon(Icons.add,
+        color: isDarkMode == true ?Colors.white : Colors.black,
+      ),
       ),
     );
   }
