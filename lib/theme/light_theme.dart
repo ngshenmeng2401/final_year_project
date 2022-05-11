@@ -26,13 +26,13 @@ class CustomLightTheme{
         ),
       ),
       textTheme: TextTheme(
-        headline1: TextStyle(fontSize: 32.0),
-        headline6: TextStyle(fontSize: 18.0),
+        headline1: TextStyle(fontSize: 32.0, color: Colors.black),
+        headline6: TextStyle(fontSize: 18.0, color: Colors.black),
         bodyText2: TextStyle(fontSize: 14.0, color: Colors.black),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.grey[350],
-        selectedItemColor: Colors.blue[200],
+        selectedItemColor: Colors.blue[600],
         unselectedItemColor: Colors.black,
       ),
       appBarTheme: AppBarTheme(

@@ -24,8 +24,8 @@ class CustomDarkTheme{
         ),
       ),
       textTheme: TextTheme(
-        headline1: TextStyle(fontSize: 32.0),
-        headline6: TextStyle(fontSize: 18.0),
+        headline1: TextStyle(fontSize: 32.0, color: Colors.white),
+        headline6: TextStyle(fontSize: 18.0, color: Colors.white),
         bodyText2: TextStyle(fontSize: 14.0, color: Colors.white),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(

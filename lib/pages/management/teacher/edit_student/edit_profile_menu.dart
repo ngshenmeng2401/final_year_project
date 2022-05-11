@@ -6,6 +6,7 @@ class EditProfileMenu extends StatelessWidget {
   final String? title;
   final double? height;
   final VoidCallback? press;
+  final bool? isDarkMode;
 
   const EditProfileMenu({
     Key? key, 
@@ -13,6 +14,7 @@ class EditProfileMenu extends StatelessWidget {
     this.title,
     this.press, 
     this.height,
+    this.isDarkMode,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class EditProfileMenu extends StatelessWidget {
         InkWell(
           onTap: press,
           child: Container(
-            color: Colors.white,
+            color: isDarkMode == false ?Colors.white : Colors.grey[900],
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
             height: height!,
             child: Row(
