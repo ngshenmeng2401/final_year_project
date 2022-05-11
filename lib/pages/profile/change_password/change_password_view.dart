@@ -12,6 +12,7 @@ class ChangePasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return Scaffold(
       appBar: AppBar(
@@ -75,8 +76,7 @@ class ChangePasswordView extends StatelessWidget {
                                   labelText: 'Current Password',
                                   labelStyle: TextStyle(
                                       fontSize: 18,
-                                      fontFamily: 'Calibri',
-                                      color: Colors.blue),
+                                      fontFamily: 'Calibri',),
                                 ),
                               ),
                               SizedBox(height: 20),
@@ -96,8 +96,7 @@ class ChangePasswordView extends StatelessWidget {
                                   labelText: 'New Password',
                                   labelStyle: TextStyle(
                                       fontSize: 18,
-                                      fontFamily: 'Calibri',
-                                      color: Colors.blue),
+                                      fontFamily: 'Calibri',),
                                 ),
                               ),
                               SizedBox(height: 20),
@@ -117,8 +116,7 @@ class ChangePasswordView extends StatelessWidget {
                                   labelText: 'Confirm Password',
                                   labelStyle: TextStyle(
                                       fontSize: 18,
-                                      fontFamily: 'Calibri',
-                                      color: Colors.blue[600]),
+                                      fontFamily: 'Calibri',),
                                 ),
                               ),
                               SizedBox(height: 20),
@@ -136,8 +134,8 @@ class ChangePasswordView extends StatelessWidget {
                 child: Text(
                   'Reset Password',
                   style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
+                      fontSize: 20,
+                      color: isDarkMode == true ? Colors.white : Colors.black,
                       fontFamily: 'Arial'),
                 ),
                 onPressed: changePasswordController.isTyping.value == true
