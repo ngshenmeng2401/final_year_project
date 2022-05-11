@@ -48,7 +48,7 @@ class ParentManagementView extends GetView<ParentManagementController> {
                           parentmanageController.checkTextField();
                         },
                         decoration: InputDecoration(
-                          hintText: "Enter_Children_Name/ID".tr,
+                          hintText: "Enter Children Name".tr,
                           border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 18),
                         ),

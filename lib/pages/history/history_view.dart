@@ -15,7 +15,7 @@ class HistoryView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("History"),
+        title: Text("Test Date List"),
         actions: [
           IconButton(
             onPressed: (){
@@ -49,7 +49,7 @@ class HistoryView extends StatelessWidget {
                           historyController.checkTextField();
                         },
                         decoration: InputDecoration(
-                          hintText: "Enter_Class_Name".tr,
+                          hintText: "Enter Student Name".tr,
                           border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 18),
                         ),
