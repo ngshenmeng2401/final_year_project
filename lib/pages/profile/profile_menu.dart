@@ -21,41 +21,29 @@ class ProfileMenu extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Container(
-      height: screenHeight/17,
-      margin: const EdgeInsets.fromLTRB(30, 10, 30,10),
-      child: MaterialButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        color: Colors.grey[200],
-        onPressed: press,
-        child: 
-        ListTile(
-          leading: icon,
+    return Card(
+       shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(40),
+      ),
+      child: Container(
+        width: screenWidth/1.2,
+        height: screenHeight/14,
+        child: ListTile(
+          onTap: press,
+          leading: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
+            child: icon,
+          ),
           title:Text(text,
+            textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 18,
-              color: Colors.black,
+              color: Colors.white,
             ),),
           trailing: hasNavigation == true 
-          ? Icon(Icons.keyboard_arrow_right,color: Colors.black)
+          ? Icon(Icons.keyboard_arrow_right,color: Colors.white)
           : null,
         ),
-        // Row(
-        //   children: <Widget>[
-        //     SizedBox(width:10),
-        //     icon,
-        //     SizedBox(width: 15),
-        //     Text(text,
-        //       style: TextStyle(
-        //         fontSize: 18,
-        //       ),),
-        //     Spacer(),
-        //     if (this.hasNavigation)
-        //       Icon(
-        //         Icons.keyboard_arrow_right,
-        //       ),
-        //   ],
-        // ),
       ),
     );
   }

@@ -8,6 +8,7 @@ class ProfileController extends GetxController{
   var userList = <User>[].obs;
   var statusMsj = "Loading".obs;
   var userName = "User".obs, phoneNo = "".obs;
+  var imgStatus = "no".obs;
 
   @override
   void onInit() {
@@ -23,6 +24,7 @@ class ProfileController extends GetxController{
 
       userName.value = userList[0].userName.toString();
       phoneNo.value = userList[0].phoneNo.toString();
+      imgStatus.value = userList[0].imgStatus.toString();
 
       print(userList);
     } else {

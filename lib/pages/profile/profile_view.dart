@@ -15,9 +15,8 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    String pathAsset = 'assets/images/profile.png';
-    File? _image;
     String email = appData.read("keepLogin")??'';
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return Scaffold(
         appBar: AppBar(
@@ -35,17 +34,13 @@ class ProfileView extends GetView<ProfileController> {
                 child: Column(children: <Widget>[
                   Container(
                       height: screenHeight / 5.5,
-                      width: screenWidth / 2.5,
-                      child: Container(
-                        padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                        height: screenHeight / 3.5,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(color: Colors.black),
-                            image: DecorationImage(
-                              image: AssetImage(pathAsset),
-                              fit: BoxFit.scaleDown,
-                            )),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: profileController.imgStatus.value == "noimg"
+                          ? Image.asset("assets/images/profile.png",
+                              fit: BoxFit.fitWidth,)
+                          : Image.asset("assets/images/profile.png",
+                              fit: BoxFit.fitWidth,)
                       )),
                   Container(
                     padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
@@ -70,38 +65,39 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             Container(
-              child: Column(children: [
-                ProfileMenu(
-                  icon: Icon(Icons.person, color: Colors.black),
-                  text: "Edit Profile".tr,
-                  press: () {},
-                ),
-                ProfileMenu(
-                  icon: Icon(Icons.lock, color: Colors.black),
-                  text: "Change Password".tr,
-                  press: () {
-                    profileController.navigateChangePasswordPage();
-                  },
-                ),
-                ProfileMenu(
-                  icon: Icon(Icons.settings_outlined, color: Colors.black),
-                  text: "Settings".tr,
-                  press: () {
-                    controller.navigateSettingsPage();
-                  },
-                ),
-                ProfileMenu(
-                  icon: Icon(
-                    Icons.logout,
-                    color: Colors.red,
+              child: Column(
+                children: [
+                  ProfileMenu(
+                    icon: Icon(Icons.person, color: isDarkMode == true ?Colors.white : Colors.black),
+                    text: "Edit Profile".tr,
+                    press: () {},
                   ),
-                  text: "Logout".tr,
-                  press: () {
-                    controller.logoutUser();
-                  },
-                  hasNavigation: false,
-                ),
-              ]),
+                  ProfileMenu(
+                    icon: Icon(Icons.lock, color: isDarkMode == true ?Colors.white : Colors.black),
+                    text: "Change Password".tr,
+                    press: () {
+                      profileController.navigateChangePasswordPage();
+                    },
+                  ),
+                  ProfileMenu(
+                    icon: Icon(Icons.settings_outlined, color: isDarkMode == true ?Colors.white : Colors.black),
+                    text: "Settings".tr,
+                    press: () {
+                      controller.navigateSettingsPage();
+                    },
+                  ),
+                  ProfileMenu(
+                    icon: Icon(
+                      Icons.logout,
+                      color: Colors.red,
+                    ),
+                    text: "Logout".tr,
+                    press: () {
+                      controller.logoutUser();
+                    },
+                    hasNavigation: false,
+                  ),
+                ]),
             ),
           ]),
         )));
