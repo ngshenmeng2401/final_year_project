@@ -20,7 +20,11 @@ class ChangePasswordController extends GetxController{
   }
 
   void checkForm(){
-    if(passwordController.text.isEmpty != confirmPasswordController.text.isEmpty || confirmPasswordController.text.isEmpty != passwordController.text.isEmpty ){
+
+    String password = passwordController.text.toString();
+    String confirmPassword = confirmPasswordController.text.toString();
+
+    if(password != confirmPassword || confirmPassword != password ){
 
       isTyping.value = false;
 
@@ -56,6 +60,6 @@ class ChangePasswordController extends GetxController{
     String password = passwordController.text.toString();
     String confirmPassword = currentPasswordController.text.toString();
 
-    UserRemoteServices.changePassword(email, currentPassword, password, confirmPassword);
+    UserRemoteServices.changePassword(email, currentPassword, password);
   }
 }

@@ -132,12 +132,11 @@ class UserRemoteServices {
       }
   }
 
-  static Future<String?> changePassword(String email, String currentPassword , String password, String confirmPassword) async {
+  static Future<String?> changePassword(String email, String currentPassword , String password) async {
 
     print(email);
     print(currentPassword);
     print(password);
-    print(confirmPassword);
     
     var response = await client.post(
 
@@ -146,7 +145,6 @@ class UserRemoteServices {
       "email" : email,
       "currentPassword" : currentPassword,
       "password" : password,
-      "confirmPassword" : confirmPassword,
     });
     print(response.body);
     if (response.body == "Success"){
@@ -160,6 +158,13 @@ class UserRemoteServices {
         var resp = response.body;
       
         getSnackBar("Not found the record", "");
+        
+        return resp;
+
+    }else if (response.body == "WrongCurrentPassword"){
+        var resp = response.body;
+      
+        getSnackBar("Current password is wrong", "");
         
         return resp;
 

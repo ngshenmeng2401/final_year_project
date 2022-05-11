@@ -67,11 +67,10 @@ class ChangePasswordView extends StatelessWidget {
                                 decoration: InputDecoration(
                                   focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
-                                          color:
-                                              Theme.of(context).accentColor)),
+                                          color: Colors.blue[600]!)),
                                   icon: Icon(
                                     Icons.lock,
-                                    color: Colors.blue[200],
+                                    color: Colors.blue[400],
                                   ),
                                   labelText: 'Current Password',
                                   labelStyle: TextStyle(
@@ -89,11 +88,10 @@ class ChangePasswordView extends StatelessWidget {
                                 decoration: InputDecoration(
                                   focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
-                                          color:
-                                              Theme.of(context).accentColor)),
+                                          color:Colors.blue[600]!)),
                                   icon: Icon(
                                     Icons.lock,
-                                    color: Colors.blue[200],
+                                    color: Colors.blue[400],
                                   ),
                                   labelText: 'New Password',
                                   labelStyle: TextStyle(
@@ -111,17 +109,16 @@ class ChangePasswordView extends StatelessWidget {
                                 decoration: InputDecoration(
                                   focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
-                                          color:
-                                              Theme.of(context).accentColor)),
+                                          color: Colors.blue[600]!)),
                                   icon: Icon(
                                     Icons.lock,
-                                    color: Colors.blue[200],
+                                    color: Colors.blue[400],
                                   ),
                                   labelText: 'Confirm Password',
                                   labelStyle: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'Calibri',
-                                      color: Colors.blue),
+                                      color: Colors.blue[600]),
                                 ),
                               ),
                               SizedBox(height: 20),
