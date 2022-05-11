@@ -60,31 +60,6 @@ class EditStudentDetailsView extends StatelessWidget {
                 press: () => editStudentDetailsController.navigateEditPhoneNo(student.id.toString(), student.phoneNo.toString()),
                 height: screenHeight/13,
               ),
-              SizedBox(height:5),
-              InkWell(
-                onTap: (){
-                  editStudentDetailsController.deleteStudentDetailsDialog(student.id.toString(), student.age.toString(), student.studentClass.toString());
-                },
-                child: Container(
-                  color: Colors.white,
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  height: screenHeight/15,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Center(
-                          child: Text("Delete",
-                            textAlign: TextAlign.right,
-                            style: const TextStyle(
-                              fontSize: 22,
-                              color: Colors.red,
-                          ),),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               Divider(
                 height: 1,
                 color: Colors.grey[100],

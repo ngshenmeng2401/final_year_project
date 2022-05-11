@@ -91,23 +91,7 @@ class EditStudentDetailsController extends GetxController{
     // Get.offAllNamed(AppRoutes.TeacherManagementPage);
   }
 
-  void deleteStudentDetailsDialog(String id, String age, String className){
-
-    Get.defaultDialog(
-      title: "Are you sure ?".tr,
-      content: Column(),
-      textConfirm: "Yes".tr,
-      textCancel: "No".tr,
-      onConfirm:() => {
-        Get.back(),
-        StaffManagementRemoteServices.deleteStudentDetails(id, age, className),
-        Get.back(),
-      },
-      cancelTextColor: Colors.black,
-      confirmTextColor: Colors.white,
-      buttonColor: Colors.black,
-    );
-  }
+  
 
   void navigateEditName(String id, String name){
 

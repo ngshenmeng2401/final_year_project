@@ -183,6 +183,27 @@ class TeacherManagementController extends GetxController{
     update();
   }
 
+  void deleteStudentDetailsDialog(String id, String age, String className){
+
+    Get.defaultDialog(
+      title: "Are you sure ?".tr,
+      content: Column(),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm:() => {
+        Get.back(),
+        StaffManagementRemoteServices.deleteStudentDetails(id, age, className),
+        studentList.clear(),
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          loadStudentList();
+        }),
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
+  }
+
   void navigateAddStudentView(){
 
     Get.toNamed(AppRoutes.AddStudentDetailsPage)!.then((value) => loadStudentList());

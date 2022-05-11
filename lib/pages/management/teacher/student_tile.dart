@@ -26,6 +26,9 @@ class StudentTile extends StatelessWidget {
         width: screenWidth,
         height: screenHeight/14,
         child: ListTile(
+          onTap: (){
+            teachermanageController.navigateEditStudentView(student);
+          },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
             child: Text(' ${index + 1}',
@@ -38,9 +41,9 @@ class StudentTile extends StatelessWidget {
           subtitle: Text(student.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              teachermanageController.navigateEditStudentView(student);
+              teachermanageController.deleteStudentDetailsDialog(student.id.toString(), student.age.toString(), student.studentClass.toString());
             },
-            icon: Icon(Icons.info_outline),
+            icon: Icon(Icons.delete)
           ),
         )
       )
