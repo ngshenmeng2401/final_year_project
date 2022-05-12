@@ -1,14 +1,18 @@
 import 'package:final_year_project/pages/signup/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SignUpView extends GetView<SignUpController> {
+
+  final appData = GetStorage();
 
   @override
   Widget build(BuildContext context) {
 
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +36,7 @@ class SignUpView extends GetView<SignUpController> {
                 Container(
                   margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
+                    border: Border.all(color: Colors.blue[400]!),
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                   ),
                   child: Column(
@@ -56,7 +60,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.userNameController,
                           decoration: InputDecoration(
                             labelText: 
-                            "User_Name".tr,
+                            "User Name".tr,
                             icon: Icon(Icons.people,)
                           ),
                         ),
@@ -68,7 +72,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.phoneNoController,
                           decoration: InputDecoration(
                             labelText: 
-                            "Phone_No".tr,
+                            "Phone No".tr,
                             icon: Icon(Icons.phone,)
                           ),
                         ),
@@ -92,7 +96,7 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.confirmPasswordController,
                           decoration: InputDecoration(
                             labelText: 
-                            "Confirm_Password".tr,
+                            "Confirm Password".tr,
                             icon: Icon(Icons.lock,),
                             ),
                           obscureText: true,
@@ -104,29 +108,12 @@ class SignUpView extends GetView<SignUpController> {
                           controller: controller.referralCodeController,
                           decoration: InputDecoration(
                             labelText: 
-                            "Referral_Code".tr,
+                            "Referral Code".tr,
                             icon: Icon(Icons.security,),
                             ),
                           obscureText: true,
                         )
                       ),
-                      // Padding(
-                      //   padding:const EdgeInsets.fromLTRB(20,0,20,15),
-                      //   child: RichText(
-                      //     text: TextSpan(
-                      //       children: const <TextSpan>[
-                      //         TextSpan(text: "* Only"),
-                      //         TextSpan(text: " teacher", style: TextStyle(fontWeight: FontWeight.bold)),
-                      //         TextSpan(text: " and"),
-                      //         TextSpan(text: " staff", style: TextStyle(fontWeight: FontWeight.bold)),
-                      //         TextSpan(text: " need to key in referral code,"),
-                      //         TextSpan(text: " parent", style: TextStyle(fontWeight: FontWeight.bold)),
-                      //         TextSpan(text: " just key in"),
-                      //         TextSpan(text: " ' - '. ", style: TextStyle(fontWeight: FontWeight.bold)),
-                      //       ],
-                      //     ),
-                      //   )
-                      // ),
                       Padding(
                         padding:const EdgeInsets.fromLTRB(20,0,20,15),
                         child: Text("* Only teacher and staff need to key in referral code, parent just key in ' - '. ".tr,
@@ -142,12 +129,12 @@ class SignUpView extends GetView<SignUpController> {
                   ),
                   height: screenHeight/18,
                   minWidth: screenWidth/1.1,
-                  color: Colors.black,
+                  color: isDarkMode == true ? Colors.blue[400] : Colors.blue,
                   onPressed: (){
                     controller.signUpDialog();
                   },
                   child: Text(
-                    "Sign_Up".tr,
+                    "Sign Up".tr,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -158,7 +145,7 @@ class SignUpView extends GetView<SignUpController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Already_have_an_account".tr,
+                      "Already have an account".tr,
                       style: TextStyle(
                         fontSize: 16,
                         // fontWeight: FontWeight.bold,

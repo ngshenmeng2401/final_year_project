@@ -1,12 +1,17 @@
 import 'package:final_year_project/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class LoginView extends GetView<LoginController> {
+
+  final appData = GetStorage();
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +37,7 @@ class LoginView extends GetView<LoginController> {
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black),
+                  border: Border.all(color: Colors.blue[400]!),
                   borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
                 child: Column(
@@ -62,6 +67,7 @@ class LoginView extends GetView<LoginController> {
                             Icons.lock,
                           ),
                           title: TextField(
+                            obscureText: true,
                             keyboardType: TextInputType.emailAddress,
                             controller: _.passwordController,
                             decoration: InputDecoration(
@@ -84,7 +90,9 @@ class LoginView extends GetView<LoginController> {
                               child: DropdownButton<String?>(
                                 value: controller.selectPosition,
                                 elevation: 28,
-                                style: const TextStyle(fontSize: 20, color: Colors.black),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: isDarkMode == true ? Colors.white : Colors.black),
                                 onChanged: (String? newValue) {
                                   controller.choosePosition(newValue!);
                                 },
@@ -116,7 +124,7 @@ class LoginView extends GetView<LoginController> {
                         builder: (controller) {
                           return Checkbox(
                               value: controller.rememberMe,
-                              activeColor: Colors.black,
+                              activeColor: Colors.blue[400],
                               onChanged: (value) {
                                 controller.rememberEmailPassword(
                                     value!,
@@ -127,7 +135,7 @@ class LoginView extends GetView<LoginController> {
                               });
                         },
                       ),
-                      Text("Remember_Me".tr, style: TextStyle(fontSize: 16)),
+                      Text("Remember Me".tr, style: TextStyle(fontSize: 16)),
                     ],
                   ),
                   GestureDetector(
@@ -135,7 +143,7 @@ class LoginView extends GetView<LoginController> {
                         controller.forgotPasswordDialog();
                       },
                       child: Text(
-                        "Forgot_Password".tr,
+                        "Forgot Password".tr,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -150,7 +158,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                   minWidth: screenWidth / 1.1,
                   height: screenHeight / 18,
-                  color: Colors.black,
+                  color: isDarkMode == true ? Colors.blue[400] : Colors.blue,
                   onPressed: () {
                     controller.loginUser();
                   },
@@ -167,7 +175,7 @@ class LoginView extends GetView<LoginController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't_have_an_account_?".tr,
+                      Text("Don't have an account ?".tr,
                           style: TextStyle(fontSize: 16)),
                       SizedBox(
                         width: 10,

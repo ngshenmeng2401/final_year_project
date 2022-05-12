@@ -27,7 +27,7 @@ class ThemeView extends GetView<SettingsController> {
                       subtitle: Text("Dark_Theme_Desciption",
                           style: TextStyle(fontSize: 14)),
                       trailing: Radio(
-                        activeColor: Colors.blue[200],
+                        activeColor: Colors.blue[400],
                         value: true,
                         groupValue: controller.isDarkMode,
                         onChanged: (value) {
@@ -45,7 +45,7 @@ class ThemeView extends GetView<SettingsController> {
                       subtitle: Text("Light_Theme_Desciption",
                           style: TextStyle(fontSize: 14)),
                       trailing: Radio(
-                        activeColor: Colors.blue[200],
+                        activeColor: Colors.blue[400],
                         value: false,
                         groupValue: controller.isDarkMode,
                         onChanged: (value) {

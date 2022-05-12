@@ -233,11 +233,12 @@ class PerformanceRecordController extends GetxController{
               return ListTile(
                 title: Text("Default".tr),
                 trailing: Radio(
-                    value: sortingList[0],
-                    groupValue: selectSorting,
-                    onChanged: (value) {
-                      clickSorting(value);
-                    }),
+                  activeColor: Colors.blue[400],
+                  value: sortingList[0],
+                  groupValue: selectSorting,
+                  onChanged: (value) {
+                    clickSorting(value);
+                  }),
               );
             },
           ),
@@ -247,11 +248,12 @@ class PerformanceRecordController extends GetxController{
               return ListTile(
                 title: Text("Student Id with Descending Order".tr),
                 trailing: Radio(
-                    value: sortingList[1],
-                    groupValue: selectSorting,
-                    onChanged: (value) {
-                      clickSorting(value);
-                    }),
+                  activeColor: Colors.blue[400],
+                  value: sortingList[1],
+                  groupValue: selectSorting,
+                  onChanged: (value) {
+                    clickSorting(value);
+                  }),
               );
             },
           ),
@@ -261,11 +263,12 @@ class PerformanceRecordController extends GetxController{
               return ListTile(
                 title: Text("Name with Ascending Order".tr),
                 trailing: Radio(
-                    value: sortingList[2],
-                    groupValue: selectSorting,
-                    onChanged: (value) {
-                      clickSorting(value);
-                    }),
+                  activeColor: Colors.blue[400],
+                  value: sortingList[2],
+                  groupValue: selectSorting,
+                  onChanged: (value) {
+                    clickSorting(value);
+                  }),
               );
             },
           ),
@@ -275,11 +278,12 @@ class PerformanceRecordController extends GetxController{
               return ListTile(
                 title: Text("Name with Descending Order".tr),
                 trailing: Radio(
-                    value: sortingList[3],
-                    groupValue: selectSorting,
-                    onChanged: (value) {
-                      clickSorting(value);
-                    }),
+                  activeColor: Colors.blue[400],
+                  value: sortingList[3],
+                  groupValue: selectSorting,
+                  onChanged: (value) {
+                    clickSorting(value);
+                  }),
               );
             },
           ),

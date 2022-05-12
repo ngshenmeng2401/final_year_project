@@ -82,6 +82,8 @@ class ParentHomeController extends GetxController{
 
   void navigateChildrenRecordPage(String studentId, String listeningResult, String readingResult, String speakingResult, String writingResult){
 
+    bool isDarkMode = appData.read("isDarkMode") ?? false;
+
     print(listeningResult);
     print(readingResult);
     print(speakingResult);
@@ -97,7 +99,7 @@ class ParentHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: Colors.grey[100],
+            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
             // leading: Text("1."),
             title: Text("Listening".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
@@ -115,7 +117,7 @@ class ParentHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: Colors.grey[100],
+            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
             // leading: Text("2."),
             title: Text("Reading".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
@@ -133,7 +135,7 @@ class ParentHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: Colors.grey[100],
+            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
             // leading: Text("3."),
             title: Text("Speaking".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
@@ -151,7 +153,7 @@ class ParentHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: Colors.grey[100],
+            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
             // leading: Text("4."),
             title: Text("Writing".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
