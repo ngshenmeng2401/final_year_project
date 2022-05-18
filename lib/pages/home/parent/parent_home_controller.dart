@@ -108,7 +108,7 @@ class ParentHomeController extends GetxController{
               Get.back();
               appData.write("category", "listening");
               appData.write("studentId", studentId);
-              Get.toNamed(AppRoutes.ListeningResultPage);
+              Get.toNamed(AppRoutes.ListeningResultPage)!.then((value) => loadChildrenList());
             }
             : null,
           ),
@@ -126,7 +126,7 @@ class ParentHomeController extends GetxController{
               Get.back();
               appData.write("category", "reading");
               appData.write("studentId", studentId);
-              Get.toNamed(AppRoutes.ReadingResultPage);
+              Get.toNamed(AppRoutes.ReadingResultPage)!.then((value) => loadChildrenList());
             } 
             : null,
           ),
@@ -144,7 +144,7 @@ class ParentHomeController extends GetxController{
               Get.back();
               appData.write("category", "speaking");
               appData.write("studentId", studentId);
-              Get.toNamed(AppRoutes.SpeakingResultPage);
+              Get.toNamed(AppRoutes.SpeakingResultPage)!.then((value) => loadChildrenList());
             }
             : null,
           ),
@@ -162,7 +162,7 @@ class ParentHomeController extends GetxController{
               Get.back();
               appData.write("category", "writing");
               appData.write("studentId", studentId);
-              Get.toNamed(AppRoutes.WritingResultPage);
+              Get.toNamed(AppRoutes.WritingResultPage)!.then((value) => loadChildrenList());
             }
             : null,
           )

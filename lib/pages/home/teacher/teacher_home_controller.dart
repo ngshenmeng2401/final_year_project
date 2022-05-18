@@ -76,7 +76,7 @@ class TeacherHomeController extends GetxController{
               Get.back();
               appData.write("category", "listening");
               appData.write("className", classroom.className);
-              Get.toNamed(AppRoutes.RecordListPage);
+              Get.toNamed(AppRoutes.RecordListPage)!.then((value) => loadClassroomList());
             },
           ),
           SizedBox(height: 5),
@@ -92,7 +92,7 @@ class TeacherHomeController extends GetxController{
               Get.back();
               appData.write("category", "reading");
               appData.write("className", classroom.className);
-              Get.toNamed(AppRoutes.RecordListPage);
+              Get.toNamed(AppRoutes.RecordListPage)!.then((value) => loadClassroomList());
             },
           ),
           SizedBox(height: 5),
@@ -108,7 +108,7 @@ class TeacherHomeController extends GetxController{
               Get.back();
               appData.write("category", "speaking");
               appData.write("className", classroom.className);
-              Get.toNamed(AppRoutes.RecordListPage);
+              Get.toNamed(AppRoutes.RecordListPage)!.then((value) => loadClassroomList());
             },
           ),
           SizedBox(height: 5),
@@ -124,7 +124,7 @@ class TeacherHomeController extends GetxController{
               Get.back();
               appData.write("category", "writing");
               appData.write("className", classroom.className);
-              Get.toNamed(AppRoutes.RecordListPage);
+              Get.toNamed(AppRoutes.RecordListPage)!.then((value) => loadClassroomList());
             },
           )
         ],

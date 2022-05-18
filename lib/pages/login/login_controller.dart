@@ -15,8 +15,8 @@ class LoginController extends GetxController{
   var email = '';
   var password = '';
   var rememberMe = false;
-  late var selectPosition = 'Parent';
-  final List<String> position = ["Parent","Staff","Teacher"];
+  var selectPosition = "Parent";
+  final List<String> position = ["Parent", "Staff"];
 
   @override
   void onInit() {

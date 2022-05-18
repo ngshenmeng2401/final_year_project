@@ -89,10 +89,6 @@ class UserRemoteServices {
 
         Get.offNamed(AppRoutes.ParentBottomNavigation);
 
-      }else if(position == "Teacher"){
-
-        Get.offNamed(AppRoutes.TeacherBottomNavigation);
-
       }else if(position == "Staff"){
 
         Get.offNamed(AppRoutes.TeacherBottomNavigation);

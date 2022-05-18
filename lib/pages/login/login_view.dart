@@ -86,26 +86,28 @@ class LoginView extends GetView<LoginController> {
                           ),
                           title: Text("Position".tr),
                           trailing: Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                              child: DropdownButton<String?>(
-                                value: controller.selectPosition,
-                                elevation: 28,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: isDarkMode == true ? Colors.white : Colors.black),
-                                onChanged: (String? newValue) {
-                                  controller.choosePosition(newValue!);
-                                },
-                                items: [
-                                  for (var data in controller.position)
-                                    DropdownMenuItem(
-                                      child: new Text(
-                                        data,
-                                      ),
-                                      value: data,
-                                    )
-                                ]
-                              )),
+                            padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                            child: DropdownButton<String>(
+                              value: controller.selectPosition,
+                              elevation: 28,
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: isDarkMode == true ? Colors.white : Colors.black
+                              ),
+                              onChanged: (String? newValue) {
+                                print(newValue);
+                                controller.choosePosition(newValue!);
+                              },
+                              items: [
+                                for (var data in controller.position)
+                                  DropdownMenuItem(
+                                    child: new Text(
+                                      data,
+                                    ),
+                                    value: data,
+                                  )
+                              ]
+                            )),
                         );
                       },
                     ),

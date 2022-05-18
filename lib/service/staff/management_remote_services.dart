@@ -87,12 +87,12 @@ class StaffManagementRemoteServices{
     if (response.body == "success") {
       var resp = response.body;
       
-      getSnackBar("Edit Successful", "");
+      getSnackBar("Delete Successful", "");
 
       return resp;
     } else {
       // show error message
-      getSnackBar("Edit Failed", "Please check your input value.");
+      getSnackBar("Delete Failed", "Please check your input value.");
       return null;
     }
   }
