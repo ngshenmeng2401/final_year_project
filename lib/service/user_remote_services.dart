@@ -84,6 +84,7 @@ class UserRemoteServices {
 
       appData.write("isLogged", true);
       appData.write("keepLogin", email);
+      appData.write("position", position);
 
       if(position == "Parent"){
 

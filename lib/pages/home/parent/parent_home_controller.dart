@@ -28,6 +28,12 @@ class ParentHomeController extends GetxController{
     loadChildrenList();
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   void loadChildrenList() async{
 
     try {
@@ -110,7 +116,9 @@ class ParentHomeController extends GetxController{
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.ListeningResultPage)!.then((value) => loadChildrenList());
             }
-            : null,
+            : (){
+              resultDialog("Error","Result haven't release.");
+            },
           ),
           SizedBox(height: 5),
           ListTile(
@@ -128,7 +136,9 @@ class ParentHomeController extends GetxController{
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.ReadingResultPage)!.then((value) => loadChildrenList());
             } 
-            : null,
+            : (){
+              resultDialog("Error","Result haven't release.");
+            },
           ),
           SizedBox(height: 5),
           ListTile(
@@ -146,7 +156,9 @@ class ParentHomeController extends GetxController{
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.SpeakingResultPage)!.then((value) => loadChildrenList());
             }
-            : null,
+            : (){
+              resultDialog("Error","Result haven't release.");
+            },
           ),
           SizedBox(height: 5),
           ListTile(
@@ -164,13 +176,26 @@ class ParentHomeController extends GetxController{
               appData.write("studentId", studentId);
               Get.toNamed(AppRoutes.WritingResultPage)!.then((value) => loadChildrenList());
             }
-            : null,
+            : (){
+              resultDialog("Error","Result haven't release.");
+            },
           )
         ],
       ),
       textConfirm: null,
       textCancel: null,
       buttonColor: Colors.black,
+    );
+  }
+
+  void resultDialog(String title, String subtitle){
+
+    Get.snackbar(
+      title,subtitle,
+      backgroundColor: Colors.white60,
+      colorText: Colors.black,
+      icon: const Icon(Icons.error, color: Colors.black),
+      snackPosition: SnackPosition.TOP,  
     );
   }
 
