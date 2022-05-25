@@ -34,26 +34,24 @@ class SpeakingQuestions extends StatelessWidget {
                     init: AddRecordController(),
                     builder: (_) {
                       return Container(
+                        width: screenWidth/2.5,
                         padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                         child: DropdownButton<String?>(
+                          isExpanded: true,
                           // dropdownColor: Colors.blue,
                           menuMaxHeight: screenHeight/4,
                           value: _.selectName,
                           elevation: 28,
-                          style: TextStyle(
-                            fontSize: 18, 
-                            color: isDarkMode == true ?Colors.white : Colors.black),
+                          style: TextStyle(fontSize: 18, color: isDarkMode == true ?Colors.white : Colors.black),
                           onChanged: (String? newValue) {
                             _.chooseStudent(newValue!);
                           },
                           items: [
-                            // _.studentNameList.map((e) => {
-                            //   return DropdownMenuItem();
-                            // })
                             for (var data in _.studentNameList)
                               DropdownMenuItem(
                                 child: new Text(
                                   data,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 value: data,
                               )

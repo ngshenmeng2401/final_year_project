@@ -40,7 +40,7 @@ class AddRecordController extends GetxController{
 
         for(int i = 0; i < studentList.length; i++){
           // studentNameList.insert(i, studentList[i].id.toString());
-          studentNameList.add(studentList[i].id.toString());
+          studentNameList.add(studentList[i].id.toString() + " " + studentList[i].name.toString());
           // print(studentNameList);
           update();
         }
@@ -106,6 +106,8 @@ class AddRecordController extends GetxController{
   
     print(selectName);
     print(category);
+    final splittedName = selectName.split(' ');
+    print(splittedName[0]);
 
     if(category == "listening"){
 
@@ -114,7 +116,7 @@ class AddRecordController extends GetxController{
       q3 = levelLQ[2];
       q4 = levelLQ[3];
 
-      StaffHomeRemoteServices.addListeningRecord(selectName, q1, q2, q3, q4);
+      StaffHomeRemoteServices.addListeningRecord(splittedName[0], q1, q2, q3, q4);
 
     }else if(category == "reading"){
 
@@ -123,7 +125,7 @@ class AddRecordController extends GetxController{
       q3 = levelRQ[2];
       q4 = levelRQ[3];
 
-      StaffHomeRemoteServices.addReadingRecord(selectName, q1, q2, q3, q4);
+      StaffHomeRemoteServices.addReadingRecord(splittedName[0], q1, q2, q3, q4);
 
     }else if(category == "speaking"){
 
@@ -133,14 +135,14 @@ class AddRecordController extends GetxController{
       q4 = levelSQ[3];
       q5 = levelSQ[4];
 
-      StaffHomeRemoteServices.addSpeakingRecord(selectName, q1, q2, q3, q4, q5);
+      StaffHomeRemoteServices.addSpeakingRecord(splittedName[0], q1, q2, q3, q4, q5);
 
     }else if(category == "writing"){
 
       q1 = levelWQ[0];
       q2 = levelWQ[1];
 
-      StaffHomeRemoteServices.addWritingRecord(selectName, q1, q2);
+      StaffHomeRemoteServices.addWritingRecord(splittedName[0], q1, q2);
 
     }
   }

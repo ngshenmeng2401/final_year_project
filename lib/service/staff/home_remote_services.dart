@@ -415,7 +415,7 @@ class StaffHomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          // print("IN remoteservices" + jsonString);
+          print("IN remoteservices" + jsonString);
           return listeningRecordFromJson(jsonString);
         }
       } else {
@@ -442,7 +442,7 @@ class StaffHomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          // print("IN remoteservices" + jsonString);
+          print("IN remoteservices" + jsonString);
           return readingRecordFromJson(jsonString);
         }
       } else {
@@ -469,7 +469,7 @@ class StaffHomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          // print("IN remoteservices" + jsonString);
+          print("IN remoteservices" + jsonString);
           return speakingRecordFromJson(jsonString);
         }
       } else {
@@ -496,7 +496,7 @@ class StaffHomeRemoteServices{
           return null;
         } else {
           var jsonString = response.body;
-          // print("IN remoteservices" + jsonString);
+          print("IN remoteservices" + jsonString);
           return writingRecordFromJson(jsonString);
         }
       } else {

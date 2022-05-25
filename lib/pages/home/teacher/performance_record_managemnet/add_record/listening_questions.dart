@@ -35,7 +35,7 @@ class ListeningQuestions extends StatelessWidget {
                     init: AddRecordController(),
                     builder: (_) {
                       return Container(
-                        width: screenWidth/6,
+                        width: screenWidth/2.5,
                         padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                         child: DropdownButton<String?>(
                           isExpanded: true,
@@ -48,13 +48,11 @@ class ListeningQuestions extends StatelessWidget {
                             _.chooseStudent(newValue!);
                           },
                           items: [
-                            // _.studentNameList.map((e) => {
-                            //   return DropdownMenuItem();
-                            // })
                             for (var data in _.studentNameList)
                               DropdownMenuItem(
                                 child: new Text(
                                   data,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                                 value: data,
                               )
