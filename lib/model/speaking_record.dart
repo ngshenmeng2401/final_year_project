@@ -18,6 +18,7 @@ class SpeakingRecord {
         this.sq3,
         this.sq4,
         this.sq5,
+        this.seenstatus,
     });
 
     String? id;
@@ -28,6 +29,7 @@ class SpeakingRecord {
     String? sq3;
     String? sq4;
     String? sq5;
+    String? seenstatus;
 
     factory SpeakingRecord.fromJson(Map<String, dynamic> json) => SpeakingRecord(
         id: json["id"],
@@ -38,6 +40,7 @@ class SpeakingRecord {
         sq3: json["sq3"],
         sq4: json["sq4"],
         sq5: json["sq5"],
+        seenstatus: json["seenstatus"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -49,5 +52,6 @@ class SpeakingRecord {
         "sq3": sq3,
         "sq4": sq4,
         "sq5": sq5,
+        "seenstatus": seenstatus,
     };
 }

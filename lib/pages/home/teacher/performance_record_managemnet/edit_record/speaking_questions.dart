@@ -49,7 +49,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                 children: [
                   Text("Status".tr,
                   style: TextStyle(fontSize: 18),),
-                  Text(speakingRecord.speakingSeenStatus.toString(),
+                  Text(speakingRecord.seenstatus.toString(),
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
@@ -97,7 +97,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                onChanged: speakingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 0);
                                 }
@@ -152,7 +152,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                onChanged: speakingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 1);
                                 }
@@ -207,7 +207,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                onChanged: speakingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 2);
                                 }
@@ -262,7 +262,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                onChanged: speakingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 3);
                                 }
@@ -317,7 +317,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: speakingRecord.speakingSeenStatus != "seen"
+                                onChanged: speakingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseSQLevel(newValue!, 4);
                                 }
@@ -349,7 +349,7 @@ class EditSpeakingQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: speakingRecord.speakingSeenStatus != "seen"
+                onPressed: speakingRecord.seenstatus != "accepted"
                 ? () {
                     editPerformanceRecordController.editRecordDialog("speaking", speakingRecord.id.toString());
                   }

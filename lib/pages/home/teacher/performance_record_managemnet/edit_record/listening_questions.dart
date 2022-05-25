@@ -48,7 +48,7 @@ class EditListeningQuestions extends StatelessWidget {
                 children: [
                   Text("Status".tr,
                   style: TextStyle(fontSize: 18),),
-                  Text(listeningRecord.listeningSeenStatus.toString(),
+                  Text(listeningRecord.seenstatus.toString(),
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
@@ -96,7 +96,7 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: listeningRecord.listeningSeenStatus != "seen"
+                                onChanged: listeningRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 0);
                                 }
@@ -151,7 +151,7 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: listeningRecord.listeningSeenStatus != "seen" 
+                                onChanged: listeningRecord.seenstatus != "accepted" 
                                 ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 1);
                                 }
@@ -206,7 +206,7 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: listeningRecord.listeningSeenStatus != "seen" 
+                                onChanged: listeningRecord.seenstatus != "accepted" 
                                 ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 2);
                                 }
@@ -261,7 +261,7 @@ class EditListeningQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: listeningRecord.listeningSeenStatus != "seen"
+                                onChanged: listeningRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseLQLevel(newValue!, 3);
                                 }
@@ -293,7 +293,7 @@ class EditListeningQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: listeningRecord.listeningSeenStatus != "seen"
+                onPressed: listeningRecord.seenstatus != "accepted"
                 ? () {
                     editPerformanceRecordController.editRecordDialog("listening", listeningRecord.id.toString());
                 }

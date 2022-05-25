@@ -45,7 +45,7 @@ class EditWritingQuestions extends StatelessWidget {
                 children: [
                   Text("Status".tr,
                   style: TextStyle(fontSize: 18),),
-                  Text(writingRecord.writingSeenStatus.toString(),
+                  Text(writingRecord.seenstatus.toString(),
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
@@ -93,7 +93,7 @@ class EditWritingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: writingRecord.writingSeenStatus != "seen"
+                                onChanged: writingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseWQLevel(newValue!, 0);
                                 }
@@ -148,7 +148,7 @@ class EditWritingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: writingRecord.writingSeenStatus != "seen"
+                                onChanged: writingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseWQLevel(newValue!, 1);
                                 }
@@ -180,7 +180,7 @@ class EditWritingQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: writingRecord.writingSeenStatus != "seen"
+                onPressed: writingRecord.seenstatus != "accepted"
                 ? () {
                     editPerformanceRecordController.editRecordDialog("writing", writingRecord.id.toString());
                   }

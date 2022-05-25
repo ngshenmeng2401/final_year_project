@@ -48,7 +48,7 @@ class EditReadingQuestions extends StatelessWidget {
                 children: [
                   Text("Status".tr,
                   style: TextStyle(fontSize: 18),),
-                  Text(readingRecord.readingSeenStatus.toString(),
+                  Text(readingRecord.seenstatus.toString(),
                   style: TextStyle(fontSize: 18),),
                 ],
               ),
@@ -96,7 +96,7 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: readingRecord.readingSeenStatus != "seen"
+                                onChanged: readingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 0);
                                 }
@@ -151,7 +151,7 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: readingRecord.readingSeenStatus != "seen" 
+                                onChanged: readingRecord.seenstatus != "accepted" 
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 1);
                                 }
@@ -206,7 +206,7 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: readingRecord.readingSeenStatus != "seen" 
+                                onChanged: readingRecord.seenstatus != "accepted" 
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 2);
                                 }
@@ -261,7 +261,7 @@ class EditReadingQuestions extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16, 
                                   color: isDarkMode == true ?Colors.white : Colors.black),
-                                onChanged: readingRecord.readingSeenStatus != "seen"
+                                onChanged: readingRecord.seenstatus != "accepted"
                                 ? (String? newValue) {
                                   _.chooseRQLevel(newValue!, 3);
                                 }
@@ -293,7 +293,7 @@ class EditReadingQuestions extends StatelessWidget {
                 minWidth: screenWidth / 1.1,
                 height: screenHeight / 18,
                 color: Colors.black,
-                onPressed: readingRecord.readingSeenStatus != "seen"
+                onPressed: readingRecord.seenstatus != "accepted"
                 ? () {
                     editPerformanceRecordController.editRecordDialog("reading", readingRecord.id.toString());
                   }
