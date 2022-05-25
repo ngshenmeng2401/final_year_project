@@ -40,7 +40,7 @@ class AddHistoryCOntroller extends GetxController{
 
         for(int i = 0; i < studentList.length; i++){
           // studentNameList.insert(i, studentList[i].id.toString());
-          studentNameList.add(studentList[i].id.toString());
+          studentNameList.add(studentList[i].id.toString() + " " + studentList[i].name.toString());
           // print(studentNameList);
           update();
         }
@@ -100,6 +100,9 @@ class AddHistoryCOntroller extends GetxController{
 
   void addRecordDialog(){
 
+    final splittedName = selectName.split(' ');
+    print(splittedName[0]);
+
     Get.defaultDialog(
       title: "Are you sure ?".tr,
       content: Column(),
@@ -107,7 +110,7 @@ class AddHistoryCOntroller extends GetxController{
       textCancel: "No".tr,
       onConfirm:() => {
         Get.back(),
-        HistoryRemoteServices.addTestRecord(selectName, selectCode, selectLevel, dateResult.format(selectedDate.value)),
+        HistoryRemoteServices.addTestRecord(splittedName[0], selectCode, selectLevel, dateResult.format(selectedDate.value)),
       },
       cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,

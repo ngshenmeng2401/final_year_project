@@ -31,7 +31,7 @@ class AddHistoryView extends StatelessWidget {
                     init: AddHistoryCOntroller(),
                     builder: (_) {
                       return Container(
-                        width: screenWidth/5,
+                        width: screenWidth/3,
                         padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                         child: DropdownButton<String?>(
                           isExpanded: true,
