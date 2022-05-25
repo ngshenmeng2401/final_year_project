@@ -12,42 +12,38 @@ class ReadingRecord {
     ReadingRecord({
         this.id,
         this.name,
-        this.lqId,
+        this.rqId,
         this.rq1,
         this.rq2,
         this.rq3,
         this.rq4,
-        this.readingSeenStatus,
     });
 
     String? id;
     String? name;
-    String? lqId;
+    String? rqId;
     String? rq1;
     String? rq2;
     String? rq3;
     String? rq4;
-    String? readingSeenStatus;
 
     factory ReadingRecord.fromJson(Map<String, dynamic> json) => ReadingRecord(
         id: json["id"],
         name: json["name"],
-        lqId: json["lq_id"],
+        rqId: json["rq_id"],
         rq1: json["rq1"],
         rq2: json["rq2"],
         rq3: json["rq3"],
         rq4: json["rq4"],
-        readingSeenStatus: json["reading_seen_status"],
     );
 
     Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
-        "lq_id": lqId,
+        "rq_id": rqId,
         "rq1": rq1,
         "rq2": rq2,
         "rq3": rq3,
         "rq4": rq4,
-        "reading_seen_status": readingSeenStatus,
     };
 }

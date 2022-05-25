@@ -15,7 +15,6 @@ class WritingRecord {
         this.wqId,
         this.wq1,
         this.wq2,
-        this.writingSeenStatus,
     });
 
     String? id;
@@ -23,7 +22,6 @@ class WritingRecord {
     String? wqId;
     String? wq1;
     String? wq2;
-    String? writingSeenStatus;
 
     factory WritingRecord.fromJson(Map<String, dynamic> json) => WritingRecord(
         id: json["id"],
@@ -31,7 +29,6 @@ class WritingRecord {
         wqId: json["wq_id"],
         wq1: json["wq1"],
         wq2: json["wq2"],
-        writingSeenStatus: json["writing_seen_status"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -40,6 +37,5 @@ class WritingRecord {
         "wq_id": wqId,
         "wq1": wq1,
         "wq2": wq2,
-        "writing_seen_status": writingSeenStatus,
     };
 }
