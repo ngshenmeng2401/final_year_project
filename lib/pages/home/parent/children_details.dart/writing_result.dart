@@ -196,7 +196,7 @@ class WritingResult extends StatelessWidget {
                   minWidth: screenWidth / 1.1,
                   height: screenHeight / 18,
                   color: Colors.black,
-                  onPressed: childrenDetailsController.seenStatus.value != "seen" 
+                  onPressed: childrenDetailsController.seenStatus.value != "accepted" 
                   ? () {
                       childrenDetailsController.acceptResult(screenWidth);
                     }
