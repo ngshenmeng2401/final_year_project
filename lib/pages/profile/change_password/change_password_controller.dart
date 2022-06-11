@@ -28,7 +28,7 @@ class ChangePasswordController extends GetxController{
 
       isTyping.value = false;
 
-    }else if(currentPasswordController.text.isEmpty || passwordController.text.isEmpty || confirmPasswordController.text.isEmpty ){
+    }else if(passwordController.text.isEmpty || confirmPasswordController.text.isEmpty ){
 
       isTyping.value = false;
     }else{

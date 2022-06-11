@@ -158,7 +158,7 @@ class UserRemoteServices {
   static Future<String?> changePassword(String email, String currentPassword , String password) async {
 
     print(email);
-    print(currentPassword);
+    // print(currentPassword);
     print(password);
     
     var response = await client.post(
@@ -166,7 +166,7 @@ class UserRemoteServices {
       Uri.parse('https://hubbuddies.com/271059/final_year_project/change_password.php'), 
       body: {
       "email" : email,
-      "currentPassword" : currentPassword,
+      // "currentPassword" : currentPassword,
       "password" : password,
     });
     print(response.body);

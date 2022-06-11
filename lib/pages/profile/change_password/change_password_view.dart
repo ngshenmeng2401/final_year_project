@@ -60,25 +60,25 @@ class ChangePasswordView extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                             child: Column(children: [
-                              TextField(
-                                onChanged: (value){
-                                  changePasswordController.checkForm();
-                                },
-                                controller:changePasswordController.currentPasswordController,
-                                decoration: InputDecoration(
-                                  focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.blue[600]!)),
-                                  icon: Icon(
-                                    Icons.lock,
-                                    color: Colors.blue[400],
-                                  ),
-                                  labelText: 'Current Password',
-                                  labelStyle: TextStyle(
-                                      fontSize: 18,
-                                      fontFamily: 'Calibri',),
-                                ),
-                              ),
+                              // TextField(
+                              //   onChanged: (value){
+                              //     changePasswordController.checkForm();
+                              //   },
+                              //   controller:changePasswordController.currentPasswordController,
+                              //   decoration: InputDecoration(
+                              //     focusedBorder: UnderlineInputBorder(
+                              //         borderSide: BorderSide(
+                              //             color: Colors.blue[600]!)),
+                              //     icon: Icon(
+                              //       Icons.lock,
+                              //       color: Colors.blue[400],
+                              //     ),
+                              //     labelText: 'Current Password',
+                              //     labelStyle: TextStyle(
+                              //         fontSize: 18,
+                              //         fontFamily: 'Calibri',),
+                              //   ),
+                              // ),
                               SizedBox(height: 20),
                               TextField(
                                 onChanged: (value){
@@ -98,6 +98,7 @@ class ChangePasswordView extends StatelessWidget {
                                       fontSize: 18,
                                       fontFamily: 'Calibri',),
                                 ),
+                                obscureText: true,
                               ),
                               SizedBox(height: 20),
                               TextField(
@@ -118,6 +119,7 @@ class ChangePasswordView extends StatelessWidget {
                                       fontSize: 18,
                                       fontFamily: 'Calibri',),
                                 ),
+                                obscureText: true,
                               ),
                               SizedBox(height: 20),
                             ]),

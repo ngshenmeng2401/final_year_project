@@ -43,7 +43,7 @@ class ParentHomeController extends GetxController{
         childrenList.assignAll(children);
 
       } else {
-        statusMsj("No any class".tr);
+        statusMsj("No any children record".tr);
       }
     } finally {
       isLoading(false);
