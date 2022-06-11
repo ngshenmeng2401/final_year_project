@@ -36,7 +36,6 @@ class SignUpController extends GetxController{
         Get.back();
         checkSignUp();
       },
-      onCancel: () => Get.back(),
       cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,
       buttonColor: Colors.black,

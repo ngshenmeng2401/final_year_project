@@ -44,6 +44,32 @@ class UserRemoteServices {
     }
   }
 
+  static Future<String?> forgotPassword(String email) async {
+
+    print(email);
+    
+    var response = await client.post(
+
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/forgot_password.php'), 
+      body: {
+      "email" : email,
+    });
+    print(response.body);
+    if (response.body == "Success"){
+        var resp = response.body;
+      
+        getSnackBar("Reset Successful", "Please check your email to activate your account");
+        
+        return resp;
+
+    }else {
+      // show error message
+      getSnackBar("Reset Failed", "Please check your input value.");
+      return null;
+      // throw Exception("Error");
+    }
+  }
+
   static Future<String?> loginUser(String email, String password, String position) async {
 
     print(email);

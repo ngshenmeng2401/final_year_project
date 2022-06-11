@@ -137,7 +137,7 @@ class LoginController extends GetxController{
   void forgotPasswordDialog(){
 
     Get.defaultDialog(
-      title: "Forgot_Your_Password".tr,
+      title: "Forgot Password".tr,
       content: Column(
         children: [
           Padding(
@@ -154,12 +154,34 @@ class LoginController extends GetxController{
       ),
       textConfirm: "Submit".tr,
       textCancel: "Cancel".tr,
-      onConfirm:() => Get.back(),
-      onCancel: () => Get.back(),
+      onConfirm:() =>{
+        forgotPassword(),
+      },
       cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,
       buttonColor: Colors.black,
     );
+  }
+
+  void forgotPassword(){
+
+    String forgotPasswordEmail = forgotPasswordEmailController.text.toString();
+
+    if(forgotPasswordEmail.isEmpty){
+
+      Get.snackbar(
+        "Error","Email_Password_is_empty",
+        backgroundColor: Colors.white60,
+        colorText: Colors.black,
+        icon: Icon(Icons.error, color: Colors.black),
+        snackPosition: SnackPosition.TOP,  
+      );
+
+    }else{
+      Get.back();
+      UserRemoteServices.forgotPassword(forgotPasswordEmail);
+      forgotPasswordEmailController.clear();
+    }
   }
 
   void loginUser(){
@@ -179,7 +201,7 @@ class LoginController extends GetxController{
 
     }else{
 
-      UserRemoteServices.loginUser(emailController.text.toString(), passwordController.text.toString(), selectPosition);
+      UserRemoteServices.loginUser(email, password, selectPosition);
     
     }
   }
