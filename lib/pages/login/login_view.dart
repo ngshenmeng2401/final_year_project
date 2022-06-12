@@ -16,7 +16,6 @@ class LoginView extends GetView<LoginController> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
           title: Text("Login".tr, style: TextStyle(fontSize: 24)),
         ),
         body: SingleChildScrollView(

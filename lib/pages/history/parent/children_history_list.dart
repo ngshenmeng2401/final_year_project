@@ -17,7 +17,6 @@ class ChildrenHistoryList extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title:Text("Children Test Date".tr),
-          backgroundColor: Colors.black,
         ),
         body: SingleChildScrollView(
           child: Center(

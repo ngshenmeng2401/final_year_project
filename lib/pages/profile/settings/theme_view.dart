@@ -24,8 +24,8 @@ class ThemeView extends GetView<SettingsController> {
                     builder: (controller) {
                       return ListTile(
                         title:
-                            Text("Dark_Theme", style: TextStyle(fontSize: 18)),
-                        subtitle: Text("Dark_Theme_Desciption",
+                            Text("Dark Theme", style: TextStyle(fontSize: 18)),
+                        subtitle: Text("Dark Theme Desciption",
                             style: TextStyle(fontSize: 14)),
                         trailing: Radio(
                           activeColor: Colors.blue[400],
@@ -42,8 +42,8 @@ class ThemeView extends GetView<SettingsController> {
                     init: SettingsController(),
                     builder: (controller) {
                       return ListTile(
-                        title: Text("Light_Theme", style: TextStyle(fontSize: 18)),
-                        subtitle: Text("Light_Theme_Desciption",
+                        title: Text("Light Theme", style: TextStyle(fontSize: 18)),
+                        subtitle: Text("Light Theme Desciption",
                             style: TextStyle(fontSize: 14)),
                         trailing: Radio(
                           activeColor: Colors.blue[400],

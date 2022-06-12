@@ -24,7 +24,6 @@ class ProfileView extends GetView<ProfileController> {
             title: Text(
               'Profile'.tr,
             ),
-            backgroundColor: Colors.black,
           ),
           body: Center(
               child: SingleChildScrollView(

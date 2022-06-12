@@ -106,7 +106,6 @@ class ParentHomeController extends GetxController{
               borderRadius: BorderRadius.circular(20),
             ),
             tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
-            // leading: Text("1."),
             title: Text("Listening".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
             onTap: listeningResult == "yes" 

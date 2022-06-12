@@ -15,287 +15,263 @@ class SpeakingResult extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Speaking".tr,style: const TextStyle(fontSize: 22),)
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: screenWidth/4,
-                    child: Text("Student ID:".tr,
-                      style: TextStyle(fontSize: 22),),
-                  ),
-                  Obx(() => 
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Speaking".tr,style: const TextStyle(fontSize: 22),)
+        ),
+        body: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                     Container(
-                      width: screenWidth/2,
-                      child: Text(childrenDetailsController.studentID.value,
-                        textAlign: TextAlign.right,
+                      width: screenWidth/4,
+                      child: Text("Student ID:".tr,
                         style: TextStyle(fontSize: 22),),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: screenWidth/4,
-                    child: Text("Name:".tr,
-                      style: TextStyle(fontSize: 22),),
-                  ),
-                  Obx(() => 
+                    Obx(() => 
+                      Container(
+                        width: screenWidth/2,
+                        child: Text(childrenDetailsController.studentID.value,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(fontSize: 22),),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                     Container(
-                      width: screenWidth/2,
-                      child: Text(childrenDetailsController.studentName.value,
-                        textAlign: TextAlign.right,
+                      width: screenWidth/4,
+                      child: Text("Name:".tr,
                         style: TextStyle(fontSize: 22),),
                     ),
-                  ),
-                ],
-              ),
-              Divider(
-                height: screenHeight/20,
-              ),
-              Table(
-                columnWidths: {
-                  0: FlexColumnWidth(1),
-                  1: FlexColumnWidth(7.5),
-                  2: FlexColumnWidth(1.5),
-                },
-                border: TableBorder.all(
-                  color: isDarkMode == false ? Colors.black : Colors.white,
+                    Obx(() => 
+                      Container(
+                        width: screenWidth/2,
+                        child: Text(childrenDetailsController.studentName.value,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(fontSize: 22),),
+                      ),
+                    ),
+                  ],
                 ),
-                children: [
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("No".tr,)
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Details".tr,)
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("Level")
-                        )),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("1")
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Use simple words.".tr,)
-                        )),
-                      ),
-                      Obx(() =>
-                        TableCell(
-                          child: Container(
-                            height: screenHeight/32,
-                            child: Center(
-                              child: Text(childrenDetailsController.result1.value)
-                          )),
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("2")
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Use simple statements.".tr,)
-                        )),
-                      ),
-                      Obx(() =>
-                        TableCell(
-                          child: Container(
-                            height: screenHeight/32,
-                            child: Center(
-                              child: Text(childrenDetailsController.result2.value)
-                          )),
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("3")
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Ask simple questions.".tr,)
-                        )),
-                      ),
-                      Obx(() =>
-                        TableCell(
-                          child: Container(
-                            height: screenHeight/32,
-                            child: Center(
-                              child: Text(childrenDetailsController.result3.value)
-                          )),
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("4")
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Sing/recite songs, rhymes, poems.".tr,)
-                        )),
-                      ),
-                      Obx(() =>
-                        TableCell(
-                          child: Container(
-                            height: screenHeight/32,
-                            child: Center(
-                              child: Text(childrenDetailsController.result4.value)
-                          )),
-                        ),
-                      ),
-                    ],
-                  ),
-                  TableRow(
-                    children: [
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          child: Center(
-                            child: Text("5")
-                        )),
-                      ),
-                      TableCell(
-                        child: Container(
-                          height: screenHeight/32,
-                          padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Tell simple stories.".tr,)
-                        )),
-                      ),
-                      Obx(() =>
-                        TableCell(
-                          child: Container(
-                            height: screenHeight/32,
-                            child: Center(
-                              child: Text(childrenDetailsController.result5.value)
-                          )),
-                        ),
-                      ),
-                    ],
-                  ),
-                  // TableRow(
-                  //   children: [
-                  //     TableCell(
-                  //       child: Container(
-                  //         height: screenHeight/32,
-                  //         child: Center(
-                  //           child: Text("")
-                  //       )),
-                  //     ),
-                  //     TableCell(
-                  //       child: Container(
-                  //         padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
-                  //         child: Align(
-                  //           alignment: Alignment.centerLeft,
-                  //           child: Text("Total".tr,)
-                  //       )),
-                  //     ),
-                  //     TableCell(
-                  //       child: Container(
-                  //         height: screenHeight/32,
-                  //         child: Center(
-                  //           child: Text("25/25")
-                  //       )),
-                  //     ),
-                  //   ],
-                  // ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Obx(() =>
-                MaterialButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  minWidth: screenWidth / 1.1,
-                  height: screenHeight / 18,
-                  color: Colors.black,
-                  onPressed: childrenDetailsController.seenStatus.value != "accepted" 
-                  ? () {
-                      childrenDetailsController.acceptResult(screenWidth);
-                    }
-                  : null,
-                  child: Text("Accept".tr,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    )),
+                Divider(
+                  height: screenHeight/20,
                 ),
-              ),
-            ],
+                Table(
+                  columnWidths: {
+                    0: FlexColumnWidth(1),
+                    1: FlexColumnWidth(7.5),
+                    2: FlexColumnWidth(1.5),
+                  },
+                  border: TableBorder.all(
+                    color: isDarkMode == false ? Colors.black : Colors.white,
+                  ),
+                  children: [
+                    TableRow(
+                      children: [
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text("No".tr,)
+                          )),
+                        ),
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Details".tr,)
+                          )),
+                        ),
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text("Level")
+                          )),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text("1")
+                          )),
+                        ),
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Use simple words.".tr,)
+                          )),
+                        ),
+                        Obx(() =>
+                          TableCell(
+                            child: Container(
+                              height: screenHeight/32,
+                              child: Center(
+                                child: Text(childrenDetailsController.result1.value)
+                            )),
+                          ),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text("2")
+                          )),
+                        ),
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Use simple statements.".tr,)
+                          )),
+                        ),
+                        Obx(() =>
+                          TableCell(
+                            child: Container(
+                              height: screenHeight/32,
+                              child: Center(
+                                child: Text(childrenDetailsController.result2.value)
+                            )),
+                          ),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text("3")
+                          )),
+                        ),
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Ask simple questions.".tr,)
+                          )),
+                        ),
+                        Obx(() =>
+                          TableCell(
+                            child: Container(
+                              height: screenHeight/32,
+                              child: Center(
+                                child: Text(childrenDetailsController.result3.value)
+                            )),
+                          ),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text("4")
+                          )),
+                        ),
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Sing/recite songs, rhymes, poems.".tr,)
+                          )),
+                        ),
+                        Obx(() =>
+                          TableCell(
+                            child: Container(
+                              height: screenHeight/32,
+                              child: Center(
+                                child: Text(childrenDetailsController.result4.value)
+                            )),
+                          ),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            child: Center(
+                              child: Text("5")
+                          )),
+                        ),
+                        TableCell(
+                          child: Container(
+                            height: screenHeight/32,
+                            padding: const EdgeInsets.fromLTRB(10, 5, 0, 5),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Tell simple stories.".tr,)
+                          )),
+                        ),
+                        Obx(() =>
+                          TableCell(
+                            child: Container(
+                              height: screenHeight/32,
+                              child: Center(
+                                child: Text(childrenDetailsController.result5.value)
+                            )),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Obx(() =>
+                  MaterialButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    minWidth: screenWidth / 1.1,
+                    height: screenHeight / 18,
+                    color: Colors.black,
+                    onPressed: childrenDetailsController.seenStatus.value != "accepted" 
+                    ? () {
+                        childrenDetailsController.acceptResult(screenWidth);
+                      }
+                    : null,
+                    child: Text("Accept".tr,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      )),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

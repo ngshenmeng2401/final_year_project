@@ -17,7 +17,6 @@ class SignUpView extends GetView<SignUpController> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
           title: Text("Sign Up".tr,
             style:TextStyle(
               fontSize:24
@@ -146,7 +145,7 @@ class SignUpView extends GetView<SignUpController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already have an account".tr,
+                        "Already have an account ?".tr,
                         style: TextStyle(
                           fontSize: 16,
                           // fontWeight: FontWeight.bold,
