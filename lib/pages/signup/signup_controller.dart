@@ -22,7 +22,7 @@ class SignUpController extends GetxController{
 
     Get.defaultDialog(
       // title: "Are_you_sure".tr,
-      title: "Are_you_sure",
+      title: "Are you sure",
       content: Column(
         children: [
           Padding(padding: const EdgeInsets.all(0)),
@@ -54,7 +54,7 @@ class SignUpController extends GetxController{
     if(email.isEmpty && username.isEmpty && phoneNo.isEmpty && password.isEmpty && confirmPassword.isEmpty && referralCode.isEmpty){
 
       Get.snackbar(
-        "Error","Please_fill_in_all_textfield",
+        "Error","Please fill in all textfield",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -64,7 +64,7 @@ class SignUpController extends GetxController{
     }else if (email.isEmpty){
 
       Get.snackbar(
-        "Error","Email_is_empty",
+        "Error","Email is empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -74,7 +74,7 @@ class SignUpController extends GetxController{
     }else if (username.isEmpty){
 
       Get.snackbar(
-        "Error","Username_is_empty",
+        "Error","Username is empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -84,7 +84,7 @@ class SignUpController extends GetxController{
     }else if (phoneNo.isEmpty){
 
       Get.snackbar(
-        "Error","Phone_No_is_empty",
+        "Error","Phone No is empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -94,7 +94,7 @@ class SignUpController extends GetxController{
     }else if (password.isEmpty || confirmPassword.isEmpty){
 
       Get.snackbar(
-        "Error","Password_is_empty",
+        "Error","Password is empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -104,7 +104,7 @@ class SignUpController extends GetxController{
     }else if (referralCode.isEmpty){
 
       Get.snackbar(
-        "Error","Referral_Code_is_empty",
+        "Error","Referral Code is empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -114,7 +114,7 @@ class SignUpController extends GetxController{
     }else if (password!=confirmPassword || confirmPassword!=password){
 
       Get.snackbar(
-        "Error","Both_password_is_different",
+        "Error","Both password are different",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),

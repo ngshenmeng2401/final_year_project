@@ -69,7 +69,7 @@ class LoginController extends GetxController{
     if(email.isEmpty || password.isEmpty){
 
       Get.snackbar(
-        "Error","Email_Password_is_empty",
+        "Error","Email Password is empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -93,7 +93,7 @@ class LoginController extends GetxController{
       appData.write("rememberme", value);
 
       Get.snackbar(
-        "Message","Email_Password_stored",
+        "Message","Email Password stored",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -107,7 +107,7 @@ class LoginController extends GetxController{
       appData.write("rememberme", value);
 
       Get.snackbar(
-        "Message","Removed_Email_Password",
+        "Message","Removed Email Password",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -170,7 +170,7 @@ class LoginController extends GetxController{
     if(forgotPasswordEmail.isEmpty){
 
       Get.snackbar(
-        "Error","Email_Password_is_empty",
+        "Error","Email is empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -189,10 +189,10 @@ class LoginController extends GetxController{
     String email = emailController.text.toString();
     String password = passwordController.text.toString();
 
-    if(email.isEmpty){
+    if(email.isEmpty || password.isEmpty){
 
       Get.snackbar(
-        "Error","Email_Password_is_empty",
+        "Error","Email and password are empty",
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),

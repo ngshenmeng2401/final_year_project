@@ -60,7 +60,7 @@ class HistoryController extends GetxController{
         testReocrdList.assignAll(testReocrd);
         print(testReocrdList);
       } else {
-        statusMsj("No_data".tr);
+        statusMsj("No data".tr);
       }
     } finally {
       isLoading(false);
@@ -78,7 +78,7 @@ class HistoryController extends GetxController{
         testReocrdList.assignAll(testReocrd);
       } else {
         // gaeUnittList = null;
-        statusMsj("No_data".tr);
+        statusMsj("No data".tr);
       }
     } finally {
       isLoading(false);
@@ -96,7 +96,7 @@ class HistoryController extends GetxController{
     searchNameController.clear();
     isSearching.value = false;
     // productList.clear();
-    statusMsj("Search_Product".tr);
+    statusMsj("Search Product".tr);
   }
 
   void sortTestRecordDialog(){
