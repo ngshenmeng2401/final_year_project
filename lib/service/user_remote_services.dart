@@ -199,6 +199,72 @@ class UserRemoteServices {
     }
   }
 
+  static Future<String?> editProfilePic(String? email ,String? image, String phoneNo) async{
+
+    // print(email);
+    // print(image);
+    // print(phoneNo);
+
+    var response = await client.post(
+
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_profile_pic.php'), 
+      body: {
+      "email" : email,
+      "image" : image,
+      "phoneNo" : phoneNo,
+    });
+    print(response.body);
+    if (response.body == "success") {
+      var resp = response.body;
+      
+      getSnackBar("Upload Successful", "");
+      return resp;
+    } else {
+      // show error message
+
+      getSnackBar("Upload Failed", "Please check your image.");
+      return null;
+      // throw Exception("Error");
+    }
+  }
+
+  static Future<String?> editUser(String? email ,String? username , String? newPhoneNo, String? oldPhoneNo) async {
+
+    if(username!.isEmpty){
+      username = "username";
+    }else if(newPhoneNo!.isEmpty){ 
+      newPhoneNo = "phoneNo";
+    }
+
+
+    print(username);
+    print(oldPhoneNo);
+    print(newPhoneNo);
+    
+    var response = await client.post(
+
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/edit_user.php'), 
+      body: {
+      "email" : email,
+      "username" : username,
+      "newPhoneNo" : newPhoneNo,
+      "oldPhoneNo" : oldPhoneNo,
+    });
+    print(response.body);
+    if (response.statusCode == 200) {
+      var resp = response.body;
+      
+      getSnackBar("Edit Successful", "");
+      return resp;
+    } else {
+      // show error message
+
+      getSnackBar("Edit Failed", "Please check your input value.");
+      return null;
+      // throw Exception("Error");
+    }
+  }
+
   static void getSnackBar(String title, String subtitle){
 
     Get.snackbar(

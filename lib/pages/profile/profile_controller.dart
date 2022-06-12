@@ -1,4 +1,5 @@
 import 'package:final_year_project/model/user.dart';
+import 'package:final_year_project/pages/profile/edit_profile/edit_profile_view.dart';
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:final_year_project/service/user_remote_services.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,7 @@ class ProfileController extends GetxController{
 
   var userList = <User>[].obs;
   var statusMsj = "Loading".obs;
-  var userName = "User".obs, phoneNo = "".obs;
+  var userName = "User".obs, phoneNo = "profile".obs;
   var imgStatus = "no".obs;
 
   @override
@@ -34,6 +35,10 @@ class ProfileController extends GetxController{
 
   void navigateSettingsPage(){
     Get.toNamed(AppRoutes.SettingsPage);
+  }
+
+  void navigateEditProfilePage(String name, String phoneNo, String imgStatus){
+    Get.to(() => EditProfileView(name: name, phoneNo: phoneNo, imgStatus: imgStatus,))!.then((value) => loadUser());
   }
 
   void navigateChangePasswordPage(){

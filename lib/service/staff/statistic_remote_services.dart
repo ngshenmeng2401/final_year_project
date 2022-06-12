@@ -4,8 +4,6 @@ import 'package:final_year_project/model/speaking_summary.dart';
 import 'package:final_year_project/model/summary_data.dart';
 import 'package:final_year_project/model/total_level.dart';
 import 'package:final_year_project/model/writing_summary.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 

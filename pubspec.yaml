@@ -27,10 +27,13 @@ dependencies:
   fl_chart: ^0.50.1
   flutter:
     sdk: flutter
+  flutter_image_compress: ^1.1.0
   get: ^4.6.1
   get_storage: ^2.0.3
   group_button: ^4.2.1
   http: ^0.13.4
+  image_cropper: ^2.0.3
+  image_picker: ^0.8.5+3
   intl: ^0.17.0
 
 dev_dependencies:
