@@ -216,7 +216,7 @@ class PerformanceRecordController extends GetxController{
     searchRecordController.clear();
     isSearching.value = false;
     // productList.clear();
-    statusMsj("Search_Product".tr);
+    statusMsj("Search Product".tr);
   }
 
   void sortRecordDialog(){

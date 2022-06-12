@@ -8,52 +8,54 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Settings"),
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Card(
-            margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Column(
-              children: [
-                ListTile(
-                  leading: Icon(Icons.notifications),
-                  title: Text("Notifications",style:TextStyle(fontSize: 18)),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: (){},
-                ),
-                ListTile(
-                  leading: Icon(Icons.language),
-                  title: Text("Language",style:TextStyle(fontSize: 18)),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: (){
-
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.format_paint),
-                  title: Text("Theme",style:TextStyle(fontSize: 18)),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: (){
-                    settingsController.navigateThemePage();
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.info),
-                  title: Text("About_Us",style:TextStyle(fontSize: 18)),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: (){},
-                ),
-                ListTile(
-                  leading: Icon(Icons.help),
-                  title: Text("Help_Support",style:TextStyle(fontSize: 18)),
-                  trailing: Icon(Icons.keyboard_arrow_right),
-                  onTap: (){},
-                ),
-              ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Settings"),
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Card(
+              margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.notifications),
+                    title: Text("Notifications",style:TextStyle(fontSize: 18)),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: (){},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.language),
+                    title: Text("Language",style:TextStyle(fontSize: 18)),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: (){
+    
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.format_paint),
+                    title: Text("Theme",style:TextStyle(fontSize: 18)),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: (){
+                      settingsController.navigateThemePage();
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.info),
+                    title: Text("About_Us",style:TextStyle(fontSize: 18)),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: (){},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.help),
+                    title: Text("Help_Support",style:TextStyle(fontSize: 18)),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                    onTap: (){},
+                  ),
+                ],
+              ),
             ),
           ),
         ),

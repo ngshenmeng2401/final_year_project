@@ -70,7 +70,7 @@ class ParentManagementController extends GetxController{
         studentList.assignAll(student);
         print(studentList);
       } else {
-        statusMsj("No_data".tr);
+        statusMsj("No data".tr);
       }
     } finally {
       isLoading(false);
@@ -88,7 +88,7 @@ class ParentManagementController extends GetxController{
   //       studentList.assignAll(student);
   //     } else {
   //       // gaeUnittList = null;
-  //       statusMsj("No_data".tr);
+  //       statusMsj("No data".tr);
   //     }
   //   } finally {
   //     isLoading(false);
@@ -106,7 +106,7 @@ class ParentManagementController extends GetxController{
     searchChildrenController.clear();
     isSearching.value = false;
     // productList.clear();
-    statusMsj("Search_Product".tr);
+    statusMsj("Search Product".tr);
   }
 
   void navigateAddStudentView(){
@@ -117,7 +117,7 @@ class ParentManagementController extends GetxController{
   void addChildrenDialog(String studentId){
 
     Get.defaultDialog(
-      title: "Please_key_in:".tr,
+      title: "Please key in:".tr,
       content: Column(
         children: [
           Padding(
@@ -126,7 +126,7 @@ class ParentManagementController extends GetxController{
               controller: parentIDController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                hintText: "Parent_IC".tr
+                hintText: "Parent IC".tr
               ),
             ),
           ),
@@ -136,7 +136,7 @@ class ParentManagementController extends GetxController{
               controller: phoneNoController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                hintText: "Phone_No".tr
+                hintText: "Phone No".tr
               ),
             ),
           ),
@@ -160,7 +160,7 @@ class ParentManagementController extends GetxController{
     if(parentID.isEmpty){
 
       Get.snackbar(
-        "Error".tr,"ParentIC_is_Empty".tr,
+        "Error".tr,"ParentIC is Empty".tr,
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -170,7 +170,7 @@ class ParentManagementController extends GetxController{
     }else if(phoneNo.isEmpty){
 
       Get.snackbar(
-        "Error".tr,"PhoneNo_is_Empty".tr,
+        "Error".tr,"PhoneNo is Empty".tr,
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),
@@ -180,7 +180,7 @@ class ParentManagementController extends GetxController{
     }else if(phoneNo.isEmpty && parentID.isEmpty){
 
       Get.snackbar(
-        "Error".tr,"Please_complete_all_field".tr,
+        "Error".tr,"Please complete all field".tr,
         backgroundColor: Colors.white60,
         colorText: Colors.black,
         icon: Icon(Icons.error, color: Colors.black),

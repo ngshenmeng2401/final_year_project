@@ -60,7 +60,7 @@ class TeacherManagementController extends GetxController{
         studentList.assignAll(student);
         print(studentList);
       } else {
-        statusMsj("No_data".tr);
+        statusMsj("No data".tr);
       }
     } finally {
       isLoading(false);
@@ -78,7 +78,7 @@ class TeacherManagementController extends GetxController{
         studentList.assignAll(student);
       } else {
         // gaeUnittList = null;
-        statusMsj("No_data".tr);
+        statusMsj("No data".tr);
       }
     } finally {
       isLoading(false);

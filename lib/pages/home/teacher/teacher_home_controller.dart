@@ -51,7 +51,7 @@ class TeacherHomeController extends GetxController{
     searchClassController.clear();
     isSearching.value = false;
     // productList.clear();
-    statusMsj("Search_Product".tr);
+    statusMsj("Search Product".tr);
   }
 
   void navigateRecordListPage(Classroom classroom){

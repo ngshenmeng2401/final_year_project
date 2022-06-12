@@ -28,7 +28,7 @@ class ProfileController extends GetxController{
 
       print(userList);
     } else {
-      statusMsj("No_data".tr);
+      statusMsj("No data".tr);
     }
   }
 

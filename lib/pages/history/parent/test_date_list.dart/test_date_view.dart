@@ -16,34 +16,36 @@ class TestDateView extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(children.name.toString())
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              Obx(() {
-                  if (testDateController.testRecordList.isEmpty) {
-                    return Center(
-                      child: Text(
-                      testDateController.statusMsj.toString(),
-                      style: const TextStyle(fontSize: 20),
-                    ));
-                  } else {
-                    return Container(
-                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-                      height: screenHeight/1.3,
-                      child: ListView.builder(
-                        itemCount: testDateController.testRecordList.length, 
-                        itemBuilder: (context, index) {
-                          return TestDateTile(index, testDateController.testRecordList[index]);
-                      },)
-                    );
-                  }
-                }),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(children.name.toString())
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                Obx(() {
+                    if (testDateController.testRecordList.isEmpty) {
+                      return Center(
+                        child: Text(
+                        testDateController.statusMsj.toString(),
+                        style: const TextStyle(fontSize: 20),
+                      ));
+                    } else {
+                      return Container(
+                        padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                        height: screenHeight/1.3,
+                        child: ListView.builder(
+                          itemCount: testDateController.testRecordList.length, 
+                          itemBuilder: (context, index) {
+                            return TestDateTile(index, testDateController.testRecordList[index]);
+                        },)
+                      );
+                    }
+                  }),
+              ],
+            ),
           ),
         ),
       ),

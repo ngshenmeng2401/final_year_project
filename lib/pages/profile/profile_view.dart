@@ -18,92 +18,94 @@ class ProfileView extends GetView<ProfileController> {
     String email = appData.read("keepLogin")??'';
     bool isDarkMode = appData.read("isDarkMode") ?? false;
 
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Profile'.tr,
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Profile'.tr,
+            ),
+            backgroundColor: Colors.black,
           ),
-          backgroundColor: Colors.black,
-        ),
-        body: Center(
-            child: SingleChildScrollView(
-          child: Column(children: [
-            Container(
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-                child: Column(children: <Widget>[
-                  Container(
-                      height: screenHeight / 5.5,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: profileController.imgStatus.value == "noimg"
-                          ? Image.asset("assets/images/profile.png",
-                              fit: BoxFit.fitWidth,)
-                          : Image.asset("assets/images/profile.png",
-                              fit: BoxFit.fitWidth,)
-                      )),
-                  Container(
-                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
-                    child: Column(children: [
-                      Obx(() => Text(
-                        profileController.userName.value,
-                        style: TextStyle(fontSize: 18),
-                      )),
-                      SizedBox(height: 5),
-                      Text(
-                        email,
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(height: 5),
-                      Obx(() => Text(
-                        profileController.phoneNo.value,
-                        style: TextStyle(fontSize: 18),
-                      )),
-                    ]),
-                  ),
-                ]),
-              ),
-            ),
-            Container(
-              child: Column(
-                children: [
-                  ProfileMenu(
-                    isDarkMode: isDarkMode,
-                    icon: Icon(Icons.person, color: isDarkMode == true ?Colors.white : Colors.black),
-                    text: "Edit Profile".tr,
-                    press: () {},
-                  ),
-                  ProfileMenu(
-                    isDarkMode: isDarkMode,
-                    icon: Icon(Icons.lock, color: isDarkMode == true ?Colors.white : Colors.black),
-                    text: "Change Password".tr,
-                    press: () {
-                      profileController.navigateChangePasswordPage();
-                    },
-                  ),
-                  ProfileMenu(
-                    isDarkMode: isDarkMode,
-                    icon: Icon(Icons.settings_outlined, color: isDarkMode == true ?Colors.white : Colors.black),
-                    text: "Settings".tr,
-                    press: () {
-                      controller.navigateSettingsPage();
-                    },
-                  ),
-                  ProfileMenu(
-                    isDarkMode: isDarkMode,
-                    icon: Icon(
-                      Icons.logout,
-                      color: Colors.red,
+          body: Center(
+              child: SingleChildScrollView(
+            child: Column(children: [
+              Container(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                  child: Column(children: <Widget>[
+                    Container(
+                        height: screenHeight / 5.5,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: profileController.imgStatus.value == "noimg"
+                            ? Image.asset("assets/images/profile.png",
+                                fit: BoxFit.fitWidth,)
+                            : Image.asset("assets/images/profile.png",
+                                fit: BoxFit.fitWidth,)
+                        )),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+                      child: Column(children: [
+                        Obx(() => Text(
+                          profileController.userName.value,
+                          style: TextStyle(fontSize: 18),
+                        )),
+                        SizedBox(height: 5),
+                        Text(
+                          email,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(height: 5),
+                        Obx(() => Text(
+                          profileController.phoneNo.value,
+                          style: TextStyle(fontSize: 18),
+                        )),
+                      ]),
                     ),
-                    text: "Logout".tr,
-                    press: () {
-                      controller.logoutUser();
-                    },
-                    hasNavigation: false,
-                  ),
-                ]),
-            ),
-          ]),
-        )));
+                  ]),
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    ProfileMenu(
+                      isDarkMode: isDarkMode,
+                      icon: Icon(Icons.person, color: isDarkMode == true ?Colors.white : Colors.black),
+                      text: "Edit Profile".tr,
+                      press: () {},
+                    ),
+                    ProfileMenu(
+                      isDarkMode: isDarkMode,
+                      icon: Icon(Icons.lock, color: isDarkMode == true ?Colors.white : Colors.black),
+                      text: "Change Password".tr,
+                      press: () {
+                        profileController.navigateChangePasswordPage();
+                      },
+                    ),
+                    ProfileMenu(
+                      isDarkMode: isDarkMode,
+                      icon: Icon(Icons.settings_outlined, color: isDarkMode == true ?Colors.white : Colors.black),
+                      text: "Settings".tr,
+                      press: () {
+                        controller.navigateSettingsPage();
+                      },
+                    ),
+                    ProfileMenu(
+                      isDarkMode: isDarkMode,
+                      icon: Icon(
+                        Icons.logout,
+                        color: Colors.red,
+                      ),
+                      text: "Logout".tr,
+                      press: () {
+                        controller.logoutUser();
+                      },
+                      hasNavigation: false,
+                    ),
+                  ]),
+              ),
+            ]),
+          ))),
+    );
   }
 }

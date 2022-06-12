@@ -17,78 +17,80 @@ class ChildrenDetailsView extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Details".tr),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
-          child: Column(
-            children: [
-              PerformanceScoreTable(),
-              SizedBox(height: screenHeight/30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: screenWidth/4,
-                    child: Text("Student ID:".tr,
-                      style: TextStyle(fontSize: 22),),
-                  ),
-                  Container(
-                    width: screenWidth/2,
-                    child: Text("274059",
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 22),),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: screenWidth/4,
-                    child: Text("Name:".tr,
-                      style: TextStyle(fontSize: 22),),
-                  ),
-                  Container(
-                    width: screenWidth/2,
-                    child: Text("NG SHEN MENG",
-                      textAlign: TextAlign.right,
-                      style: TextStyle(fontSize: 22),),
-                  ),
-                ],
-              ),
-              Divider(),
-              ListeningResult(),
-              SizedBox(height: 5),
-              Divider(),
-              SpeakingResult(),
-              SizedBox(height: 5),
-              Divider(),
-              ReadingResult(),
-              SizedBox(height: 5),
-              Divider(),
-              WritingResult(),
-              SizedBox(height: 5),
-              Divider(),
-              MaterialButton(
-                shape:RoundedRectangleBorder(
-                  borderRadius:BorderRadius.circular(20),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Details".tr),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            child: Column(
+              children: [
+                PerformanceScoreTable(),
+                SizedBox(height: screenHeight/30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: screenWidth/4,
+                      child: Text("Student ID:".tr,
+                        style: TextStyle(fontSize: 22),),
+                    ),
+                    Container(
+                      width: screenWidth/2,
+                      child: Text("274059",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 22),),
+                    ),
+                  ],
                 ),
-                minWidth: screenWidth/1,
-                height: screenHeight/18,
-                child: Text('Confirm'.tr,
-                  style: TextStyle(fontSize: 20,),
+                SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: screenWidth/4,
+                      child: Text("Name:".tr,
+                        style: TextStyle(fontSize: 22),),
+                    ),
+                    Container(
+                      width: screenWidth/2,
+                      child: Text("NG SHEN MENG",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(fontSize: 22),),
+                    ),
+                  ],
                 ),
-                onPressed: (){
-                  // childrenDetailsController.confirmResult();
-                },
-                color: Colors.black,
-              ),
-            ],
+                Divider(),
+                ListeningResult(),
+                SizedBox(height: 5),
+                Divider(),
+                SpeakingResult(),
+                SizedBox(height: 5),
+                Divider(),
+                ReadingResult(),
+                SizedBox(height: 5),
+                Divider(),
+                WritingResult(),
+                SizedBox(height: 5),
+                Divider(),
+                MaterialButton(
+                  shape:RoundedRectangleBorder(
+                    borderRadius:BorderRadius.circular(20),
+                  ),
+                  minWidth: screenWidth/1,
+                  height: screenHeight/18,
+                  child: Text('Confirm'.tr,
+                    style: TextStyle(fontSize: 20,),
+                  ),
+                  onPressed: (){
+                    // childrenDetailsController.confirmResult();
+                  },
+                  color: Colors.black,
+                ),
+              ],
+            ),
           ),
         ),
       ),
