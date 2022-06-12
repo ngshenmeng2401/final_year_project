@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRoutes.Splash,
       getPages: AppPages.routes,
       unknownRoute: AppPages.unknownRoute,
-      theme: isDarkMode ? CustomDarkTheme.darktheme : CustomLightTheme.lighttheme,
+      theme: CustomLightTheme.lighttheme,
       darkTheme: CustomDarkTheme.darktheme,
       themeMode: ThemeMode.system,
       // locale: Locale(selectLanguage),

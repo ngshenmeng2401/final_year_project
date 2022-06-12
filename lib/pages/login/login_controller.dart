@@ -125,12 +125,12 @@ class LoginController extends GetxController{
 
     String email = appData.read("email")??'';
     String password = appData.read("password")??'';
-    String? loadPosition = appData.read("position")??'';
+    // String loadPosition = appData.read("position")??'';
     rememberMe= (appData.read("rememberme")??false);
 
     emailController.text=email;
     passwordController.text=password;
-    selectPosition = loadPosition;
+    // selectPosition = loadPosition;
     update();
   }
 
