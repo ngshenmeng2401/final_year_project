@@ -16,6 +16,7 @@ class ProfileView extends GetView<ProfileController> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     String email = appData.read("keepLogin")??'';
+    String position = appData.read("position")??'';
     bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return SafeArea(
@@ -86,14 +87,16 @@ class ProfileView extends GetView<ProfileController> {
                             profileController.navigateChangePasswordPage();
                           },
                         ),
-                        ProfileMenu(
-                          isDarkMode: isDarkMode,
-                          icon: Icon(Icons.child_care, color: isDarkMode == true ?Colors.white : Colors.black),
-                          text: "Remove Children Slot".tr,
-                          press: () {
-                            profileController.navigateRemoveChildrenSlotPage();
-                          },
-                        ),
+                        position == "Parent"
+                        ? ProfileMenu(
+                            isDarkMode: isDarkMode,
+                            icon: Icon(Icons.child_care, color: isDarkMode == true ?Colors.white : Colors.black),
+                            text: "Remove Children Slot".tr,
+                            press: () {
+                              profileController.navigateRemoveChildrenSlotPage();
+                            },
+                          )
+                        : Container(),
                         ProfileMenu(
                           isDarkMode: isDarkMode,
                           icon: Icon(Icons.settings_outlined, color: isDarkMode == true ?Colors.white : Colors.black),

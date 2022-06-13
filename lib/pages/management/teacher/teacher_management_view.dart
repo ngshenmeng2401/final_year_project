@@ -113,7 +113,7 @@ class TeacherManagementView extends GetView<TeacherManagementController> {
           teachermanageController.navigateAddStudentView();
         },
         child: Icon(Icons.add,
-          color: isDarkMode == true ?Colors.white : Colors.black,
+          color: Colors.white,
         ),
         ),
       ),
