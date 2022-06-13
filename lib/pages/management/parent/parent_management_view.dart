@@ -80,15 +80,6 @@ class ParentManagementView extends GetView<ParentManagementController> {
                     ],
                   ),
                 ),
-                // Container(
-                //   padding: const EdgeInsets.fromLTRB(15, 20, 15, 10),
-                //   height: screenHeight/1.25,
-                //   child: ListView.builder(
-                //     itemCount: parentmanageController.studentName.length, 
-                //     itemBuilder: (context, index) {
-                //       return ChildrenTile(index);
-                //     }, )
-                // ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                   height: screenHeight/1.25,
