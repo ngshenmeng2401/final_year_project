@@ -17,23 +17,6 @@ class ParentManagementController extends GetxController{
   var statusMsj = "Loading".obs;
   var studentList = <Student>[].obs;
 
-  List<String> studentName = [
-    "Lim Jun Jie",
-    "Jay Chou",
-    "Emma Stone",
-    "Ahmad",
-    "Ng Shen Meng",
-    "Akmal Hanis",
-    "Steve Rogers",
-    "Lim Jun Jie",
-    "Jay Chou",
-    "Emma Stone",
-    "Ahmad",
-    "Ng Shen Meng",
-    "Akmal Hanis",
-    "Steve Rogers",
-  ];
-
   @override
   void onInit() {
 
@@ -77,24 +60,6 @@ class ParentManagementController extends GetxController{
     }
   }
 
-  // Future<void> sortStudent(String sortValue) async {
-
-  //   studentList.clear();
-
-  //   try {
-  //     isLoading(true);
-  //     var student = await ManagementRemoteServices.fetchStudent("1", "sort", sortValue);
-  //     if (student != null) {
-  //       studentList.assignAll(student);
-  //     } else {
-  //       // gaeUnittList = null;
-  //       statusMsj("No data".tr);
-  //     }
-  //   } finally {
-  //     isLoading(false);
-  //   }
-  // }
-
   void checkTextField(){
 
     searchChildrenController.text.isEmpty
@@ -107,6 +72,7 @@ class ParentManagementController extends GetxController{
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search Product".tr);
+    loadStudentList();
   }
 
   void navigateAddStudentView(){
@@ -126,7 +92,7 @@ class ParentManagementController extends GetxController{
               controller: parentIDController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                hintText: "Parent IC".tr
+                hintText: "Parent ID".tr
               ),
             ),
           ),
@@ -193,6 +159,7 @@ class ParentManagementController extends GetxController{
       StaffManagementRemoteServices.addChildren(studentId, parentID, phoneNo);
       parentIDController.clear();
       phoneNoController.clear();
+      loadStudentList();
     }
   }
 }

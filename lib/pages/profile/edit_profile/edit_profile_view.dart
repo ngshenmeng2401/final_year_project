@@ -95,7 +95,7 @@ class EditProfileView extends StatelessWidget {
                         fontSize: 20,
                       ),),
                     TextField(
-                      keyboardType: TextInputType.phone,
+                      keyboardType: TextInputType.name,
                       controller: editProfileController.userNameController,
                       decoration: InputDecoration(
                         hintText: 

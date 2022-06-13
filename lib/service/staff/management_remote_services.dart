@@ -162,7 +162,7 @@ class StaffManagementRemoteServices{
     var response =
       await client.post(
         Uri.parse(
-          "https://hubbuddies.com/271059/final_year_project/load_student.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_student2.php"),
           body: {
             "name":name,
             "action" : action,
