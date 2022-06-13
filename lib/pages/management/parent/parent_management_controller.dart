@@ -110,11 +110,11 @@ class ParentManagementController extends GetxController{
       ),
       textConfirm: "Submit".tr,
       textCancel: "Cancel".tr,
-      onConfirm:() => checkAddChildren(studentId) ,
-      onCancel: () => Get.back(),
-      cancelTextColor: Colors.black,
+      onConfirm:() => {
+        checkAddChildren(studentId),
+        Get.back(),
+      } ,
       confirmTextColor: Colors.white,
-      buttonColor: Colors.black,
     );
   }
 
@@ -159,7 +159,9 @@ class ParentManagementController extends GetxController{
       StaffManagementRemoteServices.addChildren(studentId, parentID, phoneNo);
       parentIDController.clear();
       phoneNoController.clear();
-      loadStudentList();
+      Future.delayed(const Duration(milliseconds: 1000), () {
+          loadStudentList();
+      });
     }
   }
 }
