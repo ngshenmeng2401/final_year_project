@@ -88,6 +88,14 @@ class ProfileView extends GetView<ProfileController> {
                         ),
                         ProfileMenu(
                           isDarkMode: isDarkMode,
+                          icon: Icon(Icons.child_care, color: isDarkMode == true ?Colors.white : Colors.black),
+                          text: "Remove Children Slot".tr,
+                          press: () {
+                            profileController.navigateRemoveChildrenSlotPage();
+                          },
+                        ),
+                        ProfileMenu(
+                          isDarkMode: isDarkMode,
                           icon: Icon(Icons.settings_outlined, color: isDarkMode == true ?Colors.white : Colors.black),
                           text: "Settings".tr,
                           press: () {

@@ -21,6 +21,7 @@ import 'package:final_year_project/pages/not_found_screen.dart';
 import 'package:final_year_project/pages/profile/change_password/change_password_view.dart';
 import 'package:final_year_project/pages/profile/edit_profile/edit_profile_view.dart';
 import 'package:final_year_project/pages/profile/profile_view.dart';
+import 'package:final_year_project/pages/profile/remove_children.dart/remove_children_view.dart';
 import 'package:final_year_project/pages/profile/settings/settings_view.dart';
 import 'package:final_year_project/pages/profile/settings/theme_binding.dart';
 import 'package:final_year_project/pages/profile/settings/theme_view.dart';
@@ -188,6 +189,10 @@ class AppPages{
       page: () => ChangePasswordView(),
     ),
 
+    GetPage(
+      name: AppRoutes.RemoveChildrenSlotPage,
+      page: () => RemoveChildrenSlotView(),
+    ),
 
     //Settings
     GetPage(

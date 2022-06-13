@@ -52,6 +52,9 @@ abstract class AppRoutes{
   //Change Password
   static const ChangePasswordPage = '/changepasswordpage';
 
+  //Remove Children Slot
+  static const RemoveChildrenSlotPage = '/removechildrenslotpage';
+
   //Settings Page
   static const SettingsPage = '/settingspage';
   static const LanguagesPage = '/languagespage';
