@@ -74,6 +74,45 @@ class ParentHomeRemoteServices{
       }
   }
 
+  static Future<String?> removeChildrenSlot(Children children) async {
+
+    String email = appData.read("keepLogin")??'';
+    
+    print(children.name.toString());
+    print(children.studentId.toString());
+    var response = await client.post(
+
+      Uri.parse('https://hubbuddies.com/271059/final_year_project/remove_children_slot.php'), 
+      body: {
+      "email" : email,
+      "studentId" : children.studentId.toString(),
+    });
+    print(response.body);
+    if (response.body == "Success") {
+      var resp = response.body;
+      
+      getSnackBar("Delete Successful", "");
+
+      return resp;
+    }else if (response.body == "NotFound") {
+      var resp = response.body;
+      
+      getSnackBar("Delete Failed", "Can't found the record");
+
+      return resp;
+    }else if (response.body == "Accepted") {
+      var resp = response.body;
+      
+      getSnackBar("Delete Failed", "The result of test has been accepted");
+
+      return resp;
+    } else {
+      // show error message
+      getSnackBar("Delete Failed", "Please check your input value.");
+      return null;
+    }
+  }
+
   static Future<List<ChildrenListeningResult>?> fetchChildrenListeningResult(String studentId) async {
 
     String email = appData.read("keepLogin")??'';  
