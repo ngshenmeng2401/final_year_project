@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       // theme: CustomLightTheme.lighttheme,
       // darkTheme: CustomDarkTheme.darktheme,
       // themeMode: ThemeMode.system,
-      // locale: Locale(selectLanguage),
+      // locale: Locale(selectLanguage),0
       // fallbackLocale: TranslationService.fallbackLocale,
       // translations: TranslationService(),
     );
