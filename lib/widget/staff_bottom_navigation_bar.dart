@@ -18,7 +18,7 @@ class StaffBottomNavigationBarWidget extends StatelessWidget {
               index: controller.tabIndex,
               children: [
                 StaffHomeView(),
-                ProfileView(),
+                // ProfileView("a"),
               ],
             ),
           ),

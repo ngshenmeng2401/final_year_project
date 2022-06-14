@@ -22,7 +22,7 @@ class ParentBottomNavigationBarWidget extends StatelessWidget {
                 ParentHomeView(),
                 ChildrenHistoryList(),
                 ParentManagementView(),
-                ProfileView(),
+                ProfileView(position: "Parent"),
               ],
             ),
           ),

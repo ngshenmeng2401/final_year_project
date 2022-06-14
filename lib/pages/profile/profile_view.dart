@@ -8,15 +8,16 @@ import 'package:get_storage/get_storage.dart';
 
 class ProfileView extends GetView<ProfileController> {
 
+  final String? position;
   final profileController = Get.put(ProfileController());
   final appData = GetStorage();
+  ProfileView({ Key? key, this.position }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     String email = appData.read("keepLogin")??'';
-    String position = appData.read("position")??'';
     bool isDarkMode = appData.read("isDarkMode") ?? false;
 
     return SafeArea(

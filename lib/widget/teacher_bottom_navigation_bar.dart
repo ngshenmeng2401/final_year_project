@@ -24,7 +24,7 @@ class TeacherBottomNavigationBarWidget extends StatelessWidget {
                 TeacherHomeView(),
                 HistoryView(),
                 TeacherManagementView(),
-                ProfileView(),
+                ProfileView(position: "Staff"),
               ],
             ),
           ),

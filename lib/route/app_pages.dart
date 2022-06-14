@@ -174,10 +174,10 @@ class AppPages{
 
 
     //Profile
-    GetPage(
-      name: AppRoutes.AccountPage,
-      page: () => ProfileView(),
-    ),
+    // GetPage(
+    //   name: AppRoutes.AccountPage,
+    //   page: () => ProfileView("a"),
+    // ),
 
     GetPage(
       name: AppRoutes.EditProfilePage,
