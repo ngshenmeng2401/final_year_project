@@ -115,6 +115,8 @@ class ParentManagementController extends GetxController{
         Get.back(),
       } ,
       confirmTextColor: Colors.white,
+      cancelTextColor: Colors.black,
+      buttonColor: Colors.black,
     );
   }
 

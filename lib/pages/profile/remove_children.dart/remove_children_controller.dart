@@ -88,6 +88,8 @@ class RemoveChildrenSlotController extends GetxController{
         }),
       },
       confirmTextColor: Colors.white,
+      cancelTextColor: Colors.black,
+      buttonColor: Colors.black,
     );
   }
 }

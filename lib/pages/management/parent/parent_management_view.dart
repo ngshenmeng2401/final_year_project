@@ -16,14 +16,14 @@ class ParentManagementView extends GetView<ParentManagementController> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Children List".tr),
-          actions: [
-            IconButton(
-              onPressed: (){
+          // title: Text("Children List".tr),
+          // actions: [
+          //   IconButton(
+          //     onPressed: (){
     
-              }, 
-              icon: Icon(Icons.sort),)
-          ],
+          //     }, 
+          //     icon: Icon(Icons.sort),)
+          // ],
         ),
         body: SingleChildScrollView(
           child: Center(
@@ -44,6 +44,7 @@ class ParentManagementView extends GetView<ParentManagementController> {
                       Expanded(
                         flex: 8,
                         child: TextField(
+                          autofocus: false,
                           controller: parentmanageController.searchChildrenController,
                           onChanged: (value) {
                             parentmanageController.checkTextField();
