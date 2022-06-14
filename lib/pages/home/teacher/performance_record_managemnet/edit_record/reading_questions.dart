@@ -292,7 +292,7 @@ class EditReadingQuestions extends StatelessWidget {
                   ),
                   minWidth: screenWidth / 1.1,
                   height: screenHeight / 18,
-                  color: Colors.black,
+                  color: Colors.blue,
                   onPressed: readingRecord.seenstatus != "accepted"
                   ? () {
                       editPerformanceRecordController.editRecordDialog("reading", readingRecord.id.toString());

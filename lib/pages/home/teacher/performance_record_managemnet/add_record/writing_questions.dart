@@ -192,7 +192,7 @@ class WritingQuestions extends StatelessWidget {
                       ),
                       minWidth: screenWidth / 1.1,
                       height: screenHeight / 18,
-                      color: Colors.black,
+                      color: Colors.blue,
                       onPressed: addRecordController.selectName == "ID"
                       ? null
                       : () {

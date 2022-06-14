@@ -17,7 +17,6 @@ class TeacherHomeView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Class List".tr),
-          backgroundColor: Colors.black,
         ),
         body: SingleChildScrollView(
           child: Center(

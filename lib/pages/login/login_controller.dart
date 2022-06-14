@@ -157,9 +157,7 @@ class LoginController extends GetxController{
       onConfirm:() =>{
         forgotPassword(),
       },
-      cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,
-      buttonColor: Colors.black,
     );
   }
 

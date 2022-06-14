@@ -138,7 +138,7 @@ class ChangePasswordView extends StatelessWidget {
                     'Reset Password',
                     style: TextStyle(
                         fontSize: 20,
-                        color: isDarkMode == true ? Colors.white : Colors.black,
+                        color:Colors.white,
                         fontFamily: 'Arial'),
                   ),
                   onPressed: changePasswordController.isTyping.value == true

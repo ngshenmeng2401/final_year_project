@@ -180,7 +180,7 @@ class EditWritingQuestions extends StatelessWidget {
                   ),
                   minWidth: screenWidth / 1.1,
                   height: screenHeight / 18,
-                  color: Colors.black,
+                  color: Colors.blue,
                   onPressed: writingRecord.seenstatus != "accepted"
                   ? () {
                       editPerformanceRecordController.editRecordDialog("writing", writingRecord.id.toString());
