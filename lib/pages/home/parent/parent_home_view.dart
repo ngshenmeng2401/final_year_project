@@ -41,7 +41,7 @@ class ParentHomeView extends GetView<ParentHomeController> {
                             controller.checkTextField();
                           },
                           decoration: InputDecoration(
-                            hintText: "Enter Children Name/ID".tr,
+                            hintText: "Enter Children Name".tr,
                             border: InputBorder.none,
                             hintStyle: TextStyle(fontSize: 18),
                           ),

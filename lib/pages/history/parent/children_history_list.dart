@@ -41,7 +41,7 @@ class ChildrenHistoryList extends StatelessWidget {
                             childrenHistoryController.checkTextField();
                           },
                           decoration: InputDecoration(
-                            hintText: "Enter Children Name/ID".tr,
+                            hintText: "Enter Children Name".tr,
                             border: InputBorder.none,
                             hintStyle: TextStyle(fontSize: 18),
                           ),

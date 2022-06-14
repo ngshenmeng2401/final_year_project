@@ -43,7 +43,7 @@ class TeacherHomeView extends StatelessWidget {
                             teacherhomeController.checkTextField();
                           },
                           decoration: InputDecoration(
-                            hintText: "Enter_Class_Name".tr,
+                            hintText: "Enter Class Name".tr,
                             border: InputBorder.none,
                             hintStyle: TextStyle(fontSize: 18),
                           ),

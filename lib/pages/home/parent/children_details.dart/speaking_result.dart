@@ -257,7 +257,7 @@ class SpeakingResult extends StatelessWidget {
                     ),
                     minWidth: screenWidth / 1.1,
                     height: screenHeight / 18,
-                    color: Colors.black,
+                    color: Colors.blue,
                     onPressed: childrenDetailsController.seenStatus.value != "accepted" 
                     ? () {
                         childrenDetailsController.acceptResult(screenWidth);
