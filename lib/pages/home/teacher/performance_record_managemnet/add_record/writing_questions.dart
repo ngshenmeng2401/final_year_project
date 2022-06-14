@@ -44,7 +44,7 @@ class WritingQuestions extends StatelessWidget {
                             menuMaxHeight: screenHeight/4,
                             value: _.selectName,
                             elevation: 28,
-                            style: TextStyle(fontSize: 18, color: isDarkMode == true ?Colors.white : Colors.black),
+                            style: TextStyle(fontSize: 18, color:Colors.black),
                             onChanged: (String? newValue) {
                               _.chooseStudent(newValue!);
                             },
@@ -97,7 +97,7 @@ class WritingQuestions extends StatelessWidget {
                               return Container(
                                 height: 35,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
+                                  border: Border.all(color:Colors.black38, width:1),
                                 ),
                                 child: DropdownButton<String?>(
                                   isExpanded: true,
@@ -106,7 +106,7 @@ class WritingQuestions extends StatelessWidget {
                                   elevation: 28,
                                   style: TextStyle(
                                     fontSize: 16, 
-                                    color: isDarkMode == true ?Colors.white : Colors.black),
+                                    color:Colors.black),
                                   onChanged: (String? newValue) {
                                     _.chooseWQLevel(newValue!, 0);
                                   },
@@ -150,7 +150,7 @@ class WritingQuestions extends StatelessWidget {
                               return Container(
                                 height: 35,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
+                                  border: Border.all(color:Colors.black38, width:1),
                                 ),
                                 child: DropdownButton<String?>(
                                   isExpanded: true,
@@ -159,7 +159,7 @@ class WritingQuestions extends StatelessWidget {
                                   elevation: 28,
                                   style: TextStyle(
                                     fontSize: 16, 
-                                    color: isDarkMode == true ?Colors.white : Colors.black),
+                                    color:Colors.black),
                                   onChanged: (String? newValue) {
                                     _.chooseWQLevel(newValue!, 1);
                                   },

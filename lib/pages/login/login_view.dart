@@ -92,7 +92,7 @@ class LoginView extends GetView<LoginController> {
                                 elevation: 28,
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: isDarkMode == true ? Colors.white : Colors.black
+                                  color: Colors.black
                                 ),
                                 onChanged: (String? newValue) {
                                   print(newValue);

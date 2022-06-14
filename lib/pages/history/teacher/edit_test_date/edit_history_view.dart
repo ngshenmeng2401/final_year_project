@@ -99,7 +99,7 @@ class EditHistoryView extends StatelessWidget {
                       onPressed: (){
                         editTestRecordController.chooseDate();
                       },
-                      color: Colors.black,
+                      color: Colors.blue,
                     ),
                   ],
                 ),
@@ -110,7 +110,7 @@ class EditHistoryView extends StatelessWidget {
                   ),
                   minWidth: screenWidth / 1.1,
                   height: screenHeight / 18,
-                  color: Colors.black,
+                  color: Colors.blue,
                   onPressed:() {
                       editTestRecordController.editRecordDialog(testReocrd.testId.toString(), testReocrd.lastTestDate.toString());
                     },

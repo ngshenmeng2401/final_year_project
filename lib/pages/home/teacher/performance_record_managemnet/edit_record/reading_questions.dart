@@ -1,5 +1,4 @@
 import 'package:final_year_project/model/reading_record.dart';
-import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/add_record/add_record_controller.dart';
 import 'package:final_year_project/pages/home/teacher/performance_record_managemnet/edit_record/edit_record_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -87,7 +86,7 @@ class EditReadingQuestions extends StatelessWidget {
                               return Container(
                                 height: 35,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
+                                  border: Border.all(color: Colors.black38, width:1),
                                 ),
                                 child: DropdownButton<String?>(
                                   isExpanded: true,
@@ -96,7 +95,7 @@ class EditReadingQuestions extends StatelessWidget {
                                   elevation: 28,
                                   style: TextStyle(
                                     fontSize: 16, 
-                                    color: isDarkMode == true ?Colors.white : Colors.black),
+                                    color: Colors.black),
                                   onChanged: readingRecord.seenstatus != "accepted"
                                   ? (String? newValue) {
                                     _.chooseRQLevel(newValue!, 0);
@@ -142,7 +141,7 @@ class EditReadingQuestions extends StatelessWidget {
                               return Container(
                                 height: 35,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
+                                  border: Border.all(color: Colors.black38, width:1),
                                 ),
                                 child: DropdownButton<String?>(
                                   isExpanded: true,
@@ -151,7 +150,7 @@ class EditReadingQuestions extends StatelessWidget {
                                   elevation: 28,
                                   style: TextStyle(
                                     fontSize: 16, 
-                                    color: isDarkMode == true ?Colors.white : Colors.black),
+                                    color: Colors.black),
                                   onChanged: readingRecord.seenstatus != "accepted" 
                                   ? (String? newValue) {
                                     _.chooseRQLevel(newValue!, 1);
@@ -197,7 +196,7 @@ class EditReadingQuestions extends StatelessWidget {
                               return Container(
                                 height: 35,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
+                                  border: Border.all(color: Colors.black38, width:1),
                                 ),
                                 child: DropdownButton<String?>(
                                   isExpanded: true,
@@ -206,7 +205,7 @@ class EditReadingQuestions extends StatelessWidget {
                                   elevation: 28,
                                   style: TextStyle(
                                     fontSize: 16, 
-                                    color: isDarkMode == true ?Colors.white : Colors.black),
+                                    color: Colors.black),
                                   onChanged: readingRecord.seenstatus != "accepted" 
                                   ? (String? newValue) {
                                     _.chooseRQLevel(newValue!, 2);
@@ -252,7 +251,7 @@ class EditReadingQuestions extends StatelessWidget {
                               return Container(
                                 height: 35,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: isDarkMode == true ?Colors.white : Colors.black38, width:1),
+                                  border: Border.all(color: Colors.black38, width:1),
                                 ),
                                 child: DropdownButton<String?>(
                                   isExpanded: true,
@@ -261,7 +260,7 @@ class EditReadingQuestions extends StatelessWidget {
                                   elevation: 28,
                                   style: TextStyle(
                                     fontSize: 16, 
-                                    color: isDarkMode == true ?Colors.white : Colors.black),
+                                    color: Colors.black),
                                   onChanged: readingRecord.seenstatus != "accepted"
                                   ? (String? newValue) {
                                     _.chooseRQLevel(newValue!, 3);

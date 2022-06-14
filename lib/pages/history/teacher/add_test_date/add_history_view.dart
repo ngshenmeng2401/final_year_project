@@ -32,7 +32,7 @@ class AddHistoryView extends StatelessWidget {
                       init: AddHistoryCOntroller(),
                       builder: (_) {
                         return Container(
-                          width: screenWidth/3,
+                          width: screenWidth/2.5,
                           padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                           child: DropdownButton<String?>(
                             isExpanded: true,
@@ -152,7 +152,7 @@ class AddHistoryView extends StatelessWidget {
                       onPressed: (){
                         addHistoryController.chooseDate();
                       },
-                      color: Colors.black,
+                      color: Colors.blue,
                     ),
                   ],
                 ),
@@ -167,7 +167,7 @@ class AddHistoryView extends StatelessWidget {
                       ),
                       minWidth: screenWidth / 1.1,
                       height: screenHeight / 18,
-                      color: Colors.black,
+                      color: Colors.blue,
                       onPressed: addHistoryController.selectName == "ID"
                       ? null
                       : () {

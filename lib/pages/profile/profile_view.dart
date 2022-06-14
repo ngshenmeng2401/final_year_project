@@ -73,7 +73,7 @@ class ProfileView extends GetView<ProfileController> {
                       children: [
                         ProfileMenu(
                           isDarkMode: isDarkMode,
-                          icon: Icon(Icons.person, color: isDarkMode == true ?Colors.white : Colors.black),
+                          icon: Icon(Icons.person, color: Colors.black),
                           text: "Edit Profile".tr,
                           press: () {
                             profileController.navigateEditProfilePage(profileController.userName.value, profileController.phoneNo.value, profileController.imgStatus.value);
@@ -81,7 +81,7 @@ class ProfileView extends GetView<ProfileController> {
                         ),
                         ProfileMenu(
                           isDarkMode: isDarkMode,
-                          icon: Icon(Icons.lock, color: isDarkMode == true ?Colors.white : Colors.black),
+                          icon: Icon(Icons.lock, color: Colors.black),
                           text: "Change Password".tr,
                           press: () {
                             profileController.navigateChangePasswordPage();
@@ -90,7 +90,7 @@ class ProfileView extends GetView<ProfileController> {
                         position == "Parent"
                         ? ProfileMenu(
                             isDarkMode: isDarkMode,
-                            icon: Icon(Icons.child_care, color: isDarkMode == true ?Colors.white : Colors.black),
+                            icon: Icon(Icons.child_care, color: Colors.black),
                             text: "Remove Children Slot".tr,
                             press: () {
                               profileController.navigateRemoveChildrenSlotPage();
@@ -99,7 +99,7 @@ class ProfileView extends GetView<ProfileController> {
                         : Container(),
                         ProfileMenu(
                           isDarkMode: isDarkMode,
-                          icon: Icon(Icons.settings_outlined, color: isDarkMode == true ?Colors.white : Colors.black),
+                          icon: Icon(Icons.settings_outlined, color: Colors.black),
                           text: "Settings".tr,
                           press: () {
                             controller.navigateSettingsPage();

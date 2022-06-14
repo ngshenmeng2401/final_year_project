@@ -40,11 +40,11 @@ class ProfileMenu extends StatelessWidget {
             textAlign: TextAlign.left,
             style: TextStyle(
               fontSize: 18,
-              // color: isDarkMode == true ?Colors.white : Colors.black,
+              // color: Colors.black,
             ),),
           trailing: hasNavigation == true 
           ? Icon(Icons.keyboard_arrow_right,
-              // color: isDarkMode == true ? Colors.white : Colors.black,
+              // color: Colors.black,
               )
           : null,
         ),

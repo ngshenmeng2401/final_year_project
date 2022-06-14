@@ -114,7 +114,7 @@ class HistoryView extends StatelessWidget {
           historyController.navigateAddHistoryView();
         },
         child: Icon(Icons.add,
-          color: isDarkMode == true ?Colors.white : Colors.black,),
+          color: Colors.black,),
         ),
       ),
     );

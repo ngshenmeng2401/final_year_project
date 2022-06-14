@@ -129,7 +129,7 @@ class SignUpView extends GetView<SignUpController> {
                     ),
                     height: screenHeight/18,
                     minWidth: screenWidth/1.1,
-                    color: isDarkMode == true ? Colors.blue[400] : Colors.blue,
+                    color: Colors.blue,
                     onPressed: (){
                       controller.signUpDialog();
                     },

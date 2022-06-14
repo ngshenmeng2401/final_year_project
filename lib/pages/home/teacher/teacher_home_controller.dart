@@ -68,7 +68,7 @@ class TeacherHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
+            tileColor: Colors.grey[100],
             // leading: Text("1."),
             title: Text("Listening".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
@@ -84,7 +84,7 @@ class TeacherHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
+            tileColor: Colors.grey[100],
             // leading: Text("2."),
             title: Text("Reading".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
@@ -100,7 +100,7 @@ class TeacherHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
+            tileColor: Colors.grey[100],
             // leading: Text("3."),
             title: Text("Speaking".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
@@ -116,7 +116,7 @@ class TeacherHomeController extends GetxController{
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            tileColor: isDarkMode == true ? Colors.grey[850] : Colors.grey[100],
+            tileColor: Colors.grey[100],
             // leading: Text("4."),
             title: Text("Writing".tr),
             trailing: Icon(Icons.keyboard_arrow_right),
@@ -131,7 +131,6 @@ class TeacherHomeController extends GetxController{
       ),
       textConfirm: null,
       textCancel: null,
-      buttonColor: Colors.black,
     );
   }
 
