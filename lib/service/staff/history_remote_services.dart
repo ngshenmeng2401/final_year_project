@@ -108,7 +108,7 @@ class HistoryRemoteServices{
     }
   }
 
-  static Future<List<Student>?> fetchTestRecord(String name, String action, String sortValue) async {
+  static Future<List<Student>?> fetchStudentList(String name, String action, String sortValue) async {
 
     var response =
       await client.post(

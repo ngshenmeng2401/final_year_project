@@ -27,7 +27,7 @@ class StudentTestTile extends StatelessWidget {
         height: screenHeight/14,
         child: ListTile(
           onTap: (){
-            // historyController.navigateEditHistoryView(student);
+            historyController.navigateTestListView(student);
           },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),

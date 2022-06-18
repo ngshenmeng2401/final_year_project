@@ -1,6 +1,7 @@
 import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/model/test_record.dart';
 import 'package:final_year_project/pages/history/teacher/edit_test_date/edit_history_view.dart';
+import 'package:final_year_project/pages/history/teacher/test_list/test_list_view.dart';
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:final_year_project/service/staff/history_remote_services.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class HistoryController extends GetxController{
 
     try {
       isLoading(true);
-      var student = await HistoryRemoteServices.fetchTestRecord("a", "load", "a");
+      var student = await HistoryRemoteServices.fetchStudentList("a", "load", "a");
       if (student != null) {
         studentList.assignAll(student);
       } else {
@@ -56,7 +57,7 @@ class HistoryController extends GetxController{
 
     try {
       isLoading(true);
-      var testReocrd = await HistoryRemoteServices.fetchTestRecord(searchStudent, "search", "a");
+      var testReocrd = await HistoryRemoteServices.fetchStudentList(searchStudent, "search", "a");
       if (testReocrd != null) {
         studentList.assignAll(testReocrd);
         print(studentList);
@@ -74,7 +75,7 @@ class HistoryController extends GetxController{
 
     try {
       isLoading(true);
-      var testReocrd = await HistoryRemoteServices.fetchTestRecord("1", "sort", sortValue);
+      var testReocrd = await HistoryRemoteServices.fetchStudentList("1", "sort", sortValue);
       if (testReocrd != null) {
         studentList.assignAll(testReocrd);
       } else {
@@ -188,31 +189,13 @@ class HistoryController extends GetxController{
     update();
   }
 
-  void deleteRecordDialog(String testId){
-
-    Get.defaultDialog(
-      title: "Are you sure ?".tr,
-      content: Column(),
-      textConfirm: "Yes".tr,
-      textCancel: "No".tr,
-      onConfirm:() => {
-        Get.back(),
-        HistoryRemoteServices.deleteTestRecord(testId),
-        loadStudentList(),
-      },
-      cancelTextColor: Colors.black,
-      confirmTextColor: Colors.white,
-      buttonColor: Colors.black,
-    );
-  }
-
   void navigateAddHistoryView(){
 
     Get.toNamed(AppRoutes.AddHistoryPage)!.then((value) => loadStudentList());
   }
 
-  void navigateEditHistoryView(TestReocrd testReocrd){
+  void navigateTestListView(Student student){
 
-    Get.to(() => EditHistoryView(testReocrd))!.then((value) => loadStudentList());
+    Get.to(() => TestListView(student))!.then((value) => loadStudentList());
   }
 }
