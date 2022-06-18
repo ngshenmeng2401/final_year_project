@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/model/test_record.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -107,12 +108,12 @@ class HistoryRemoteServices{
     }
   }
 
-  static Future<List<TestReocrd>?> fetchTestRecord(String name, String action, String sortValue) async {
+  static Future<List<Student>?> fetchTestRecord(String name, String action, String sortValue) async {
 
     var response =
       await client.post(
         Uri.parse(
-          "https://hubbuddies.com/271059/final_year_project/load_testing_record.php"),
+          "https://hubbuddies.com/271059/final_year_project/load_student_testlist.php"),
           body: {
             "name":name,
             "action" : action,
@@ -124,7 +125,7 @@ class HistoryRemoteServices{
         } else {
           var jsonString = response.body;
           // print("IN remoteservices" + jsonString);
-          return testReocrdFromJson(jsonString);
+          return studentFromJson(jsonString);
         }
       } else {
         //show error message

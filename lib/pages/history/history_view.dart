@@ -65,7 +65,7 @@ class HistoryView extends StatelessWidget {
                         child: Obx(() => IconButton(
                           onPressed: () {
                             historyController.clearTextField();
-                            historyController.loadTestRecordList();
+                            historyController.loadStudentList();
                           },
                           icon: historyController.isSearching.value == true
                               ? Icon(Icons.clear)
@@ -89,7 +89,7 @@ class HistoryView extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                   height: screenHeight/1.4,
                   child: Obx(() {
-                      if (historyController.testReocrdList.isEmpty) {
+                      if (historyController.studentList.isEmpty) {
                         return Center(
                           child: Text(
                           historyController.statusMsj.toString(),
@@ -97,9 +97,9 @@ class HistoryView extends StatelessWidget {
                         ));
                       } else {
                         return ListView.builder(
-                          itemCount: historyController.testReocrdList.length, 
+                          itemCount: historyController.studentList.length, 
                           itemBuilder: (context, index) {
-                            return TestRecordTile(index, historyController.testReocrdList[index]);
+                            return StudentTestTile(index, historyController.studentList[index]);
                         }, );
                       }
                   }),

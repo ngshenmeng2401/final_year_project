@@ -1,14 +1,14 @@
-import 'package:final_year_project/model/test_record.dart';
+import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/pages/history/history_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TestRecordTile extends StatelessWidget {
+class StudentTestTile extends StatelessWidget {
   
   final historyController = Get.put(HistoryController());
   final int index;
-  final TestReocrd testReocrd;
-  TestRecordTile(this.index, this.testReocrd);
+  final Student student;
+  StudentTestTile(this.index, this.student);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class TestRecordTile extends StatelessWidget {
         height: screenHeight/14,
         child: ListTile(
           onTap: (){
-            historyController.navigateEditHistoryView(testReocrd);
+            // historyController.navigateEditHistoryView(student);
           },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
@@ -36,14 +36,13 @@ class TestRecordTile extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          title: Text(testReocrd.name.toString(),
+          title: Text(student.name.toString(),
             style: TextStyle(fontSize: 18),),
-          subtitle: Text(testReocrd.id.toString(),),
+          subtitle: Text(student.id.toString(),),
           trailing: IconButton(
             onPressed: () {
-              historyController.deleteRecordDialog(testReocrd.testId.toString());
             },
-            icon: Icon(Icons.delete),
+            icon: Icon(Icons.info_outline_rounded),
           ),
         )
       )

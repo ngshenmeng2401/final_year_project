@@ -1,3 +1,4 @@
+import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/model/test_record.dart';
 import 'package:final_year_project/pages/history/teacher/edit_test_date/edit_history_view.dart';
 import 'package:final_year_project/route/app_pages.dart';
@@ -13,7 +14,7 @@ class HistoryController extends GetxController{
   var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
-  var testReocrdList = <TestReocrd>[].obs;
+  var studentList = <Student>[].obs;
 
   late TextEditingController searchNameController = new TextEditingController();
 
@@ -28,17 +29,17 @@ class HistoryController extends GetxController{
   @override
   void onInit() {
     
-    loadTestRecordList();
+    loadStudentList();
     super.onInit();
   }
 
-  void loadTestRecordList() async{
+  void loadStudentList() async{
 
     try {
       isLoading(true);
-      var testReocrd = await HistoryRemoteServices.fetchTestRecord("a", "load", "a");
-      if (testReocrd != null) {
-        testReocrdList.assignAll(testReocrd);
+      var student = await HistoryRemoteServices.fetchTestRecord("a", "load", "a");
+      if (student != null) {
+        studentList.assignAll(student);
       } else {
         statusMsj("No any student record".tr);
       }
@@ -51,14 +52,14 @@ class HistoryController extends GetxController{
   Future<void> searchTestRecord() async {
 
     String searchStudent = searchNameController.text.toString();
-    testReocrdList.clear();
+    studentList.clear();
 
     try {
       isLoading(true);
       var testReocrd = await HistoryRemoteServices.fetchTestRecord(searchStudent, "search", "a");
       if (testReocrd != null) {
-        testReocrdList.assignAll(testReocrd);
-        print(testReocrdList);
+        studentList.assignAll(testReocrd);
+        print(studentList);
       } else {
         statusMsj("No data".tr);
       }
@@ -69,13 +70,13 @@ class HistoryController extends GetxController{
 
   Future<void> sortStudent(String sortValue) async {
 
-    testReocrdList.clear();
+    studentList.clear();
 
     try {
       isLoading(true);
       var testReocrd = await HistoryRemoteServices.fetchTestRecord("1", "sort", sortValue);
       if (testReocrd != null) {
-        testReocrdList.assignAll(testReocrd);
+        studentList.assignAll(testReocrd);
       } else {
         // gaeUnittList = null;
         statusMsj("No data".tr);
@@ -197,7 +198,7 @@ class HistoryController extends GetxController{
       onConfirm:() => {
         Get.back(),
         HistoryRemoteServices.deleteTestRecord(testId),
-        loadTestRecordList(),
+        loadStudentList(),
       },
       cancelTextColor: Colors.black,
       confirmTextColor: Colors.white,
@@ -207,11 +208,11 @@ class HistoryController extends GetxController{
 
   void navigateAddHistoryView(){
 
-    Get.toNamed(AppRoutes.AddHistoryPage)!.then((value) => loadTestRecordList());
+    Get.toNamed(AppRoutes.AddHistoryPage)!.then((value) => loadStudentList());
   }
 
   void navigateEditHistoryView(TestReocrd testReocrd){
 
-    Get.to(() => EditHistoryView(testReocrd))!.then((value) => loadTestRecordList());
+    Get.to(() => EditHistoryView(testReocrd))!.then((value) => loadStudentList());
   }
 }
