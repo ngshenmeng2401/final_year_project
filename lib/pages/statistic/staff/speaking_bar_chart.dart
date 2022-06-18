@@ -43,6 +43,13 @@ class SpeakingBarGraph extends StatelessWidget {
                     'Result',
                     style: TextStyle(color: Color(0xff77839a), fontSize: 16),
                   ),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  const Text(
+                    '(SR)',
+                    style: TextStyle(color: Color(0xff77839a), fontSize: 16),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -149,6 +156,7 @@ class SpeakingBarGraph extends StatelessWidget {
   }
 
   Widget bottomTitles(double value, TitleMeta meta) {
+    
     const style = TextStyle(
       color: Color(0xff7589a2),
       fontWeight: FontWeight.bold,
@@ -158,31 +166,31 @@ class SpeakingBarGraph extends StatelessWidget {
     switch (value.toInt()) {
       case 0:
         text = const Text(
-          'Statement 1',
+          'SR 1',
           style: style,
         );
         break;
       case 1:
         text = const Text(
-          'Statement 2',
+          'SR 2',
           style: style,
         );
         break;
       case 2:
         text = const Text(
-          'Statement 3',
+          'SR 3',
           style: style,
         );
         break;
       case 3:
         text = const Text(
-          'Statement 4',
+          'SR 4',
           style: style,
         );
         break;
       case 4:
         text = const Text(
-          'Statement 5',
+          'SR 5',
           style: style,
         );
         break;

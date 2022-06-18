@@ -186,7 +186,7 @@ class StatisticsController extends GetxController{
       barGroup2 = makeGroupData(1, speakingSummaryList[0].totalq2Lvl1!.toDouble(), speakingSummaryList[0].totalq2Lvl2!.toDouble(), speakingSummaryList[0].totalq2Lvl3!.toDouble());
       barGroup3 = makeGroupData(2, speakingSummaryList[0].totalq3Lvl1!.toDouble(), speakingSummaryList[0].totalq3Lvl2!.toDouble(), speakingSummaryList[0].totalq3Lvl3!.toDouble());
       barGroup4 = makeGroupData(3, speakingSummaryList[0].totalq4Lvl1!.toDouble(), speakingSummaryList[0].totalq4Lvl2!.toDouble(), speakingSummaryList[0].totalq4Lvl3!.toDouble());
-      barGroup5 = makeGroupData(3, speakingSummaryList[0].totalq5Lvl1!.toDouble(), speakingSummaryList[0].totalq5Lvl2!.toDouble(), speakingSummaryList[0].totalq5Lvl3!.toDouble());
+      barGroup5 = makeGroupData(4, speakingSummaryList[0].totalq5Lvl1!.toDouble(), speakingSummaryList[0].totalq5Lvl2!.toDouble(), speakingSummaryList[0].totalq5Lvl3!.toDouble());
 
       final speakingitems = [
         barGroup1,

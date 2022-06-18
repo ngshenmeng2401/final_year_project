@@ -43,6 +43,13 @@ class ReadingBarGraph extends StatelessWidget {
                     'Result',
                     style: TextStyle(color: Color(0xff77839a), fontSize: 16),
                   ),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  const Text(
+                    '(RR)',
+                    style: TextStyle(color: Color(0xff77839a), fontSize: 16),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -158,25 +165,25 @@ class ReadingBarGraph extends StatelessWidget {
     switch (value.toInt()) {
       case 0:
         text = const Text(
-          'Statement 1',
+          'RR 1',
           style: style,
         );
         break;
       case 1:
         text = const Text(
-          'Statement 2',
+          'RR 2',
           style: style,
         );
         break;
       case 2:
         text = const Text(
-          'Statement 3',
+          'RR 3',
           style: style,
         );
         break;
       case 3:
         text = const Text(
-          'Statement 4',
+          'RR 4',
           style: style,
         );
         break;

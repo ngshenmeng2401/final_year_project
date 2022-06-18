@@ -45,6 +45,7 @@ class StatisticView extends StatelessWidget {
                       WritingBarGraph(),
                     ],
                   ),
+                  SizedBox(height:20),
                   PieChartWidget(),
                 ],
               ),

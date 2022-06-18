@@ -16,7 +16,7 @@ class PieChartWidget extends StatelessWidget {
 
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
     return AspectRatio(
-      aspectRatio: 1.3,
+      aspectRatio: 1.2,
       child: Card(
         color: Colors.white,
         child: Column(

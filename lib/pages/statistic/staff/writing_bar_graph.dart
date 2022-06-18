@@ -43,6 +43,13 @@ class WritingBarGraph extends StatelessWidget {
                     'Result',
                     style: TextStyle(color: Color(0xff77839a), fontSize: 16),
                   ),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  const Text(
+                    '(WR)',
+                    style: TextStyle(color: Color(0xff77839a), fontSize: 16),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -158,13 +165,13 @@ class WritingBarGraph extends StatelessWidget {
     switch (value.toInt()) {
       case 0:
         text = const Text(
-          'Statement 1',
+          'WR 1',
           style: style,
         );
         break;
       case 1:
         text = const Text(
-          'Statement 2',
+          'WR 2',
           style: style,
         );
         break;

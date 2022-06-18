@@ -43,6 +43,13 @@ class ListeningBarGraph extends StatelessWidget {
                     'Result',
                     style: TextStyle(color: Color(0xff77839a), fontSize: 16),
                   ),
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  const Text(
+                    '(LR)',
+                    style: TextStyle(color: Color(0xff77839a), fontSize: 16),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -158,25 +165,25 @@ class ListeningBarGraph extends StatelessWidget {
     switch (value.toInt()) {
       case 0:
         text = const Text(
-          'Statement 1',
+          'LR 1',
           style: style,
         );
         break;
       case 1:
         text = const Text(
-          'Statement 2',
+          'LR 2',
           style: style,
         );
         break;
       case 2:
         text = const Text(
-          'Statement 3',
+          'LR 3',
           style: style,
         );
         break;
       case 3:
         text = const Text(
-          'Statement 4',
+          'LR 4',
           style: style,
         );
         break;
