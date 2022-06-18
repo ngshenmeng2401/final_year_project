@@ -50,7 +50,7 @@ class HistoryController extends GetxController{
     
   }
 
-  Future<void> searchTestRecord() async {
+  Future<void> searchStudentList() async {
 
     String searchStudent = searchNameController.text.toString();
     studentList.clear();

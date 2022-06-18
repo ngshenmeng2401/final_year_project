@@ -78,7 +78,7 @@ class HistoryView extends StatelessWidget {
                         flex: 1,
                         child: IconButton(
                           onPressed: () {
-                            historyController.searchTestRecord();
+                            historyController.searchStudentList();
                           }, 
                           icon: Icon(Icons.search)),
                       ),
