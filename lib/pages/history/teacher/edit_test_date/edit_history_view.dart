@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 class EditHistoryView extends StatelessWidget {
 
   final editTestRecordController = Get.put(EditTestRecordController());
-  final TestReocrd testReocrd;
+  final TestRecord testReocrd;
   EditHistoryView(this.testReocrd);
 
   @override
@@ -31,7 +31,7 @@ class EditHistoryView extends StatelessWidget {
                   children: [
                     Text("Student ID".tr,
                     style: TextStyle(fontSize: 18),),
-                    Text(testReocrd.id.toString(),
+                    Text(testReocrd.studentId.toString(),
                     style: TextStyle(fontSize: 18),),
                   ],
                 ),
@@ -51,8 +51,8 @@ class EditHistoryView extends StatelessWidget {
                   children: [
                     Text("Code".tr,
                     style: TextStyle(fontSize: 18),),
-                    Text(testReocrd.code.toString(),
-                    style: TextStyle(fontSize: 18),),
+                    // Text(testReocrd.code.toString(),
+                    // style: TextStyle(fontSize: 18),),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -61,8 +61,8 @@ class EditHistoryView extends StatelessWidget {
                   children: [
                     Text("Level of Control".tr,
                     style: TextStyle(fontSize: 18),),
-                    Text(testReocrd.lvlCtrl.toString(),
-                    style: TextStyle(fontSize: 18),),
+                    // Text(testReocrd.lvlCtrl.toString(),
+                    // style: TextStyle(fontSize: 18),),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -71,8 +71,8 @@ class EditHistoryView extends StatelessWidget {
                   children: [
                     Text("Date of previous test".tr,
                     style: TextStyle(fontSize: 18),),
-                    Text(testReocrd.lastTestDate.toString(),
-                    style: TextStyle(fontSize: 18),),
+                    // Text(testReocrd.lastTestDate.toString(),
+                    // style: TextStyle(fontSize: 18),),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -112,7 +112,7 @@ class EditHistoryView extends StatelessWidget {
                   height: screenHeight / 18,
                   color: Colors.blue,
                   onPressed:() {
-                      editTestRecordController.editRecordDialog(testReocrd.testId.toString(), testReocrd.lastTestDate.toString());
+                      // editTestRecordController.editRecordDialog(testReocrd.testId.toString(), testReocrd.lastTestDate.toString());
                     },
                   child: Text("Update".tr,
                       style: const TextStyle(

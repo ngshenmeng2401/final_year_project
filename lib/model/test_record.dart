@@ -4,54 +4,46 @@
 
 import 'dart:convert';
 
-List<TestReocrd> testReocrdFromJson(String str) => List<TestReocrd>.from(json.decode(str).map((x) => TestReocrd.fromJson(x)));
+List<TestRecord> testReocrdFromJson(String str) => List<TestRecord>.from(json.decode(str).map((x) => TestRecord.fromJson(x)));
 
-String testReocrdToJson(List<TestReocrd> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String testReocrdToJson(List<TestRecord> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class TestReocrd {
-    TestReocrd({
+class TestRecord {
+    TestRecord({
         this.testId,
+        this.studentId,
         this.code,
         this.lvlCtrl,
-        this.previousTestDate,
         this.lastTestDate,
-        this.id,
         this.name,
         this.studentClass,
-        this.age,
     });
 
     String? testId;
+    String? studentId;
     String? code;
     String? lvlCtrl;
-    String? previousTestDate;
     String? lastTestDate;
-    String? id;
     String? name;
     String? studentClass;
-    String? age;
 
-    factory TestReocrd.fromJson(Map<String, dynamic> json) => TestReocrd(
+    factory TestRecord.fromJson(Map<String, dynamic> json) => TestRecord(
         testId: json["test_id"],
+        studentId: json["student_id"],
         code: json["code"],
         lvlCtrl: json["lvl_ctrl"],
-        previousTestDate: json["previous_test_date"],
         lastTestDate: json["last_test_date"],
-        id: json["id"],
         name: json["name"],
         studentClass: json["studentClass"],
-        age: json["age"],
     );
 
     Map<String, dynamic> toJson() => {
         "test_id": testId,
+        "student_id": studentId,
         "code": code,
         "lvl_ctrl": lvlCtrl,
-        "previous_test_date": previousTestDate,
-        "last_test_date": previousTestDate,
-        "id": id,
+        "last_test_date": lastTestDate,
         "name": name,
         "studentClass": studentClass,
-        "age": age,
     };
 }
