@@ -46,7 +46,7 @@ class AddStudentDetailsView extends StatelessWidget {
                       init: AddStudentDetailsController(),
                       builder: (_) {
                         return Container(
-                          width: screenWidth/5,
+                          width: screenWidth/4.5,
                           child: DropdownButton<String?>(
                             isExpanded: true,
                             value: _.selectClass,
