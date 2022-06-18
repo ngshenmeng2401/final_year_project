@@ -92,18 +92,18 @@ class HistoryRemoteServices{
     if (response.body == "Success") {
       var resp = response.body;
       
-      getSnackBar("Edit Successful", "");
+      getSnackBar("Delete Successful", "");
 
       return resp;
     }else if (response.body == "NotFound") {
       var resp = response.body;
       
-      getSnackBar("Edit Failed", "Did not found the record");
+      getSnackBar("Delete Failed", "Did not found the record");
 
       return resp;
     } else {
       // show error message
-      getSnackBar("Edit Failed", "Please check your input value.");
+      getSnackBar("Delete Failed", "Please check your input value.");
       return null;
     }
   }
@@ -126,6 +126,33 @@ class HistoryRemoteServices{
           var jsonString = response.body;
           // print("IN remoteservices" + jsonString);
           return studentFromJson(jsonString);
+        }
+      } else {
+        //show error message
+        // return null;
+        throw Exception('Failed to load Categories from API');
+      }
+  }
+
+  static Future<List<TestRecord>?> fetchTestRecord(String code, String action, String sortValue, String studentId) async {
+
+    var response =
+      await client.post(
+        Uri.parse(
+          "https://hubbuddies.com/271059/final_year_project/load_testing_record.php"),
+          body: {
+            "code":code,
+            "action" : action,
+            "sortValue" : sortValue,
+            "student_id" : studentId,
+          });
+      if (response.statusCode == 200) {
+        if (response.body == "nodata") {
+          return null;
+        } else {
+          var jsonString = response.body;
+          print("IN remoteservices" + jsonString);
+          return testReocrdFromJson(jsonString);
         }
       } else {
         //show error message
