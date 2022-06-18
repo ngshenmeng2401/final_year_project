@@ -1,66 +1,67 @@
-import 'package:final_year_project/model/student.dart';
 import 'package:final_year_project/model/test_record.dart';
-import 'package:final_year_project/pages/history/teacher/edit_test_date/edit_history_view.dart';
-import 'package:final_year_project/pages/history/teacher/test_list/test_list_view.dart';
 import 'package:final_year_project/route/app_pages.dart';
 import 'package:final_year_project/service/staff/history_remote_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class HistoryController extends GetxController{
+class TestListController extends GetxController{
 
   final appData = GetStorage();
   var isSearching = false.obs;
   var searchResult = false.obs;
   var isLoading = true.obs;
   var statusMsj = "Loading".obs;
-  var studentList = <Student>[].obs;
+  var testReocrdList = <TestRecord>[].obs;
 
-  late TextEditingController searchNameController = new TextEditingController();
+  late TextEditingController searchCodeController = new TextEditingController();
 
-  List<String> sortingList = [
-    "Default",
-    "idD",
-    "nameA",
-    "nameD",
+  final List<String> codeList = [
+    "Default", 
+    "BI 1", 
+    "BI 2", 
+    "BI 3", 
+    "BI 4", 
+    "BI 5"
   ];
   var selectSorting = "Default";
 
   @override
   void onInit() {
     
-    loadStudentList();
+    loadTestList();
     super.onInit();
   }
 
-  void loadStudentList() async{
+  void loadTestList() async{
+
+    String studentId = appData.read("id")??'';
 
     try {
       isLoading(true);
-      var student = await HistoryRemoteServices.fetchStudentList("a", "load", "a");
-      if (student != null) {
-        studentList.assignAll(student);
+      var testReocrd = await HistoryRemoteServices.fetchTestRecord("a", "load", "a", studentId);
+      if (testReocrd != null) {
+        testReocrdList.assignAll(testReocrd);
       } else {
         statusMsj("No any student record".tr);
       }
     } finally {
       isLoading(false);
     }
-    
   }
 
   Future<void> searchStudentList() async {
 
-    String searchStudent = searchNameController.text.toString();
-    studentList.clear();
+    String studentId = appData.read("id")??'';
+    String searchCode = searchCodeController.text.toString();
+    testReocrdList.clear();
 
     try {
       isLoading(true);
-      var testReocrd = await HistoryRemoteServices.fetchStudentList(searchStudent, "search", "a");
+      var testReocrd = await HistoryRemoteServices.fetchTestRecord(searchCode, "search", "a", studentId);
       if (testReocrd != null) {
-        studentList.assignAll(testReocrd);
-        print(studentList);
+        testReocrdList.assignAll(testReocrd);
+        print(testReocrdList);
       } else {
         statusMsj("No data".tr);
       }
@@ -71,13 +72,14 @@ class HistoryController extends GetxController{
 
   Future<void> sortStudent(String sortValue) async {
 
-    studentList.clear();
+    String studentId = appData.read("id")??'';
+    testReocrdList.clear();
 
     try {
       isLoading(true);
-      var testReocrd = await HistoryRemoteServices.fetchStudentList("1", "sort", sortValue);
+      var testReocrd = await HistoryRemoteServices.fetchTestRecord("1", "sort", sortValue, studentId);
       if (testReocrd != null) {
-        studentList.assignAll(testReocrd);
+        testReocrdList.assignAll(testReocrd);
       } else {
         // gaeUnittList = null;
         statusMsj("No data".tr);
@@ -89,13 +91,13 @@ class HistoryController extends GetxController{
 
   void checkTextField(){
 
-    searchNameController.text.isEmpty
+    searchCodeController.text.isEmpty
       ? isSearching.value = false
       : isSearching.value = true;
   }
 
   void clearTextField(){
-    searchNameController.clear();
+    searchCodeController.clear();
     isSearching.value = false;
     // productList.clear();
     statusMsj("Search Product".tr);
@@ -109,14 +111,14 @@ class HistoryController extends GetxController{
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GetBuilder<HistoryController>(
-            init: HistoryController(),
+          GetBuilder<TestListController>(
+            init: TestListController(),
             builder: (controller) {
               return ListTile(
                 title: Text("Default".tr),
                 trailing: Radio(
                   activeColor: Colors.blue[400],
-                  value: sortingList[0],
+                  value: codeList[0],
                   groupValue: selectSorting,
                   onChanged: (value) {
                     clickSorting(value);
@@ -124,14 +126,14 @@ class HistoryController extends GetxController{
               );
             },
           ),
-          GetBuilder<HistoryController>(
-            init: HistoryController(),
+          GetBuilder<TestListController>(
+            init: TestListController(),
             builder: (controller) {
               return ListTile(
-                title: Text("Student Id with Descending Order".tr),
+                title: Text("BI 1".tr),
                 trailing: Radio(
                   activeColor: Colors.blue[400],
-                  value: sortingList[1],
+                  value: codeList[1],
                   groupValue: selectSorting,
                   onChanged: (value) {
                     clickSorting(value);
@@ -139,14 +141,14 @@ class HistoryController extends GetxController{
               );
             },
           ),
-          GetBuilder<HistoryController>(
-            init: HistoryController(),
+          GetBuilder<TestListController>(
+            init: TestListController(),
             builder: (controller) {
               return ListTile(
-                title: Text("Name with Ascending Order".tr),
+                title: Text("BI 2".tr),
                 trailing: Radio(
                   activeColor: Colors.blue[400],
-                  value: sortingList[2],
+                  value: codeList[2],
                   groupValue: selectSorting,
                   onChanged: (value) {
                     clickSorting(value);
@@ -154,14 +156,44 @@ class HistoryController extends GetxController{
               );
             },
           ),
-          GetBuilder<HistoryController>(
-            init: HistoryController(),
+          GetBuilder<TestListController>(
+            init: TestListController(),
             builder: (controller) {
               return ListTile(
-                title: Text("Name with Descending Order".tr),
+                title: Text("BI 3".tr),
                 trailing: Radio(
                   activeColor: Colors.blue[400],
-                  value: sortingList[3],
+                  value: codeList[3],
+                  groupValue: selectSorting,
+                  onChanged: (value) {
+                    clickSorting(value);
+                  }),
+              );
+            },
+          ),
+          GetBuilder<TestListController>(
+            init: TestListController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("BI 4".tr),
+                trailing: Radio(
+                  activeColor: Colors.blue[400],
+                  value: codeList[4],
+                  groupValue: selectSorting,
+                  onChanged: (value) {
+                    clickSorting(value);
+                  }),
+              );
+            },
+          ),
+          GetBuilder<TestListController>(
+            init: TestListController(),
+            builder: (controller) {
+              return ListTile(
+                title: Text("BI 5".tr),
+                trailing: Radio(
+                  activeColor: Colors.blue[400],
+                  value: codeList[5],
                   groupValue: selectSorting,
                   onChanged: (value) {
                     clickSorting(value);
@@ -189,14 +221,31 @@ class HistoryController extends GetxController{
     update();
   }
 
-  void navigateAddHistoryView(){
+  void deleteRecordDialog(String testId){
 
-    Get.toNamed(AppRoutes.AddHistoryPage)!.then((value) => loadStudentList());
+    Get.defaultDialog(
+      title: "Are you sure ?".tr,
+      content: Column(),
+      textConfirm: "Yes".tr,
+      textCancel: "No".tr,
+      onConfirm:() => {
+        Get.back(),
+        HistoryRemoteServices.deleteTestRecord(testId),
+        loadTestList(),
+      },
+      cancelTextColor: Colors.black,
+      confirmTextColor: Colors.white,
+      buttonColor: Colors.black,
+    );
   }
 
-  void navigateTestListView(Student student){
+  void navigateAddHistoryView(){
 
-    appData.write("id", student.id);
-    Get.to(() => TestListView(student))!.then((value) => loadStudentList());
+    Get.toNamed(AppRoutes.AddHistoryPage)!.then((value) => loadTestList());
+  }
+
+  void navigateEditHistoryView(TestRecord testReocrd){
+
+    // Get.to(() => EditHistoryView(testReocrd))!.then((value) => loadStudentList());
   }
 }
