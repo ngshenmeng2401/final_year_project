@@ -16,7 +16,7 @@ class StaffHomeRemoteServices{
 
   //Staff side
 
-  static Future<List<Student>?> fetchStudentWithClass(String className) async {
+  static Future<List<Student>?> fetchStudentWithClass(String className, String category) async {
 
     var response =
       await client.post(
@@ -24,6 +24,7 @@ class StaffHomeRemoteServices{
           "https://hubbuddies.com/271059/final_year_project/load_student_with_class.php"),
           body: {
             "className":className,
+            "category":category,
           });
       if (response.statusCode == 200) {
         if (response.body == "nodata") {

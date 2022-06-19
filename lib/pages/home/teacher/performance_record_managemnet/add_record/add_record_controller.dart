@@ -20,6 +20,7 @@ class AddRecordController extends GetxController{
 
   final List<String> studentNameList = ["ID",];
   var selectName = 'ID';
+  var selectedName;
 
   @override
   void onInit() {
@@ -31,10 +32,12 @@ class AddRecordController extends GetxController{
   void loadStudentList() async{
 
     String className = appData.read("className")??'';
+    String category = appData.read("category")??'';
+    print(category);
 
     try {
       isLoading(true);
-      var student = await StaffHomeRemoteServices.fetchStudentWithClass(className);
+      var student = await StaffHomeRemoteServices.fetchStudentWithClass(className, category);
       if (student != null) {
         studentList.assignAll(student);
 
@@ -79,6 +82,7 @@ class AddRecordController extends GetxController{
 
   void chooseStudent(value){
      selectName = value;
+     selectedName = value;
      print(selectName);
      update();
   }
@@ -145,5 +149,11 @@ class AddRecordController extends GetxController{
       StaffHomeRemoteServices.addWritingRecord(splittedName[0], q1, q2);
 
     }
+    // print("Student List length: " + studentList.length.toString());
+    // print("Student Name List length: " + studentNameList.length.toString());
+    // print("Select name: " + selectName);
+    selectName = "ID";
+    studentNameList.remove(selectedName);
+    update();
   }
 }
