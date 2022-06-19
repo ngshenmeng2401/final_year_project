@@ -92,7 +92,7 @@ class PieChartWidget extends StatelessWidget {
                                 return PieChartSectionData(
                                   color: Colors.blue.withOpacity(opacity),
                                   value: controller.totalLevel1,
-                                  title: controller.totalLevel1.toString(),
+                                  title: controller.totalLevel1.toStringAsFixed(0),
                                   radius: 80,
                                   titleStyle: TextStyle(
                                     fontSize: 18,
@@ -105,7 +105,7 @@ class PieChartWidget extends StatelessWidget {
                                 return PieChartSectionData(
                                   color: Colors.red.withOpacity(opacity),
                                   value: controller.totalLevel2,
-                                  title: controller.totalLevel2.toString(),
+                                  title: controller.totalLevel2.toStringAsFixed(0),
                                   radius: 80,
                                   titleStyle: TextStyle(
                                     fontSize: 18,
@@ -118,7 +118,7 @@ class PieChartWidget extends StatelessWidget {
                                 return PieChartSectionData(
                                   color: Colors.yellow.withOpacity(opacity),
                                   value: controller.totalLevel3,
-                                  title: controller.totalLevel3.toString(),
+                                  title: controller.totalLevel3.toStringAsFixed(0),
                                   radius: 80,
                                   titleStyle: TextStyle(
                                     fontSize: 18,

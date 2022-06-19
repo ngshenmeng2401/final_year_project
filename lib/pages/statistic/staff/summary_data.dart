@@ -114,7 +114,7 @@ class SummaryData extends StatelessWidget {
                           style: const TextStyle(fontSize: 22, color: Colors.white),
                           );
                         } else {
-                          return Text("Total Record\n" + statisticsController.totalRecord.toString(),
+                          return Text("Total Test Record\n" + statisticsController.totalRecord.toString(),
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 22, color: Colors.white));
                         }
