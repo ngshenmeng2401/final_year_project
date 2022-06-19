@@ -1,5 +1,5 @@
 import 'package:final_year_project/model/student.dart';
-import 'package:final_year_project/pages/history/history_controller.dart';
+import 'package:final_year_project/pages/history/teacher/history_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
