@@ -36,15 +36,24 @@ class ProfileView extends GetView<ProfileController> {
                       padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
                       child: Column(children: <Widget>[
                         Container(
-                            height: screenHeight / 5.5,
+                            height: screenHeight / 5,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
                               child: 
                               Obx(() => profileController.imgStatus.value == "noimg"
                                 ? Image.asset("assets/images/profile.png",
                                     fit: BoxFit.fitWidth,)
-                                : Image.network("https://hubbuddies.com/271059/final_year_project/assets/images/profile/${profileController.phoneNo.value}.png",
-                                    fit: BoxFit.fitWidth,)
+                                : Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: NetworkImage("https://hubbuddies.com/271059/final_year_project/assets/images/profile/${profileController.phoneNo.value}.png"),
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  // child: Image.network("https://hubbuddies.com/271059/final_year_project/assets/images/profile/${profileController.phoneNo.value}.png",
+                                  //     fit: BoxFit.fitWidth,),
+                                )
                               )
                             )),
                         Container(
