@@ -33,27 +33,21 @@ class PieChartWidget extends StatelessWidget {
                   text: "Level 1",
                   isSquare: false,
                   size: touchedIndex == 0 ? 18 : 16,
-                  textColor: touchedIndex == 0
-                    ? Colors.black
-                    : Colors.grey,
+                  textColor:Colors.black,
                 ),
                 Indicator(
-                  color: Colors.red,
+                  color: Colors.red[300],
                   text: "Level 2",
                   isSquare: false,
                   size: touchedIndex == 1 ? 18 : 16,
-                  textColor: touchedIndex == 1
-                    ? Colors.black
-                    : Colors.grey,
+                  textColor:Colors.black,
                 ),
                 Indicator(
-                  color: Colors.yellow,
+                  color: Colors.yellow[300],
                   text: "Level 3",
                   isSquare: false,
                   size: touchedIndex == 2 ? 18 : 16,
-                  textColor: touchedIndex == 2
-                    ? Colors.black
-                    : Colors.grey,
+                  textColor:Colors.black,
                 ),
               ],
             ),
@@ -95,7 +89,7 @@ class PieChartWidget extends StatelessWidget {
                                   title: controller.totalLevel1.toStringAsFixed(0),
                                   radius: 80,
                                   titleStyle: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                   ),
@@ -108,7 +102,7 @@ class PieChartWidget extends StatelessWidget {
                                   title: controller.totalLevel2.toStringAsFixed(0),
                                   radius: 80,
                                   titleStyle: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black
                                   ),
@@ -121,7 +115,7 @@ class PieChartWidget extends StatelessWidget {
                                   title: controller.totalLevel3.toStringAsFixed(0),
                                   radius: 80,
                                   titleStyle: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black
                                   ),
