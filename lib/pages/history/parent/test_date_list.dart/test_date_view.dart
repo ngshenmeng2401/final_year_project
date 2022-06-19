@@ -19,7 +19,14 @@ class TestDateView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(children.name.toString())
+          title: Text(children.name.toString()),
+          actions: [
+            IconButton(
+              onPressed: (){
+                testDateController.sortTestRecordDialog();
+              }, 
+              icon: Icon(Icons.sort),)
+          ],
         ),
         body: SingleChildScrollView(
           child: Center(

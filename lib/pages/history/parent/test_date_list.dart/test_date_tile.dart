@@ -1,11 +1,11 @@
-import 'package:final_year_project/model/children_test_record.dart';
+import 'package:final_year_project/model/test_record.dart';
 import 'package:flutter/material.dart';
 
 class TestDateTile extends StatelessWidget {
   
   final int index;
-  final ChildrenTestRecord childrenTestRecord;
-  TestDateTile(this.index, this.childrenTestRecord);
+  final TestRecord testRecord;
+  TestDateTile(this.index, this.testRecord);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class TestDateTile extends StatelessWidget {
                       children: [
                         Text("Code:",
                         style: TextStyle(fontSize: 16),),
-                        Text(childrenTestRecord.code.toString(),
+                        Text(testRecord.code.toString(),
                         style: TextStyle(fontSize: 16),),
                       ],
                     ),
@@ -51,7 +51,7 @@ class TestDateTile extends StatelessWidget {
                       children: [
                         Text("Level of Control:",
                         style: TextStyle(fontSize: 16),),
-                        Text(childrenTestRecord.lvlCtrl.toString(),
+                        Text(testRecord.lvlCtrl.toString(),
                         style: TextStyle(fontSize: 16),),
                       ],
                     ),
@@ -60,7 +60,7 @@ class TestDateTile extends StatelessWidget {
                       children: [
                         Text("Previous test date:",
                         style: TextStyle(fontSize: 16),),
-                        Text(childrenTestRecord.previousTestDate.toString(),
+                        Text(testRecord.lastTestDate.toString(),
                         style: TextStyle(fontSize: 16),),
                       ],
                     ),
@@ -69,7 +69,7 @@ class TestDateTile extends StatelessWidget {
                       children: [
                         Text("Last test date:",
                         style: TextStyle(fontSize: 16),),
-                        Text(childrenTestRecord.lastTestDate.toString(),
+                        Text(testRecord.lastTestDate.toString(),
                         style: TextStyle(fontSize: 16),),
                       ],
                     )

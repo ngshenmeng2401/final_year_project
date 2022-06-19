@@ -103,6 +103,7 @@ class ChildrenHistoryController extends GetxController{
 
   void navigateChildrenHistoryPage(Children children){
 
+    appData.write("id", children.studentId);
     Get.to(() => TestDateView(children))!.then((value) => loadChildrenList());
   }
 }

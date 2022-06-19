@@ -10,7 +10,7 @@ class ParentHistoryRemoteService{
   static var client = http.Client();
   static final appData = GetStorage();
 
-  static Future<List<TestRecord>?> fetchChildrenTestRecord() async {
+  static Future<List<TestRecord>?> fetchChildrenTestRecord(String code, String action, String sortValue, String studentId) async {
 
     String email = appData.read("keepLogin")??'';  
 
@@ -22,6 +22,10 @@ class ParentHistoryRemoteService{
           "https://hubbuddies.com/271059/final_year_project/load_children_test_record.php"),
           body: {
             "email":email,
+            "code":code,
+            "action" : action,
+            "sortValue" : sortValue,
+            "student_id" : studentId,
           });
       if (response.statusCode == 200) {
         if (response.body == "nodata") {
