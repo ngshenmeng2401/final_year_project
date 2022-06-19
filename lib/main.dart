@@ -1,6 +1,4 @@
 import 'package:final_year_project/route/app_pages.dart';
-import 'package:final_year_project/theme/dark_theme.dart';
-import 'package:final_year_project/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
