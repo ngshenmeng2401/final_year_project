@@ -26,6 +26,9 @@ class ChildrenTile extends StatelessWidget {
         width: screenWidth,
         height: screenHeight/14,
         child: ListTile(
+          onTap: (){
+            parentmanageController.addChildrenDialog(student.id.toString(),);
+          },
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(8, 5, 0, 0),
             child: Text(' ${index + 1}',

@@ -92,7 +92,7 @@ class ParentManagementController extends GetxController{
               controller: parentIDController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                hintText: "Parent ID".tr
+                hintText: "Parent IC".tr
               ),
             ),
           ),
