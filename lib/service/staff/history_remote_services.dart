@@ -152,7 +152,7 @@ class HistoryRemoteServices{
         } else {
           var jsonString = response.body;
           print("IN remoteservices" + jsonString);
-          return testReocrdFromJson(jsonString);
+          return testRecordFromJson(jsonString);
         }
       } else {
         //show error message
