@@ -1,4 +1,4 @@
-import 'package:final_year_project/pages/history/history_controller.dart';
+import 'package:final_year_project/pages/history/teacher/history_controller.dart';
 import 'package:final_year_project/pages/history/parent/children_history_controller.dart';
 import 'package:final_year_project/pages/home/parent/parent_home_controller.dart';
 import 'package:final_year_project/pages/home/teacher/teacher_home_controller.dart';

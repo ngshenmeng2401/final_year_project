@@ -1,4 +1,5 @@
 import 'package:final_year_project/model/children_test_record.dart';
+import 'package:final_year_project/model/test_record.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -9,7 +10,7 @@ class ParentHistoryRemoteService{
   static var client = http.Client();
   static final appData = GetStorage();
 
-  static Future<List<ChildrenTestRecord>?> fetchChildrenTestRecord() async {
+  static Future<List<TestRecord>?> fetchChildrenTestRecord() async {
 
     String email = appData.read("keepLogin")??'';  
 
@@ -28,7 +29,7 @@ class ParentHistoryRemoteService{
         } else {
           var jsonString = response.body;
           print("IN remoteservices" + jsonString);
-          return childrenTestRecordFromJson(jsonString);
+          return testRecordFromJson(jsonString);
         }
       } else {
         //show error message
