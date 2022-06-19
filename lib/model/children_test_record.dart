@@ -18,7 +18,6 @@ class ChildrenTestRecord {
         this.lastTestDate,
         this.name,
         this.studentClass,
-        this.age,
     });
 
     String? studentId;
@@ -40,7 +39,6 @@ class ChildrenTestRecord {
         lastTestDate: json["last_test_date"],
         name: json["name"],
         studentClass: json["studentClass"],
-        age: json["age"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -52,6 +50,5 @@ class ChildrenTestRecord {
         "last_test_date": lastTestDate,
         "name": name,
         "studentClass": studentClass,
-        "age": age,
     };
 }
